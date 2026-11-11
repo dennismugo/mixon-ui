@@ -1439,7 +1439,8 @@ export function renderPrerenderedBody(pageId: PageId, rawSiteUrl?: string | null
         </section>`
       : '';
 
-  return `<div class="mixon-ssr-fallback" style="font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;padding:32px 20px;color:#0f172a;line-height:1.6;background:#ffffff;">
+  return `<noscript>
+<div class="mixon-ssr-fallback" style="font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;padding:32px 20px;color:#0f172a;line-height:1.6;background:#ffffff;">
   <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
     <a href="/" style="font-weight:700;font-size:20px;color:#093173;text-decoration:none;">Mixon</a>
     <nav aria-label="Primary Navigation">
@@ -1465,7 +1466,8 @@ export function renderPrerenderedBody(pageId: PageId, rawSiteUrl?: string | null
     <p><strong>${escapeHtml(SITE_CONFIG.legalName)}</strong> — ${escapeHtml(SITE_CONFIG.address.streetAddress)}, ${escapeHtml(SITE_CONFIG.address.addressLocality)}, ${escapeHtml(SITE_CONFIG.address.countryName)}.</p>
     <p>Email: <a href="mailto:${escapeHtml(SITE_CONFIG.email)}">${escapeHtml(SITE_CONFIG.email)}</a> · Tel: <a href="tel:${escapeHtml(SITE_CONFIG.phones[0])}">${escapeHtml(SITE_CONFIG.phones[0])}</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a> · Canonical: ${escapeHtml(siteUrl)}${escapeHtml(route.path)}</p>
   </footer>
-</div>`;
+</div>
+</noscript>`;
 }
 
 export function buildHeadSeoTags(
@@ -1542,7 +1544,7 @@ export function injectRouteSeoHtml(
   if (html.includes('<!--MIXON_SSR_BODY-->')) {
     html = html.replace('<!--MIXON_SSR_BODY-->', ssrBody);
   } else {
-    html = html.replace('<div id="root"></div>', `<div id="root">${ssrBody}</div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root"></div>\n    ${ssrBody}`);
   }
 
   return {
