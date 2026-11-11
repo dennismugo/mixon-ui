@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Cookie, ShieldCheck, ChevronRight, X, Settings2, Check } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { X } from 'lucide-react';
 
 interface CookiePreferences {
   essential: boolean;
@@ -10,37 +10,44 @@ interface CookiePreferences {
 
 const STORAGE_KEY = 'mixon_cookie_consent_v1';
 
+const DEFAULT_PREFERENCES: CookiePreferences = {
+  essential: true,
+  analytics: true,
+  functional: true,
+};
+
 export const CookieConsent: React.FC = () => {
+  const reduceMotion = useReducedMotion();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+  const openedByUserRef = useRef(false);
+
   const [isOpen, setIsOpen] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [preferences, setPreferences] = useState<CookiePreferences>({
-    essential: true, // Always required
-    analytics: true,
-    functional: true,
-  });
+  const [preferences, setPreferences] = useState<CookiePreferences>(DEFAULT_PREFERENCES);
 
   useEffect(() => {
-    // Check if consent was already given
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (!saved) {
-        // Small delay so page loads smoothly before banner slides in
-        const timer = setTimeout(() => {
+        const timer = window.setTimeout(() => {
+          openedByUserRef.current = false;
           setIsOpen(true);
         }, 1200);
-        return () => clearTimeout(timer);
-      } else {
-        const parsed = JSON.parse(saved);
-        if (parsed) setPreferences(parsed);
+        return () => window.clearTimeout(timer);
       }
+      const parsed = JSON.parse(saved);
+      if (parsed) setPreferences(parsed);
     } catch {
       setIsOpen(true);
     }
   }, []);
 
-  // Listen for custom trigger (e.g. from footer "Cookie Settings" button)
+  // Open settings directly when triggered from Footer "Cookie Preferences"
   useEffect(() => {
     const handleOpenCookies = () => {
+      previousFocusRef.current = document.activeElement as HTMLElement | null;
+      openedByUserRef.current = true;
       setShowPreferences(true);
       setIsOpen(true);
     };
@@ -48,193 +55,223 @@ export const CookieConsent: React.FC = () => {
     return () => window.removeEventListener('mixon:open-cookies', handleOpenCookies);
   }, []);
 
-  const handleAcceptAll = () => {
-    const allAccepted: CookiePreferences = { essential: true, analytics: true, functional: true };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(allAccepted));
-    } catch {
-      // ignore
+  // Sync native non-modal <dialog> state without blocking the page behind it
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!isOpen || !dialog) return;
+    if (!dialog.open) {
+      dialog.show();
     }
-    setPreferences(allAccepted);
+    if (openedByUserRef.current) {
+      const firstControl = dialog.querySelector<HTMLElement>('button');
+      firstControl?.focus();
+    }
+  }, [isOpen, showPreferences]);
+
+  const persistAndClose = (nextPreferences: CookiePreferences) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(nextPreferences));
+    } catch {
+      // Ignore storage quota or private-mode restrictions
+    }
+    setPreferences(nextPreferences);
+    setShowPreferences(false);
     setIsOpen(false);
+    if (openedByUserRef.current && previousFocusRef.current?.isConnected) {
+      previousFocusRef.current.focus();
+      previousFocusRef.current = null;
+    }
+    openedByUserRef.current = false;
   };
 
-  const handleDeclineNonEssential = () => {
-    const essentialOnly: CookiePreferences = { essential: true, analytics: false, functional: false };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(essentialOnly));
-    } catch {
-      // ignore
-    }
-    setPreferences(essentialOnly);
-    setIsOpen(false);
+  const handleAcceptAll = () => {
+    persistAndClose({ essential: true, analytics: true, functional: true });
+  };
+
+  const handleRejectAll = () => {
+    persistAndClose({ essential: true, analytics: false, functional: false });
   };
 
   const handleSaveCustom = () => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
-    } catch {
-      // ignore
+    persistAndClose({ ...preferences, essential: true });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      handleRejectAll();
     }
-    setIsOpen(false);
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: 35, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 25, scale: 0.96 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-3 left-3 right-3 sm:right-auto sm:bottom-6 sm:left-6 z-[80] sm:w-[430px] max-w-[calc(100vw-1.5rem)]"
+        <motion.dialog
+          ref={dialogRef}
+          aria-labelledby={showPreferences ? 'cookie-settings-heading' : undefined}
+          aria-label={showPreferences ? undefined : 'Cookie consent'}
+          onKeyDown={handleKeyDown}
+          initial={reduceMotion ? false : { opacity: 0, y: 20, scale: 0.98 }}
+          animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          exit={reduceMotion ? undefined : { opacity: 0, y: 14, scale: 0.98 }}
+          transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed top-auto left-3 right-3 sm:right-auto bottom-3 sm:bottom-6 sm:left-6 z-[80] m-0 p-0 border-0 bg-transparent sm:w-[372px] max-w-[calc(100vw-1.5rem)] text-left shadow-none"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-black/[0.08] bg-white/95 p-4 sm:p-6 shadow-[0_20px_50px_rgba(10,25,50,0.18)] backdrop-blur-xl">
-            {/* Subtle top brand accent line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066FF] via-[#38BDF8] to-[#D9E88E]" />
-
-            {/* Header */}
-            <div className="flex items-start justify-between gap-3 mb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] shrink-0 shadow-2xs">
-                  <Cookie className="w-5 h-5 text-[#0066FF]" />
-                </div>
-                <div>
-                  <h3 className="font-sans font-bold text-gray-950 text-base leading-tight">
-                    Cookie Preferences
-                  </h3>
-                  <span className="text-[11px] font-mono font-medium text-[#0066FF] flex items-center gap-1 mt-0.5">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    Strict Privacy Standard
-                  </span>
-                </div>
-              </div>
+          <div className="rounded-xl border border-[#213663] bg-[#0E1B36] p-5 sm:p-6 text-white shadow-[0_22px_54px_rgba(4,18,43,0.45)]">
+            {/* Top Bar */}
+            <div className="flex items-center justify-between gap-3 mb-2.5">
+              {showPreferences ? (
+                <h2
+                  id="cookie-settings-heading"
+                  className="font-sans text-[15px] font-bold text-white tracking-tight"
+                >
+                  Cookies Settings
+                </h2>
+              ) : (
+                <span aria-hidden="true" />
+              )}
 
               <button
                 type="button"
-                onClick={handleDeclineNonEssential}
-                className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors"
-                aria-label="Close cookie banner"
+                onClick={handleRejectAll}
+                aria-label="Close cookie notice"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8] -mt-1 -mr-1"
               >
-                <X className="w-4 h-4" />
+                <X className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
 
-            {/* Body */}
-            <p className="font-sans text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-4">
-              We use essential cookies to run our platforms securely and optional analytics to understand telemetry and refine software performance. We never sell your data.
-            </p>
+            {!showPreferences ? (
+              <>
+                <p className="font-sans text-[13.5px] sm:text-[14px] leading-[1.55] text-slate-100 mb-5">
+                  By clicking “Accept All Cookies”, you agree to the storing of cookies on your
+                  device to enhance site navigation, analyse site usage, and assist in our
+                  marketing efforts.
+                </p>
 
-            {/* Preferences Drawer */}
-            <AnimatePresence>
-              {showPreferences && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="space-y-2 mb-4 pt-3 border-t border-gray-100 overflow-hidden text-xs"
-                >
-                  {/* Essential */}
-                  <div className="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-150">
-                    <div>
-                      <div className="font-semibold text-gray-900">Essential System Cookies</div>
-                      <div className="text-[11px] text-gray-500">Core session, CSRF security & telemetry routing</div>
-                    </div>
-                    <span className="text-[11px] font-mono font-bold text-emerald-600 px-2 py-0.5 bg-emerald-50 rounded-md border border-emerald-200">
-                      Required
-                    </span>
-                  </div>
-
-                  {/* Analytics */}
-                  <div className="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-150">
-                    <div>
-                      <div className="font-semibold text-gray-900">Analytics & Performance</div>
-                      <div className="text-[11px] text-gray-500">Help us measure latency and page performance</div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setPreferences(prev => ({ ...prev, analytics: !prev.analytics }))}
-                      className={`w-9 h-5 rounded-full transition-colors relative cursor-pointer ${
-                        preferences.analytics ? 'bg-[#0066FF]' : 'bg-gray-300'
-                      }`}
-                    >
-                      <span
-                        className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${
-                          preferences.analytics ? 'translate-x-4' : 'translate-x-0'
-                        }`}
-                      />
-                    </button>
-                  </div>
-
-                  {/* Functional */}
-                  <div className="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-150">
-                    <div>
-                      <div className="font-semibold text-gray-900">Personalized Insights</div>
-                      <div className="text-[11px] text-gray-500">Remembers your currency and region preferences</div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setPreferences(prev => ({ ...prev, functional: !prev.functional }))}
-                      className={`w-9 h-5 rounded-full transition-colors relative cursor-pointer ${
-                        preferences.functional ? 'bg-[#0066FF]' : 'bg-gray-300'
-                      }`}
-                    >
-                      <span
-                        className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${
-                          preferences.functional ? 'translate-x-4' : 'translate-x-0'
-                        }`}
-                      />
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Actions */}
-            <div className="flex flex-col gap-2 pt-1">
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleAcceptAll}
-                  className="flex-1 py-2.5 px-4 rounded-xl bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold text-xs sm:text-[13px] transition-all shadow-[0_4px_14px_rgba(0,102,255,0.3)] hover:shadow-[0_6px_20px_rgba(0,102,255,0.45)] active:scale-95 cursor-pointer text-center"
-                >
-                  Accept all cookies
-                </button>
-
-                {showPreferences ? (
+                <div className="flex flex-col gap-2.5">
                   <button
                     type="button"
-                    onClick={handleSaveCustom}
-                    className="py-2.5 px-3.5 rounded-xl bg-gray-900 hover:bg-black text-white font-sans font-bold text-xs transition-all active:scale-95 cursor-pointer"
+                    onClick={handleAcceptAll}
+                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
-                    Save settings
+                    Accept All Cookies
                   </button>
-                ) : (
+
+                  <button
+                    type="button"
+                    onClick={handleRejectAll}
+                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                  >
+                    Reject All
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => setShowPreferences(true)}
-                    className="py-2.5 px-3.5 rounded-xl border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-sans font-medium text-xs transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
+                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
-                    <Settings2 className="w-3.5 h-3.5 text-gray-500" />
-                    Customize
+                    Cookies Settings
                   </button>
-                )}
-              </div>
+                </div>
+              </>
+            ) : (
+              <div className="space-y-3">
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#04122B]/80 p-3">
+                    <div>
+                      <div className="font-semibold text-white">Essential Cookies</div>
+                      <div className="text-[11px] text-slate-300 mt-0.5">
+                        Required for security &amp; core routing
+                      </div>
+                    </div>
+                    <span className="shrink-0 rounded-md border border-[#38BDF8]/30 bg-[#0066FF]/20 px-2 py-0.5 font-mono text-[10.5px] font-semibold text-[#93C5FD]">
+                      Always Active
+                    </span>
+                  </div>
 
-              <div className="flex items-center justify-between text-[11px] text-gray-500 px-1 pt-1">
-                <button
-                  type="button"
-                  onClick={handleDeclineNonEssential}
-                  className="hover:text-gray-900 underline transition-colors cursor-pointer"
-                >
-                  Reject optional
-                </button>
-                <span>Read our Privacy Notice</span>
+                  <div className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#04122B]/80 p-3">
+                    <div>
+                      <div id="cookie-analytics-label" className="font-semibold text-white">
+                        Analytics &amp; Performance
+                      </div>
+                      <div className="text-[11px] text-slate-300 mt-0.5">
+                        Measures latency and site usage
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={preferences.analytics}
+                      aria-labelledby="cookie-analytics-label"
+                      onClick={() =>
+                        setPreferences((prev) => ({ ...prev, analytics: !prev.analytics }))
+                      }
+                      className={`relative h-6 w-11 shrink-0 rounded-full border border-white/25 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8] ${
+                        preferences.analytics ? 'bg-[#0066FF]' : 'bg-slate-600'
+                      }`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`block h-4 w-4 rounded-full bg-white shadow-xs transition-transform ${
+                          preferences.analytics ? 'translate-x-5.5' : 'translate-x-1'
+                        }`}
+                      />
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#04122B]/80 p-3">
+                    <div>
+                      <div id="cookie-functional-label" className="font-semibold text-white">
+                        Functional Cookies
+                      </div>
+                      <div className="text-[11px] text-slate-300 mt-0.5">
+                        Remembers preferences and workspace region
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={preferences.functional}
+                      aria-labelledby="cookie-functional-label"
+                      onClick={() =>
+                        setPreferences((prev) => ({ ...prev, functional: !prev.functional }))
+                      }
+                      className={`relative h-6 w-11 shrink-0 rounded-full border border-white/25 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8] ${
+                        preferences.functional ? 'bg-[#0066FF]' : 'bg-slate-600'
+                      }`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`block h-4 w-4 rounded-full bg-white shadow-xs transition-transform ${
+                          preferences.functional ? 'translate-x-5.5' : 'translate-x-1'
+                        }`}
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={handleSaveCustom}
+                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                  >
+                    Save Preferences
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPreferences(false)}
+                    className="w-full rounded-lg border border-white/25 bg-transparent hover:bg-white/10 text-white font-sans font-semibold text-[13px] py-2 px-4 text-center transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                  >
+                    Back
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        </motion.div>
+        </motion.dialog>
       )}
     </AnimatePresence>
   );

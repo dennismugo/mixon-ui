@@ -290,11 +290,11 @@ export default function FooterUpper({
               </li>
               <li>
                 <AppLink 
-                  page="contact"
+                  page="book-demo"
                   onNavigate={(p) => handleNav(p)} 
                   className="hover:text-white transition-colors cursor-pointer text-left block"
                 >
-                  Book Live Onboarding
+                  Book a Demo
                 </AppLink>
               </li>
               <li>

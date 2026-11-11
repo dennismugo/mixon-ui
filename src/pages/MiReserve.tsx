@@ -34,7 +34,7 @@ import { MIRESERVE_FAQS } from '../seo/mixonSeo';
 import productPhoto from '../assets/images/illustrations/mireserve-illustration.jpg';
 
 interface MiReserveProps {
-  setCurrentPage: (page: any) => void;
+  setCurrentPage: (page: any, options?: { product?: string; service?: string }) => void;
 }
 
 export default function MiReserve({ setCurrentPage }: MiReserveProps) {
@@ -134,7 +134,7 @@ export default function MiReserve({ setCurrentPage }: MiReserveProps) {
         subtitle="miReserve helps accommodation teams coordinate reservations across supported channels, organize guest verification, and make check-ins effortless."
         primaryCta={{
           text: "Book a miReserve demo",
-          onClick: () => setCurrentPage('contact')
+          onClick: () => setCurrentPage('book-demo', { product: 'miReserve' })
         }}
         secondaryCta={{
           text: "View pricing",
@@ -272,7 +272,7 @@ export default function MiReserve({ setCurrentPage }: MiReserveProps) {
           <div className="dither-cta-desc">
             See how miReserve fits your current process and what a practical rollout could look like across your channels.
           </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('contact')} className="mx-auto h-11 min-w-[190px]">
+          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'miReserve' })} className="mx-auto h-11 min-w-[190px]">
             Book a miReserve demo
           </ExpandingArrowButton>
         </div>

@@ -30,4 +30,5 @@
 
 - [Pricing & Plans (KES & USD)](https://mixonsoftwares.co.ke/pricing): Starter (KES 25,000 / $200 mo), Growth (KES 40,500 / $325 mo), Pro (KES 75,500 / $600 mo), Scale (KES 145,000 / $1,150 mo), Enterprise (KES 250,000 / $2,000 mo), and Custom builds; 20% discount on annual plans.
 - [About Mixon](https://mixonsoftwares.co.ke/about): Company background (building on Shiva Softwares Africa), engineering standards, TLS 1.3 / AES-256 / PCI-DSS security posture.
-- [Contact Mixon](https://mixonsoftwares.co.ke/contact): Book a live product demo, request a software proposal, or reach Nairobi sales and support.
+- [Book a Demo](https://mixonsoftwares.co.ke/book-demo): Step-by-step interactive live demo scheduler with product/service selection, calendar slots, and WhatsApp/Email confirmation.
+- [Contact Mixon](https://mixonsoftwares.co.ke/contact): Request a software proposal or reach Nairobi engineering sales and support.

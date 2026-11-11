@@ -45,6 +45,13 @@ export function SeoHeadManager({ currentPage }: SeoHeadManagerProps) {
 
     document.title = route.title;
     upsertMetaTag('name', 'description', route.description);
+    upsertMetaTag(
+      'name',
+      'robots',
+      currentPage === 'demo-tracker'
+        ? 'noindex, nofollow'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    );
     upsertCanonicalLink(canonicalUrl);
 
     upsertMetaTag('property', 'og:title', route.title);

@@ -13,6 +13,8 @@ export type PageId =
   | 'service-ecommerce'
   | 'service-ai'
   | 'pricing'
+  | 'book-demo'
+  | 'demo-tracker'
   | 'contact';
 
 export interface FaqEntry {
@@ -99,6 +101,8 @@ export const ROUTE_PATHS: Record<PageId, string> = {
   'service-ecommerce': '/services/ecommerce',
   'service-ai': '/services/ai',
   pricing: '/pricing',
+  'book-demo': '/book-demo',
+  'demo-tracker': '/demo-tracker',
   contact: '/contact',
 };
 
@@ -909,6 +913,29 @@ export const ROUTE_SEO: Record<PageId, RouteSeoData> = {
     ],
     faqs: PRICING_FAQS,
   },
+  'book-demo': {
+    id: 'book-demo',
+    path: '/book-demo',
+    title: 'Book a Live Demo — Guided Walkthrough & Calendar | Mixon',
+    description:
+      'Schedule a personalized 30-minute Mixon walkthrough tailored to miRentals, miReserve, Event Yetu, miPOS, or custom web/mobile/M-Pesa engineering via WhatsApp or Email.',
+    h1: 'Book a personalized Mixon walkthrough.',
+    eyebrow: 'Book a Demo · 5-Step Scheduler',
+    summary:
+      'Pick the Mixon software platforms and engineering services relevant to your workflow, choose a calendar slot in East Africa Time (EAT), and send your demo request straight to Mixon WhatsApp or Email.',
+    keyFacts: [
+      'Covers miRentals, miReserve, Event Yetu, miPOS, plus Web, Mobile/USSD, SEO/AEO/GEO, Payments, E-Commerce & AI services.',
+      'Interactive calendar availability Monday–Saturday with 30-minute walkthrough slots.',
+      'Direct delivery confirmation via Mixon WhatsApp (+254 741 733 878) or Email (info@mixonsoftwares.co.ke).',
+    ],
+    priority: '0.9',
+    changefreq: 'weekly',
+    schemaKind: 'contact',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Book a Demo', path: '/book-demo' },
+    ],
+  },
   contact: {
     id: 'contact',
     path: '/contact',
@@ -932,6 +959,28 @@ export const ROUTE_SEO: Record<PageId, RouteSeoData> = {
       { name: 'Contact', path: '/contact' },
     ],
   },
+  'demo-tracker': {
+    id: 'demo-tracker',
+    path: '/demo-tracker',
+    title: 'Mixon Demo Tracker — Internal Schedule & Calendar Sync',
+    description:
+      'Internal dashboard for tracking scheduled Mixon product demos, CSV exports, and Google Calendar status.',
+    h1: 'Booked Demos Tracker',
+    eyebrow: 'Internal Demo Pipeline',
+    summary:
+      'Track scheduled demos, export schedules to CSV, update statuses, and download .ics invites.',
+    keyFacts: [
+      'Persistent demo booking tracking across platforms and services',
+      '1-click .ics calendar import and Google Calendar API / webhook sync support',
+    ],
+    priority: '0.1',
+    changefreq: 'monthly',
+    schemaKind: 'contact',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Demo Tracker', path: '/demo-tracker' },
+    ],
+  },
 };
 
 export const ALL_ROUTES: RouteSeoData[] = [
@@ -949,6 +998,7 @@ export const ALL_ROUTES: RouteSeoData[] = [
   ROUTE_SEO['service-ecommerce'],
   ROUTE_SEO['service-ai'],
   ROUTE_SEO.about,
+  ROUTE_SEO['book-demo'],
   ROUTE_SEO.contact,
 ];
 
@@ -1214,6 +1264,7 @@ export function buildRobotsTxt(rawSiteUrl?: string | null): string {
     'User-agent: *',
     'Allow: /',
     'Disallow: /api/',
+    'Disallow: /demo-tracker',
     '',
     '# Search & AI Answer Engines explicitly welcomed',
     'User-agent: Googlebot',
@@ -1316,7 +1367,8 @@ export function buildLlmsTxt(rawSiteUrl?: string | null): string {
 
 - [Pricing & Plans (KES & USD)](${siteUrl}/pricing): Starter (KES 25,000 / \$200 mo), Growth (KES 40,500 / \$325 mo), Pro (KES 75,500 / \$600 mo), Scale (KES 145,000 / \$1,150 mo), Enterprise (KES 250,000 / \$2,000 mo), and Custom builds; 20% discount on annual plans.
 - [About Mixon](${siteUrl}/about): Company background (building on Shiva Softwares Africa), engineering standards, TLS 1.3 / AES-256 / PCI-DSS security posture.
-- [Contact Mixon](${siteUrl}/contact): Book a live product demo, request a software proposal, or reach Nairobi sales and support.
+- [Book a Demo](${siteUrl}/book-demo): Step-by-step interactive live demo scheduler with product/service selection, calendar slots, and WhatsApp/Email confirmation.
+- [Contact Mixon](${siteUrl}/contact): Request a software proposal or reach Nairobi engineering sales and support.
 `;
 }
 
@@ -1479,9 +1531,12 @@ export function buildHeadSeoTags(
   const route = ROUTE_SEO[pageId] || ROUTE_SEO.home;
   const canonicalUrl = `${siteUrl}${route.path === '/' ? '/' : route.path}`;
   const ogImageUrl = `${siteUrl}${SITE_CONFIG.ogImagePath}`;
-  const robotsContent = options?.isNotFound
-    ? 'noindex, follow'
-    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+  const robotsContent =
+    pageId === 'demo-tracker'
+      ? 'noindex, nofollow'
+      : options?.isNotFound
+        ? 'noindex, follow'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
   const jsonLd = buildRouteJsonLd(pageId, siteUrl);
 
   return [

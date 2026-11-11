@@ -40,6 +40,8 @@ const MiReserve = lazy(() => import('./pages/MiReserve'));
 const EventYetu = lazy(() => import('./pages/EventYetu'));
 const MiPos = lazy(() => import('./pages/MiPos'));
 const Pricing = lazy(() => import('./pages/Pricing'));
+const BookDemo = lazy(() => import('./pages/BookDemo'));
+const DemoTracker = lazy(() => import('./pages/DemoTracker'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Services = lazy(() => import('./pages/Services'));
 const WebService = lazy(() => import('./pages/services/WebService'));
@@ -216,17 +218,43 @@ export default function App() {
     if (path === 'mi-reserve' || path === 'reserve') return 'mireserve';
     if (path === 'event-yetu' || path === 'events') return 'eventyetu';
     if (path === 'mi-pos' || path === 'pos') return 'mipos';
+    if (path === 'demo' || path === 'book-a-demo') return 'book-demo';
     return 'home';
   };
 
+  const getInitialDemoPreset = () => {
+    if (typeof window === 'undefined') return {};
+    const params = new URLSearchParams(window.location.search);
+    return {
+      product: params.get('product') || undefined,
+      service: params.get('service') || undefined,
+    };
+  };
+
   const [currentPage, setCurrentPageState] = useState<PageId>(() => getPageFromPath());
+  const [demoPreset, setDemoPreset] = useState<{ product?: string; service?: string }>(() =>
+    getInitialDemoPreset(),
+  );
 
-  const setCurrentPage = (page: PageId) => {
+  const setCurrentPage = (
+    page: PageId,
+    options?: { product?: string; service?: string },
+  ) => {
     setCurrentPageState(page);
-    const targetPath = getRoutePath(page);
+    if (page === 'book-demo' && (options?.product || options?.service)) {
+      setDemoPreset({ product: options.product, service: options.service });
+    } else if (page !== 'book-demo') {
+      setDemoPreset({});
+    }
+    const basePath = getRoutePath(page);
+    const search =
+      page === 'book-demo' && options?.product
+        ? `?product=${encodeURIComponent(options.product)}`
+        : '';
+    const targetUrl = `${basePath}${search}`;
 
-    if (window.location.pathname !== targetPath) {
-      window.history.pushState(null, '', targetPath);
+    if (`${window.location.pathname}${window.location.search}` !== targetUrl) {
+      window.history.pushState(null, '', targetUrl);
     }
   };
 
@@ -243,6 +271,7 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPageState(getPageFromPath());
+      setDemoPreset(getInitialDemoPreset());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -442,6 +471,17 @@ export default function App() {
           return <AiService setCurrentPage={setCurrentPage} />;
         case 'pricing':
           return <Pricing setCurrentPage={setCurrentPage} />;
+        case 'book-demo':
+          return (
+            <BookDemo
+              onLeadCaptured={handleLeadCaptured}
+              setCurrentPage={setCurrentPage}
+              initialProduct={demoPreset.product}
+              initialService={demoPreset.service}
+            />
+          );
+        case 'demo-tracker':
+          return <DemoTracker setCurrentPage={setCurrentPage} />;
         case 'contact':
           return <Contact onLeadCaptured={handleLeadCaptured} setCurrentPage={setCurrentPage} />;
         default:
@@ -772,7 +812,7 @@ export default function App() {
             {/* Book a demo primary CTA with ExpandingArrowButton animated interaction */}
             <ExpandingArrowButton
               size="pill"
-              onClick={() => setCurrentPage('contact')}
+              onClick={() => setCurrentPage('book-demo')}
               className="h-10 min-w-[145px]"
             >
               Book a demo
@@ -868,7 +908,7 @@ export default function App() {
               </AppLink>
               <ExpandingArrowButton
                 size="pill"
-                onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }}
+                onClick={() => { setCurrentPage('book-demo'); setMobileMenuOpen(false); }}
                 className="h-11 w-full min-w-0"
               >
                 Book a demo

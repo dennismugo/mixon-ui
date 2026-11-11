@@ -174,7 +174,7 @@ export default function About({ setCurrentPage }: AboutProps) {
             <div data-hero-pattern-hole="box" className="mt-6 inline-flex justify-center">
               <ExpandingArrowButton
                 size="pill"
-                onClick={() => setCurrentPage('contact')}
+                onClick={() => setCurrentPage('book-demo')}
                 className="h-10 min-w-[145px]"
               >
                 Book a demo

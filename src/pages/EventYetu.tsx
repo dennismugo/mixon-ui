@@ -37,7 +37,7 @@ import { EVENTYETU_FAQS } from '../seo/mixonSeo';
 import productPhoto from '../assets/images/illustrations/eventyetu-illustration.jpg';
 
 interface EventYetuProps {
-  setCurrentPage: (page: any) => void;
+  setCurrentPage: (page: any, options?: { product?: string; service?: string }) => void;
 }
 
 export default function EventYetu({ setCurrentPage }: EventYetuProps) {
@@ -137,7 +137,7 @@ export default function EventYetu({ setCurrentPage }: EventYetuProps) {
         subtitle="Event Yetu gives promoters, venues, and festival teams the tools to sell tickets, handle high-speed QR gate entry, and monitor live attendance."
         primaryCta={{
           text: "Request an Event Yetu demo",
-          onClick: () => setCurrentPage('contact')
+          onClick: () => setCurrentPage('book-demo', { product: 'Event Yetu' })
         }}
         secondaryCta={{
           text: "View ticketing rates",
@@ -275,7 +275,7 @@ export default function EventYetu({ setCurrentPage }: EventYetuProps) {
           <div className="dither-cta-desc">
             See how Event Yetu fits your current event process and what a practical rollout could look like for your upcoming date.
           </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('contact')} className="mx-auto h-11 min-w-[210px]">
+          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'Event Yetu' })} className="mx-auto h-11 min-w-[210px]">
             Request an Event Yetu demo
           </ExpandingArrowButton>
         </div>

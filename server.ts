@@ -4,11 +4,23 @@
  */
 
 import express from "express";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
 import { GoogleGenAI, Type } from "@google/genai";
 import { createServer as createViteServer } from "vite";
+import {
+  buildDemoIcs,
+  buildDemosCsv,
+  createDemoBooking,
+  DemoStatus,
+  getDemoBookingById,
+  listDemoBookings,
+  queryDemoAvailability,
+  SlotConflictError,
+  updateDemoBookingStatus,
+} from "./server/demoBookings";
 import {
   buildLlmsFullTxt,
   buildLlmsTxt,
@@ -88,6 +100,150 @@ app.post("/api/leads", (req, res) => {
 
 app.get("/api/leads", (req, res) => {
   return res.json({ leads });
+});
+
+function isAuthorizedDemoAdmin(req: express.Request): boolean {
+  const configuredKey = process.env.MIXON_ADMIN_KEY?.trim();
+  if (!configuredKey) return true;
+  const supplied = String(req.header("x-admin-key") || req.query.key || "").trim();
+  const expectedBuf = Buffer.from(configuredKey);
+  const suppliedBuf = Buffer.from(supplied);
+  return (
+    expectedBuf.length === suppliedBuf.length &&
+    crypto.timingSafeEqual(expectedBuf, suppliedBuf)
+  );
+}
+
+// Public calendar availability endpoint (merges persistent bookings + Google Calendar FreeBusy)
+app.get("/api/demos/availability", async (req, res) => {
+  try {
+    const date = typeof req.query.date === "string" ? req.query.date : undefined;
+    const availability = await queryDemoAvailability(date);
+    return res.status(200).json(availability);
+  } catch (err: any) {
+    return res.status(500).json({ error: err?.message || "Failed to check availability" });
+  }
+});
+
+// Create scheduled demo booking + sync to Google Calendar if configured
+app.post("/api/demos", async (req, res) => {
+  const {
+    name,
+    company,
+    email,
+    phone,
+    discoverySource,
+    products,
+    services,
+    scale,
+    timeline,
+    bookingDate,
+    bookingTime,
+    timezone,
+    notes,
+  } = req.body || {};
+
+  if (!name || !company || !email || !phone || !bookingDate || !bookingTime) {
+    return res.status(400).json({
+      error: "Name, company, email, phone, bookingDate, and bookingTime are required.",
+    });
+  }
+
+  try {
+    const demo = await createDemoBooking({
+      name,
+      company,
+      email,
+      phone,
+      discoverySource,
+      products,
+      services,
+      scale,
+      timeline,
+      bookingDate,
+      bookingTime,
+      timezone,
+      notes,
+    });
+
+    const topics = [...demo.products, ...demo.services].join(" + ") || "Mixon Platform Walkthrough";
+    leads.unshift({
+      id: demo.id,
+      name: demo.name,
+      email: demo.email,
+      company: demo.company,
+      productOfInterest: topics,
+      notes: `${demo.bookingDate} · ${demo.bookingTime} (${demo.googleCalendarStatus})`,
+      createdAt: demo.createdAt,
+    });
+
+    return res.status(201).json({
+      success: true,
+      demo,
+      inviteUrl: `/api/demos/${encodeURIComponent(demo.id)}/invite.ics`,
+    });
+  } catch (err: any) {
+    if (err instanceof SlotConflictError) {
+      return res.status(409).json({ error: err.message });
+    }
+    return res.status(400).json({ error: err?.message || "Invalid demo booking payload." });
+  }
+});
+
+// Tracker list endpoint (optional MIXON_ADMIN_KEY protected)
+app.get("/api/demos", (req, res) => {
+  if (!isAuthorizedDemoAdmin(req)) {
+    return res.status(401).json({
+      error: "Passcode required to view booked demos.",
+      authRequired: true,
+    });
+  }
+  return res.status(200).json({
+    ...listDemoBookings(),
+    authRequired: Boolean(process.env.MIXON_ADMIN_KEY?.trim()),
+  });
+});
+
+// Tracker CSV export
+app.get("/api/demos.csv", (req, res) => {
+  if (!isAuthorizedDemoAdmin(req)) {
+    return res.status(401).json({ error: "Passcode required to export bookings." });
+  }
+  const { demos } = listDemoBookings();
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", 'attachment; filename="mixon-demo-bookings.csv"');
+  return res.status(200).send(buildDemosCsv(demos));
+});
+
+// Tracker status updates
+app.patch("/api/demos/:id", (req, res) => {
+  if (!isAuthorizedDemoAdmin(req)) {
+    return res.status(401).json({ error: "Passcode required to update booking status." });
+  }
+  const allowedStatuses: DemoStatus[] = ["confirmed", "completed", "rescheduled", "cancelled"];
+  const nextStatus = req.body?.status as DemoStatus;
+  if (!allowedStatuses.includes(nextStatus)) {
+    return res.status(400).json({ error: "Invalid status value." });
+  }
+  const updated = updateDemoBookingStatus(req.params.id, nextStatus);
+  if (!updated) {
+    return res.status(404).json({ error: "Booking not found." });
+  }
+  return res.status(200).json({ success: true, demo: updated });
+});
+
+// One-click RFC 5545 .ics calendar invite for Google Calendar / Outlook / Apple Calendar
+app.get("/api/demos/:id/invite.ics", (req, res) => {
+  const demo = getDemoBookingById(req.params.id);
+  if (!demo) {
+    return res.status(404).send("Demo booking not found.");
+  }
+  res.setHeader("Content-Type", "text/calendar; charset=utf-8");
+  res.setHeader(
+    "Content-Disposition",
+    `attachment; filename="mixon-demo-${demo.id.replace(/[^A-Za-z0-9_-]/g, "")}.ics"`,
+  );
+  return res.status(200).send(buildDemoIcs(demo));
 });
 
 // Gemini-powered sandbox simulation endpoint
@@ -311,6 +467,12 @@ app.get("/llms-full.txt", (_req, res) => {
   res.setHeader("Content-Type", "text/plain; charset=utf-8");
   res.setHeader("Cache-Control", "public, max-age=3600");
   return res.status(200).send(buildLlmsFullTxt(SITE_URL));
+});
+
+app.get(["/demo", "/demo/", "/book-a-demo", "/book-a-demo/"], (req, res) => {
+  const qsIndex = req.originalUrl.indexOf("?");
+  const querySuffix = qsIndex >= 0 ? req.originalUrl.slice(qsIndex) : "";
+  return res.redirect(301, `/book-demo${querySuffix}`);
 });
 
 // Setup Vite Dev Server / Static Assets + Per-Route SEO/SSR HTML Injection

@@ -41,8 +41,8 @@ export default function PreFooterCta({
   };
 
   const handleBookDemo = () => {
-    if (setCurrentPage) setCurrentPage('contact');
-    else window.location.assign('/contact');
+    if (setCurrentPage) setCurrentPage('book-demo');
+    else window.location.assign('/book-demo');
   };
 
   const reassurancePoints = [

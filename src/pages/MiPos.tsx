@@ -39,7 +39,7 @@ import { MIPOS_FAQS } from '../seo/mixonSeo';
 import productPhoto from '../assets/images/illustrations/mipos-illustration.jpg';
 
 interface MiPosProps {
-  setCurrentPage: (page: any) => void;
+  setCurrentPage: (page: any, options?: { product?: string; service?: string }) => void;
 }
 
 export default function MiPos({ setCurrentPage }: MiPosProps) {
@@ -139,7 +139,7 @@ export default function MiPos({ setCurrentPage }: MiPosProps) {
         subtitle="miPOS helps merchants process counter transactions fast, track stock levels across locations, and keep cash and mobile money balances perfectly aligned."
         primaryCta={{
           text: "Book a miPOS demo",
-          onClick: () => setCurrentPage('contact')
+          onClick: () => setCurrentPage('book-demo', { product: 'miPOS' })
         }}
         secondaryCta={{
           text: "View pricing",
@@ -277,7 +277,7 @@ export default function MiPos({ setCurrentPage }: MiPosProps) {
           <div className="dither-cta-desc">
             See how miPOS fits your current store setup and what a practical rollout could look like across your checkout terminals.
           </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('contact')} className="mx-auto h-11 min-w-[190px]">
+          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'miPOS' })} className="mx-auto h-11 min-w-[190px]">
             Book a miPOS demo
           </ExpandingArrowButton>
         </div>

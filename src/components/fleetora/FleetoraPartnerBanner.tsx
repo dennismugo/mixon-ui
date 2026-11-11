@@ -171,7 +171,7 @@ export const FleetoraPartnerBanner: React.FC<FleetoraPartnerBannerProps> = ({ se
             >
               <button
                 type="button"
-                onClick={() => setCurrentPage ? setCurrentPage('contact') : window.location.assign('#contact')}
+                onClick={() => setCurrentPage ? setCurrentPage('book-demo') : window.location.assign('/book-demo')}
                 className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-gray-950 text-white font-sans text-sm sm:text-[15px] font-bold shadow-lg hover:bg-black hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <RollingButtonText text="Book a demo" />

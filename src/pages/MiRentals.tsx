@@ -36,7 +36,7 @@ import { MIRENTALS_FAQS } from '../seo/mixonSeo';
 import productPhoto from '../assets/images/illustrations/mirentals-illustration.jpg';
 
 interface MiRentalsProps {
-  setCurrentPage: (page: any) => void;
+  setCurrentPage: (page: any, options?: { product?: string; service?: string }) => void;
 }
 
 export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
@@ -136,7 +136,7 @@ export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
         subtitle="miRentals helps rental teams move beyond manual tenant tracking. Bring rental records, occupancy metrics, and collection workflows into one crystal-clear operational view."
         primaryCta={{
           text: "Book a miRentals demo",
-          onClick: () => setCurrentPage('contact')
+          onClick: () => setCurrentPage('book-demo', { product: 'miRentals' })
         }}
         secondaryCta={{
           text: "View pricing",
@@ -274,7 +274,7 @@ export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
           <div className="dither-cta-desc">
             See how miRentals fits your current process and what a practical rollout could look like for your units.
           </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('contact')} className="mx-auto h-11 min-w-[190px]">
+          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'miRentals' })} className="mx-auto h-11 min-w-[190px]">
             Book a miRentals demo
           </ExpandingArrowButton>
         </div>
