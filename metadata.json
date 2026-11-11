@@ -1,0 +1,6 @@
+{
+  "name": "Mixon",
+  "description": "Intelligent property, hospitality, and event booking & pricing software for Africa, run by AI-native automation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

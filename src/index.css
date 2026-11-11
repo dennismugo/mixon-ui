@@ -1,0 +1,2043 @@
+/* Fonts loaded cleanly via index.html & local @font-face declarations below */
+
+/* Responsive display typography: keep headings readable without letting them
+   dominate narrow screens or exceed the available content width. */
+@media (max-width: 639px) {
+  h1 {
+    font-size: clamp(1.625rem, 7.5vw, 1.875rem) !important;
+    line-height: 1.08 !important;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(1.375rem, 6.25vw, 1.625rem) !important;
+    line-height: 1.12 !important;
+    text-wrap: balance;
+  }
+
+  .hero-title {
+    line-height: 1.08 !important;
+    text-wrap: balance;
+  }
+}
+
+/* Shared capabilities surface across every Mixon product page. */
+.product-capabilities-surface {
+  background: radial-gradient(36rem 22rem at 85% 0, #93c5fd47, #0000 70%),
+    radial-gradient(30rem 20rem at 0 100%, #fca5a538, #0000 70%),
+    #fbfbfd;
+}
+
+/* ==========================================================================
+   PT SERIF WEBFONTS (Fallback)
+   ========================================================================== */
+@font-face {
+  font-family: 'PT Serif';
+  src: local('PT Serif'), local('PTSerif-Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PT Serif';
+  src: local('PT Serif Bold'), local('PTSerif-Bold');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   ALAN SANS WEBFONTS (Local Files in /public/fonts/alan-sans/)
+   ========================================================================== */
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-800-normal.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alan Sans';
+  src: url('/fonts/alan-sans/alan-sans-latin-900-normal.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   STACK SANS NOTCH WEBFONTS (Fallback)
+   ========================================================================== */
+@font-face {
+  font-family: 'Stack Sans Notch';
+  src: url('/fonts/stack-sans-notch/StackSansNotch-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stack Sans Notch';
+  src: url('/fonts/stack-sans-notch/StackSansNotch-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stack Sans Notch';
+  src: url('/fonts/stack-sans-notch/StackSansNotch-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stack Sans Notch';
+  src: url('/fonts/stack-sans-notch/StackSansNotch-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   BDO GROTESK WEBFONTS (Lokal Container)
+   ========================================================================== */
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Also alias 'BDO Grotesk' */
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/bdo-grotesk/BDOGrotesk-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   AKTIV GROTESK WEBFONTS (Dalton Maag / Local System Font Fallback)
+   ========================================================================== */
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('Aktiv Grotesk Regular'), local('Aktiv Grotesk'), local('AktivGrotesk-Regular'), local('AktivGrotesk');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AktivGrotesk';
+  src: local('AktivGrotesk-Regular'), local('AktivGrotesk'), local('Aktiv Grotesk Regular'), local('Aktiv Grotesk');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('Aktiv Grotesk Medium'), local('AktivGrotesk-Medium'), local('AktivGroteskMedium');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AktivGrotesk';
+  src: local('AktivGrotesk-Medium'), local('AktivGroteskMedium'), local('Aktiv Grotesk Medium');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('Aktiv Grotesk SemiBold'), local('Aktiv Grotesk Bold'), local('AktivGrotesk-Bold'), local('AktivGroteskBold');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AktivGrotesk';
+  src: local('AktivGrotesk-Bold'), local('AktivGroteskBold'), local('Aktiv Grotesk SemiBold'), local('Aktiv Grotesk Bold');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-aktiv: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-dm: "DM Sans Variable", "DM Sans", sans-serif;
+  --font-display: "Newsreader", "Merriweather", serif;
+  --font-serif: "Newsreader", "Merriweather", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-alansans: "Alan Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-notch: "Alan Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-bdogrotesk: "Alan Sans", "Bdogrotesk", "BDO Grotesk", sans-serif;
+  --font-grotesk: "Alan Sans", "Bdogrotesk", "BDO Grotesk", sans-serif;
+  --font-ptserif: "PT Serif", serif;
+
+  --font-weight-bold: 600;
+  --font-weight-extrabold: 600;
+  
+  --color-mixon-blue: #093173; /* Primary: Below the Surface */
+  --color-mixon-beige: #EBDDD0; /* Secondary: Moderate White */
+  --color-mixon-surface: #F5F6F7; /* Surface: Gram's Hair */
+  --color-mixon-light-blue: #93C2FF; /* Accent: Sail to the Sea */
+  --color-mixon-cotton: #E3EFFF; /* Accent: Cotton Boll */
+  --color-mixon-peach: #FBE8D8; /* Accent: Poppy Crepe */
+  --color-mixon-taupe: #C3B6AA; /* Accent: Versatile Taupe */
+}
+
+/* ==========================================================================
+   DESIGN TOKENS: AKTIV GROTESK TYPOGRAPHY SYSTEM
+   ========================================================================== */
+:root {
+  --font-family-aktiv: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Typography Design Tokens */
+  --typography-body-md-font-family: var(--font-family-aktiv);
+  --typography-body-md-font-size: 16.8px;
+  --typography-body-md-font-weight: 400;
+  --typography-body-md-line-height: 25px;
+
+  --typography-body-sm-font-family: var(--font-family-aktiv);
+  --typography-body-sm-font-size: 14px;
+  --typography-body-sm-font-weight: 400;
+  --typography-body-sm-line-height: 21px;
+
+  --typography-label-lg-font-family: var(--font-family-aktiv);
+  --typography-label-lg-font-size: 12px;
+  --typography-label-lg-font-weight: 600;
+  --typography-label-lg-line-height: 16px;
+  --typography-label-lg-letter-spacing: 0.08em;
+
+  --typography-label-md-font-family: var(--font-family-aktiv);
+  --typography-label-md-font-size: 9.8px;
+  --typography-label-md-font-weight: 600;
+  --typography-label-md-line-height: 12px;
+  --typography-label-md-letter-spacing: 0.08em;
+
+  --typography-label-sm-font-family: var(--font-family-aktiv);
+  --typography-label-sm-font-size: 9px;
+  --typography-label-sm-font-weight: 600;
+  --typography-label-sm-line-height: 10px;
+  --typography-label-sm-letter-spacing: 0.08em;
+
+  --typography-nav-md-font-family: var(--font-family-aktiv);
+  --typography-nav-md-font-size: 16px;
+  --typography-nav-md-font-weight: 400;
+  --typography-nav-md-line-height: 22px;
+
+  --typography-nav-sm-font-family: var(--font-family-aktiv);
+  --typography-nav-sm-font-size: 14px;
+  --typography-nav-sm-font-weight: 400;
+  --typography-nav-sm-line-height: 20px;
+
+  --typography-caption-sm-font-family: var(--font-family-aktiv);
+  --typography-caption-sm-font-size: 12px;
+  --typography-caption-sm-font-weight: 400;
+  --typography-caption-sm-line-height: 18px;
+}
+
+/* Explicit Utility Classes for the 8 Typography Tokens */
+.body-md, .text-body-md {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 16.8px !important;
+  font-weight: 400 !important;
+  line-height: 25px !important;
+}
+
+.body-sm, .text-body-sm {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 21px !important;
+}
+
+.label-lg, .text-label-lg {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 16px !important;
+  letter-spacing: 0.08em !important;
+}
+
+.label-md, .text-label-md {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 9.8px !important;
+  font-weight: 600 !important;
+  line-height: 12px !important;
+  letter-spacing: 0.08em !important;
+}
+
+.label-sm, .text-label-sm {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  line-height: 10px !important;
+  letter-spacing: 0.08em !important;
+}
+
+.nav-md, .text-nav-md {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 22px !important;
+}
+
+.nav-sm, .text-nav-sm {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+}
+
+.caption-sm, .text-caption-sm {
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 18px !important;
+}
+
+/* Base custom styles to elevate visual design & smooth scrolling performance */
+html {
+  scroll-behavior: auto !important;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0E1B36;
+  color: #1a1a24;
+}
+
+/* Official Lenis smooth scroll optimization classes */
+html.lenis, html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis, html.lenis-smooth body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  font-family: "Aktiv Grotesk", "AktivGrotesk", "Alan Sans", "DM Sans Variable", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16.8px;
+  font-weight: 400;
+  line-height: 25px;
+  background-color: #0E1B36;
+  color: #1a1a24;
+}
+
+/* Paragraph typography system: Aktiv Grotesk, 400 weight, 16px */
+p,
+p.font-sans,
+p.font-alansans,
+p.font-display,
+p.font-serif,
+p.font-bdogrotesk,
+p.font-grotesk,
+p.font-notch {
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+}
+
+p :not(b):not(strong):not([class*="font-bold"]):not([class*="font-semibold"]):not([class*="font-extrabold"]) {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Navigation items default to Aktiv Grotesk typography */
+nav a, nav button, header nav a, header nav button {
+  font-family: AktivGrotesk, "Aktiv Grotesk", system-ui, sans-serif;
+}
+
+/* Global Headings: Alan Sans across h1 */
+h1:not(#home-hero *), 
+.font-alansans:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
+.font-notch:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
+.font-bdogrotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]), 
+.font-grotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]), 
+.title-grotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
+[role="heading"][aria-level="1"]:not(#home-hero *) {
+  font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Headings h3: Aktiv Grotesk typography system */
+h3,
+h3 *,
+h3.font-alansans,
+h3.font-display,
+h3.font-serif,
+h3.font-sans,
+h3.font-bdogrotesk,
+h3.font-grotesk,
+h3.font-notch,
+[role="heading"][aria-level="3"],
+[role="heading"][aria-level="3"] *,
+.font-aktiv-h3 {
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+}
+
+h3,
+h3 *,
+h3.font-alansans,
+h3.font-display,
+h3.font-serif,
+h3.font-sans,
+h3.font-bdogrotesk,
+h3.font-grotesk,
+h3.font-notch,
+h3.font-bold,
+h3.font-semibold,
+h3.font-extrabold,
+[role="heading"][aria-level="3"],
+[role="heading"][aria-level="3"] * {
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+
+/* Headings h4 & h5: Aktiv Grotesk typography system */
+h4,
+h4 *,
+h5,
+h5 *,
+h4.font-alansans,
+h4.font-display,
+h4.font-serif,
+h4.font-sans,
+h4.font-bdogrotesk,
+h4.font-grotesk,
+h4.font-notch,
+h5.font-alansans,
+h5.font-display,
+h5.font-serif,
+h5.font-sans,
+h5.font-bdogrotesk,
+h5.font-grotesk,
+h5.font-notch,
+[role="heading"][aria-level="4"],
+[role="heading"][aria-level="4"] *,
+[role="heading"][aria-level="5"],
+[role="heading"][aria-level="5"] * {
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+}
+
+h4,
+h4 *,
+h5,
+h5 *,
+h4.font-alansans,
+h4.font-display,
+h4.font-serif,
+h4.font-sans,
+h4.font-bdogrotesk,
+h4.font-grotesk,
+h4.font-notch,
+h4.font-bold,
+h4.font-semibold,
+h4.font-extrabold,
+h5.font-alansans,
+h5.font-display,
+h5.font-serif,
+h5.font-sans,
+h5.font-bdogrotesk,
+h5.font-grotesk,
+h5.font-notch,
+h5.font-bold,
+h5.font-semibold,
+h5.font-extrabold,
+[role="heading"][aria-level="4"],
+[role="heading"][aria-level="4"] *,
+[role="heading"][aria-level="5"],
+[role="heading"][aria-level="5"] * {
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+
+/* Headings h2: PT Serif typography system */
+h2,
+h2 *,
+h2.font-alansans,
+h2.font-display,
+h2.font-serif,
+h2.font-sans,
+h2.font-bdogrotesk,
+h2.font-grotesk,
+h2.font-notch,
+[role="heading"][aria-level="2"],
+[role="heading"][aria-level="2"] *,
+.font-ptserif,
+.font-pt-serif {
+  font-family: 'PT Serif', serif !important;
+}
+
+h2,
+h2.font-alansans,
+h2.font-display,
+h2.font-serif,
+h2.font-sans,
+h2.font-bdogrotesk,
+h2.font-grotesk,
+h2.font-notch,
+h2.font-bold,
+h2.font-semibold,
+h2.font-extrabold,
+[role="heading"][aria-level="2"] {
+  font-size: 2.25rem !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+}
+
+/* All children and spans inside h2 inherit 400 weight and line-height */
+h2 *,
+[role="heading"][aria-level="2"] * {
+  font-weight: inherit !important;
+  line-height: inherit;
+}
+
+/* ==========================================================================
+   FAQS TYPOGRAPHY: Aktiv Grotesk
+   ========================================================================== */
+.font-aktiv-faq,
+.faq-question,
+#faq button > span:first-child,
+section#faq button > span:first-child,
+[aria-label*="faq"] button > span:first-child,
+.faq-accordion button > span:first-child {
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+}
+
+/* Outside #home-hero, font-serif-editorial uses PT Serif */
+.font-serif-editorial:not(#home-hero *) {
+  font-family: 'PT Serif', serif !important;
+}
+
+/* EXCEPTION: Home Hero Headline preserves editorial serif (Newsreader) - STRICTLY UNTOUCHED */
+#home-hero h1,
+#home-hero h1 *,
+#home-hero h2,
+#home-hero h3,
+#home-hero h4,
+#home-hero .font-display,
+#home-hero .font-serif,
+#home-hero .font-serif-editorial {
+  font-family: 'Newsreader', 'Instrument Serif', Georgia, serif !important;
+}
+
+/* Luxury typography refinement: soften bold and extra-bold font weights to clean semi-bold (600) */
+b, strong, h6 {
+  font-weight: 600;
+}
+
+.font-bold:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]):not([role="heading"][aria-level="2"] *):not([role="heading"][aria-level="3"] *):not([role="heading"][aria-level="4"] *):not([role="heading"][aria-level="5"] *),
+.font-extrabold:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]):not([role="heading"][aria-level="2"] *):not([role="heading"][aria-level="3"] *):not([role="heading"][aria-level="4"] *):not([role="heading"][aria-level="5"] *) {
+  font-weight: 600 !important;
+}
+
+/* Custom scrollbar matching our premium palette */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F6F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #093173;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #93C2FF;
+}
+
+/* CSS Animations for smooth entrance and scroll rhythms */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.08);
+  }
+}
+
+.ambient-glow {
+  animation: pulseGlow 12s infinite ease-in-out;
+}
+
+/* Teak.io grid background system */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(9, 49, 115, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 49, 115, 0.02) 1px, transparent 1px);
+}
+
+.bg-light-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(9, 49, 115, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 49, 115, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 25px 25px;
+  background-image: radial-gradient(rgba(9, 49, 115, 0.04) 1px, transparent 1px);
+}
+
+.bg-light-dot {
+  background-size: 25px 25px;
+  background-image: radial-gradient(rgba(9, 49, 115, 0.03) 1px, transparent 1px);
+}
+
+/* Beautiful custom glow effects */
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(9, 49, 115, 0.1);
+  border-color: rgba(9, 49, 115, 0.2) !important;
+}
+
+/* Granola-inspired hero principles: editorial scale, generous paper space, and one clear product proof. */
+.mixon-hero-track {
+  min-height: 168svh;
+  overflow: visible;
+}
+
+.hero-paper-grid {
+  background-image:
+    linear-gradient(rgba(9, 49, 115, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 49, 115, .045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+}
+
+.mixon-hero-title {
+  font-size: clamp(3.65rem, 6.25vw, 6.5rem);
+  letter-spacing: -.065em;
+  line-height: .9;
+}
+
+.mixon-hero-primary,
+.mixon-hero-secondary {
+  min-height: 3.25rem;
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s ease, background-color .3s ease, border-color .3s ease !important;
+}
+
+.mixon-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(9, 49, 115, .24);
+}
+
+.mixon-hero-secondary:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(18, 31, 48, .08);
+}
+
+.mixon-hero-illustration {
+  height: clamp(410px, 45vw, 570px);
+}
+
+.mixon-handoff-section {
+  isolation: isolate;
+}
+
+.mixon-handoff-title {
+  font-size: clamp(3rem, 5vw, 5.75rem);
+  font-weight: 400;
+  letter-spacing: -.06em;
+  line-height: .92;
+}
+
+.mixon-handoff-row {
+  min-height: 106px;
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid #e3e3de;
+  transition: padding-left .35s cubic-bezier(.2, .8, .2, 1), background-color .35s ease;
+}
+
+.mixon-handoff-row:last-child { border-bottom: 0; }
+.mixon-handoff-row:hover { padding-left: .55rem; background: rgba(255, 255, 255, .46); }
+
+.mixon-handoff-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #d5d8dc;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #093173;
+  background: rgba(255,255,255,.75);
+}
+
+.mixon-handoff-row p {
+  max-width: 37rem;
+  color: #4b5562;
+  font-size: clamp(.9rem, 1.15vw, 1rem);
+  line-height: 1.55;
+}
+
+.mixon-handoff-row strong { color: #171b22; font-weight: 700; }
+
+.mixon-hero-arrival {
+  background: #f5f6f7;
+}
+
+@media (max-width: 959px) {
+  .mixon-hero-track { min-height: auto; }
+  .mixon-hero-stage { position: relative; }
+  .mixon-hero-product-flight { transform: none !important; }
+  .mixon-hero-title { font-size: clamp(3.2rem, 14vw, 4.75rem); }
+  .mixon-hero-illustration { height: min(112vw, 500px); }
+  .mixon-handoff-title { font-size: clamp(2.9rem, 13vw, 4.3rem); }
+  .mixon-handoff-row { grid-template-columns: 2.8rem 1fr; min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mixon-hero-product-flight { transform: none !important; }
+  .mixon-hero-primary,
+  .mixon-hero-secondary { transition: none !important; }
+  .float-explosion-scroll,
+  .float-green-scroll,
+  .float-grey-scroll { animation: none !important; }
+}
+
+/* Granola-inspired Floating Posters & Scroll-Driven Parallax */
+@keyframes float-explosion-lg {
+  0% { transform: translate(24%, -6%) scale(1); }
+  to { transform: translate(4%, 180px) scale(0.72); }
+}
+
+@keyframes float-green-lg {
+  0% { transform: translate(-35%, 10%) scale(1); }
+  to { transform: translate(-12%, 210px) scale(0.72); }
+}
+
+@keyframes float-grey-lg {
+  0% { transform: translate(23%, 21%) scale(1); }
+  to { transform: translate(6%, 240px) scale(0.72); }
+}
+
+@keyframes floating-fade-out {
+  0% { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.float-explosion-base {
+  transform: translate(24%, -6%);
+}
+
+.float-green-base {
+  transform: translate(-35%, 10%);
+}
+
+.float-grey-base {
+  transform: translate(23%, 21%);
+}
+
+@supports (animation-timeline: scroll(root)) {
+  .float-explosion-scroll {
+    animation-name: float-explosion-lg, floating-fade-out;
+    animation-timing-function: cubic-bezier(.25, .1, .25, 1), linear;
+    animation-fill-mode: both, both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range: 0 50vh, 45vh 75vh;
+  }
+  .float-green-scroll {
+    animation-name: float-green-lg, floating-fade-out;
+    animation-timing-function: cubic-bezier(.25, .1, .25, 1), linear;
+    animation-fill-mode: both, both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range: 5vh 55vh, 48vh 78vh;
+  }
+  .float-grey-scroll {
+    animation-name: float-grey-lg, floating-fade-out;
+    animation-timing-function: cubic-bezier(.25, .1, .25, 1), linear;
+    animation-fill-mode: both, both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range: 10vh 60vh, 52vh 82vh;
+  }
+}
+
+/* IsoMeet-inspired editorial hybrid typography & slider styles */
+.italic-letter-span {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  display: inline-block;
+  padding: 0 0.04em;
+  transform: translateY(-0.01em);
+}
+
+.isomeet-form-input {
+  background-color: #F3F3F5;
+  color: #1a1a1e;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.isomeet-form-input:focus {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.04);
+  outline: none;
+}
+
+/* Seamless infinite marquee ticker for glassmorphic visual cards */
+@keyframes ticker-marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker-marquee {
+  display: flex;
+  width: max-content;
+  animation: ticker-marquee 22s linear infinite;
+}
+
+.animate-ticker-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Mixon interior system: restrained editorial type, warm surfaces, and clear edges. */
+.mixon-interior-page {
+  --mixon-ink: #17243a;
+  --mixon-muted: #596579;
+  --mixon-paper: #ffffff;
+  --mixon-line: #e4e5e3;
+  --mixon-accent: #1558c9;
+  color: var(--mixon-ink);
+  background: var(--mixon-paper) !important;
+}
+
+.mixon-interior-page h1 {
+  max-width: 19ch;
+  color: var(--mixon-ink) !important;
+  font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2.45rem, 4vw, 3.25rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.06 !important;
+  text-wrap: balance;
+}
+
+/* Ensure centered headers on interior pages center both the block and text */
+.mixon-interior-page section.text-center h1,
+.mixon-interior-page section[class*="text-center"] h1,
+.mixon-interior-page .text-center h1,
+.mixon-interior-page h1.text-center,
+.mixon-interior-page h1.mx-auto {
+  margin-inline: auto !important;
+  text-align: center !important;
+  max-width: 28ch !important;
+}
+
+.mixon-interior-page section.text-center h1 + p,
+.mixon-interior-page section.text-center h1 ~ p,
+.mixon-interior-page section[class*="text-center"] h1 + p,
+.mixon-interior-page section[class*="text-center"] h1 ~ p,
+.mixon-interior-page .text-center > p,
+.mixon-interior-page .text-center h1 + p,
+.mixon-interior-page p.mx-auto {
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+
+.mixon-interior-page h1 span.text-transparent {
+  color: var(--mixon-accent) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+.mixon-interior-page h2 {
+  color: var(--mixon-ink) !important;
+  font-family: 'PT Serif', serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  text-wrap: balance;
+}
+
+.mixon-interior-page h3 {
+  color: var(--mixon-ink);
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.mixon-interior-page section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type {
+  background-color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.mixon-interior-page section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 + p,
+.mixon-interior-page section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 ~ p {
+  max-width: 66ch;
+  color: var(--mixon-muted) !important;
+  font-size: clamp(1rem, 1.3vw, 1.125rem) !important;
+  line-height: 1.7 !important;
+}
+
+/* Product & Service Modern Gradient Hero: Pure White Typography & Custom Styling */
+.product-service-hero,
+.mixon-interior-page section.product-service-hero {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.product-service-hero h1,
+.mixon-contact-hero h1,
+.mixon-interior-page section.product-service-hero h1,
+.mixon-interior-page section[aria-label*="hero"] h1,
+.mixon-contact-hero .hero-title,
+.product-service-hero .hero-title {
+  color: #ffffff !important;
+  font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
+  max-width: 48rem !important;
+}
+
+.product-service-hero p,
+.mixon-contact-hero p:not(.bg-white *):not(form *),
+.mixon-interior-page section.product-service-hero p,
+.mixon-interior-page section[aria-label*="hero"] p:not(.bg-white *):not(form *),
+.product-service-hero .hero-subtitle {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.mixon-contact-hero .bg-white p,
+.mixon-contact-hero form p {
+  color: #9ca3af !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.product-service-hero .hero-badge,
+.product-service-hero .hero-badge span {
+  color: #ffffff !important;
+  font-weight: 400 !important;
+}
+
+.product-service-hero .hero-badge .hero-badge-icon,
+.product-service-hero .hero-badge .hero-badge-icon svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.mixon-interior-page section:not(:first-of-type) {
+  border-color: var(--mixon-line) !important;
+}
+
+.mixon-interior-page :is(button, a, input, textarea, select):focus-visible {
+  outline: 3px solid rgba(21, 88, 201, 0.38);
+  outline-offset: 3px;
+}
+
+.mixon-product-page section:not(:first-of-type):nth-of-type(even),
+.mixon-service-detail section:not(:first-of-type):nth-of-type(even),
+.mixon-services-page section:not(:first-of-type):nth-of-type(even),
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(:first-of-type):nth-of-type(even) {
+  background-color: #fff !important;
+}
+
+.mixon-product-page section:not(:first-of-type):nth-of-type(odd),
+.mixon-service-detail section:not(:first-of-type):nth-of-type(odd),
+.mixon-services-page section:not(:first-of-type):nth-of-type(odd),
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(:first-of-type):nth-of-type(odd) {
+  background-color: #ffffff !important;
+}
+
+.mixon-interior-page section[data-theme="dark"] h2,
+.mixon-interior-page section[data-theme="dark"] h3,
+.mixon-interior-page section.dark-section h2,
+.mixon-interior-page section.dark-section h3 {
+  color: #ffffff !important;
+}
+
+.mixon-interior-page :is(.rounded-2xl, .rounded-3xl)[class*="border"] {
+  border-color: #e6e5df !important;
+  box-shadow: 0 8px 24px rgba(21, 35, 58, 0.035);
+}
+
+.mixon-interior-page .grid > :is(button, a, article, div)[class*="rounded"][class*="border"] {
+  transition: border-color 180ms ease-out, box-shadow 180ms ease-out, transform 180ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mixon-interior-page .grid > :is(button, a, article, div)[class*="rounded"][class*="border"]:hover {
+    border-color: rgba(21, 88, 201, 0.28) !important;
+    box-shadow: 0 14px 30px rgba(21, 35, 58, 0.075);
+    transform: translateY(-2px);
+  }
+}
+
+/* The homepage hero and the pre-footer action stay outside this visual treatment. */
+.mixon-home-page #products,
+.mixon-home-page #services {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+}
+
+/* Editorial proof section placed immediately after the homepage hero. */
+.mixon-after-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.75rem, 5vw, 4.5rem) 1.25rem clamp(4rem, 6vw, 5.5rem);
+  background: #ffffff;
+  color: #10203a;
+}
+
+.mixon-after-hero::before {
+  position: absolute;
+  top: 24%;
+  left: -15rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(147, 194, 255, .2), rgba(147, 194, 255, 0) 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.mixon-after-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 78rem);
+  margin-inline: auto;
+}
+
+.mixon-proofline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  color: #5f6b7e;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .015em;
+}
+
+.mixon-proofline-dot {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: #1768e8;
+  box-shadow: 0 0 0 4px rgba(23, 104, 232, .1);
+}
+
+.mixon-client-marquee {
+  position: relative;
+  overflow: hidden;
+  margin: 1.2rem calc(50% - 50vw) clamp(3.25rem, 5.5vw, 4.75rem);
+  padding: .8rem 0;
+  border-top: 1px solid rgba(16, 32, 58, .08);
+  border-bottom: 1px solid rgba(16, 32, 58, .08);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.mixon-client-marquee-track,
+.mixon-client-marquee-group {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+
+.mixon-client-marquee-track {
+  animation: mixon-logo-drift 42s linear infinite;
+}
+
+.mixon-client-marquee:hover .mixon-client-marquee-track,
+.mixon-client-marquee:focus-within .mixon-client-marquee-track {
+  animation-play-state: paused;
+}
+
+.mixon-client-marquee-group { gap: clamp(2.75rem, 5.5vw, 5.5rem); padding-inline: clamp(1.5rem, 3vw, 3rem); }
+.mixon-client-logo { display: grid; width: clamp(7.5rem, 11vw, 10rem); height: 3.2rem; flex: 0 0 auto; place-items: center; }
+.mixon-client-logo img { display: block; max-width: 100%; max-height: 2.6rem; object-fit: contain; opacity: 1; filter: none; transition: opacity 220ms ease, transform 220ms ease; }
+.mixon-client-logo:hover img { opacity: 1; transform: scale(1.06); }
+
+.mixon-after-hero-story {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
+  padding: 0 clamp(0rem, 4vw, 3.25rem);
+}
+
+.mixon-story-visual {
+  position: relative;
+  display: grid;
+  min-height: 20rem;
+  place-items: center;
+  isolation: isolate;
+}
+
+.mixon-story-visual::before {
+  position: absolute;
+  z-index: -1;
+  width: min(78%, 21rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #fefefe 5%, #e7effb 65%, rgba(231,239,251,0) 70%);
+  content: "";
+}
+
+.mixon-story-orbit { position: absolute; width: min(95%, 25rem); aspect-ratio: 1; border: 1px solid rgba(9, 49, 115, .12); border-radius: 50%; }
+.mixon-story-orbit-outer { transform: rotate(-18deg) scaleY(.56); }
+.mixon-story-orbit-inner { width: min(78%, 20rem); border-color: rgba(0, 102, 255, .2); transform: rotate(45deg) scaleY(.62); }
+
+.mixon-story-core {
+  display: flex;
+  width: min(100%, 21rem);
+  min-height: 13.5rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: .85rem;
+  padding: 1.65rem;
+  border: 1px solid rgba(9, 49, 115, .1);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 20px 55px rgba(9, 49, 115, .1);
+  transform: rotate(-2deg);
+  animation: mixon-story-float 7s ease-in-out infinite;
+}
+
+.mixon-story-kicker { color: #687993; font: 600 .58rem/1.2 var(--font-mono); letter-spacing: .12em; }
+.mixon-story-core strong { color: #10203a; font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.1; }
+.mixon-story-products { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .1rem; }
+.mixon-story-products span { padding: .36rem .55rem; border-radius: 999px; background: #edf3fc; color: #29446b; font-size: .62rem; font-weight: 600; }
+.mixon-story-spark { position: absolute; color: #1768e8; font-size: 1.25rem; }
+.mixon-story-spark-one { top: 15%; right: 19%; }
+.mixon-story-spark-two { bottom: 17%; left: 18%; color: #c7a98b; font-size: .9rem; }
+
+.mixon-after-hero-copy { max-width: 39rem; }
+.mixon-section-eyebrow { color: #1768e8; font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.mixon-after-hero-copy h2 { max-width: 16ch; margin: .95rem 0 1rem; color: #10203a; font-family: 'PT Serif', serif !important; font-size: 2.25rem !important; font-weight: 400 !important; letter-spacing: -.045em; line-height: 1.15 !important; }
+.mixon-after-hero-copy p { max-width: 38rem; margin: 0; color: #5f6b7e; font-size: .98rem; line-height: 1.8; }
+.mixon-after-hero-link { display: inline-flex; align-items: center; gap: .65rem; margin-top: 1.4rem; padding: 0; border: 0; background: none; color: #093173; font-size: .88rem; font-weight: 700; cursor: pointer; transition: gap 180ms ease, color 180ms ease; }
+.mixon-after-hero-link:hover { gap: .9rem; color: #0066ff; }
+
+.mixon-after-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  border-top: 1px solid rgba(16, 32, 58, .12);
+}
+
+.mixon-after-hero-stat { min-width: 0; padding: 1.5rem clamp(.75rem, 2.2vw, 1.8rem) .1rem; border-right: 1px solid rgba(16, 32, 58, .1); }
+.mixon-after-hero-stat:first-child { padding-left: 0; }
+.mixon-after-hero-stat:last-child { border-right: 0; }
+.mixon-stat-value { display: block; color: #093173; font-size: clamp(1.85rem, 3.7vw, 3rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.1; }
+.mixon-stat-label { display: block; margin-top: .55rem; color: #172b49; font-size: .77rem; font-weight: 700; }
+.mixon-after-hero-stat p { margin: .42rem 0 0; color: #667184; font-size: .75rem; line-height: 1.55; }
+
+@keyframes mixon-logo-drift { to { transform: translateX(-50%); } }
+@keyframes mixon-story-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+
+@media (max-width: 760px) {
+  .mixon-after-hero-story { grid-template-columns: 1fr; gap: 2rem; padding-inline: 0; }
+  .mixon-story-visual { min-height: 17rem; }
+  .mixon-after-hero-copy { margin-inline: auto; text-align: center; }
+  .mixon-after-hero-copy h2 { margin-inline: auto; }
+  .mixon-after-hero-copy p { margin-inline: auto; }
+  .mixon-after-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mixon-after-hero-stat:nth-child(2) { border-right: 0; }
+  .mixon-after-hero-stat:nth-child(n+3) { border-top: 1px solid rgba(16, 32, 58, .1); }
+  .mixon-after-hero-stat:nth-child(3) { padding-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .mixon-after-hero-stat { padding-right: .6rem; padding-left: .6rem; }
+  .mixon-stat-value { font-size: 1.65rem; }
+  .mixon-stat-label, .mixon-after-hero-stat p { font-size: .68rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mixon-client-marquee-track, .mixon-story-core { animation: none; }
+  .mixon-after-hero-link { transition: none; }
+}
+
+.mixon-home-page #products > div,
+.mixon-home-page #services > div {
+  max-width: 78rem;
+}
+
+.mixon-home-page #products h2,
+.mixon-home-page #services h2,
+.mixon-home-page #how-we-work h2 {
+  max-width: 19ch;
+  font-family: 'PT Serif', serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.04em !important;
+  text-wrap: balance;
+}
+
+.mixon-home-page #products .sticky > div {
+  position: relative;
+  padding: clamp(1.25rem, 3vw, 2.25rem) !important;
+  border: 1px solid #e4e1d9;
+  border-radius: 24px;
+  background: linear-gradient(112deg, #fff 0%, #fff 45%, #f4f7fc 100%) !important;
+  box-shadow: 0 22px 54px rgba(23, 36, 58, 0.09);
+}
+
+.mixon-home-page #products .sticky:nth-child(even) > div {
+  background: linear-gradient(248deg, #fff 0%, #fff 46%, #f3f6fb 100%) !important;
+}
+
+@media (min-width: 1024px) {
+  .mixon-home-page #products .sticky:nth-child(even) .grid > div:first-child { order: 2; }
+  .mixon-home-page #products .sticky:nth-child(even) .grid > div:last-child { order: 1; }
+}
+
+.mixon-home-page #products .sticky [class*="aspect-"] {
+  border-radius: 18px;
+}
+
+.mixon-home-page #products .sticky h3 {
+  max-width: 15ch;
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
+  font-size: clamp(1.6rem, 2.7vw, 2.15rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.mixon-home-page #services {
+  background: #ffffff !important;
+}
+
+.mixon-home-page #services .grid > button {
+  min-height: 230px;
+  border-radius: 18px;
+  border-color: #e4e3dd;
+  box-shadow: 0 8px 24px rgba(23, 36, 58, 0.035);
+}
+
+/* SplitText wraps each responsive line so its reveal can be masked cleanly. */
+.mixon-split-line {
+  overflow: hidden;
+}
+
+[data-scroll-stagger-item] {
+  will-change: transform, opacity;
+}
+
+/* Product pages use an illustrated, product-specific workspace preview. */
+.mixon-product-spotlight {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  min-height: 410px;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid rgba(9, 49, 115, .11);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #e8eef7 0%, #eef0ec 55%, #f2e7dc 100%);
+  box-shadow: 0 22px 50px rgba(18, 36, 65, .11);
+}
+
+.mixon-product-spotlight::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: radial-gradient(ellipse at 82% 78%, rgba(21, 88, 201, .24), transparent 44%), radial-gradient(ellipse at 8% 8%, rgba(255, 255, 255, .9), transparent 42%);
+}
+
+.mixon-product-spotlight--events::before { background: radial-gradient(ellipse at 84% 82%, rgba(208, 117, 67, .25), transparent 44%), radial-gradient(ellipse at 8% 8%, rgba(255,255,255,.9), transparent 42%); }
+.mixon-product-spotlight--reserve::before { background: radial-gradient(ellipse at 84% 82%, rgba(92, 135, 128, .22), transparent 44%), radial-gradient(ellipse at 8% 8%, rgba(255,255,255,.9), transparent 42%); }
+
+.spotlight-orbit { position: absolute; z-index: -1; border: 1px solid rgba(21, 88, 201, .14); border-radius: 50%; pointer-events: none; }
+.spotlight-orbit--one { width: 310px; height: 310px; right: -120px; bottom: -165px; }
+.spotlight-orbit--two { width: 220px; height: 220px; right: -75px; bottom: -120px; }
+.spotlight-audience { display: grid; gap: 5px; margin: 0 0 15px; }
+.spotlight-audience > span,
+.spotlight-preview-tag,
+.spotlight-product-label small,
+.spotlight-preview-content > div > span,
+.spotlight-preview-heading > div > span,
+.spotlight-stat-row span,
+.spotlight-table-head,
+.spotlight-event-card > div:last-child > span,
+.spotlight-pos-summary > div > span {
+  color: #58677e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+.spotlight-audience strong { color: #17243a; font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+.spotlight-audience p { max-width: 36ch; margin: 0; color: #536075; font-size: 11px; line-height: 1.5; }
+.spotlight-product-label { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+.spotlight-brand-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 9px; background: #0b367c; color: #fff; }
+.spotlight-product-label > span:nth-child(2) { display: grid; gap: 2px; }
+.spotlight-product-label b { color: #16243a; font-size: 10px; font-weight: 700; letter-spacing: .02em; }
+.spotlight-product-label small { font-size: 8px; }
+.spotlight-preview-tag { margin-left: auto; padding: 5px 7px; border: 1px solid rgba(9,49,115,.13); border-radius: 999px; background: rgba(255,255,255,.55); font-size: 7px; white-space: nowrap; }
+.spotlight-window { overflow: hidden; border: 1px solid rgba(23,36,58,.11); border-radius: 14px; background: #fff; box-shadow: 0 9px 25px rgba(23,36,58,.09); }
+.spotlight-window-top { display: flex; align-items: center; justify-content: space-between; min-height: 34px; padding: 0 12px; border-bottom: 1px solid #edf0f2; color: #536075; font-size: 9px; font-weight: 600; }
+.spotlight-window-dots { display: flex; gap: 4px; }
+.spotlight-window-dots i { width: 5px; height: 5px; border-radius: 50%; background: #d7dce3; }
+.spotlight-preview-content { display: grid; gap: 10px; padding: 12px; color: #25324a; font-size: 9px; }
+.spotlight-preview-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.spotlight-preview-heading > div { display: grid; gap: 3px; }
+.spotlight-preview-heading > div > span { font-size: 8px; letter-spacing: .04em; }
+.spotlight-preview-heading > div > strong { color: #1a2942; font-size: 13px; font-weight: 650; letter-spacing: -.02em; }
+.spotlight-date { padding: 6px 8px; border: 1px solid #e9edf1; border-radius: 6px; background: #fbfcfd; color: #536075; font-size: 8px; white-space: nowrap; }
+.spotlight-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.spotlight-stat-row > div { display: grid; gap: 5px; padding: 9px; border: 1px solid #edf0f2; border-radius: 8px; background: #fafbfc; }
+.spotlight-stat-row span { font-size: 7px; letter-spacing: .04em; }
+.spotlight-stat-row strong { color: #20324c; font-size: 9px; font-weight: 600; }
+.spotlight-table { overflow: hidden; border: 1px solid #edf0f2; border-radius: 8px; }
+.spotlight-table > div { display: grid; grid-template-columns: 1.4fr .45fr .8fr; align-items: center; gap: 5px; min-height: 29px; padding: 0 7px; border-top: 1px solid #f0f2f4; font-size: 7px; }
+.spotlight-table > div > span:first-child { display: flex; align-items: center; gap: 5px; }
+.spotlight-table-head { min-height: 22px !important; border-top: 0 !important; background: #fafbfc; font-size: 6px !important; }
+.spotlight-table b { display: inline-flex; align-items: center; gap: 3px; color: #237a5d; font-size: 7px; font-weight: 600; }
+.spotlight-status-muted { color: #8b6a2f !important; }
+.spotlight-dot { width: 5px; height: 5px; border-radius: 50%; background: #8e9aab; }
+.spotlight-dot--blue { background: #3176cf; }
+.spotlight-dot--gold { background: #c69554; }
+.spotlight-calendar-head,
+.spotlight-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; }
+.spotlight-calendar-head span { padding: 6px 0 2px; color: #7b8798; font-size: 6px; font-weight: 700; }
+.spotlight-calendar-grid span { display: grid; min-height: 29px; place-items: center; border-radius: 5px; background: #f7f8fa; color: #4d5a6d; font-size: 8px; }
+.spotlight-calendar-grid .spotlight-booked { background: #f4e8dd; color: #875534; }
+.spotlight-calendar-grid .spotlight-booked--blue { background: #e6effb; color: #225aa0; }
+.spotlight-calendar-grid small { font-size: 5px; }
+.spotlight-list-row,
+.spotlight-pos-summary { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #edf0f2; border-radius: 8px; background: #fbfcfd; }
+.spotlight-list-row > span:nth-child(2),
+.spotlight-pos-summary > div { display: grid; flex: 1; gap: 3px; }
+.spotlight-list-row b,
+.spotlight-pos-summary strong { color: #25324a; font-size: 8px; font-weight: 600; }
+.spotlight-list-row small { color: #6e7988; font-size: 7px; }
+.spotlight-icon { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 7px; background: #eaf1fb; color: #2059a5; }
+.spotlight-live { display: flex; align-items: center; gap: 5px; color: #237a5d; font-size: 7px; font-weight: 700; letter-spacing: .05em; }
+.spotlight-live i { width: 5px; height: 5px; border-radius: 50%; background: #34a57a; }
+.spotlight-event-card { display: flex; align-items: center; gap: 9px; padding: 9px; border-radius: 9px; background: #f4f7fc; }
+.spotlight-ticket-art { display: grid; width: 48px; height: 56px; place-items: center; align-content: center; gap: 4px; border-radius: 6px; background: #13356d; color: white; }
+.spotlight-ticket-art span { font-size: 5px; letter-spacing: .08em; }
+.spotlight-event-card > div:last-child { display: grid; gap: 4px; }
+.spotlight-event-card > div:last-child > span { color: #8b6a53; font-size: 6px; }
+.spotlight-event-card > div:last-child > strong { color: #25324a; font-size: 10px; }
+.spotlight-event-card > div:last-child > small { color: #6e7988; font-size: 7px; }
+.spotlight-status-pill { padding: 4px 6px; border-radius: 999px; background: #e8f4ed; color: #267553; font-size: 6px; font-weight: 700; letter-spacing: .06em; }
+.spotlight-pos-summary > div > span { font-size: 7px; letter-spacing: .04em; }
+.spotlight-stock-list { display: grid; gap: 6px; }
+.spotlight-stock-list > div { display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px solid #edf0f2; font-size: 8px; }
+.spotlight-stock-list > div > span { display: flex; align-items: center; gap: 6px; }
+.spotlight-stock-list b { color: #536075; font-size: 7px; font-weight: 500; }
+.mixon-product-spotlight figcaption { margin-top: 7px; color: #637086; font-size: 8px; text-align: right; }
+
+.mixon-service-spotlight {
+  position: relative;
+  isolation: isolate;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(9, 49, 115, .12);
+  border-radius: 24px;
+  background: #dfe6ef;
+  box-shadow: 0 22px 50px rgba(18, 36, 65, .12);
+}
+.mixon-service-spotlight > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.mixon-service-spotlight-scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11, 31, 62, .03) 15%, rgba(11, 31, 62, .2) 48%, rgba(11, 31, 62, .88) 100%); }
+.mixon-service-spotlight-content { position: absolute; right: 20px; bottom: 54px; left: 20px; display: grid; gap: 7px; color: white; }
+.mixon-service-spotlight-content > span { color: rgba(255,255,255,.76); font-size: 9px; font-weight: 700; letter-spacing: .13em; }
+.mixon-service-spotlight-content strong { max-width: 20ch; font-size: 20px; font-weight: 550; letter-spacing: -.025em; line-height: 1.15; }
+.mixon-service-spotlight-content p { max-width: 40ch; margin: 0; color: rgba(255,255,255,.86); font-size: 12px; line-height: 1.55; }
+.mixon-service-spotlight figcaption { position: absolute; top: 14px; right: 14px; left: 14px; display: flex; justify-content: space-between; gap: 8px; color: white; font-size: 8px; font-weight: 650; letter-spacing: .08em; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+.mixon-service-spotlight figcaption span:last-child { font-weight: 450; letter-spacing: .01em; }
+
+@media (max-width: 640px) {
+  .mixon-product-spotlight { min-height: 0; padding: 15px; border-radius: 19px; }
+  .mixon-service-spotlight { min-height: 300px; border-radius: 19px; }
+  .spotlight-audience { margin-bottom: 12px; }
+}
+
+@media (max-width: 640px) {
+  .mixon-interior-page h1 {
+    font-size: clamp(2.15rem, 10vw, 2.75rem) !important;
+  }
+
+  .mixon-interior-page h2 {
+    font-size: 2.25rem !important;
+  }
+
+  .mixon-interior-page section:first-of-type h1 + p,
+  .mixon-interior-page section:first-of-type h1 ~ p {
+    font-size: 1rem !important;
+  }
+
+  .mixon-home-page #products .sticky > div {
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(23, 36, 58, 0.055);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mixon-interior-page .grid > :is(button, a, article, div)[class*="rounded"][class*="border"] {
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* ==========================================================================
+   CANOPY MARQUEE ANIMATIONS (Testimonials With Marquee)
+   ========================================================================== */
+@keyframes canopy-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1.5rem)));
+  }
+}
+
+@keyframes canopy-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap, 1.5rem)));
+  }
+}
+
+.animate-canopy-x {
+  animation: canopy-x var(--duration, 40s) linear infinite;
+}
+
+.animate-canopy-x-reverse {
+  animation: canopy-x var(--duration, 40s) linear infinite reverse;
+}
+
+/* Pause testimonials marquee on hover */
+.group\/testimonials:hover .animate-canopy-x,
+.group\/testimonials:hover .animate-canopy-x-reverse,
+.animate-canopy-x:hover,
+.animate-canopy-x-reverse:hover,
+.animate-canopy-x:has(:hover),
+.animate-canopy-x-reverse:has(:hover) {
+  animation-play-state: paused !important;
+}
+
+.animate-canopy-y {
+  animation: canopy-y var(--duration, 40s) linear infinite;
+}
+
+/* ==========================================================================
+   LENIS SMOOTH SCROLLING STYLES
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.mixon-service-capabilities {
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(16, 32, 58, .08);
+  background:
+    radial-gradient(85% 105% at 100% 0%, rgba(221, 235, 255, .95) 0%, rgba(236, 243, 253, .72) 35%, transparent 74%),
+    radial-gradient(85% 100% at 0% 100%, rgba(255, 233, 232, .74) 0%, rgba(255, 243, 242, .55) 36%, transparent 76%),
+    #f9f9fb;
+  color: #10203a;
+}
+.mixon-service-capabilities-inner { width: min(100%, 78rem); margin-inline: auto; }
+.mixon-service-capabilities-header { max-width: 48rem; margin: 0 auto clamp(2.3rem, 4vw, 3.6rem); text-align: center; }
+.mixon-service-capabilities-eyebrow { display: inline-block; margin-bottom: .8rem; color: #1768e8; font: 600 .68rem/1.4 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
+.mixon-service-capabilities-header h2 { margin: 0; color: #10203a; font-family: 'PT Serif', Georgia, serif !important; font-size: clamp(2rem, 3.4vw, 2.65rem) !important; font-weight: 400 !important; letter-spacing: -.035em; line-height: 1.16 !important; text-wrap: balance; }
+.mixon-service-capabilities-header p { max-width: 43rem; margin: .8rem auto 0; color: #647084; font-size: .98rem !important; line-height: 1.65; }
+.mixon-service-capabilities-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.9rem, 1.5vw, 1.25rem); }
+.mixon-service-capability-card {
+  position: relative;
+  display: flex;
+  min-height: 17rem;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2vw, 1.7rem);
+  overflow: hidden;
+  border: 1px solid rgba(16, 32, 58, .085);
+  border-radius: .75rem;
+  box-shadow: 0 12px 34px rgba(16, 32, 58, .035);
+  isolation: isolate;
+}
+.mixon-service-capability-card-0 { background: linear-gradient(150deg, #fff2e9 0%, #fffaf7 75%, #fff 100%); }
+.mixon-service-capability-card-1 { background: linear-gradient(150deg, #edf3ff 0%, #f9fbff 75%, #fff 100%); }
+.mixon-service-capability-card-2 { background: linear-gradient(150deg, #f3efff 0%, #fbfaff 75%, #fff 100%); }
+.mixon-service-capability-card-3 { background: linear-gradient(150deg, #eaf8f2 0%, #f9fcfa 75%, #fff 100%); }
+.mixon-service-capability-icon { display: grid; width: 2.8rem; height: 2.8rem; place-items: center; border: 1px solid rgba(16, 32, 58, .08); border-radius: .65rem; background: rgba(255, 255, 255, .72); color: #15345e; }
+.mixon-service-capability-copy { margin-top: auto; padding-top: 2rem; }
+.mixon-service-capability-copy h3 { max-width: 29ch; margin: 0; color: #15233a; font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important; font-size: 1.12rem !important; font-weight: 600 !important; letter-spacing: -.025em; line-height: 1.35 !important; }
+.mixon-service-capability-copy p { margin: .65rem 0 0; color: #5f6b7e; font-size: .88rem !important; line-height: 1.68; }
+@media (max-width: 900px) { .mixon-service-capabilities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .mixon-service-capabilities { padding-inline: 1.1rem; }
+  .mixon-service-capabilities-header { margin-bottom: 2rem; }
+  .mixon-service-capabilities-header p { font-size: .9rem !important; }
+  .mixon-service-capabilities-grid { grid-template-columns: 1fr; gap: .8rem; }
+  .mixon-service-capability-card { min-height: 15rem; padding: 1.25rem; }
+  .mixon-service-capability-copy { padding-top: 1.5rem; }
+}
+/* Open, icon-led process layout inspired by the supplied three-column reference. */
+.mixon-process-section {
+  padding: clamp(4.75rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4rem);
+  background: #fff;
+  color: #10203a;
+}
+.mixon-process-inner { width: min(100%, 78rem); margin-inline: auto; }
+.mixon-process-header { max-width: 48rem; margin: 0 auto clamp(2.8rem, 5vw, 4.25rem); text-align: center; }
+.mixon-process-eyebrow { display: inline-block; margin-bottom: .75rem; color: #1768e8; font: 600 .68rem/1.4 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
+.mixon-process-header h2 { margin: 0; color: #10203a; font-family: 'PT Serif', Georgia, serif !important; font-size: clamp(2rem, 3.4vw, 2.65rem) !important; font-weight: 400 !important; letter-spacing: -.035em; line-height: 1.16 !important; text-wrap: balance; }
+.mixon-process-header p { max-width: 45rem; margin: .8rem auto 0; color: #647084; font-size: .98rem !important; line-height: 1.65; }
+.mixon-process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4.5rem); }
+.mixon-process-grid[data-count='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); }
+.mixon-process-step { min-width: 0; text-align: left; }
+.mixon-process-icon { display: grid; width: 3.8rem; height: 3.8rem; place-items: center; margin-bottom: 1.45rem; border-radius: 50%; }
+.mixon-process-icon-blue { background: #edf4ff; color: #1768e8; }
+.mixon-process-icon-lilac { background: #f3efff; color: #8066dc; }
+.mixon-process-icon-mint { background: #e9f8f2; color: #128263; }
+.mixon-process-icon-amber { background: #fff5e5; color: #b7791f; }
+.mixon-process-step h3 { margin: 0; color: #13233c; font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important; font-size: 1.15rem !important; font-weight: 600 !important; letter-spacing: -.025em; line-height: 1.35 !important; }
+.mixon-process-step p { max-width: 34rem; margin: .7rem 0 0; color: #5f6b7e; font-size: .94rem !important; line-height: 1.72; }
+@media (max-width: 900px) {
+  .mixon-process-grid, .mixon-process-grid[data-count='4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6rem 2rem; }
+}
+@media (max-width: 560px) {
+  .mixon-process-section { padding-inline: 1.2rem; }
+  .mixon-process-header { margin-bottom: 2.5rem; }
+  .mixon-process-grid, .mixon-process-grid[data-count='4'] { grid-template-columns: 1fr; gap: 2rem; }
+  .mixon-process-icon { width: 3.25rem; height: 3.25rem; margin-bottom: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mixon-process-section [style*='transform'] { transition: none !important; }
+}
+
+.mixon-service-faq { padding: clamp(5rem, 8vw, 7.5rem) clamp(1.25rem, 4vw, 4rem); background: #fff; color: #10203a; }
+.mixon-service-faq-inner { width: min(100%, 76rem); margin-inline: auto; }
+.mixon-service-faq-header { margin: 0 auto clamp(3rem, 5vw, 4.5rem); text-align: center; }
+.mixon-service-faq-header h2 { margin: 0; color: #10203a; font-family: 'PT Serif', Georgia, serif !important; font-size: clamp(2.2rem, 4vw, 3.35rem) !important; font-weight: 400 !important; letter-spacing: -.04em; line-height: 1.1 !important; }
+.mixon-service-faq-header h2 em { color: #111827; font-weight: 400; }
+.mixon-service-faq-list { border-top: 1px solid #dfe3e9; }
+.mixon-service-faq-item { border-bottom: 1px solid #dfe3e9; }
+.mixon-service-faq-question { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.65rem 0; border: 0; background: transparent; color: #111827; text-align: left; font: 500 clamp(1.05rem, 1.65vw, 1.45rem)/1.4 AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif; cursor: pointer; }
+.mixon-service-faq-question > span:first-child { max-width: 58rem; }
+.mixon-service-faq-toggle { display: grid; width: 2.75rem; height: 2.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #f3f5f8; color: #536174; transition: color 180ms ease, background 180ms ease, transform 180ms ease; }
+.mixon-service-faq-toggle.is-open { background: #edf4ff; color: #1768e8; }
+.mixon-service-faq-question:hover .mixon-service-faq-toggle { background: #e8f0ff; color: #1768e8; }
+.mixon-service-faq-answer { overflow: hidden; }
+.mixon-service-faq-answer p { max-width: 61rem; margin: 0; padding: 0 4.25rem 1.8rem 0; color: #5f6b7e; font-size: clamp(1rem, 1.3vw, 1.15rem) !important; line-height: 1.72; }
+@media (max-width: 600px) {
+  .mixon-service-faq { padding-inline: 1.2rem; }
+  .mixon-service-faq-header { margin-bottom: 2.5rem; }
+  .mixon-service-faq-question { padding: 1.25rem 0; gap: 1rem; }
+  .mixon-service-faq-toggle { width: 2.35rem; height: 2.35rem; }
+  .mixon-service-faq-answer p { padding-right: .25rem; padding-bottom: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mixon-service-faq-toggle { transition: none; }
+}
+
+
+/* =====================================================================
+   Vessa-inspired Dither-Field CTA Section
+   Full-width accent background with Bayer-dither dot texture and
+   centered solid-accent plate card.
+   ===================================================================== */
+
+.dither-cta-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #075be7;
+  background-image:
+    linear-gradient(135deg, rgba(3, 81, 226, .72), rgba(9, 48, 113, .72)),
+    url('https://media.base44.com/images/public/marketing-site-assets/grunge-cover.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dither dot pattern overlay — Bayer-like halftone texture using radial-gradient */
+.dither-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.12) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0.8px, transparent 0.8px),
+    radial-gradient(circle at 0% 50%, rgba(255,255,255,0.10) 0.8px, transparent 0.8px);
+  background-size: 6px 6px, 8px 8px, 10px 10px, 12px 12px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.38;
+}
+
+/* Subtle animated wave band overlays for depth */
+.dither-cta-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 50%, rgba(3, 81, 226, .16) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 50%, rgba(3, 81, 226, .13) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 50% 90%, rgba(9, 48, 113, .1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+/* Open CTA layout keeps the texture visible behind the full content group. */
+.dither-cta-plate {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border-radius: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.35rem, 2.4vw, 2rem);
+  width: min(72rem, 100%);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 5vw, 4rem);
+}
+
+/* Title inside the plate */
+.dither-cta-plate h2 {
+  font-weight: 600 !important;
+  font-size: clamp(1.85rem, 3vw, 2.75rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.03em !important;
+  color: #ffffff !important;
+  max-width: 30ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Description inside the plate */
+.dither-cta-plate .dither-cta-desc {
+  font-size: clamp(.98rem, 1.2vw, 1.08rem) !important;
+  line-height: 1.72 !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  max-width: 66ch;
+  margin: 0;
+}
+
+.service-grunge-cta > img { filter: saturate(1.08); }
+.service-grunge-cta > div.absolute { background: linear-gradient(135deg, rgba(3, 81, 226, .72), rgba(9, 48, 113, .72)); }
+.service-grunge-cta > div.relative { max-width: 76rem; min-height: 0; padding-block: clamp(5rem, 10vw, 8.5rem); }
+.service-grunge-cta h2 { max-width: 30ch; color: #fff !important; font-size: clamp(1.85rem, 3vw, 2.75rem) !important; line-height: 1.12 !important; }
+.service-grunge-cta p { max-width: 66ch; color: rgba(255,255,255,.86) !important; font-size: clamp(.98rem, 1.2vw, 1.08rem) !important; line-height: 1.72 !important; }
+
+/* CTA button — white with accent-colored text, matching Vessa's inverted CTA */
+.dither-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 42px;
+  padding-inline: 20px;
+  background: #ffffff;
+  color: #0052D4;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.dither-cta-btn:hover {
+  background: #f0f4ff;
+  transform: scale(1.03);
+}
+
+.dither-cta-btn:active {
+  transform: scale(0.97);
+}
+
+/* Keep section transitions clean; component and card borders remain intact. */
+main section.border-t,
+main section.border-b,
+main section.border-y {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
+/* ========================================================================= */
+/* UnifyOperationsSection (Jeton-inspired scatter-to-stack + sticky trail)   */
+/* ========================================================================= */
+.unify-operations .unify-stage-track {
+  height: 200vh;
+  margin-bottom: -40vh;
+}
+
+.unify-operations h2.unify-headline,
+.unify-operations h2.unify-headline * {
+  font-family: 'PT Serif', serif !important;
+  font-size: clamp(50px, 26px + 4.8vw, 108px) !important;
+  font-weight: 400 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.unify-operations .unify-snippets li.unify-slot {
+  position: absolute;
+}
+
+.unify-operations .unify-snippet {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unify-operations .unify-snippet {
+    opacity: 1;
+  }
+}
+
+.unify-operations .unify-slot-1 {
+  left: 14%;
+  top: 20%;
+  width: clamp(160px, 15.2vw, 244px);
+  z-index: 1;
+}
+
+.unify-operations .unify-slot-2 {
+  right: 13.5%;
+  top: 19%;
+  width: clamp(164px, 15.2vw, 232px);
+  z-index: 4;
+}
+
+.unify-operations .unify-slot-3 {
+  right: 10.5%;
+  bottom: 14%;
+  width: clamp(168px, 15.8vw, 248px);
+  z-index: 2;
+}
+
+.unify-operations .unify-slot-4 {
+  left: 33%;
+  bottom: 6.5%;
+  width: clamp(154px, 14.2vw, 214px);
+  z-index: 5;
+}
+
+.unify-operations .unify-slot-5 {
+  left: 5.5%;
+  top: 41%;
+  width: clamp(160px, 15.4vw, 232px);
+  z-index: 3;
+}
+
+@media only screen and (max-width: 1290px) {
+  .unify-operations .unify-slot-1 {
+    left: 10%;
+    top: 20%;
+  }
+  .unify-operations .unify-slot-3 {
+    right: 6%;
+    bottom: 14%;
+  }
+  .unify-operations .unify-slot-4 {
+    left: 31%;
+    bottom: 6%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .unify-operations .unify-slot-1 {
+    left: 8%;
+    top: 20%;
+  }
+  .unify-operations .unify-slot-2 {
+    right: 8%;
+    top: 19%;
+  }
+  .unify-operations .unify-slot-3 {
+    right: 7%;
+    bottom: 16%;
+  }
+  .unify-operations .unify-slot-4 {
+    left: 32%;
+    bottom: 6%;
+  }
+  .unify-operations .unify-slot-5 {
+    left: 6%;
+    bottom: 21%;
+    top: auto;
+  }
+}
+
+@media only screen and (max-width: 743px) {
+  .unify-operations .unify-stage-track {
+    height: 128svh;
+    margin-bottom: -4svh;
+  }
+  .unify-operations .unify-slot-1 {
+    left: 4%;
+    top: 17%;
+    width: clamp(114px, 31vw, 148px);
+  }
+  .unify-operations .unify-slot-2 {
+    right: 4%;
+    top: 17%;
+    width: clamp(128px, 34vw, 162px);
+  }
+  .unify-operations .unify-slot-3 {
+    right: 4%;
+    bottom: 18%;
+    width: clamp(116px, 31vw, 148px);
+  }
+  .unify-operations .unify-slot-4 {
+    left: 28%;
+    bottom: 4%;
+    width: clamp(126px, 36vw, 160px);
+  }
+  .unify-operations .unify-slot-5 {
+    left: 4%;
+    bottom: 19%;
+    top: auto;
+    width: clamp(126px, 35vw, 160px);
+  }
+}
+
+.unify-operations .unify-taglines {
+  --unify-row-step: clamp(44px, 24px + 3.5vw, 74px);
+}
+
+.unify-operations .unify-taglines li {
+  height: 100vh;
+  margin-top: calc(-80vh + var(--unify-row-step));
+  padding-top: 52vh;
+  position: sticky;
+  top: 0;
+  transform: translateY(calc((var(--index) - var(--items) * 0.5 + 0.5) * var(--unify-row-step)));
+}
+
+.unify-operations .unify-taglines li:first-child {
+  margin-top: 0;
+}
+
+.unify-operations .unify-taglines li.unify-tagline-spacer {
+  height: 32vh;
+  margin-top: 0;
+  padding-top: 0;
+  transform: none;
+}
+
+.unify-operations .unify-tagline-title {
+  font-size: clamp(28px, 16px + 3vw, 58px);
+}
+
+@media only screen and (max-width: 743px) {
+  .unify-operations .unify-taglines {
+    --unify-row-step: clamp(44px, 32px + 2vw, 56px);
+  }
+  .unify-operations .unify-taglines li {
+    height: 54svh;
+    margin-top: calc(-44svh + var(--unify-row-step));
+    padding-top: 22svh;
+  }
+  .unify-operations .unify-taglines li:first-child {
+    margin-top: 0;
+  }
+  .unify-operations .unify-taglines li.unify-tagline-spacer {
+    height: 12svh;
+  }
+}
+
+/* ==========================================================================
+   SERVICES GRID (DESIGN 1) & WORK STEPPER SERIF STEP HEADINGS
+   ========================================================================== */
+#services-stack h2.services-editorial-heading,
+#services-stack h2.services-editorial-heading * {
+  font-family: 'PT Serif', serif !important;
+  font-size: clamp(38px, 3.6vw, 56px) !important;
+  font-weight: 400 !important;
+  line-height: 1.14 !important;
+  letter-spacing: -0.025em !important;
+}
+
+#services-stack h3.service-card-title,
+#services-stack h3.service-card-title *,
+#how-it-works h3.stepper-step-title,
+#how-it-works h3.stepper-step-title * {
+  font-family: 'PT Serif', serif !important;
+  font-weight: 400 !important;
+  line-height: 1.24 !important;
+}
+
+#about-metrics h3.about-metric-title,
+#about-metrics h3.about-metric-title * {
+  font-family: 'PT Serif', serif !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}

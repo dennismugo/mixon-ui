@@ -1,0 +1,33 @@
+# Robots & AI Crawler Policy for Mixon
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Search & AI Answer Engines explicitly welcomed
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://mixonsoftwares.co.ke/sitemap.xml
+# AI Markdown Directory: https://mixonsoftwares.co.ke/llms.txt
+# Full AI Knowledge Base: https://mixonsoftwares.co.ke/llms-full.txt

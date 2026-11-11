@@ -1,0 +1,432 @@
+# Mixon — Complete Platform & Service Reference
+
+> Intelligent property, hospitality, retail POS, and event ticketing software for Africa, alongside custom web, mobile, USSD, M-Pesa, and AI engineering.
+
+## Organization Profile
+- **Brand:** Mixon
+- **Legal / Heritage:** Mixon (Shiva Softwares Africa) (Mixon builds on the experience of Shiva Softwares Africa.)
+- **Primary Website:** https://mixonsoftwares.co.ke/
+- **Headquarters:** Mihrab Building, 15th Floor, Ring Road Kilimani, Nairobi, Kenya
+- **Service Regions:** Kenya, East Africa, Africa (plus global remote delivery)
+- **Email:** info@mixonsoftwares.co.ke, contact@mixonsoftwares.co.ke
+- **Telephone:** +254713958492, +254741733878
+- **Security & Compliance:** TLS 1.3 encryption in transit, AES-256 at rest, automated multi-region daily backups, PCI-DSS aligned payment flows, and 99.95% enterprise uptime SLA.
+
+---
+
+## Pricing Plans (KES & USD)
+
+### Starter — KES 25,000/mo ($200/mo USD; 20% discount annually)
+- Summary: For exploring & early-stage business setups
+- Key scope: Up to 5 custom pages included
+- Mobile-first responsive architecture
+- Sub-second load times & SSL
+- Direct inquiry capture form
+- Delivery in 7–10 business days
+
+### Growth — KES 40,500/mo ($325/mo USD; 20% discount annually)
+- Summary: For expanding businesses & dynamic publishing
+- Key scope: CMS & Structured Schema included
+- Everything in Starter
+- Intuitive Content Management (CMS)
+- AEO & GEO Answer-Engine schema
+- WhatsApp notifications & alerts
+- 30 days post-launch SLA support
+
+### Pro — KES 75,500/mo ($600/mo USD; 20% discount annually)
+- Summary: For high-concurrency commercial operations
+- Key scope: Direct Payment Rails & Portals
+- Everything in Growth
+- M-Pesa Daraja STK Push & Card Rails
+- Custom client portals & calculators
+- Zero-leakage settlement webhooks
+- Dedicated technical engineer support
+
+### Scale — KES 145,000/mo ($1150/mo USD; 20% discount annually)
+- Summary: For multi-branch & high-volume teams
+- Key scope: Dedicated Concurrency & APIs
+- Everything in Pro
+- Custom REST & GraphQL endpoints
+- Multi-department role permissions
+- Hourly automated ledger backups
+- Dedicated technical account lead
+
+### Enterprise — KES 250,000/mo ($2000/mo USD; 20% discount annually)
+- Summary: Tailored multi-system rollout & private SLA
+- Key scope: Private SLA & Telco Rails
+- Custom telco USSD shortcodes
+- Dedicated staging & load tests
+- 99.95% uptime contract SLA
+
+### Custom — Custom quote
+- Summary: Bespoke platforms & end-to-end engineering
+- Key scope: 100% Bespoke Codebase & IP
+- 100% client intellectual property ownership
+- Dedicated product engineering squad
+- Custom architecture, USSD, ERP & payment middleware
+
+---
+
+## Mixon Software & Engineering (https://mixonsoftwares.co.ke/)
+**Headline:** Less time managing tasks. More time to grow.
+
+From rent collection and bookings to ticket sales and stock control, Mixon helps businesses across Kenya and Africa automate operations with native M-Pesa Daraja reconciliation, offline-first resilience, and custom engineering.
+
+### Key Facts & Specifications
+- 4 flagship platforms: miRentals (Property Ops), miReserve (Hospitality & Stays), Event Yetu (Ticketing & Gates), miPOS (Offline Retail POS).
+- 6 custom engineering services: Web Design & Development, Mobile Apps & USSD, Search/AEO/GEO, M-Pesa & Payment Integrations, E-Commerce, and AI Automation.
+- Direct Safaricom Daraja STK Push, C2B/B2C, card rails, TLS 1.3 / AES-256 encryption, and 99.95% SLA.
+- Headquartered in Nairobi, Kenya (Mihrab Building, 15th Floor, Ring Road Kilimani), building on the experience of Shiva Softwares Africa.
+
+#### Frequently Asked Questions
+- **Q: Which Mixon platform is right for our operational scale?**
+  A: We evaluate your daily operations and transaction volume to recommend the optimal platform—whether you manage multi-unit commercial real estate (miRentals), short-stay vacation rentals (miReserve), multi-terminal retail stores (miPOS), or high-attendance ticketed events (Event Yetu).
+- **Q: Can Mixon integrate with our existing banks and M-Pesa Paybill / Till?**
+  A: Yes. Mixon connects directly to Safaricom Daraja STK Push, C2B/B2C rails, and East African commercial banking APIs. Payments are reconciled automatically with instant ledger confirmation and zero manual data entry.
+- **Q: Does miReserve prevent double bookings across Airbnb and Booking.com?**
+  A: Yes. Our sub-second calendar synchronization engine locks dates across all connected OTAs and your direct booking portal within 14 milliseconds of an incoming reservation, completely eradicating double-booking errors.
+- **Q: How does miPOS continue operating during internet connectivity dips?**
+  A: Our point-of-sale terminals feature an offline-first indexed data engine. Cashiers can continue scanning, issuing receipts, and recording orders without delay; all transactions sync automatically to the cloud ledger as soon as connectivity resumes.
+- **Q: What is the implementation timeline and developer SLA?**
+  A: Standard production onboarding takes between 3 to 10 business days. Every enterprise client is assigned a dedicated technical specialist, backed by our 99.95% uptime SLA and 1-business-day response guarantee.
+- **Q: How do you handle data security, backups, and privacy compliance?**
+  A: All data is encrypted in transit using TLS 1.3 and at rest with AES-256. We maintain automated multi-region daily backups and strict access controls compliant with regional data protection acts and international PCI-DSS standards for financial transactions.
+- **Q: Can our existing customer and product data be imported seamlessly?**
+  A: Yes. Our dedicated onboarding team handles complete data migration from legacy spreadsheets, old ERPs, or point-of-sale systems. We validate, sanitize, and verify historical records before going live to ensure zero operational downtime.
+- **Q: Do you offer staff training and ongoing technical support?**
+  A: Every rollout includes guided team training sessions, localized video walkthroughs, and plain-language operator cheat sheets. Our support team is available via direct WhatsApp channels and priority email with rapid turnaround times.
+- **Q: Can you build custom features or integrations specific to our business workflow?**
+  A: Absolutely. In addition to our core platforms, Mixon engineers custom API middleware, automated webhook pipelines, and bespoke client portals to adapt software around your exact organizational structure.
+
+---
+
+## miRentals · Property Ops (https://mixonsoftwares.co.ke/mirentals)
+**Headline:** Know what is occupied. Make rent collection effortless.
+
+miRentals replaces manual spreadsheets and rent books with automated tenant ledgers, instant M-Pesa Paybill/Till matching under 2 seconds, tiered utility billing, and role-based landlord/caretaker portals.
+
+### Key Facts & Specifications
+- Cryptographic M-Pesa Daraja STK Push & Paybill/Till matching in under 2 seconds with instant SMS receipts.
+- Intelligent partial/installment rent balance allocation against oldest arrears and utilities.
+- Role-based access for landlords, property managers, caretakers, and auditors.
+- Standard property data migration and go-live within 24 to 48 hours.
+
+#### Frequently Asked Questions
+- **Q: Does miRentals replace my existing Excel spreadsheets and physical rent books?**
+  A: Yes, completely. miRentals is built to replace error-prone spreadsheets, manual receipt books, and disparate WhatsApp chats. It automatically imports your current unit roster, assigns lease terms, and maintains a real-time ledger for every unit with zero manual reconciliation required.
+- **Q: How does M-Pesa automated reconciliation work when tenants pay?**
+  A: We integrate directly with Safaricom Daraja STK Push and Paybill/Till APIs. When a tenant pays via M-Pesa using their house number as reference, the payment is cryptographically matched to their lease in under 2 seconds. An instant digital SMS receipt and updated statement are issued automatically.
+- **Q: Can multiple caretakers, accountants, and landlords have distinct permission levels?**
+  A: Yes. Role-based access control allows you to invite landlords, property managers, site caretakers, and external auditors with granular permissions. Site caretakers can log meter readings and incident reports without seeing financial payouts, while landlords see real-time collection dashboards.
+- **Q: What happens when a tenant pays rent in installments or makes a partial deposit?**
+  A: miRentals manages running balances intelligently. Partial payments are instantly credited against the oldest outstanding charges (such as prior utility arrears or base rent). The remaining balance stays clearly highlighted on the manager's dashboard and the tenant's digital statement until cleared.
+- **Q: How long does it take to migrate our existing tenants and units into the platform?**
+  A: Most residential and commercial properties go live within 24 to 48 hours. Our onboarding team provides a standardized CSV template or helps you upload your existing tenant directory directly. We also verify initial lease dates and deposit balances prior to activating automated invoicing.
+- **Q: Can miRentals automate utility bill distribution like water meters and garbage fees?**
+  A: Yes. You can enter bulk meter readings directly or use our caretaker mobile app. miRentals calculates tiered utility charges, appends them to each tenant's monthly invoice, and separates utility disbursements from landlord rent accounts in your financial reports.
+
+---
+
+## miReserve · Hospitality & Short Stays (https://mixonsoftwares.co.ke/mireserve)
+**Headline:** Keep bookings in sync. Give guests a smoother stay.
+
+miReserve unifies multi-channel OTA calendar locking (Airbnb, Booking.com, Vrbo), commission-free direct booking engines with M-Pesa/card deposits, smart lock self check-in workflows, and owner payout portals.
+
+### Key Facts & Specifications
+- 14-millisecond two-way calendar sync preventing double bookings across Airbnb, Booking.com, Vrbo, and direct portals.
+- Commission-free direct booking widget supporting M-Pesa, Visa, Mastercard, and bank transfers.
+- Automated WhatsApp/email guest guides and stay-scoped smart lock keypad PIN delivery.
+- Includes housekeeping turnover automation and a dedicated Villa Owner Portal.
+
+#### Frequently Asked Questions
+- **Q: How does miReserve prevent double-bookings across Airbnb, Booking.com, and direct channels?**
+  A: miReserve uses sub-second two-way API calendar synchronization alongside continuous iCal feeds. The millisecond a reservation is confirmed on Airbnb or your direct website, the corresponding dates are instantly locked across Booking.com, Vrbo, and all connected channels before a duplicate booking can occur.
+- **Q: Can we collect direct guest deposits and card or M-Pesa payments on our website?**
+  A: Yes. miReserve provides a high-converting direct booking engine that embeds cleanly into your existing website or standalone domain. Guests can pay via M-Pesa, Visa, Mastercard, or bank transfer with zero commission paid to external travel agencies.
+- **Q: How does automated guest communication and self check-in work?**
+  A: Once a booking is confirmed, miReserve triggers customized WhatsApp and email workflows. Guests automatically receive location pins, WiFi passwords, digital arrival guides, and time-sensitive smart lock keypad PINs that activate only during their booked stay and expire upon checkout.
+- **Q: Does miReserve support dynamic seasonal pricing and weekend surge rules?**
+  A: Yes. You can configure seasonal yield rules, minimum night stay requirements, weekend surge premiums, and last-minute discounts. Rates update across all synchronized OTAs simultaneously without manual adjustment on individual extranets.
+- **Q: How are housekeeping, turnover tasks, and maintenance schedules managed?**
+  A: Every checkout automatically generates a scheduled turnover task assigned to your housekeeping team. Housekeepers can mark rooms cleaned, report maintenance issues with photos, and verify minibar inventory before the front desk approves early check-in.
+- **Q: Can owners of managed villas access their property's booking performance?**
+  A: Yes. miReserve includes a dedicated Property Owner Portal. Villa and apartment owners can view live occupancy calendars, review monthly net rental income after management fees, and reserve owner-stay dates directly from their mobile phones.
+
+---
+
+## Event Yetu · Ticketing & Gate Access (https://mixonsoftwares.co.ke/eventyetu)
+**Headline:** Sell tickets smarter. Keep every gate moving fast.
+
+Event Yetu equips promoters, festivals, and venues with tiered ticket sales, instant cryptographic anti-duplication QR passes, offline gate validation under 120ms, and real-time attendance telemetry.
+
+### Key Facts & Specifications
+- Sub-120ms QR ticket validation supporting 1,200+ scans per hour per gate attendant.
+- Offline-first encrypted gate manifest syncing across scanners when venue internet drops.
+- Single-use signed QR codes preventing screenshot reuse and duplicate entry fraud.
+- Supports Early Bird, VIP, promo codes, complimentary lists, and M-Pesa/bank settlement.
+
+#### Frequently Asked Questions
+- **Q: How fast is ticket QR code validation at high-volume gate entrances?**
+  A: Event Yetu gate scanners validate secure QR codes in under 120 milliseconds per attendee. Even during peak door surges at major concerts and festivals, single attendants can scan over 1,200 attendees per hour per turnstile without bottle-necking entry queues.
+- **Q: Does gate scanning continue to work if the venue loses internet connectivity?**
+  A: Yes. The Event Yetu gate application features an offline-first cryptographic synchronization engine. Gate staff can download the verified attendee manifest locally prior to opening doors. Tickets scan instantly offline, and data automatically syncs across all scanners when connection is restored.
+- **Q: Can we configure tiered pricing like Early Bird, VIP, and complimentary guest lists?**
+  A: Yes. You have complete control over ticket tiers, inventory limits, early-bird time triggers, group bundle discounts, and promo codes. You can also issue named complimentary tickets with digital verification to prevent unauthorized transfer.
+- **Q: How quickly do ticket revenue funds settle to our bank account or M-Pesa Paybill?**
+  A: Ticket proceeds can be deposited on a flexible rolling schedule or settled into your organization's bank account or M-Pesa Paybill. We provide transparent automated disbursement statements that outline gross sales, payment processor fees, and net payouts.
+- **Q: How does Event Yetu prevent ticket duplication and screenshot sharing fraud?**
+  A: Each QR ticket contains time-sensitive cryptographic digital signatures. The moment a ticket is scanned at any gate, it is instantly revoked across all active scanning terminals, ensuring screenshots and copied printouts cannot be reused by multiple attendees.
+- **Q: Can event organizers and sponsors access real-time live attendance analytics?**
+  A: Yes. Organizers have access to a real-time live telemetry dashboard displaying tickets sold by tier, hourly gate ingress rates, demographic velocity, and remaining venue capacity right from their mobile phones or control booth monitors.
+
+---
+
+## miPOS · Retail & Inventory POS (https://mixonsoftwares.co.ke/mipos)
+**Headline:** Know what is selling. Keep stock and sales in check.
+
+miPOS combines offline-resilient counter checkout with live multi-branch stock transfers, blind X/Z shift till audits, purchase order drafts, and cryptographic M-Pesa Daraja payment verification.
+
+### Key Facts & Specifications
+- Offline-first indexed POS database keeps billing and receipt printing running when internet drops.
+- Split tender checkout across Cash, M-Pesa Daraja STK Push, and cards with automated code verification.
+- Works on iPad, Android tablets, and desktop PCs with 58mm/80mm ESC/POS printers and 1D/2D scanners.
+- Blind shift counts generate X-Reports and Z-Reports to stop till shrinkage and cashier variance.
+
+#### Frequently Asked Questions
+- **Q: Does miPOS continue processing sales if our shop's internet goes down?**
+  A: Yes. miPOS operates with full offline persistence. Cashiers can scan barcodes, ring up counter transactions, accept cash, and print receipts without an active internet connection. As soon as connectivity returns, all sales and inventory adjustments automatically sync with the cloud back-office.
+- **Q: Which hardware peripherals, barcode scanners, and thermal receipt printers are supported?**
+  A: miPOS works natively on iPads, Android tablets, touch terminals, and desktop PCs. It connects seamlessly via Bluetooth, USB, or LAN to standard ESC/POS 58mm and 80mm thermal printers, 1D/2D barcode scanners, customer-facing displays, and automatic electronic cash drawers.
+- **Q: How does real-time multi-location inventory and warehouse transfer work?**
+  A: Inventory is centralized in real time across all branch counters, storerooms, and central warehouses. When an item sells in one shop, total stock updates instantly. Managers can initiate, approve, and track stock transfers between branches with automated verification.
+- **Q: Can cashiers split payments between cash, M-Pesa STK push, and credit cards?**
+  A: Yes. Cashiers can split a single ticket across multiple payment tenders in seconds—for example, partial cash and the balance via M-Pesa STK push. The system verifies M-Pesa confirmation codes cryptographically before finalizing the receipt, eliminating counterfeit payment risk.
+- **Q: How does end-of-shift reconciliation prevent till discrepancy and cashier leakage?**
+  A: At the end of every shift, cashiers perform a blind till count. miPOS automatically matches recorded cash, card, and M-Pesa transactions against the physical count, generating a detailed X-Report or Z-Report that flags overages or shortages to store managers immediately.
+- **Q: Can miPOS track supplier purchase orders, deliveries, and low-stock alerts?**
+  A: Yes. You can set minimum reorder thresholds for each product. When stock drops below minimum quantities, miPOS automatically generates purchase order drafts for your assigned vendors and tracks receipt confirmations into inventory upon arrival.
+
+---
+
+## Pricing & Plans · 20% Off Annual Billing (https://mixonsoftwares.co.ke/pricing)
+**Headline:** Straightforward, transparent pricing
+
+Fixed-scope website builds and predictable SaaS platform licenses with zero hidden surcharges, 30 days of complimentary post-launch SLA support, and 20% savings on annual plans.
+
+### Key Facts & Specifications
+- Starter: KES 25,000/mo (USD 200/mo) — up to 5 pages, SSL, inquiry form, 7–10 business day delivery.
+- Growth: KES 40,500/mo (USD 325/mo) — CMS, AEO & GEO Answer-Engine schema, WhatsApp alerts.
+- Pro: KES 75,500/mo (USD 600/mo) — M-Pesa Daraja STK Push, Card Rails, portals, settlement webhooks.
+- Scale: KES 145,000/mo (USD 1,150/mo) & Enterprise: KES 250,000/mo (USD 2,000/mo) — REST/GraphQL APIs, custom USSD shortcodes, 99.95% SLA.
+
+#### Frequently Asked Questions
+- **Q: Are the package prices fixed or are there recurring costs?**
+  A: All website packages are fixed-price with defined milestone deliverables. Product licenses (miRentals, miReserve, miPOS, Event Yetu) are simple monthly or annual subscriptions with zero hidden transaction surcharges from Mixon.
+- **Q: Can Mixon integrate with tools and payment rails we already use?**
+  A: Yes. We natively support M-Pesa Daraja STK Push & C2B, card processors (Stripe, Pesapal, DPO), bank rails, and external accounting ERPs via standard REST and GraphQL webhooks.
+- **Q: What happens after launch? Is maintenance included?**
+  A: Every package includes 30 days of complimentary post-launch engineering support, telemetry monitoring, and training. Ongoing maintenance retainers and SLA tiers are available for expanding teams.
+- **Q: How quickly can our team go live?**
+  A: Standard website packages deliver within 7 to 10 business days. Product deployments (miRentals, miPOS, miReserve) typically configure and go live in 1 to 3 weeks depending on asset volume and data migration requirements.
+- **Q: Do we own the software and source code?**
+  A: Yes. For bespoke projects and websites, all custom code, assets, content, and deployment configurations are 100% your intellectual property upon final project settlement.
+- **Q: Can we upgrade plans as our transaction volume grows?**
+  A: Seamlessly. You can upgrade or add licenses at any point with prorated billing. Concurrency limits and API rate allocations scale instantly without service downtime.
+
+---
+
+## Mixon Digital Services (https://mixonsoftwares.co.ke/services)
+**Headline:** Build what you need. Connect what you use. Scale faster.
+
+Alongside our flagship SaaS platforms, Mixon designs and builds custom websites, native/cross-platform mobile & USSD apps, payment integrations, online stores, search visibility systems, and human-in-the-loop AI workflows.
+
+### Key Facts & Specifications
+- Web Design & Development: sub-second Core Web Vitals, custom React/Next.js apps, and headless CMS.
+- Mobile & USSD Engineering: offline-first iOS/Android apps and *384* telco USSD shortcodes.
+- Payments & Integrations: M-Pesa Daraja STK Push/C2B, Stripe, Pesapal, DPO, and custom ERP webhooks.
+- Search & Discovery (AEO/GEO), E-Commerce Stores, and Zero-Retention Human-in-the-Loop AI.
+
+
+---
+
+## Web Development · Modern Architecture (https://mixonsoftwares.co.ke/services/web)
+**Headline:** A website that helps people understand you, and act.
+
+We engineer responsive websites, client portals, and custom web applications with semantic HTML5, Core Web Vitals speed, CMS autonomy, and direct M-Pesa/CRM lead capture.
+
+### Key Facts & Specifications
+- Sub-second load targets (<1.2s) and semantic HTML5 architecture for SEO & accessibility.
+- Custom CMS setups with guided team training and video walkthroughs.
+- Direct integrations to M-Pesa Daraja STK Push, Stripe, WhatsApp, and HubSpot/CRMs.
+- Full source code and intellectual property ownership transferred upon final settlement.
+
+#### Frequently Asked Questions
+- **Q: Can my team update the website without coding?**
+  A: Yes. Every website we build includes an intuitive CMS tailored specifically to your content needs, plus a video walkthrough showing your staff how to publish blogs, update team profiles, and adjust text.
+- **Q: How fast will the website load?**
+  A: We target sub-second initial load times and top-tier Core Web Vitals scores. High speed is critical both for user retention and search engine rankings.
+- **Q: Can you connect the website to our payment or CRM tools?**
+  A: Absolutely. We specialize in connecting web forms and checkout flows to M-Pesa Daraja STK push, Stripe, WhatsApp, HubSpot, and custom internal APIs.
+- **Q: What is included in a website project?**
+  A: A typical project covers discovery, content structure, visual design, responsive development, and launch preparation. The exact deliverables are agreed around your goals and the scope of the project.
+- **Q: Can you redesign an existing website?**
+  A: Yes. We can review the current site, identify what is working, and plan a redesign around your audience and business goals while considering existing content and search visibility.
+- **Q: Who looks after the website after launch?**
+  A: We can hand over the site and show your team how to manage its content. Hosting, maintenance, and ongoing improvements can be scoped to suit your team.
+
+---
+
+## Mobile Applications · iOS, Android & USSD (https://mixonsoftwares.co.ke/services/app)
+**Headline:** Turn a manual process into an app people use every day.
+
+Mixon designs and builds offline-resilient Android and iOS apps (React Native/Flutter) alongside telco USSD menu systems so customers can transact even without data connectivity.
+
+### Key Facts & Specifications
+- React Native & Flutter engineering tailored to offline-first field conditions.
+- Telco USSD integration (*384*XX# shortcodes) for 100% phone reach with zero mobile data required.
+- End-to-end Play Store and App Store release preparation and security hardening.
+
+#### Frequently Asked Questions
+- **Q: Do you build native or cross-platform apps?**
+  A: We choose the architecture that best fits your performance and budget goals — typically modern React Native or Flutter for high-velocity cross-platform delivery with native iOS and Android fidelity.
+- **Q: How does USSD integration work?**
+  A: USSD allows any user to dial a shortcode (like *384*XX#) to access your menu, check balances, or place orders without an internet connection. We help navigate local telecom aggregators and Safaricom/Airtel shortcode registrations.
+- **Q: Can the app work when internet is down?**
+  A: Yes. We engineer offline-first data stores that queue transactions locally on the device and sync cryptographically with the cloud once network connectivity returns.
+- **Q: Can you improve an app we already have?**
+  A: Yes. We can review the current app, codebase, and user experience, then recommend a practical upgrade or a phased rebuild based on what is worth keeping.
+- **Q: How do you approach app security?**
+  A: Security is considered from architecture through release, including access controls, secure data handling, and testing appropriate to the app and the information it processes.
+- **Q: Can you help publish the app?**
+  A: Yes. We can prepare the release and support store submission. Store accounts, required approvals, and the release responsibilities are agreed at the start of the project.
+
+---
+
+## Search & Discovery · Technical SEO, AEO & GEO (https://mixonsoftwares.co.ke/services/seo)
+**Headline:** Be found by humans. Be recommended by AI assistants.
+
+We combine Core Web Vitals optimization, Schema.org knowledge graphs, llms.txt & crawlable SSR architecture, and commercial answer content so both search engines and AI assistants recommend your business.
+
+### Key Facts & Specifications
+- Full technical crawlability, XML sitemaps, canonical hygiene, and Core Web Vitals tuning.
+- Structured JSON-LD entity graphs & llms.txt implementation for ChatGPT, Perplexity, and Gemini citations.
+- Pipeline and qualified-enquiry attribution rather than vanity click metrics.
+
+#### Frequently Asked Questions
+- **Q: What is AEO and GEO optimization?**
+  A: Answer-Engine Optimization (AEO) and Generative-Engine Optimization (GEO) structure your website's facts, entity relationships, and pricing so AI systems like Perplexity, ChatGPT, and Google Gemini cite your company when answering user queries.
+- **Q: How soon do we see results?**
+  A: Technical fixes and AEO schema changes can be indexed within days to weeks. Organic search authority builds compounding traffic over 60 to 90 days, while Bulk SMS campaigns generate immediate responses.
+- **Q: Do you focus on clicks or leads?**
+  A: Leads. We measure success by the phone calls, quote requests, and paying customers arriving at your business, not vanity traffic.
+- **Q: Can you guarantee a first-page search ranking?**
+  A: No. Search rankings depend on competition, search engine changes, and other factors outside any provider’s control. We focus on sound technical and content improvements and report progress transparently.
+- **Q: What do you include in SEO reporting?**
+  A: Reporting can cover technical health, search visibility, qualified visits, and conversion activity where tracking is available, so progress is connected to business outcomes.
+- **Q: What access do you need to get started?**
+  A: We usually need relevant website and search analytics access to assess the current setup. Access is limited to what the agreed work requires.
+
+---
+
+## Payments & Integrations · Zero-Leakage Rails (https://mixonsoftwares.co.ke/services/payments)
+**Headline:** Close the gaps between your payments and your systems.
+
+Mixon builds direct payment integrations linking Safaricom M-Pesa Daraja STK Push, Pesapal, DPO, Stripe, and commercial bank feeds straight into your ledgers with idempotent webhook safety.
+
+### Key Facts & Specifications
+- Direct Safaricom M-Pesa Daraja STK Push, C2B, and B2C reconciliation pipelines.
+- Idempotent webhook listeners and fallback callback polling prevent dropped or duplicate receipts.
+- Tokenized card checkout handling (PCI-DSS aligned) and legacy ERP/database middleware.
+
+#### Frequently Asked Questions
+- **Q: How does M-Pesa Daraja STK Push work?**
+  A: When a customer initiates checkout, an automated prompt pops up directly on their phone asking for their M-Pesa PIN. Once entered, Safaricom sends an encrypted webhook back to your system within seconds to automatically confirm the order.
+- **Q: What happens if a customer pays but the internet drops?**
+  A: Our reconciliation queues use idempotent webhook listeners and fallback callback polling. Even if the customer closes their browser before the redirect finishes, the payment is securely recorded, the invoice marked paid, and an SMS receipt dispatched.
+- **Q: Can you connect systems that don't have existing plugins?**
+  A: Yes. We regularly build custom API middleware and webhooks that bridge legacy databases, custom proprietary portals, and modern third-party services.
+- **Q: Can you support more than one payment provider?**
+  A: Yes, where providers support your markets and business flow. We map the payment methods, settlement needs, and system requirements before choosing integrations.
+- **Q: How do you handle duplicate or delayed payment notifications?**
+  A: We design callback handling and reconciliation around the provider’s behavior, using safeguards to identify repeated notifications and transactions that need review.
+- **Q: Will my store need to handle card details?**
+  A: Where possible, card details are handled by the payment provider through its approved checkout or tokenization flow. The final approach depends on your gateway and compliance requirements.
+
+---
+
+## Modern E-Commerce · High Conversion (https://mixonsoftwares.co.ke/services/ecommerce)
+**Headline:** An online store that makes buying feel effortless.
+
+We build fast, mobile-first online storefronts featuring one-tap M-Pesa STK Push and card checkout, real-time branch stock synchronization with miPOS, and flexible catalog and fulfillment workflows.
+
+### Key Facts & Specifications
+- Supports M-Pesa Daraja STK Push, Visa, Mastercard, PayPal, Stripe, and Cash on Delivery.
+- Real-time inventory synchronization with physical outlets when paired with miPOS.
+- Full catalog migration, delivery zone pricing, and team admin training.
+
+#### Frequently Asked Questions
+- **Q: Which payment gateways do you integrate into the store?**
+  A: We support direct M-Pesa Daraja STK Push, credit/debit cards (Visa, Mastercard), PayPal, Stripe, and bank transfers, plus cash-on-delivery options if required.
+- **Q: Can the online store sync stock with our physical shop?**
+  A: Yes. When paired with miPOS or connected to your existing point of sale, online and in-store stock levels sync in real time so you never oversell an item.
+- **Q: Is the store mobile-friendly?**
+  A: Over 75% of online shopping happens on phones. We design mobile-first with thumb-friendly buttons, fast image compression, and streamlined payment steps.
+- **Q: Can you bring our existing product catalog into the store?**
+  A: We can assess your current catalog and import options, then map product details, categories, images, and variants to the new storefront.
+- **Q: Can our team manage products and orders after launch?**
+  A: Yes. We can provide an admin workflow for day-to-day catalog and order updates, shaped around the roles and tasks your team handles.
+- **Q: Can checkout support delivery and collection?**
+  A: We can configure delivery areas, rates, and collection options to match your fulfillment process and the capabilities of your chosen platform.
+
+---
+
+## AI & Automation · Human-in-the-Loop (https://mixonsoftwares.co.ke/services/ai)
+**Headline:** Find the work genuinely worth automating.
+
+We evaluate workflows honestly—choosing deterministic scripts when simpler, and deploying zero-retention enterprise AI assistants with strict human approval gates where language or document understanding creates real ROI.
+
+### Key Facts & Specifications
+- Zero-data-retention enterprise endpoints: private company data never trains public models.
+- Human-in-the-loop review gates before sensitive financial, refund, or contract actions.
+- Scoped retrieval over approved internal operational documents with access controls.
+
+#### Frequently Asked Questions
+- **Q: Does our business really need AI, or just better software?**
+  A: That is the first question we answer. Many bottlenecks simply need a cleaner webhook or database script. We only apply AI where machine learning or natural language understanding provides a measurable, explainable advantage.
+- **Q: Is our business and customer data safe?**
+  A: Yes. We use enterprise private endpoints with strict zero-data-retention policies. Your private customer records, pricing, and internal documents are never used to train public foundation models.
+- **Q: What is human-in-the-loop design?**
+  A: Human-in-the-loop means the AI drafts, categorizes, or extracts information, but a designated person reviews and approves the final action before anything irreversible happens (like issuing a refund or signing a lease).
+- **Q: Which business tasks are good candidates for AI?**
+  A: Tasks with repetitive inputs, clear success criteria, and manageable risk are often good candidates. We first check whether simpler automation would solve the problem more reliably.
+- **Q: Can staff review AI outputs before anything happens?**
+  A: Yes. Review and approval steps can be built into workflows, especially where an action affects customers, money, or important records.
+- **Q: Can an AI tool use our internal documents?**
+  A: It can be designed to retrieve answers from an approved set of internal sources, with access and data handling shaped around your security requirements.
+
+---
+
+## About Mixon (https://mixonsoftwares.co.ke/about)
+**Headline:** Technology that makes business easier to run.
+
+Mixon builds practical operational platforms, connected M-Pesa and telco rails, and modern digital systems that eliminate manual spreadsheets and fit how teams actually operate across Africa and globally.
+
+### Key Facts & Specifications
+- Built on the engineering experience of Shiva Softwares Africa.
+- Trusted by over 1,000 businesses and 2,400+ properties and operational teams.
+- Core security & privacy standard: TLS 1.3 in transit, AES-256 at rest, multi-region daily backups, and PCI-DSS financial compliance.
+- Values: Clarity over complexity, craft in the details, measurable client progress, access by design, and radical honesty about AI.
+
+
+---
+
+## Contact Mixon · Nairobi & Remote (https://mixonsoftwares.co.ke/contact)
+**Headline:** Let's start with what you're trying to solve.
+
+Reach Mixon directly for miRentals, miReserve, Event Yetu, miPOS demos, or custom web/mobile/USSD/M-Pesa engineering proposals. Replies within one business day.
+
+### Key Facts & Specifications
+- Email: info@mixonsoftwares.co.ke | contact@mixonsoftwares.co.ke
+- Phone / Sales & Support Desk: +254 713 958 492 | +254 741 733 878
+- Office: Mihrab Building, 15th Floor, Ring Road Kilimani, Nairobi, Kenya
+

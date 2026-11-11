@@ -1,0 +1,14 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.agents/
+Mixon_Comprehensive_Website_Overview.pdf
+generate_pdf.py
+generate_readable_pdf.py
+mixon_readable_overview.html
+mixon_website_overview.html

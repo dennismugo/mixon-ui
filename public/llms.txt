@@ -1,0 +1,33 @@
+# Mixon
+
+> Intelligent property, hospitality, retail POS, and event ticketing software for Africa, alongside custom web, mobile, USSD, M-Pesa, and AI engineering. Headquartered in Kilimani, Nairobi, Kenya, Mixon builds on the experience of Shiva Softwares Africa and integrates natively with Safaricom M-Pesa Daraja, card rails, and East African banking workflows.
+
+- Canonical Site: https://mixonsoftwares.co.ke/
+- Full Documentation for AI Systems: https://mixonsoftwares.co.ke/llms-full.txt
+- XML Sitemap: https://mixonsoftwares.co.ke/sitemap.xml
+- Email: info@mixonsoftwares.co.ke (contact@mixonsoftwares.co.ke)
+- Phone: +254713958492 | +254741733878
+- Address: Mihrab Building, 15th Floor, Ring Road Kilimani, Nairobi, Kenya
+
+## Flagship Software Platforms
+
+- [miRentals — Property Management & Rent Reconciliation](https://mixonsoftwares.co.ke/mirentals): Automates tenant ledgers, M-Pesa Daraja STK Push / Paybill matching in under 2 seconds, utility meter billing, and landlord reporting.
+- [miReserve — Hospitality Channel Manager & Direct Booking](https://mixonsoftwares.co.ke/mireserve): Syncs Airbnb, Booking.com, Vrbo, and direct stays within 14ms to eliminate double bookings, plus self check-in smart locks and M-Pesa/card deposits.
+- [Event Yetu — Event Ticketing & Offline Gate Access](https://mixonsoftwares.co.ke/eventyetu): Sub-120ms anti-screenshot QR gate scanning (1,200+ scans/hr/attendant), offline-first venue sync, tiered tickets, and M-Pesa settlement.
+- [miPOS — Offline-First Retail POS & Warehouse Stock](https://mixonsoftwares.co.ke/mipos): Offline counter billing, ESC/POS thermal receipt & scanner support, split Cash/M-Pesa/card tenders, multi-branch stock transfers, and blind X/Z shift reports.
+
+## Engineering & Growth Services
+
+- [Services Directory](https://mixonsoftwares.co.ke/services): Overview of bespoke engineering, telco USSD, payment integration, commerce, SEO/AEO/GEO, and AI automation.
+- [Web Design & Development](https://mixonsoftwares.co.ke/services/web): Sub-1.2s Core Web Vitals sites, headless CMS, and React/Next.js web applications.
+- [Mobile App Development & USSD](https://mixonsoftwares.co.ke/services/app): Offline-resilient iOS/Android apps and Safaricom/Airtel *384* telco USSD shortcodes requiring zero mobile data.
+- [Search & Discovery (SEO, AEO & GEO)](https://mixonsoftwares.co.ke/services/seo): Technical SEO, structured Schema.org graphs, and citation architecture for Google, Perplexity, ChatGPT, and Gemini.
+- [Payments & Integrations](https://mixonsoftwares.co.ke/services/payments): Idempotent Safaricom M-Pesa Daraja STK Push, C2B/B2C, Stripe, Pesapal, DPO, and ERP middleware.
+- [Modern E-Commerce](https://mixonsoftwares.co.ke/services/ecommerce): Mobile-first checkouts synced in real time with physical store inventory via miPOS.
+- [AI & Process Automation](https://mixonsoftwares.co.ke/services/ai): Zero-data-retention enterprise endpoints, approved-document retrieval, and human-in-the-loop workflow automation.
+
+## Pricing & Company
+
+- [Pricing & Plans (KES & USD)](https://mixonsoftwares.co.ke/pricing): Starter (KES 25,000 / $200 mo), Growth (KES 40,500 / $325 mo), Pro (KES 75,500 / $600 mo), Scale (KES 145,000 / $1,150 mo), Enterprise (KES 250,000 / $2,000 mo), and Custom builds; 20% discount on annual plans.
+- [About Mixon](https://mixonsoftwares.co.ke/about): Company background (building on Shiva Softwares Africa), engineering standards, TLS 1.3 / AES-256 / PCI-DSS security posture.
+- [Contact Mixon](https://mixonsoftwares.co.ke/contact): Book a live product demo, request a software proposal, or reach Nairobi sales and support.
