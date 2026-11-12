@@ -3,7 +3,7 @@
 /* Responsive display typography: keep headings readable without letting them
    dominate narrow screens or exceed the available content width. */
 @media (max-width: 639px) {
-  h1 {
+  h1:not(.demo-step-heading) {
     font-size: clamp(1.625rem, 7.5vw, 1.875rem) !important;
     line-height: 1.08 !important;
     text-wrap: balance;
@@ -950,7 +950,7 @@ b, strong, h6 {
   background: var(--mixon-paper) !important;
 }
 
-.mixon-interior-page h1 {
+.mixon-interior-page h1:not(.demo-step-heading) {
   max-width: 19ch;
   color: var(--mixon-ink) !important;
   font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -959,6 +959,21 @@ b, strong, h6 {
   letter-spacing: -0.035em !important;
   line-height: 1.06 !important;
   text-wrap: balance;
+}
+
+.mixon-demo-page .demo-step-heading {
+  max-width: none;
+  font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.mixon-demo-page .demo-step-heading--confirm {
+  max-width: 28ch;
+  font-size: clamp(1.375rem, 1.15rem + 0.9vw, 1.875rem);
 }
 
 /* Ensure centered headers on interior pages center both the block and text */
@@ -1013,8 +1028,8 @@ b, strong, h6 {
   border-color: transparent !important;
 }
 
-.mixon-interior-page section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 + p,
-.mixon-interior-page section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 ~ p {
+.mixon-interior-page:not(.mixon-demo-page) section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 + p,
+.mixon-interior-page:not(.mixon-demo-page) section:not(.product-service-hero):not([aria-label*="hero"]):first-of-type h1 ~ p {
   max-width: 66ch;
   color: var(--mixon-muted) !important;
   font-size: clamp(1rem, 1.3vw, 1.125rem) !important;
@@ -1500,7 +1515,7 @@ b, strong, h6 {
 }
 
 @media (max-width: 640px) {
-  .mixon-interior-page h1 {
+  .mixon-interior-page h1:not(.demo-step-heading) {
     font-size: clamp(2.15rem, 10vw, 2.75rem) !important;
   }
 

@@ -61,7 +61,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
          ========================================================================= */}
       <section aria-label="contact-hero" className="w-full px-4 sm:px-6 lg:px-8 pt-4 pb-10 sm:pb-14 select-none mixon-contact-hero-section">
         <div 
-          className="mixon-contact-hero relative w-full max-w-7xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden py-14 sm:py-20 lg:py-24 px-6 sm:px-12 text-center shadow-[0_24px_70px_-20px_rgba(79,70,229,0.35)] border border-white/20 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px]"
+          className="mixon-contact-hero relative w-full max-w-7xl mx-auto rounded-lg sm:rounded-xl overflow-hidden py-14 sm:py-20 lg:py-24 px-6 sm:px-12 text-center shadow-[0_24px_70px_-20px_rgba(79,70,229,0.35)] border border-white/20 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px]"
           style={{
             background: `
               radial-gradient(ellipse 65% 55% at 92% 102%, rgba(216, 148, 255, 0.95) 0%, rgba(216, 148, 255, 0.4) 40%, transparent 70%),

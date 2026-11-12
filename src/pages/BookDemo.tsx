@@ -192,6 +192,30 @@ const TIME_SLOTS = [
   { value: '05:00 PM EAT', label: '05:00 PM', period: 'Late Afternoon EAT' },
 ];
 
+interface StepHeaderProps {
+  headingRef: React.RefObject<HTMLHeadingElement | null>;
+  title: React.ReactNode;
+  subtitle: string;
+}
+
+/** Compact step heading and subtitle shared across every Book Demo step. */
+function StepHeader({ headingRef, title, subtitle }: StepHeaderProps) {
+  return (
+    <div className="space-y-1">
+      <h1
+        ref={headingRef}
+        tabIndex={-1}
+        className="demo-step-heading font-display text-gray-950 focus:outline-none"
+      >
+        {title}
+      </h1>
+      <p className="text-sm text-gray-500 font-light">
+        {subtitle}
+      </p>
+    </div>
+  );
+}
+
 interface SelectableCardGridProps {
   name: string;
   legend: string;
@@ -835,7 +859,7 @@ export default function BookDemo({
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
-              <h1 className="font-display text-2xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
+              <h1 className="demo-step-heading demo-step-heading--confirm mx-auto font-display font-extrabold text-gray-950 tracking-tight">
                 Thank you, {fullName}! Your demo is scheduled.
               </h1>
 
@@ -881,18 +905,11 @@ export default function BookDemo({
                     {/* ================= STEP 1: HOW DID YOU FIND US? ================= */}
                     {step === 1 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            How did you find Mixon?
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            Helps our team prepare relevant local case studies for your demo.
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title="How did you find Mixon?"
+                          subtitle="Helps our team prepare relevant local case studies for your demo."
+                        />
 
                         <SelectableCardGrid
                           name="discoverySource"
@@ -911,18 +928,11 @@ export default function BookDemo({
                     {/* ================= STEP 2: MIXON PRODUCTS ======================= */}
                     {step === 2 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            Which Mixon products would you like to see?
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            Select one or more Mixon platforms below, or continue directly to custom services.
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title="Which Mixon products would you like to see?"
+                          subtitle="Select one or more Mixon platforms below, or continue directly to custom services."
+                        />
 
                         <SelectableCardGrid
                           name="selectedProducts"
@@ -941,18 +951,11 @@ export default function BookDemo({
                     {/* ================= STEP 3: CUSTOM ENGINEERING SERVICES =========== */}
                     {step === 3 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            Which engineering services would you like to discuss?
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            Choose any custom services to include alongside or instead of our software platforms.
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title="Which engineering services would you like to discuss?"
+                          subtitle="Choose any custom services to include alongside or instead of our software platforms."
+                        />
 
                         <SelectableCardGrid
                           name="selectedServices"
@@ -971,18 +974,11 @@ export default function BookDemo({
                     {/* ================= STEP 4: OPERATIONAL SCALE & GOALS =========== */}
                     {step === 4 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            Tell us about your team scale &amp; rollout timing
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            So our engineer demos the right pricing tier, permissions, and M-Pesa setup.
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title={<>Tell us about your team scale &amp; rollout timing</>}
+                          subtitle="So our engineer demos the right pricing tier, permissions, and M-Pesa setup."
+                        />
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                           <InteractiveDropdown
@@ -1029,18 +1025,11 @@ export default function BookDemo({
                     {/* ================= STEP 5: INTERACTIVE BOOKING CALENDAR ========= */}
                     {step === 5 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            Choose a date &amp; time for your live demo
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            30-minute guided session · Available Monday–Saturday ({viewerTimezone}).
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title={<>Choose a date &amp; time for your live demo</>}
+                          subtitle={`30-minute guided session · Available Monday–Saturday (${viewerTimezone}).`}
+                        />
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                           {/* Monthly Calendar Grid */}
@@ -1170,18 +1159,11 @@ export default function BookDemo({
                     {/* ================= STEP 6: CONTACT & SEND CHANNEL ============== */}
                     {step === 6 && (
                       <>
-                        <div className="space-y-1.5">
-                          <h1
-                            ref={stepHeadingRef}
-                            tabIndex={-1}
-                            className="font-display text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight focus:outline-none"
-                          >
-                            Where should we send your booking confirmation?
-                          </h1>
-                          <p className="text-sm text-gray-500 font-light">
-                            Enter your details to confirm your demo and send it to Mixon via email.
-                          </p>
-                        </div>
+                        <StepHeader
+                          headingRef={stepHeadingRef}
+                          title="Where should we send your booking confirmation?"
+                          subtitle="Enter your details to confirm your demo and send it to Mixon via email."
+                        />
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="space-y-1.5">
@@ -1295,7 +1277,7 @@ export default function BookDemo({
 
                 {/* Bottom Step Actions: Back & Next / Confirm */}
                 <div
-                  className={`mt-8 pt-6 border-t border-gray-100 flex items-center gap-4 ${
+                  className={`mt-8 pt-2 flex items-center gap-4 ${
                     step > 1 ? 'justify-between' : 'justify-end'
                   }`}
                 >

@@ -357,9 +357,6 @@ export default function About({ setCurrentPage }: AboutProps) {
           >
             Start a conversation
           </ExpandingArrowButton>
-          <div className="text-[11px] font-mono text-white/50 tracking-wide" style={{ marginTop: '-0.5rem' }}>
-            We reply within one business day · Nairobi HQ &amp; Global Remote
-          </div>
         </div>
       </section>
     </div>
