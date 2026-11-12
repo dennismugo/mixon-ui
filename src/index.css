@@ -2411,7 +2411,7 @@ main section.border-y {
   font-size: clamp(2.1rem, 1.45rem + 1.95vw, 3.1rem) !important;
   line-height: 1.04 !important;
   letter-spacing: -0.03em !important;
-  color: #04122b !important;
+  color: #ffffff !important;
   text-wrap: balance;
 }
 
