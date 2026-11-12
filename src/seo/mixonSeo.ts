@@ -134,39 +134,23 @@ export function getPageFromPathname(rawPathname: string): PageId | null {
 export const HOME_FAQS: FaqEntry[] = [
   {
     q: 'Which Mixon platform is right for our operational scale?',
-    a: 'We evaluate your daily operations and transaction volume to recommend the optimal platform—whether you manage multi-unit commercial real estate (miRentals), short-stay vacation rentals (miReserve), multi-terminal retail stores (miPOS), or high-attendance ticketed events (Event Yetu).',
+    a: 'We evaluate your daily operations and transaction volume to recommend the right fit—whether you manage rental portfolios (miRentals), short-stay hospitality (miReserve), retail stores (miPOS), or ticketed events (Event Yetu).',
   },
   {
     q: 'Can Mixon integrate with our existing banks and M-Pesa Paybill / Till?',
-    a: 'Yes. Mixon connects directly to Safaricom Daraja STK Push, C2B/B2C rails, and East African commercial banking APIs. Payments are reconciled automatically with instant ledger confirmation and zero manual data entry.',
+    a: 'Yes. Mixon connects directly to Safaricom Daraja STK Push, C2B/B2C rails, and commercial banking APIs so incoming payments reconcile automatically with instant ledger confirmation.',
   },
   {
-    q: 'Does miReserve prevent double bookings across Airbnb and Booking.com?',
-    a: 'Yes. Our sub-second calendar synchronization engine locks dates across all connected OTAs and your direct booking portal within 14 milliseconds of an incoming reservation, completely eradicating double-booking errors.',
+    q: 'How does Mixon stay reliable during internet connectivity dips?',
+    a: 'Our retail and field workflows run on an offline-first local engine. Teams can keep billing, checking tickets, and recording transactions without delay—everything syncs automatically once connectivity returns.',
   },
   {
-    q: 'How does miPOS continue operating during internet connectivity dips?',
-    a: 'Our point-of-sale terminals feature an offline-first indexed data engine. Cashiers can continue scanning, issuing receipts, and recording orders without delay; all transactions sync automatically to the cloud ledger as soon as connectivity resumes.',
-  },
-  {
-    q: 'What is the implementation timeline and developer SLA?',
-    a: 'Standard production onboarding takes between 3 to 10 business days. Every enterprise client is assigned a dedicated technical specialist, backed by our 99.95% uptime SLA and 1-business-day response guarantee.',
+    q: 'What is the implementation timeline, training, and ongoing support?',
+    a: 'Standard onboarding takes 3 to 10 business days including historical data migration and guided staff training, backed by our 99.95% uptime SLA and 1-business-day technical response guarantee.',
   },
   {
     q: 'How do you handle data security, backups, and privacy compliance?',
-    a: 'All data is encrypted in transit using TLS 1.3 and at rest with AES-256. We maintain automated multi-region daily backups and strict access controls compliant with regional data protection acts and international PCI-DSS standards for financial transactions.',
-  },
-  {
-    q: 'Can our existing customer and product data be imported seamlessly?',
-    a: 'Yes. Our dedicated onboarding team handles complete data migration from legacy spreadsheets, old ERPs, or point-of-sale systems. We validate, sanitize, and verify historical records before going live to ensure zero operational downtime.',
-  },
-  {
-    q: 'Do you offer staff training and ongoing technical support?',
-    a: 'Every rollout includes guided team training sessions, localized video walkthroughs, and plain-language operator cheat sheets. Our support team is available via direct WhatsApp channels and priority email with rapid turnaround times.',
-  },
-  {
-    q: 'Can you build custom features or integrations specific to our business workflow?',
-    a: 'Absolutely. In addition to our core platforms, Mixon engineers custom API middleware, automated webhook pipelines, and bespoke client portals to adapt software around your exact organizational structure.',
+    a: 'All data is encrypted in transit with TLS 1.3 and at rest using AES-256, supported by automated multi-region daily backups and role-based access controls aligned with regional data protection laws.',
   },
 ];
 

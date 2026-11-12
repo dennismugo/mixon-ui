@@ -637,10 +637,10 @@ h2 *,
    ========================================================================== */
 .font-aktiv-faq,
 .faq-question,
-#faq button > span:first-child,
-section#faq button > span:first-child,
-[aria-label*="faq"] button > span:first-child,
-.faq-accordion button > span:first-child {
+#faq button > span:first-child:not(.faq-jasper-question),
+section#faq button > span:first-child:not(.faq-jasper-question),
+[aria-label*="faq"] button > span:first-child:not(.faq-jasper-question),
+.faq-accordion button > span:first-child:not(.faq-jasper-question) {
   font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important;
 }
 
@@ -2413,4 +2413,22 @@ main section.border-y {
   letter-spacing: -0.03em !important;
   color: #04122b !important;
   text-wrap: balance;
+}
+
+/* ==========================================================================
+   HOME FAQ JASPER-INSPIRED MIXON THEME (Zero Border-Radius)
+   ========================================================================== */
+section#faq button > span.faq-jasper-question:first-child,
+#faq button > span.faq-jasper-question {
+  font-family: 'PT Serif', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.022em !important;
+  color: #04122b !important;
+}
+
+#faq .faq-jasper-box,
+#faq .faq-jasper-row,
+#faq .faq-jasper-box button,
+#faq .faq-jasper-box button > span {
+  border-radius: 0px !important;
 }
