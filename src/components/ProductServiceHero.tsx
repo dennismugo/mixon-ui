@@ -56,10 +56,10 @@ export default function ProductServiceHero({
         className="hero-card relative w-full max-w-7xl mx-auto rounded-xl overflow-hidden border border-white/25 shadow-[0_16px_50px_-15px_rgba(26,86,219,0.35)]"
         style={{
           background: `
-            radial-gradient(ellipse 65% 55% at 92% 102%, rgba(209, 148, 247, 0.95) 0%, rgba(209, 148, 247, 0.45) 40%, transparent 70%),
-            radial-gradient(ellipse 65% 55% at 8% 102%, rgba(198, 146, 238, 0.95) 0%, rgba(198, 146, 238, 0.45) 40%, transparent 70%),
-            radial-gradient(ellipse 85% 45% at 50% 105%, rgba(186, 152, 218, 0.85) 0%, rgba(186, 152, 218, 0.3) 45%, transparent 75%),
-            linear-gradient(180deg, #2457c5 0%, #295dd0 35%, #3d67be 70%, #686ebc 100%)
+            radial-gradient(ellipse 75% 60% at 50% 0%, rgba(56, 145, 255, 0.34) 0%, rgba(0, 102, 255, 0.14) 45%, transparent 75%),
+            radial-gradient(ellipse 65% 55% at 92% 102%, rgba(7, 85, 184, 0.65) 0%, rgba(10, 46, 104, 0.3) 45%, transparent 72%),
+            radial-gradient(ellipse 65% 55% at 8% 102%, rgba(10, 46, 104, 0.72) 0%, transparent 70%),
+            linear-gradient(168deg, #0066ff 0%, #0755b8 38%, #0a2e68 74%, #051633 100%)
           `
         }}
       >

@@ -110,34 +110,37 @@ export default function About({ setCurrentPage }: AboutProps) {
       title: 'Our mission',
       copy: 'Make useful business technology easier to access and use through practical software and thoughtful digital services.',
       icon: Target,
-      surface: 'bg-gradient-to-br from-[#1684ff] via-[#0875f5] to-[#0755b8] border-[#75b8ff]/50',
-      iconSurface: 'bg-white/15 text-white ring-1 ring-white/20',
+      accentBar: 'bg-[#389bff]',
+      accentIcon: 'text-[#6db5ff] border-[#389bff]/30 bg-[#0066FF]/10',
+      glowStyle: 'radial-gradient(circle at 85% 15%, rgba(0, 102, 255, 0.2), transparent 60%)',
     },
     {
       title: 'Our vision',
       copy: 'A world where every business works smarter, serves people better, and grows with confidence.',
       icon: Eye,
-      surface: 'bg-gradient-to-br from-[#0f766e] via-[#0b6b63] to-[#064e49] border-[#5eead4]/40',
-      iconSurface: 'bg-white/15 text-white ring-1 ring-white/20',
+      accentBar: 'bg-[#2dd4bf]',
+      accentIcon: 'text-[#5eead4] border-[#2dd4bf]/30 bg-[#14b8a6]/10',
+      glowStyle: 'radial-gradient(circle at 85% 15%, rgba(20, 184, 166, 0.18), transparent 60%)',
     },
     {
       title: 'What we believe',
       copy: 'Technology should be clear, useful, and respectful of people’s time.',
       icon: Heart,
-      surface: 'bg-gradient-to-br from-[#7c3aed] via-[#6d28d9] to-[#4c1d95] border-[#c4b5fd]/45',
-      iconSurface: 'bg-white/15 text-white ring-1 ring-white/20',
+      accentBar: 'bg-[#a78bfa]',
+      accentIcon: 'text-[#c4b5fd] border-[#a78bfa]/30 bg-[#7c3aed]/10',
+      glowStyle: 'radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.2), transparent 60%)',
     },
   ];
 
   return (
     <div className="mixon-about-page text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION: Option B crisp white surface + sweeping blue dot field */}
+      {/* 1. HERO SECTION: Crisp white surface + sweeping blue dot field */}
       {/* ========================================================================= */}
       <section
         id="about-hero"
         data-scroll-no-reveal=""
-        className="relative isolate flex min-h-[calc(100svh-7rem)] flex-col justify-center overflow-hidden border-b border-gray-200/80 bg-white px-6 pb-14 pt-12 sm:px-10 sm:pb-16 sm:pt-16 lg:px-14"
+        className="relative isolate flex min-h-[clamp(520px,74svh,700px)] flex-col justify-center overflow-hidden bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-14"
       >
         <HeroDotField
           className="text-[#0066FF]/65"
@@ -181,28 +184,92 @@ export default function About({ setCurrentPage }: AboutProps) {
               </ExpandingArrowButton>
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="mt-12 grid w-full grid-cols-1 gap-3 text-left sm:mt-14 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:gap-5">
-            {purposeCards.map(({ title, copy, icon: Icon, surface, iconSurface }, index) => (
-              <motion.article
-                key={title}
-                data-hero-pattern-hole="box"
-                initial={reduceMotion ? false : { opacity: 0, y: 38, scale: 0.975 }}
-                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ duration: reduceMotion ? 0 : 0.78, delay: reduceMotion ? 0 : index * 0.18, ease: [0.22, 1, 0.36, 1] }}
-                className={`group relative min-h-[240px] overflow-hidden rounded-[14px] border p-6 text-white shadow-[0_18px_42px_rgba(9,38,84,0.16)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_52px_rgba(9,38,84,0.24)] sm:min-h-[258px] sm:p-7 ${surface}`}
-              >
-                <div aria-hidden="true" className="absolute -bottom-20 -right-12 h-48 w-48 rounded-full bg-white/15 blur-3xl transition-transform duration-500 group-hover:scale-125" />
-                <div className="relative flex h-full flex-col">
-                  <span className={`grid h-14 w-14 place-items-center rounded-[15px] ${iconSurface}`}>
-                    <Icon size={27} strokeWidth={1.75} />
-                  </span>
-                  <h2 className="mt-6 font-display text-xl font-semibold tracking-[-0.03em] text-white sm:text-[22px]">{title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-white/85 sm:text-[15px] sm:leading-[1.65]">{copy}</p>
-                </div>
-              </motion.article>
-            ))}
+      {/* ========================================================================= */}
+      {/* 2. PURPOSE SECTION: Mission, Vision & Beliefs on Architectural Blueprint Grid */}
+      {/* ========================================================================= */}
+      <section
+        id="about-purpose"
+        data-theme="dark"
+        data-scroll-no-reveal=""
+        aria-label="Mission, vision, and core beliefs"
+        className="dark-section relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24"
+      >
+        <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14 mb-12 sm:mb-16 text-left">
+          <h2 className="about-purpose-heading max-w-4xl font-ptserif text-white">
+            Businesses deserve better tools.
+            <br className="hidden sm:inline" /> Everything we build starts with why.
+          </h2>
+          <p className="mt-5 max-w-[60ch] text-sm sm:text-base leading-[1.65] text-[#c7daf8] font-normal">
+            Too much business software feels fragmented, rigid, and out of touch with real teams. Three principles guide how we build practical technology across operations, payments, and customer experiences.
+          </p>
+        </div>
+
+        <div className="about-purpose-blueprint">
+          {/* Full-bleed horizontal architectural rails spanning behind stepped cells */}
+          <div className="about-purpose-rails-h" aria-hidden="true">
+            <span className="about-purpose-rail-h" style={{ top: '4.5rem' }} />
+            <span className="about-purpose-rail-h" style={{ top: '9rem' }} />
+            <span className="about-purpose-rail-h" style={{ top: '14.5rem' }} />
+            <span className="about-purpose-rail-h" style={{ top: '24.5rem' }} />
+          </div>
+
+          <div className="px-6 sm:px-10 lg:px-14">
+            <div className="about-purpose-stage mx-auto w-full max-w-7xl">
+              {/* Vertical blueprint column rails spanning top-to-bottom within stage */}
+              <div className="about-purpose-rails-v" aria-hidden="true">
+                <span className="about-purpose-rail-v left-0" />
+                <span className="about-purpose-rail-v left-1/3" />
+                <span className="about-purpose-rail-v left-2/3" />
+                <span className="about-purpose-rail-v right-0" />
+              </div>
+
+              <div className="about-purpose-grid">
+                {purposeCards.map(({ title, copy, icon: Icon, accentBar, accentIcon, glowStyle }, index) => (
+                  <motion.article
+                    key={title}
+                    data-step={index}
+                    initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+                    whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.72,
+                      delay: reduceMotion ? 0 : index * 0.14,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="about-purpose-card group text-left"
+                  >
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 opacity-60 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ background: glowStyle }}
+                    />
+
+                    <div className="relative space-y-6">
+                      <span className={`inline-grid h-11 w-11 place-items-center rounded-[10px] border transition-transform duration-300 group-hover:scale-105 ${accentIcon}`}>
+                        <Icon size={21} strokeWidth={1.75} />
+                      </span>
+
+                      <div className="space-y-3">
+                        <h3 className="about-purpose-card-title">{title}</h3>
+                        <p className="text-[15px] sm:text-base leading-[1.65] text-[#c7daf8] font-normal max-w-[36ch]">
+                          {copy}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="relative pt-2">
+                      <span
+                        aria-hidden="true"
+                        className={`block h-[2px] w-8 rounded-full transition-all duration-300 group-hover:w-16 ${accentBar}`}
+                      />
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -302,33 +369,34 @@ export default function About({ setCurrentPage }: AboutProps) {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Stacked Items with Horizontal Separator Lines and Brighter Blue Arrows */}
+            {/* RIGHT COLUMN: Architectural Pure-White Sharp-Corner Value Cards */}
             <div className="lg:col-span-7 grid gap-4 sm:gap-5">
               {values.map((item, index) => {
                 const ValueIcon = item.icon;
-                const surfaces = ['bg-[#0d3670]/75', 'bg-[#0b3979]/80', 'bg-[#0a326d]/85'];
                 return (
                 <motion.article
-                  key={item.id} 
-                  initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.985 }}
+                  key={item.id}
+                  initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.99 }}
                   whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.24 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className={`group relative overflow-hidden rounded-2xl border border-white/10 p-5 shadow-[0_16px_40px_rgba(0,14,48,.16)] transition-all duration-500 hover:-translate-y-1 hover:border-[#79b9ff]/35 hover:shadow-[0_22px_48px_rgba(0,14,48,.24)] sm:p-6 ${surfaces[index % surfaces.length]}`}
+                  transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="about-value-card group relative rounded-none border border-[#04122b]/15 border-t-[3px] border-t-[#0755b8] bg-white p-6 transition-all duration-300 hover:border-t-[#0066FF] sm:p-7"
                 >
-                  <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-[#247cf0]/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="relative flex items-start gap-4 sm:gap-5">
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[14px] border border-[#90c5ff]/25 bg-[#1558a8]/60 text-[#a9d1ff] shadow-inner shadow-white/5 sm:h-[54px] sm:w-[54px]">
-                      <ValueIcon size={24} strokeWidth={1.7} />
+                  <div className="flex items-center justify-between gap-4 border-b border-[#04122b]/[0.08] pb-3.5">
+                    <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[#475569]">
+                      {item.category}
                     </span>
-                    <div className="min-w-0 pt-0.5">
-                      <h3 className="font-serif text-xl tracking-tight text-white transition-colors duration-300 group-hover:text-[#d8ebff] sm:text-2xl">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2.5 max-w-2xl text-sm leading-6 text-[#d0def2] sm:text-base sm:leading-7">
-                        {item.quote}
-                      </p>
-                    </div>
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-none border border-[#d6e4fa] bg-[#f4f8ff] text-[#0755b8] transition-colors duration-300 group-hover:border-[#0066FF] group-hover:bg-[#0066FF] group-hover:text-white">
+                      <ValueIcon size={18} strokeWidth={1.75} aria-hidden="true" />
+                    </span>
+                  </div>
+                  <div className="pt-4">
+                    <h3 className="about-value-title font-serif text-[22px] leading-[1.2] tracking-[-0.015em] text-[#04122b] sm:text-[25px]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2.5 max-w-2xl text-[14.5px] leading-[1.68] text-[#475569] sm:text-[15.5px]">
+                      {item.quote}
+                    </p>
                   </div>
                 </motion.article>
               );})}

@@ -3,45 +3,160 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 interface NavShowcaseCardProps {
-  eyebrow?: string;
+  eyebrow: string;
   title: string;
+  description: string;
   action: string;
   href?: string;
   onClick: () => void;
   variants: any;
-  children: React.ReactNode;
   className?: string;
 }
 
-/** Shared atmospheric showcase used by the three mega-menu feature cards. */
-export function NavShowcaseCard({ eyebrow = 'MIXON DIGITAL', title, action, href, onClick, variants, children, className = '' }: NavShowcaseCardProps) {
-  const sharedClass = `group/showcase relative isolate flex min-h-[286px] cursor-pointer flex-col items-center justify-between overflow-hidden rounded-[10px] border border-white/30 bg-[#0755b8] px-5 py-6 text-center shadow-[0_18px_44px_-24px_rgba(0,55,150,0.72)] outline-none transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-0.5 hover:border-white/60 hover:shadow-[0_24px_56px_-24px_rgba(0,80,220,0.8)] focus-visible:ring-2 focus-visible:ring-blue-300 ${className}`;
+const CELL = 16;
+const COLS = 24;
+const ROWS = 24;
+
+// Deterministic pixel-mosaic palette blending ice blue to Mixon cobalt along the perimeter.
+const MOSAIC_PALETTE = [
+  'transparent',
+  '#f2f7ff',
+  '#dceaff',
+  '#b8d4ff',
+  '#7cb2ff',
+  '#2c7df7',
+  '#0066FF',
+  '#0755b8',
+];
+
+function buildPerimeterPixels() {
+  const cells: Array<{ x: number; y: number; fill: string }> = [];
+  for (let row = 0; row < ROWS; row += 1) {
+    for (let col = 0; col < COLS; col += 1) {
+      const edgeDistX = Math.min(col, COLS - 1 - col);
+      const edgeDistY = Math.min(row, ROWS - 1 - row);
+      const isLeftBand = col <= 2;
+      const isRightBand = col >= COLS - 3;
+      const isBottomBand = row >= ROWS - 3;
+      const isTopAccent = row <= 1;
+
+      if (!isLeftBand && !isRightBand && !isBottomBand && !isTopAccent) continue;
+
+      const hash = ((row * 37 + col * 19 + row * col * 7) % 100) / 100;
+      const verticalWeight = row / (ROWS - 1);
+      let level = 0;
+
+      if (isRightBand) {
+        const rightEdgeFocus = col === COLS - 1 ? 0.5 : col === COLS - 2 ? 0.35 : 0.16;
+        const midFocus = 1 - Math.abs(verticalWeight - 0.56) * 1.45;
+        const score = Math.max(0, midFocus) + rightEdgeFocus + hash * 0.28;
+        if (score > 1.25) level = 7;
+        else if (score > 1.05) level = 6;
+        else if (score > 0.85) level = 5;
+        else if (score > 0.65) level = 4;
+        else if (score > 0.48) level = 3;
+        else if (score > 0.3) level = 2;
+        else level = 1;
+      } else if (isLeftBand) {
+        const leftEdgeFocus = col === 0 ? 0.48 : col === 1 ? 0.3 : 0.14;
+        const lowerFocus = Math.max(0, 1 - Math.abs(verticalWeight - 0.72) * 1.65);
+        const score = lowerFocus + leftEdgeFocus + hash * 0.25;
+        if (score > 1.24) level = 7;
+        else if (score > 1.04) level = 6;
+        else if (score > 0.86) level = 5;
+        else if (score > 0.66) level = 4;
+        else if (score > 0.45) level = 3;
+        else if (score > 0.26) level = 2;
+        else if (verticalWeight > 0.22) level = 1;
+      } else if (isBottomBand) {
+        const bottomBias = (row - (ROWS - 3)) * 0.22;
+        const score = bottomBias + (1 - edgeDistX * 0.08) + hash * 0.3;
+        if (score > 1.25) level = 5;
+        else if (score > 0.98) level = 4;
+        else if (score > 0.72) level = 3;
+        else if (score > 0.45) level = 2;
+        else level = 1;
+      } else if (isTopAccent && hash > 0.55) {
+        level = hash > 0.84 ? 2 : 1;
+      }
+
+      if (level > 0) {
+        cells.push({
+          x: col * CELL,
+          y: row * CELL,
+          fill: MOSAIC_PALETTE[level],
+        });
+      }
+    }
+  }
+  return cells;
+}
+
+const PERIMETER_CELLS = buildPerimeterPixels();
+
+/** Editorial pixel-mosaic showcase card used in navigation mega-menus. */
+export function NavShowcaseCard({
+  eyebrow,
+  title,
+  description,
+  action,
+  href,
+  onClick,
+  variants,
+  className = '',
+}: NavShowcaseCardProps) {
+  const sharedClass = `nav-showcase-card group/showcase relative isolate flex h-full min-h-[292px] cursor-pointer flex-col overflow-hidden rounded-none border border-[#dbe6f7] bg-[#f8fbff] p-[18px] text-left outline-none transition-[border-color,transform,box-shadow] duration-300 hover:border-[#b9d2fa] hover:shadow-[0_14px_34px_-16px_rgba(0,102,255,0.22)] focus-visible:ring-2 focus-visible:ring-[#0066FF] ${className}`;
 
   const innerContent = (
     <>
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(145deg,#52bdff_0%,#0875f5_35%,#315fe8_68%,#073b91_100%)] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/showcase:scale-[1.04]" />
-      <div className="absolute inset-0 -z-10 opacity-90 transition-opacity duration-500 group-hover/showcase:opacity-100" style={{ background: 'radial-gradient(ellipse at 8% 100%, rgba(95,117,255,.78) 0%, transparent 52%), radial-gradient(ellipse at 82% 18%, rgba(118,211,255,.72) 0%, transparent 50%)' }} />
-      <div className="absolute inset-0 -z-10 opacity-[0.12] [background-image:radial-gradient(rgba(255,255,255,.95)_1px,transparent_1px)] [background-size:22px_22px]" />
-      <div className="absolute -right-16 -top-24 -z-10 h-64 w-64 rounded-full border border-white/15 transition-transform duration-700 group-hover/showcase:scale-110" />
-      <div className="absolute -bottom-28 -left-20 -z-10 h-72 w-72 rounded-full border border-white/15 transition-transform duration-700 group-hover/showcase:scale-110" />
+      <svg
+        aria-hidden="true"
+        viewBox={`0 0 ${COLS * CELL} ${ROWS * CELL}`}
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+      >
+        <defs>
+          <pattern id="navMosaicGrid" width={CELL} height={CELL} patternUnits="userSpaceOnUse">
+            <path
+              d={`M ${CELL} 0 L 0 0 0 ${CELL}`}
+              fill="none"
+              stroke="rgba(7, 85, 184, 0.065)"
+              strokeWidth="1"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="#f9fbff" />
+        {PERIMETER_CELLS.map((cell, idx) => (
+          <rect
+            key={idx}
+            x={cell.x}
+            y={cell.y}
+            width={CELL}
+            height={CELL}
+            fill={cell.fill}
+          />
+        ))}
+        <rect width="100%" height="100%" fill="url(#navMosaicGrid)" />
+      </svg>
 
-      <div className="relative z-10 space-y-3 text-center">
-        <span className="block text-[10px] font-semibold tracking-[0.2em] text-white/80">{eyebrow}</span>
-        <h3 className="max-w-full font-serif text-[25px] font-normal leading-[1.12] tracking-[-0.035em] text-white drop-shadow-[0_2px_10px_rgba(0,22,70,.35)] sm:text-[28px]">
-          {title}
-        </h3>
-      </div>
+      <div className="relative z-10 flex flex-1 flex-col justify-between rounded-none bg-white px-5 py-5 sm:px-6 sm:py-6">
+        <div className="space-y-3">
+          <span className="inline-block w-fit rounded-none bg-[#0066FF] px-2.5 py-1 text-[11px] font-semibold tracking-[0.01em] text-white">
+            {eyebrow}
+          </span>
+          <h3 className="nav-showcase-title font-ptserif text-[#04122b]">
+            {title}
+          </h3>
+          <p className="text-[13px] leading-[1.52] text-[#04122b]/85 sm:text-[13.5px]">
+            {description}
+          </p>
+        </div>
 
-      <div className="relative z-10 flex min-h-[118px] flex-1 items-center justify-center py-3">
-        <div className="pointer-events-none absolute h-36 w-36 rounded-full bg-sky-200/30 blur-3xl transition-all duration-500 group-hover/showcase:h-44 group-hover/showcase:w-44 group-hover/showcase:bg-sky-100/40" />
-        {children}
+        <div className="mt-5 inline-flex w-fit items-center gap-2 rounded-none bg-[#edf4ff] px-3.5 py-2 text-[13px] font-semibold text-[#0755b8] transition-colors duration-200 group-hover/showcase:bg-[#dceaff] group-hover/showcase:text-[#04122b]">
+          <span>{action}</span>
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/showcase:translate-x-1" aria-hidden="true" />
+        </div>
       </div>
-
-      <div className="relative z-10 inline-flex min-h-9 items-center gap-2 text-[14px] font-semibold tracking-[-0.01em] text-white sm:text-[15px]">
-        <span>{action}</span>
-        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/showcase:translate-x-1" />
-      </div>
-      <div className="pointer-events-none absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-70" />
     </>
   );
 

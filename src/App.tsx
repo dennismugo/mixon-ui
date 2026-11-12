@@ -54,7 +54,6 @@ const AiService = lazy(() => import('./pages/services/AiService'));
 import FooterUpper from './components/FooterUpper';
 import HalftoneWordmarkFooter from './components/ui/halftone-wordmark-footer';
 import mixonLogo from './assets/mixon_logo_mark.png';
-import mixonLogoWhite from './assets/mixon_logo_white.png';
 import RollingButtonText from './components/RollingButtonText';
 import { NavShowcaseCard } from './components/NavShowcaseCard';
 import { AntiMetalButton } from './components/ui/anti-metal-button';
@@ -149,7 +148,7 @@ const servicesData = [
     id: 'service-web',
     title: 'Web Design & Development',
     tag: 'Next-Gen Web Architecture',
-    desc: 'High-conversion web platforms, bespoke React & Next.js applications, and interactive 3D/canvas interfaces.',
+    desc: 'Fast, clean websites built to win customer trust.',
     icon: Code2,
     iconBg: 'bg-blue-50/80 border-blue-150/70 text-[#0066FF]',
     hoverBg: 'group-hover/item:bg-blue-100/70',
@@ -158,7 +157,7 @@ const servicesData = [
     id: 'service-app',
     title: 'App Development & USSD',
     tag: 'Mobile Engineering & USSD',
-    desc: 'Tactile iOS & Android applications with offline-first SQLite sync, push architecture, and telco USSD rails.',
+    desc: 'Simple mobile apps and fast USSD menus for anyone.',
     icon: Smartphone,
     iconBg: 'bg-indigo-50/80 border-indigo-150/70 text-[#4f46e5]',
     hoverBg: 'group-hover/item:bg-indigo-100/70',
@@ -167,7 +166,7 @@ const servicesData = [
     id: 'service-seo',
     title: 'SEO & Digital Marketing',
     tag: 'Search & Generative AEO/GEO',
-    desc: 'Semantic graph schemas, Core Web Vitals optimization, programmatic indexing, and AI answer discovery.',
+    desc: 'Help people find you first on Google and AI search.',
     icon: Search,
     iconBg: 'bg-emerald-50/80 border-emerald-150/70 text-[#059669]',
     hoverBg: 'group-hover/item:bg-emerald-100/70',
@@ -176,7 +175,7 @@ const servicesData = [
     id: 'service-payments',
     title: 'Payments & Integrations',
     tag: 'M-Pesa Rails & Custom APIs',
-    desc: 'Automated M-Pesa Daraja STK push, multi-currency Stripe checkouts, and instant cryptographic reconciliations.',
+    desc: 'Send M-Pesa, card, and bank payments into your books.',
     icon: CreditCard,
     iconBg: 'bg-sky-50/80 border-sky-150/70 text-[#0284c7]',
     hoverBg: 'group-hover/item:bg-sky-100/70',
@@ -185,7 +184,7 @@ const servicesData = [
     id: 'service-ecommerce',
     title: 'E-Commerce Development',
     tag: 'High-Velocity Commerce',
-    desc: 'Zero-latency headless digital stores, real-time stock sync, dynamic regional carts, and frictionless checkout.',
+    desc: 'Online stores with live stock and smooth checkout.',
     icon: ShoppingBag,
     iconBg: 'bg-rose-50/80 border-rose-150/70 text-[#e11d48]',
     hoverBg: 'group-hover/item:bg-rose-100/70',
@@ -194,7 +193,7 @@ const servicesData = [
     id: 'service-ai',
     title: 'AI & Process Automation',
     tag: 'Intelligent Workflows',
-    desc: 'Practical task automation, machine learning assistants, and human-in-the-loop operational pipelines.',
+    desc: 'Automate busywork with practical AI for your team.',
     icon: Sparkles,
     iconBg: 'bg-amber-50/80 border-amber-150/70 text-[#d97706]',
     hoverBg: 'group-hover/item:bg-amber-100/70',
@@ -587,7 +586,7 @@ export default function App() {
                       animate="visible"
                       exit="exit"
                       style={{ transformOrigin: 'top center' }}
-                      className="bg-white/98 backdrop-blur-2xl border border-gray-200/90 rounded-none p-5 grid grid-cols-12 gap-5 shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
+                      className="bg-white border border-gray-200 rounded-none p-5 grid grid-cols-12 gap-5 shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
                     >
                       {/* Left Column (Items stack with cascading reveal) */}
                       <div className="col-span-7 flex flex-col justify-between space-y-1 pr-1">
@@ -674,18 +673,14 @@ export default function App() {
 
                       <NavShowcaseCard
                         variants={dropdownShowcaseVariants}
-                        eyebrow="MIXON STUDIO"
-                        title="Mixon Studio"
-                        action="Learn more"
+                        eyebrow="Mixon Studio"
+                        title="Inside the studio behind Mixon"
+                        description="Four focused platforms built in Nairobi for teams running rentals, stays, tickets, and retail stores."
+                        action="Learn More"
                         href={getRoutePath('about')}
                         onClick={() => handleSelectProduct('about')}
                         className="col-span-5"
-                      >
-                        <div className="relative flex h-[112px] w-[112px] items-center justify-center rounded-[28px] border border-white/45 bg-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,.32),0_20px_42px_rgba(0,32,110,.26)] backdrop-blur-xl transition-transform duration-500 group-hover/showcase:rotate-[-4deg] group-hover/showcase:scale-105">
-                          <div className="absolute inset-2 rounded-[21px] border border-white/15" />
-                          <img src={mixonLogoWhite} alt="Mixon" className="relative w-[68px] object-contain drop-shadow-[0_4px_12px_rgba(255,255,255,.48)]" />
-                        </div>
-                      </NavShowcaseCard>
+                      />
 
                     </motion.div>
                   </div>
@@ -723,10 +718,10 @@ export default function App() {
                       animate="visible"
                       exit="exit"
                       style={{ transformOrigin: 'top center' }}
-                      className="bg-white/98 backdrop-blur-2xl border border-gray-200/90 rounded-none p-5 grid grid-cols-12 gap-5 shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
+                      className="bg-white border border-gray-200 rounded-none p-5 grid grid-cols-12 gap-5 shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
                     >
-                      {/* Left Column: 6 Services in a 2-Column Grid (Single-Line Titles, No Muted Text) */}
-                      <div className="col-span-8 grid grid-cols-2 gap-2.5 pr-2 items-center">
+                      {/* Left Column: 6 Services in a 2-Column Grid with 2-Line Human Descriptions */}
+                      <div className="col-span-8 grid grid-cols-2 gap-2.5 pr-2 items-start">
                         {servicesData.map((service) => {
                           const IconComp = service.icon;
                           const servicePage = service.id as PageId;
@@ -736,17 +731,19 @@ export default function App() {
                               variants={dropdownItemVariants}
                               href={getRoutePath(servicePage)}
                               onClick={(e) => handleAnchorNavigate(e, () => handleSelectService(servicePage))}
-                              className="w-full text-left py-3 px-3.5 rounded-none hover:bg-slate-50/95 transition-all duration-200 flex items-center justify-between gap-3 group/item cursor-pointer border border-transparent hover:border-gray-150/70"
+                              className="w-full text-left p-3 rounded-none hover:bg-slate-50 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer border border-transparent hover:border-slate-200/70"
                             >
-                              <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                                <div className={`w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-110 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
-                                  <IconComp className="w-4.5 h-4.5 stroke-[2.2]" />
-                                </div>
-                                <span className="text-[13.5px] font-semibold text-gray-900 leading-none group-hover/item:text-[#0066FF] transition-colors whitespace-nowrap">
+                              <div className={`mt-0.5 w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
+                                <IconComp className="w-4.5 h-4.5 stroke-[2.2]" />
+                              </div>
+                              <div className="min-w-0 space-y-1">
+                                <span className="block text-[13.5px] font-semibold text-gray-900 leading-tight group-hover/item:text-[#0066FF] transition-colors">
                                   {service.title}
                                 </span>
+                                <p className="text-[12px] font-normal leading-[1.45] text-gray-600">
+                                  {service.desc}
+                                </p>
                               </div>
-                              <ArrowRight className="w-3.5 h-3.5 text-gray-300 opacity-0 -translate-x-1.5 group-hover/item:opacity-100 group-hover/item:translate-x-0 group-hover/item:text-[#0066FF] transition-all duration-200 shrink-0" />
                             </motion.a>
                           );
                         })}
@@ -754,18 +751,14 @@ export default function App() {
 
                       <NavShowcaseCard
                         variants={dropdownShowcaseVariants}
-                        eyebrow="MIXON BESPOKE LABS"
-                        title="Mixon Bespoke Labs"
+                        eyebrow="Mixon Bespoke Labs"
+                        title="Custom systems built around your work"
+                        description="Partner directly with our engineering team to design and ship tailored platforms, APIs, and M-Pesa automation."
                         action="Brief our team"
                         href={getRoutePath('services')}
                         onClick={() => handleSelectService('services')}
                         className="col-span-4"
-                      >
-                        <div className="relative flex h-[88px] w-[88px] items-center justify-center rounded-[24px] border border-white/45 bg-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,.32),0_20px_42px_rgba(0,32,110,.26)] backdrop-blur-xl transition-transform duration-500 group-hover/showcase:rotate-[-6deg] group-hover/showcase:scale-105">
-                          <div className="absolute inset-2 rounded-[18px] border border-white/15" />
-                          <Sparkles className="relative h-10 w-10 text-white drop-shadow-[0_3px_9px_rgba(255,255,255,.38)] transition-transform duration-500 group-hover/showcase:scale-110" strokeWidth={1.7} />
-                        </div>
-                      </NavShowcaseCard>
+                      />
 
                     </motion.div>
                   </div>
