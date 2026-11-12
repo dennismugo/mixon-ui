@@ -2400,3 +2400,17 @@ main section.border-y {
   letter-spacing: -0.028em !important;
   color: #04122b !important;
 }
+
+/* ==========================================================================
+   PRE-FOOTER JASPER SPLIT CTA HEADING
+   ========================================================================== */
+#pre-footer-cta h2.prefooter-jasper-heading,
+#pre-footer-cta h2.prefooter-jasper-heading * {
+  font-family: 'PT Serif', serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.1rem, 1.45rem + 1.95vw, 3.1rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.03em !important;
+  color: #04122b !important;
+  text-wrap: balance;
+}

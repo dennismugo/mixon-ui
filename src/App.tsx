@@ -597,7 +597,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mirentals'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-blue-50/80 border border-blue-150/70 flex items-center justify-center shrink-0 text-[#0066FF] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-blue-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-[4px] bg-blue-50/80 border border-blue-150/70 flex items-center justify-center shrink-0 text-[#0066FF] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-blue-100/70 transition-all duration-300">
                             <Building2 className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -617,7 +617,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mireserve'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-sky-50/80 border border-sky-150/70 flex items-center justify-center shrink-0 text-[#0284c7] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-sky-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-[4px] bg-sky-50/80 border border-sky-150/70 flex items-center justify-center shrink-0 text-[#0284c7] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-sky-100/70 transition-all duration-300">
                             <Calendar className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -637,7 +637,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('eventyetu'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-indigo-50/80 border border-indigo-150/70 flex items-center justify-center shrink-0 text-[#4f46e5] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-indigo-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-[4px] bg-indigo-50/80 border border-indigo-150/70 flex items-center justify-center shrink-0 text-[#4f46e5] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-indigo-100/70 transition-all duration-300">
                             <Ticket className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -657,7 +657,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mipos'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-emerald-50/80 border border-emerald-150/70 flex items-center justify-center shrink-0 text-[#059669] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-emerald-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-[4px] bg-emerald-50/80 border border-emerald-150/70 flex items-center justify-center shrink-0 text-[#059669] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-emerald-100/70 transition-all duration-300">
                             <Cpu className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -733,14 +733,14 @@ export default function App() {
                               onClick={(e) => handleAnchorNavigate(e, () => handleSelectService(servicePage))}
                               className="w-full text-left p-3 rounded-none hover:bg-slate-50 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer border border-transparent hover:border-slate-200/70"
                             >
-                              <div className={`mt-0.5 w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
+                              <div className={`mt-0.5 w-9 h-9 rounded-[4px] border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
                                 <IconComp className="w-4.5 h-4.5 stroke-[2.2]" />
                               </div>
                               <div className="min-w-0 space-y-1">
                                 <span className="block text-[13.5px] font-semibold text-gray-900 leading-tight group-hover/item:text-[#0066FF] transition-colors">
                                   {service.title}
                                 </span>
-                                <p className="text-[12px] font-normal leading-[1.45] text-gray-600">
+                                <p className="!text-[11px] font-normal leading-[1.4] text-gray-500">
                                   {service.desc}
                                 </p>
                               </div>
