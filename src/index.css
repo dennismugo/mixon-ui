@@ -2421,8 +2421,10 @@ main section.border-y {
 section#faq button > span.faq-jasper-question:first-child,
 #faq button > span.faq-jasper-question {
   font-family: 'PT Serif', serif !important;
+  font-size: clamp(1.03rem, 0.92rem + 0.45vw, 1.1875rem) !important;
+  line-height: 1.28 !important;
   font-weight: 400 !important;
-  letter-spacing: -0.022em !important;
+  letter-spacing: -0.02em !important;
   color: #04122b !important;
 }
 

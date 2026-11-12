@@ -48,11 +48,11 @@ export const FleetoraFaq: React.FC<FleetoraFaqProps> = () => {
                     <button
                       type="button"
                       onClick={() => setOpenIdx(isOpen ? null : idx)}
-                      className="w-full flex items-center justify-between gap-5 px-5 py-5 sm:px-7 sm:py-6 text-left cursor-pointer group rounded-none"
+                      className="w-full flex items-center justify-between gap-5 px-5 py-4 sm:px-6 sm:py-[18px] text-left cursor-pointer group rounded-none"
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                     >
-                      <span className="faq-jasper-question font-ptserif text-[19px] sm:text-[22px] font-normal tracking-[-0.02em] leading-[1.24] text-[#04122b] group-hover:text-[#0755b8] transition-colors">
+                      <span className="faq-jasper-question font-ptserif text-[16.5px] sm:text-[19px] font-normal tracking-[-0.02em] leading-[1.28] text-[#04122b] group-hover:text-[#0755b8] transition-colors">
                         {faq.q}
                       </span>
 
@@ -82,7 +82,7 @@ export const FleetoraFaq: React.FC<FleetoraFaqProps> = () => {
                     aria-hidden={!isOpen}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-6 pt-0 sm:px-7 sm:pb-7 font-sans text-[14px] sm:text-[15px] text-[#04122b]/85 font-normal leading-[1.64] max-w-[64ch]">
+                    <p className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 font-sans text-[13.5px] sm:text-[14px] text-[#04122b]/85 font-normal leading-[1.6] max-w-[64ch]">
                       {faq.a}
                     </p>
                   </motion.div>
