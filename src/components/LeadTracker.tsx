@@ -39,7 +39,7 @@ export default function LeadTracker({ refreshTrigger = 0 }: LeadTrackerProps) {
   }, [refreshTrigger]);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-6 relative overflow-hidden" id="lead-tracker-dashboard">
+    <div className="bg-white border border-gray-200 rounded-none p-6 relative overflow-hidden" id="lead-tracker-dashboard">
       <div className="flex items-center justify-between border-b border-gray-200 pb-4 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="relative text-left">
@@ -74,7 +74,7 @@ export default function LeadTracker({ refreshTrigger = 0 }: LeadTrackerProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-slate-50 hover:bg-slate-100/80 border border-gray-200 p-3.5 rounded-xl flex items-start justify-between gap-3 transition-all text-xs text-left"
+                className="bg-slate-50 hover:bg-slate-100/80 border border-gray-200 p-3.5 rounded-none flex items-start justify-between gap-3 transition-all text-xs text-left"
               >
                 <div className="space-y-1.5 min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">

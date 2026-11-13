@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
-import { 
-  Check, 
-  ArrowRight, 
-  ArrowUpRight,
-  Sliders, 
-  HelpCircle, 
-  Plus, 
-  Minus,
-  Sparkles,
-  Layers,
-  Cpu,
-  Zap,
-  Activity,
-  ShieldCheck,
-  Building2,
-  Lock
-} from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { Check, ArrowRight, Sliders, ShieldCheck } from 'lucide-react';
 
 import RollingButtonText from '../components/RollingButtonText';
+import { FaqAccordionBox } from '../components/FaqAccordionBox';
+import PixelMosaicBackdrop from '../components/PixelMosaicBackdrop';
 import { PRICING_FAQS } from '../seo/mixonSeo';
 
 interface PricingProps {
   setCurrentPage: (page: any) => void;
+}
+
+interface ComparisonRow {
+  label: string;
+  desc: string;
+  values: [string, string, string, string];
+}
+
+interface ComparisonCategory {
+  title: string;
+  tintRowClass: string;
+  headerBgClass: string;
+  rows: ComparisonRow[];
 }
 
 export default function Pricing({ setCurrentPage }: PricingProps) {
@@ -30,14 +29,12 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
   const [currency, setCurrency] = useState<'KES' | 'USD'>('KES');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
   const [volumeIndex, setVolumeIndex] = useState<number>(1);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Volume slider tiers for the interactive blueprint card
   const volumeTiers = [
     { label: '1 – 20 units / Single till', plan: 'Starter', desc: 'Up to 500 monthly transactions' },
     { label: '20 – 100 units / 2–5 tills', plan: 'Growth', desc: '500 to 5,000 monthly transactions' },
     { label: '100 – 500 units / Multi-branch', plan: 'Pro', desc: '5,000 to 25,000 monthly transactions' },
-    { label: '500+ units / High-velocity enterprise', plan: 'Scale & Custom', desc: 'Unlimited transactions & private cluster' }
+    { label: '500+ units / High-velocity enterprise', plan: 'Scale & Enterprise', desc: 'Unlimited transactions & private SLA' },
   ];
 
   const formatPrice = (kesMonthly: number, usdMonthly: number) => {
@@ -51,82 +48,457 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
     return `$${usd.toLocaleString()}`;
   };
 
-  const faqs = PRICING_FAQS;
+  const primaryPlans = [
+    {
+      name: 'Starter',
+      tagline: 'For early-stage business sites & single-location teams.',
+      kes: 25000,
+      usd: 200,
+      cta: 'Start with Starter',
+      featured: false,
+      highlightsTitle: 'Includes:',
+      highlights: [
+        'Up to 5 custom responsive pages',
+        'Sub-second load times & SSL',
+        'Direct inquiry capture form',
+        '1–20 units or single POS till',
+        'Delivery in 7–10 business days',
+      ],
+    },
+    {
+      name: 'Growth',
+      tagline: 'For expanding businesses & dynamic multi-channel workflows.',
+      kes: 40500,
+      usd: 325,
+      cta: 'Choose Growth',
+      featured: false,
+      highlightsTitle: 'Everything in Starter, plus:',
+      highlights: [
+        'Up to 15 pages + intuitive CMS',
+        'AEO & GEO Answer-Engine schema',
+        'M-Pesa Daraja C2B Paybill capture',
+        'WhatsApp alerts & 2–5 POS tills',
+        '30 days post-launch SLA support',
+      ],
+    },
+    {
+      name: 'Pro',
+      tagline: 'For high-concurrency commercial ops & direct payment rails.',
+      kes: 75500,
+      usd: 600,
+      cta: 'Start Pro',
+      featured: true,
+      highlightsTitle: 'Everything in Growth, plus:',
+      highlights: [
+        'Instant M-Pesa STK Push (<14ms)',
+        'Unlimited pages & custom portals',
+        'Zero-leakage settlement webhooks',
+        'Visa, Mastercard & sub-second channel lock',
+        'Dedicated technical engineer support',
+      ],
+    },
+    {
+      name: 'Scale',
+      tagline: 'For multi-branch organizations & custom API ecosystems.',
+      kes: 145000,
+      usd: 1150,
+      cta: 'Start Scale',
+      featured: false,
+      highlightsTitle: 'Everything in Pro, plus:',
+      highlights: [
+        'Custom REST & GraphQL APIs',
+        'Multi-department role permissions',
+        'Hardware turnstile & distributed Redis lock',
+        'Hourly automated ledger backups',
+        'Dedicated technical account lead',
+      ],
+    },
+  ];
+
+  const comparisonCategories: ComparisonCategory[] = [
+    {
+      title: 'Core Platforms & Websites',
+      headerBgClass: 'bg-[#f4f8ff]',
+      tintRowClass: 'bg-[#edf4ff]',
+      rows: [
+        {
+          label: 'Custom Page Hierarchy',
+          desc: 'Structured responsive web architecture included at launch',
+          values: ['Up to 5 Pages', 'Up to 15 Pages', 'Unlimited', 'Bespoke Portal'],
+        },
+        {
+          label: 'Content Management (CMS)',
+          desc: 'Publish updates, team pages, and listings without developer tickets',
+          values: ['—', 'Included', 'Included', 'Multi-Workspace'],
+        },
+        {
+          label: 'AEO & GEO Answer-Engine Schema',
+          desc: 'Structured markup for Google & AI answer engines',
+          values: ['—', 'Included', 'Included', 'Custom Schema'],
+        },
+        {
+          label: 'Delivery Window',
+          desc: 'Typical production turnaround for initial deployment',
+          values: ['7–10 days', '10–14 days', '2–3 weeks', 'Dedicated Sprint'],
+        },
+      ],
+    },
+    {
+      title: 'M-Pesa, Card & Payment Rails',
+      headerBgClass: 'bg-[#f2fbff]',
+      tintRowClass: 'bg-[#e6f6ff]',
+      rows: [
+        {
+          label: 'Mobile Money & M-Pesa Daraja',
+          desc: 'Direct collection and real-time settlement verification',
+          values: ['—', 'C2B Paybill Capture', 'Instant STK (<14ms)', 'Direct Gateway Rails'],
+        },
+        {
+          label: 'Card & Bank Settlement Rails',
+          desc: 'Accept Visa, Mastercard, Pesapal, or direct bank transfers',
+          values: ['—', 'Optional Add-on', 'Included', 'Custom Gateway + USSD'],
+        },
+        {
+          label: 'Ledger Reconciliation',
+          desc: 'Match incoming collections to invoices, bookings, and shifts automatically',
+          values: ['Manual Export', 'Daily Automated Match', 'Real-Time Match', 'Bi-directional ERP'],
+        },
+      ],
+    },
+    {
+      title: 'Mixon Suite Capabilities',
+      headerBgClass: 'bg-[#f4f6ff]',
+      tintRowClass: 'bg-[#ebeffe]',
+      rows: [
+        {
+          label: 'miRentals / miPOS Asset Scale',
+          desc: 'Units, properties, or multi-branch point-of-sale counters supported',
+          values: ['1–20 units / 1 till', '20–100 units / 2–5 tills', '100–500 units / Multi', '500+ units / Unlimited'],
+        },
+        {
+          label: 'miReserve OTA & Room Lock',
+          desc: 'Synchronize direct reservations and avoid double-bookings',
+          values: ['—', 'Periodic Sync', 'Sub-second Lock', 'Distributed Redis Lock'],
+        },
+        {
+          label: 'Event Yetu Offline-First Gate QR',
+          desc: 'Verify passes instantaneously even in low-connectivity venues',
+          values: ['—', 'Standard Check-in', 'Local ECDSA Crypto', 'Hardware Gate Sync'],
+        },
+        {
+          label: 'Custom Endpoints & Webhooks',
+          desc: 'Sync inventory and ledgers with your existing ERP',
+          values: ['—', 'Standard Webhooks', 'REST + Webhooks', 'Custom REST & GraphQL'],
+        },
+      ],
+    },
+    {
+      title: 'Security, Support & SLAs',
+      headerBgClass: 'bg-[#f0fdf9]',
+      tintRowClass: 'bg-[#e4f9f2]',
+      rows: [
+        {
+          label: 'Source Code & IP Ownership',
+          desc: 'Full ownership of bespoke builds and data assets',
+          values: ['✓', '✓', '✓', '100% Bespoke IP'],
+        },
+        {
+          label: 'Encrypted Backups',
+          desc: 'Redundant automated database and ledger snapshots',
+          values: ['Weekly', 'Daily', 'Every 6 Hours', 'Hourly Automated'],
+        },
+        {
+          label: 'Engineering SLA & Support',
+          desc: 'Direct access to Nairobi engineering support',
+          values: ['Standard Email', '30 Days Post-Launch', 'Priority 4hr SLA', 'Dedicated Lead · 99.95%'],
+        },
+      ],
+    },
+  ];
+
+  const billingFaqs = PRICING_FAQS.slice(0, 3);
+  const deploymentFaqs = PRICING_FAQS.slice(3);
+
+  const infoCards = [
+    {
+      seedOffset: 8,
+      title: 'Explore Products',
+      desc: 'Compare miRentals, miReserve, Event Yetu, and miPOS workflows side by side.',
+      page: 'products',
+    },
+    {
+      seedOffset: 9,
+      title: 'Engineering Services',
+      desc: 'Custom websites, mobile/USSD apps, payment rails, and AI integrations.',
+      page: 'services',
+    },
+    {
+      seedOffset: 10,
+      title: 'Book a Live Demo',
+      desc: 'Schedule a 30-minute walkthrough tailored to your operational volume.',
+      page: 'book-demo',
+    },
+  ];
 
   return (
-    <div className="mixon-interior-page mixon-pricing-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
-      
+    <div className="mixon-interior-page mixon-pricing-page bg-white text-[#04122b] pt-24 pb-24 selection:bg-[#0066FF] selection:text-white">
       {/* =========================================================================
-          HEADER: Context.dev Blueprint Header with Schematic Dot Constellations
+          BAND 1: JASPER-STYLE ARCHITECTURAL GRID HERO + PLAN CARDS
          ========================================================================= */}
-      <section className="relative px-6 sm:px-10 lg:px-14 pt-12 pb-16 sm:pb-20 text-center overflow-hidden">
-        {/* Subtle schematic dot matrix graphics in corners matching Context.dev */}
-        <div className="absolute top-8 left-8 w-64 h-32 opacity-25 bg-[radial-gradient(#0066FF_1px,transparent_1px)] bg-[size:14px_14px] pointer-events-none hidden md:block" />
-        <div className="absolute top-8 right-8 w-64 h-32 opacity-25 bg-[radial-gradient(#0066FF_1px,transparent_1px)] bg-[size:14px_14px] pointer-events-none hidden md:block" />
+      <section className="relative border-b border-[#dbe7fb] bg-white px-5 sm:px-8 lg:px-12 pt-14 sm:pt-18 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-[1260px]">
+          <div className="mx-auto max-w-3xl text-center space-y-5">
+            <h1
+              className="hero-title font-ptserif text-4xl sm:text-5xl lg:text-[60px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.04]"
+              style={{ fontFamily: "'PT Serif', serif" }}
+            >
+              Get software built for serious Kenyan business
+            </h1>
+            <p className="font-sans text-[14.5px] sm:text-[16px] text-[#334155] max-w-xl mx-auto leading-relaxed">
+              Fixed-scope website packages &amp; scalable product licenses. Clear billing in KES or USD with zero surprise setup fees.
+            </p>
 
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10 flex flex-col items-center text-center">
-          <h1 className="font-sans text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-gray-950 tracking-[-0.035em] leading-[1.08] text-balance text-center mx-auto max-w-2xl sm:max-w-3xl">
-            Straightforward,{' '}
-            <span className="text-[#0066FF]">transparent pricing</span>
-          </h1>
-          <p className="text-sm sm:text-base text-gray-500 font-light max-w-xl mx-auto leading-relaxed text-center">
-            Fixed-scope website packages &amp; scalable product licenses. No hidden setup fees or surprise renewal costs.
-          </p>
+            {/* Square 0px Billing & Currency Toggles */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <div className="inline-flex items-center border border-[#c5daf8] bg-white p-1 rounded-none">
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle('monthly')}
+                  className={`px-4 py-2 rounded-none text-xs font-mono font-semibold transition-colors cursor-pointer ${
+                    billingCycle === 'monthly'
+                      ? 'bg-[#0066FF] text-white'
+                      : 'text-[#475569] hover:text-[#04122b]'
+                  }`}
+                >
+                  Monthly
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle('yearly')}
+                  className={`px-4 py-2 rounded-none text-xs font-mono font-semibold transition-colors cursor-pointer flex items-center gap-2 ${
+                    billingCycle === 'yearly'
+                      ? 'bg-[#0066FF] text-white'
+                      : 'text-[#475569] hover:text-[#04122b]'
+                  }`}
+                >
+                  <span>Yearly</span>
+                  <span
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-none ${
+                      billingCycle === 'yearly'
+                        ? 'bg-white text-[#0066FF]'
+                        : 'bg-[#e8f1ff] text-[#0066FF]'
+                    }`}
+                  >
+                    Save 20%
+                  </span>
+                </button>
+              </div>
 
-          {/* Currency & Billing Cycle Toggle Capsules */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-3">
-            {/* Billing cycle toggle */}
-            <div className="inline-flex items-center p-1 bg-slate-100 rounded-lg border border-gray-200/80">
-              <button
-                type="button"
-                onClick={() => setBillingCycle('monthly')}
-                className={`px-4 py-1.5 rounded-md text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
-                  billingCycle === 'monthly'
-                    ? 'bg-white text-gray-950 shadow-xs font-bold'
-                    : 'text-gray-500 hover:text-gray-900'
+              <div className="inline-flex items-center border border-[#c5daf8] bg-white p-1 rounded-none">
+                <button
+                  type="button"
+                  onClick={() => setCurrency('KES')}
+                  className={`px-3.5 py-2 rounded-none text-xs font-mono font-semibold transition-colors cursor-pointer ${
+                    currency === 'KES'
+                      ? 'bg-[#0066FF] text-white'
+                      : 'text-[#475569] hover:text-[#04122b]'
+                  }`}
+                >
+                  KES (KSh)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrency('USD')}
+                  className={`px-3.5 py-2 rounded-none text-xs font-mono font-semibold transition-colors cursor-pointer ${
+                    currency === 'USD'
+                      ? 'bg-[#0066FF] text-white'
+                      : 'text-[#475569] hover:text-[#04122b]'
+                  }`}
+                >
+                  USD ($)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Main Pricing Cards (Jasper Clean White Sharp-Corner Cards) */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch"
+          >
+            {primaryPlans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`rounded-none bg-white p-6 sm:p-7 flex flex-col justify-between text-left transition-shadow duration-200 ${
+                  plan.featured
+                    ? 'border-2 border-[#0066FF] shadow-[0_18px_42px_-14px_rgba(0,102,255,0.2)]'
+                    : 'border border-[#c5daf8] shadow-[0_6px_22px_-12px_rgba(4,18,43,0.08)]'
                 }`}
               >
-                Monthly
-              </button>
+                <div>
+                  <div className="flex items-center justify-between gap-2 pb-4 border-b border-[#04122b]/15">
+                    <h2
+                      className="whitespace-nowrap font-ptserif text-2xl font-normal text-[#04122b] tracking-tight"
+                      style={{ fontFamily: "'PT Serif', serif" }}
+                    >
+                      {plan.name}
+                    </h2>
+                    <div className="shrink-0 whitespace-nowrap text-right">
+                      <span className="font-sans text-[17px] font-bold text-[#04122b] tracking-tight">
+                        {formatPrice(plan.kes, plan.usd)}
+                      </span>
+                      <span className="ml-0.5 text-[10px] font-mono text-slate-500">/mo</span>
+                    </div>
+                  </div>
+
+                  <p className="pricing-plan-tagline mt-4 min-h-[78px] text-xs sm:text-[13px] text-[#475569] leading-relaxed">
+                    {plan.tagline}
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setCurrentPage('contact')}
+                    className={`mt-4 w-full py-2.5 px-4 rounded-none text-xs font-sans font-semibold transition-colors cursor-pointer flex items-center justify-center ${
+                      plan.featured
+                        ? 'bg-[#0066FF] hover:bg-[#0052cc] text-white border border-[#0066FF]'
+                        : 'bg-white hover:bg-[#f4f8ff] text-[#04122b] border border-[#04122b]/25 hover:border-[#0066FF]'
+                    }`}
+                  >
+                    <RollingButtonText text={plan.cta} />
+                  </button>
+
+                  <div className="mt-6 pt-5 border-t border-slate-100 space-y-2.5">
+                    <p className="pricing-plan-highlights-title font-mono uppercase tracking-[0.06em] font-semibold text-[#0066FF]">
+                      {plan.highlightsTitle}
+                    </p>
+                    <ul className="space-y-2 text-xs text-[#334155]">
+                      {plan.highlights.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Compact Volume Recommender + Enterprise / Custom Strip */}
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 border border-[#c5daf8] bg-white rounded-none divide-y lg:divide-y-0 lg:divide-x divide-[#dbe7fb]">
+            {/* Left: Interactive Volume Selector */}
+            <div className="lg:col-span-6 p-6 sm:p-7 flex flex-col justify-between text-left bg-[#f9fbff]">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Sliders className="w-4 h-4 text-[#0066FF]" />
+                  <h3 className="font-sans font-bold text-base text-[#04122b]">
+                    Which plan fits your operational volume?
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  {volumeTiers.map((tier, idx) => (
+                    <button
+                      key={tier.label}
+                      type="button"
+                      onClick={() => setVolumeIndex(idx)}
+                      className={`p-3 rounded-none border text-left transition-colors cursor-pointer ${
+                        volumeIndex === idx
+                          ? 'bg-white border-[#0066FF] text-[#04122b]'
+                          : 'bg-white/75 hover:bg-white border-[#dbe7fb] text-[#475569]'
+                      }`}
+                    >
+                      <div className="text-xs font-bold text-[#04122b]">{tier.label}</div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">{tier.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-5 mt-5 border-t border-[#dbe7fb] flex items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-slate-500 block">
+                    Recommended Plan
+                  </span>
+                  <span className="text-sm font-bold text-[#0066FF]">
+                    {volumeTiers[volumeIndex].plan}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCurrentPage('contact')}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-semibold bg-[#04122b] hover:bg-[#0066FF] text-white transition-colors cursor-pointer"
+                >
+                  <RollingButtonText text="Select Plan" icon={<ArrowRight className="w-3.5 h-3.5" />} />
+                </button>
+              </div>
+            </div>
+
+            {/* Enterprise Column */}
+            <div className="lg:col-span-3 p-6 sm:p-7 flex flex-col justify-between text-left bg-white">
+              <div>
+                <div className="flex items-baseline justify-between gap-2 pb-3 border-b border-slate-200">
+                  <h3 className="font-ptserif text-xl text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                    Enterprise
+                  </h3>
+                  <span className="font-sans text-sm font-bold text-[#04122b]">
+                    {formatPrice(250000, 2000)}/mo
+                  </span>
+                </div>
+                <p className="text-xs text-[#475569] mt-3 mb-4">
+                  Tailored multi-system rollout, private SLA &amp; dedicated telco rails.
+                </p>
+                <ul className="space-y-1.5 text-xs text-[#334155] mb-5">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
+                    <span>Custom telco USSD shortcodes</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
+                    <span>99.95% uptime contract SLA</span>
+                  </li>
+                </ul>
+              </div>
               <button
                 type="button"
-                onClick={() => setBillingCycle('yearly')}
-                className={`px-4 py-1.5 rounded-md text-xs font-mono font-medium transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                  billingCycle === 'yearly'
-                    ? 'bg-white text-gray-950 shadow-xs font-bold'
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
+                onClick={() => setCurrentPage('contact')}
+                className="w-full py-2.5 px-4 rounded-none text-xs font-semibold border border-[#04122b]/25 hover:border-[#0066FF] text-[#04122b] hover:bg-[#f4f8ff] transition-colors cursor-pointer"
               >
-                <span>Yearly</span>
-                <span className="text-[10px] text-[#0066FF] font-bold bg-blue-50 px-1.5 py-0.2 rounded-md">
-                  Save 20%
-                </span>
+                <RollingButtonText text="Start Enterprise" />
               </button>
             </div>
 
-            {/* Currency switcher toggle */}
-            <div className="inline-flex items-center p-1 bg-slate-100 rounded-lg border border-gray-200/80">
+            {/* Custom Column */}
+            <div className="lg:col-span-3 p-6 sm:p-7 flex flex-col justify-between text-left bg-white">
+              <div>
+                <div className="flex items-baseline justify-between gap-2 pb-3 border-b border-slate-200">
+                  <h3 className="font-ptserif text-xl text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                    Custom
+                  </h3>
+                  <span className="font-mono text-xs font-bold text-[#0066FF]">Bespoke</span>
+                </div>
+                <p className="text-xs text-[#475569] mt-3 mb-4">
+                  100% bespoke codebase, ERP integrations &amp; dedicated engineers.
+                </p>
+                <ul className="space-y-1.5 text-xs text-[#334155] mb-5">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
+                    <span>Hardware turnstile / POS links</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
+                    <span>100% client source IP transfer</span>
+                  </li>
+                </ul>
+              </div>
               <button
                 type="button"
-                onClick={() => setCurrency('KES')}
-                className={`px-3.5 py-1.5 rounded-md text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
-                  currency === 'KES'
-                    ? 'bg-white text-gray-950 shadow-xs font-bold'
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
+                onClick={() => setCurrentPage('contact')}
+                className="w-full py-2.5 px-4 rounded-none text-xs font-semibold border border-[#04122b]/25 hover:border-[#0066FF] text-[#04122b] hover:bg-[#f4f8ff] transition-colors cursor-pointer"
               >
-                KES (KSh)
-              </button>
-              <button
-                type="button"
-                onClick={() => setCurrency('USD')}
-                className={`px-3.5 py-1.5 rounded-md text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
-                  currency === 'USD'
-                    ? 'bg-white text-gray-950 shadow-xs font-bold'
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
-              >
-                USD ($)
+                <RollingButtonText text="Talk to Sales" />
               </button>
             </div>
           </div>
@@ -134,475 +506,86 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
       </section>
 
       {/* =========================================================================
-          THE SIGNATURE CONTEXT.DEV 2-ROW BENTO PRICING TABLE
+          BAND 2: JASPER-STYLE CATEGORIZED COLOR-TINTED COMPARISON MATRIX
          ========================================================================= */}
-      <section className="px-6 sm:px-10 lg:px-14 pb-20 sm:pb-24">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.08 }}
-          transition={{ duration: reduceMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full max-w-7xl mx-auto rounded-xl border border-blue-200/90 bg-white overflow-hidden shadow-[0_12px_40px_rgba(0,102,255,0.05)]"
-        >
-          
-          {/* ---------------------------------------------------------------------
-              ROW 1: 4 Equal Columns with 1px hairline dividers
-             --------------------------------------------------------------------- */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-            
-            {/* TIER 1: Starter */}
-            <div className="p-7 sm:p-8 flex flex-col justify-between text-left relative bg-white">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Starter</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  For exploring &amp; early-stage business setups
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    {formatPrice(25000, 200)}
-                  </span>
-                  <span className="text-xs font-mono text-gray-400">/mo</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold border border-gray-300 hover:border-gray-950 text-gray-900 hover:bg-gray-50 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Start with Starter" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    Up to 5 custom pages included
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-600 font-light">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Mobile-first responsive architecture</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Sub-second load times &amp; SSL</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Direct inquiry capture form</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Delivery in 7–10 business days</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* TIER 2: Growth */}
-            <div className="p-7 sm:p-8 flex flex-col justify-between text-left relative bg-white">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Growth</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  For expanding businesses &amp; dynamic publishing
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    {formatPrice(40500, 325)}
-                  </span>
-                  <span className="text-xs font-mono text-gray-400">/mo</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold border border-gray-300 hover:border-gray-950 text-gray-900 hover:bg-gray-50 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Choose Growth" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    CMS &amp; Structured Schema included
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-600 font-light">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Everything in Starter</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Intuitive Content Management (CMS)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>AEO &amp; GEO Answer-Engine schema</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>WhatsApp notifications &amp; alerts</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>30 days post-launch SLA support</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* TIER 3: Pro (ONLY TIER WITH MIXON BLUE SOLID BUTTON & TEXT ROLL) */}
-            <div className="p-7 sm:p-8 flex flex-col justify-between text-left relative bg-[#FCFDFF] ring-2 ring-[#0066FF]/20 md:ring-0">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Pro</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  For high-concurrency commercial operations
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    {formatPrice(75500, 600)}
-                  </span>
-                  <span className="text-xs font-mono text-gray-400">/mo</span>
-                </div>
-
-                {/* THE ONLY BUTTON WITH SOLID BLUE BACKGROUND */}
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold bg-[#0066FF] hover:bg-[#0052cc] text-white shadow-md shadow-blue-500/25 ring-2 ring-blue-400/40 hover:ring-blue-500 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Start Pro" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    Direct Payment Rails &amp; Portals
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-700 font-normal">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Everything in Growth</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>M-Pesa Daraja STK Push &amp; Card Rails</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Custom client portals &amp; calculators</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Zero-leakage settlement webhooks</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Dedicated technical engineer support</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* TIER 4: Scale */}
-            <div className="p-7 sm:p-8 flex flex-col justify-between text-left relative bg-white">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Scale</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  For multi-branch &amp; high-volume teams
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    {formatPrice(145000, 1150)}
-                  </span>
-                  <span className="text-xs font-mono text-gray-400">/mo</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold border border-gray-300 hover:border-gray-950 text-gray-900 hover:bg-gray-50 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Start Scale" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    Dedicated Concurrency &amp; APIs
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-600 font-light">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Everything in Pro</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Custom REST &amp; GraphQL endpoints</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Multi-department role permissions</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Hourly automated ledger backups</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Dedicated technical account lead</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* ---------------------------------------------------------------------
-              ROW 2: BENTO GRID (50% Interactive Volume Widget + 25% Enterprise + 25% Custom)
-             --------------------------------------------------------------------- */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-gray-200 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
-            
-            {/* 50% LEFT: Interactive Volume Recommender (matches Context.dev Page Volume Widget) */}
-            <div className="lg:col-span-6 p-7 sm:p-8 flex flex-col justify-between text-left relative bg-slate-50/50 overflow-hidden">
-              {/* Dot matrix graphic on the right matching Context.dev */}
-              <div className="absolute top-4 right-4 w-40 h-40 opacity-20 bg-[radial-gradient(#0066FF_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
-
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center gap-2">
-                  <Sliders className="w-4 h-4 text-[#0066FF]" />
-                  <h4 className="font-sans font-bold text-lg text-gray-950">
-                    Which plan fits your operational volume?
-                  </h4>
-                </div>
-                <p className="text-xs text-gray-500 font-light">
-                  Select your current activity level to identify the ideal license and infrastructure tier.
-                </p>
-
-                {/* Interactive Tier Buttons */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                  {volumeTiers.map((tier, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setVolumeIndex(idx)}
-                      className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                        volumeIndex === idx
-                          ? 'bg-white border-[#0066FF] ring-2 ring-[#0066FF]/20 shadow-xs'
-                          : 'bg-white/70 hover:bg-white border-gray-200 text-gray-700'
-                      }`}
-                    >
-                      <div className="text-xs font-bold text-gray-950">{tier.label}</div>
-                      <div className="text-[10px] text-gray-500 mt-0.5">{tier.desc}</div>
-                    </button>
+      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="mx-auto max-w-[1260px]">
+          <div className="overflow-x-auto border border-[#dbe7fb] rounded-none">
+            <table className="w-full min-w-[780px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-[#dbe7fb] bg-white">
+                  <th className="w-[34%] p-5 sm:p-6 align-bottom">
+                    <span className="text-[11px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0066FF]">
+                      Plan Comparison
+                    </span>
+                    <p className="mt-1 font-ptserif text-2xl font-normal text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                      Compare capabilities
+                    </p>
+                  </th>
+                  {primaryPlans.map((plan) => (
+                    <th key={plan.name} className="w-[16.5%] p-4 sm:p-5 text-center border-l border-[#e6eefc] align-bottom">
+                      <div className="font-ptserif text-lg font-normal text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                        {plan.name}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentPage('contact')}
+                        className={`mt-2.5 w-full py-2 px-3 rounded-none text-[11.5px] font-semibold transition-colors cursor-pointer ${
+                          plan.featured
+                            ? 'bg-[#0066FF] hover:bg-[#0052cc] text-white'
+                            : 'bg-white hover:bg-[#f4f8ff] text-[#04122b] border border-[#04122b]/20'
+                        }`}
+                      >
+                        {plan.featured ? 'Start Pro' : 'Get started'}
+                      </button>
+                    </th>
                   ))}
-                </div>
-              </div>
-
-              {/* Live Recommendation Result */}
-              <div className="relative z-10 pt-6 mt-6 border-t border-gray-200/80 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-mono uppercase text-gray-400 font-semibold block">
-                    Recommended Architecture
-                  </span>
-                  <span className="text-sm font-sans font-bold text-[#0066FF]">
-                    {volumeTiers[volumeIndex].plan} Tier
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-[#0066FF] hover:bg-[#0052cc] text-white shadow-xs hover:shadow-md transition-all cursor-pointer"
-                >
-                  <RollingButtonText text="Select Plan" icon={<ArrowRight className="w-3.5 h-3.5" />} />
-                </button>
-              </div>
-            </div>
-
-            {/* 25% Enterprise Tier */}
-            <div className="lg:col-span-3 p-7 sm:p-8 flex flex-col justify-between text-left relative bg-white">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Enterprise</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  Tailored multi-system rollout &amp; private SLA
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    {formatPrice(250000, 2000)}
-                  </span>
-                  <span className="text-xs font-mono text-gray-400">/mo</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold border border-gray-300 hover:border-gray-950 text-gray-900 hover:bg-gray-50 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Start Enterprise" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    Private SLA &amp; Telco Rails
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-600 font-light">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Custom telco USSD shortcodes</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Dedicated staging &amp; load tests</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>99.95% uptime contract SLA</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* 25% Custom Tier */}
-            <div className="lg:col-span-3 p-7 sm:p-8 flex flex-col justify-between text-left relative bg-white">
-              <div>
-                <h3 className="font-sans font-bold text-lg text-gray-950">Custom</h3>
-                <p className="text-xs text-gray-500 font-light mt-1 mb-5 h-9 flex items-start leading-snug">
-                  Bespoke platforms &amp; end-to-end engineering
-                </p>
-
-                <div className="h-11 flex items-baseline gap-1 mb-6">
-                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                    Custom
-                  </span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group w-full h-10 py-2 px-4 rounded-lg text-xs font-sans font-semibold border border-gray-300 hover:border-gray-950 text-gray-900 hover:bg-gray-50 transition-all duration-200 cursor-pointer mb-6 flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Talk to Sales" />
-                </button>
-
-                <div className="space-y-3 pt-5 border-t border-gray-100">
-                  <div className="h-5 flex items-center text-[11px] font-mono text-[#0066FF] font-semibold">
-                    100% Bespoke Codebase &amp; IP
-                  </div>
-                  <ul className="space-y-2 text-xs text-gray-600 font-light">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Full system map &amp; threat model</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Hardware turnstile / POS integration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span>Dedicated full-stack engineering team</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* ---------------------------------------------------------------------
-              BOTTOM TABLE BANNER: Full-width link strip matching Context.dev
-             --------------------------------------------------------------------- */}
-          <div className="p-4 sm:p-5 bg-blue-50/40 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
-            <span className="text-gray-600 text-center sm:text-left">
-              Looking for custom multi-branch licensing or high-volume payment terms?
-            </span>
-            <button 
-              type="button"
-              onClick={() => setCurrentPage('contact')} 
-              className="text-[#0066FF] font-bold hover:underline inline-flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>Talk to an engineer</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-        </motion.div>
-      </section>
-
-      {/* =========================================================================
-          "One platform. Every capability." TECHNICAL BREAKDOWN TABLE (Context.dev Matrix)
-         ========================================================================= */}
-      <section className="py-20 sm:py-24 px-6 sm:px-10 lg:px-14 bg-white border-b border-gray-200/80">
-        <div className="w-full max-w-7xl mx-auto text-left">
-          <div className="max-w-3xl mb-12 space-y-3">
-            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-              One platform.{' '}
-              <span className="text-[#0066FF]">Every capability.</span>
-            </h2>
-            <p className="text-sm text-gray-500 font-light">
-              Clear specifications and operational thresholds included with each tier.
-            </p>
-          </div>
-
-          {/* Clean technical comparison table */}
-          <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-xs">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 border-b border-gray-200 font-mono text-gray-500 uppercase tracking-wider text-[11px]">
-                <tr>
-                  <th className="p-4 sm:p-5 font-semibold">Capability</th>
-                  <th className="p-4 sm:p-5 font-semibold">Starter</th>
-                  <th className="p-4 sm:p-5 font-semibold">Growth</th>
-                  <th className="p-4 sm:p-5 font-semibold text-gray-950">Pro</th>
-                  <th className="p-4 sm:p-5 font-semibold">Scale &amp; Custom</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 font-light">
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">Custom Page Hierarchy</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Up to 5 Pages</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Up to 15 Pages</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Unlimited</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Bespoke Architecture</td>
-                </tr>
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">Mobile Money &amp; M-Pesa Daraja</td>
-                  <td className="p-4 sm:p-5 text-gray-400">—</td>
-                  <td className="p-4 sm:p-5 text-gray-600">C2B Paybill Capture</td>
-                  <td className="p-4 sm:p-5 text-[#0066FF] font-semibold">Instant STK Push (&lt;14ms)</td>
-                  <td className="p-4 sm:p-5 text-[#0066FF] font-semibold">Direct Gateway Rails</td>
-                </tr>
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">OTA &amp; Room Sync Latency</td>
-                  <td className="p-4 sm:p-5 text-gray-400">—</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Periodic Sync</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Sub-second Channel Lock</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Distributed Redis Lock</td>
-                </tr>
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">Offline-First Turnstile QR Scan</td>
-                  <td className="p-4 sm:p-5 text-gray-400">—</td>
-                  <td className="p-4 sm:p-5 text-gray-400">—</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Local ECDSA Cryptography</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Hardware Gate Integration</td>
-                </tr>
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">Ledger Reconciliation</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Manual Export</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Daily Automated Match</td>
-                  <td className="p-4 sm:p-5 text-[#0066FF] font-semibold">Real-Time Ledger Match</td>
-                  <td className="p-4 sm:p-5 text-[#0066FF] font-semibold">Custom ERP Bi-directional</td>
-                </tr>
-                <tr className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-4 sm:p-5 font-medium text-gray-900">Engineering SLA &amp; Support</td>
-                  <td className="p-4 sm:p-5 text-gray-600">Standard Email</td>
-                  <td className="p-4 sm:p-5 text-gray-600">30 Days Post-Launch</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Priority 4hr SLA</td>
-                  <td className="p-4 sm:p-5 text-gray-950 font-semibold">Dedicated Lead &amp; 99.95%</td>
-                </tr>
+
+              <tbody>
+                {comparisonCategories.map((category) => (
+                  <React.Fragment key={category.title}>
+                    <tr className={`border-t border-b border-[#dbe7fb] ${category.headerBgClass}`}>
+                      <td colSpan={5} className="px-5 sm:px-6 py-4">
+                        <h3
+                          className="font-ptserif text-lg sm:text-xl font-normal text-[#04122b]"
+                          style={{ fontFamily: "'PT Serif', serif" }}
+                        >
+                          {category.title}
+                        </h3>
+                      </td>
+                    </tr>
+
+                    {category.rows.map((row, rowIdx) => (
+                      <tr
+                        key={row.label}
+                        className={`border-b border-[#e6eefc] ${
+                          rowIdx % 2 === 1 ? category.tintRowClass : 'bg-white'
+                        }`}
+                      >
+                        <td className="px-5 sm:px-6 py-3.5 align-middle">
+                          <div className="text-[13px] font-semibold text-[#04122b]">{row.label}</div>
+                          <div className="text-[11.5px] text-[#475569] mt-0.5">{row.desc}</div>
+                        </td>
+                        {row.values.map((val, colIdx) => (
+                          <td
+                            key={colIdx}
+                            className="px-4 py-3.5 text-center border-l border-[#e6eefc] text-xs font-medium text-[#04122b] align-middle"
+                          >
+                            {val === '✓' ? (
+                              <Check className="w-4 h-4 text-[#0066FF] mx-auto" />
+                            ) : val === '—' ? (
+                              <span className="text-slate-400">—</span>
+                            ) : (
+                              <span>{val}</span>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
               </tbody>
             </table>
           </div>
@@ -610,116 +593,203 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
       </section>
 
       {/* =========================================================================
-          FREQUENTLY ASKED QUESTIONS (Context.dev 2-Column Editorial FAQ)
+          BAND 3: MOSAIC-FRAMED ENTERPRISE SECURITY HIGHLIGHT (Jasper Style)
          ========================================================================= */}
-      <section className="py-20 sm:py-28 px-6 sm:px-10 lg:px-14 bg-white border-b border-gray-200/80">
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
-            {/* Left Column: Title, Subtext & Context.dev "Ask anything" Card */}
-            <div className="lg:col-span-5 text-left space-y-6">
-              <h2 className="font-sans text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-gray-950 tracking-tight leading-[1.12]">
-                Frequently asked <br />
-                <span className="text-[#0066FF]">questions</span>
-              </h2>
-              <p className="text-sm text-gray-500 font-light leading-relaxed max-w-sm">
-                Everything you need to know about scopes, payments, and deployment.
-              </p>
-
-              <div>
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('contact')}
-                  className="group px-5 py-2.5 rounded-lg text-xs font-sans font-semibold bg-[#0066FF] hover:bg-[#0052cc] text-white shadow-xs hover:shadow-md hover:shadow-blue-500/20 transition-all cursor-pointer inline-flex items-center justify-center active:scale-[0.99]"
-                >
-                  <RollingButtonText text="Ask a question" />
-                </button>
-              </div>
+      <section className="px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
+        <div className="relative mx-auto max-w-[1260px] overflow-hidden border border-[#c5daf8] bg-[#e8f1ff] py-10 sm:py-14 px-5 sm:px-10 rounded-none">
+          <PixelMosaicBackdrop seedOffset={7} />
+          <div className="relative z-10 mx-auto max-w-2xl bg-white border border-[#c5daf8] p-8 sm:p-11 text-center rounded-none shadow-[0_18px_45px_-18px_rgba(4,18,43,0.18)]">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0066FF]">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Bank-Grade Financial &amp; Cloud Posture
+            </span>
+            <h2
+              className="mt-3 font-ptserif text-2xl sm:text-4xl font-normal text-[#04122b] tracking-[-0.025em] leading-[1.1]"
+              style={{ fontFamily: "'PT Serif', serif" }}
+            >
+              Enterprise-grade security, zero-leakage settlements
+            </h2>
+            <p className="mt-3.5 text-xs sm:text-sm text-[#475569] max-w-lg mx-auto leading-relaxed">
+              Every deployment is architected with encrypted webhook validation, atomic ledger locks, and clean source ownership.
+            </p>
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={() => setCurrentPage('contact')}
+                className="inline-flex items-center gap-2 rounded-none bg-[#04122b] hover:bg-[#0066FF] px-5 py-2.5 text-xs font-sans font-semibold text-white transition-colors cursor-pointer"
+              >
+                <RollingButtonText text="Talk to an engineer" />
+              </button>
             </div>
-
-            {/* Right Column: Accordion Questions */}
-            <div data-scroll-no-reveal="" className="lg:col-span-7 space-y-3">
-              {faqs.map((faq, idx) => {
-                const isOpen = openFaq === idx;
-                const panelId = `pricing-faq-answer-${idx}`;
-                return (
-                  <div
-                    key={faq.q}
-                    className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 bg-white"
-                  >
-                    <h3 className="m-0">
-                      <button
-                        type="button"
-                        aria-expanded={isOpen}
-                        aria-controls={panelId}
-                        onClick={() => setOpenFaq(isOpen ? null : idx)}
-                        className="w-full text-left p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 transition-colors"
-                      >
-                        <span className="font-aktiv-faq font-normal text-gray-950 text-sm sm:text-base">
-                          {faq.q}
-                        </span>
-                        <span className="text-gray-400 shrink-0">
-                          {isOpen ? <Minus className="w-4 h-4 text-[#0066FF]" /> : <Plus className="w-4 h-4" />}
-                        </span>
-                      </button>
-                    </h3>
-                    <motion.div
-                      id={panelId}
-                      initial={false}
-                      animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                      transition={{ duration: 0.22, ease: 'easeInOut' }}
-                      aria-hidden={!isOpen}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-5 pb-5 text-xs sm:text-sm text-gray-600 font-light leading-relaxed border-t border-gray-100 pt-3">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  </div>
-                );
-              })}
-            </div>
-
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          BOTTOM BLUEPRINT CTA (Matching Context.dev Live Web Context Blueprint Frame)
+          BAND 4: GROUPED STICKY CATEGORY FAQs (Jasper Pricing Style + Mixon Ice-Blue)
          ========================================================================= */}
-      <section className="px-6 sm:px-10 lg:px-14 pt-12">
-        <div className="w-full max-w-7xl mx-auto rounded-xl border border-blue-200/90 bg-white p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[0_8px_30px_rgba(0,102,255,0.04)] text-left">
-          {/* Subtle blueprint grid overlay */}
-          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#0066FF_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
-
-          {/* Technical crosshairs at corners */}
-          <div className="absolute top-4 left-4 text-blue-300 font-mono text-xs pointer-events-none">+</div>
-          <div className="absolute top-4 right-4 text-blue-300 font-mono text-xs pointer-events-none">+</div>
-          <div className="absolute bottom-4 left-4 text-blue-300 font-mono text-xs pointer-events-none">+</div>
-          <div className="absolute bottom-4 right-4 text-blue-300 font-mono text-xs pointer-events-none">+</div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-3">
-              <h3 className="font-sans text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight leading-tight">
-                Start with a clear, transparent proposal.
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 font-light max-w-2xl leading-relaxed">
-                Tell us what you want to improve. We will outline the scope, available options, exact deliverables, and timeline without making it complicated.
+      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-12 bg-white border-t border-b border-[#e6eefc]">
+        <div className="mx-auto max-w-[1260px] space-y-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="lg:col-span-4 text-left lg:sticky lg:top-28 space-y-3">
+              <h2
+                className="font-ptserif text-2xl sm:text-3xl font-normal text-[#04122b] tracking-[-0.02em] leading-[1.15]"
+                style={{ fontFamily: "'PT Serif', serif" }}
+              >
+                Getting started &amp; billing
+              </h2>
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed max-w-xs">
+                Straight answers on fixed-scope builds, subscriptions, and scaling volume.
               </p>
             </div>
+            <div className="lg:col-span-8">
+              <FaqAccordionBox faqs={billingFaqs} idPrefix="pricing-faq-billing" />
+            </div>
+          </div>
 
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-10 border-t border-[#e6eefc]">
+            <div className="lg:col-span-4 text-left lg:sticky lg:top-28 space-y-3">
+              <h2
+                className="font-ptserif text-2xl sm:text-3xl font-normal text-[#04122b] tracking-[-0.02em] leading-[1.15]"
+                style={{ fontFamily: "'PT Serif', serif" }}
+              >
+                Payments, SLAs &amp; ownership
+              </h2>
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed max-w-xs">
+                How Mixon connects M-Pesa/card rails, ships code, and protects your IP.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <FaqAccordionBox faqs={deploymentFaqs} idPrefix="pricing-faq-deployment" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          BAND 5: "Have more questions?" 3 MOSAIC ACTION CARDS
+         ========================================================================= */}
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="mx-auto max-w-[1260px]">
+          <h2
+            className="font-ptserif text-3xl sm:text-4xl font-normal text-[#04122b] text-center tracking-[-0.025em]"
+            style={{ fontFamily: "'PT Serif', serif" }}
+          >
+            Have more questions?
+          </h2>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {infoCards.map((card) => (
+              <button
+                key={card.title}
+                type="button"
+                onClick={() => setCurrentPage(card.page)}
+                className="group rounded-none border border-[#c5daf8] bg-white text-left overflow-hidden hover:border-[#0066FF] transition-colors cursor-pointer flex flex-col justify-between"
+              >
+                <div className="relative h-28 w-full overflow-hidden border-b border-[#dbe7fb]">
+                  <PixelMosaicBackdrop seedOffset={card.seedOffset} />
+                </div>
+                <div className="p-5 sm:p-6 flex items-end justify-between gap-4">
+                  <div>
+                    <h3
+                      className="font-ptserif text-xl font-normal text-[#04122b] group-hover:text-[#0066FF] transition-colors"
+                      style={{ fontFamily: "'PT Serif', serif" }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs text-[#475569] leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 shrink-0 text-[#04122b] group-hover:text-[#0066FF] group-hover:translate-x-0.5 transition-all" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          BAND 6: BOTTOM JASPER-INSPIRED PIXEL-MOSAIC CTA (Zero Border-Radius)
+         ========================================================================= */}
+      <section className="px-5 sm:px-8 lg:px-12 pt-4">
+        <div
+          id="pricing-proposal-cta"
+          className="relative w-full max-w-[1260px] mx-auto overflow-hidden rounded-none bg-[#e8f1ff] px-6 py-20 sm:px-12 sm:py-24 lg:py-28 text-center"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1200 360"
+            preserveAspectRatio="none"
+            shapeRendering="crispEdges"
+            className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
+          >
+            <rect x="0" y="0" width="56" height="56" fill="#ffffff" />
+            <rect x="56" y="0" width="56" height="56" fill="#cfe2ff" />
+            <rect x="112" y="0" width="56" height="56" fill="#0066FF" />
+            <rect x="0" y="56" width="56" height="56" fill="#cfe2ff" />
+            <rect x="56" y="56" width="56" height="56" fill="#04122b" />
+            <rect x="0" y="112" width="56" height="56" fill="#0066FF" />
+
+            <rect x="0" y="248" width="56" height="56" fill="#04122b" />
+            <rect x="56" y="200" width="56" height="56" fill="#0066FF" />
+            <rect x="112" y="248" width="56" height="56" fill="#ffffff" />
+            <rect x="224" y="248" width="56" height="56" fill="#04122b" />
+            <rect x="0" y="304" width="56" height="56" fill="#cfe2ff" />
+            <rect x="168" y="304" width="56" height="56" fill="#0066FF" />
+            <rect x="280" y="304" width="56" height="56" fill="#ffffff" />
+
+            <rect x="1144" y="0" width="56" height="56" fill="#ffffff" />
+            <rect x="1088" y="0" width="56" height="56" fill="#cfe2ff" />
+            <rect x="1032" y="0" width="56" height="56" fill="#04122b" />
+            <rect x="1088" y="56" width="56" height="56" fill="#0066FF" />
+
+            <rect x="1144" y="200" width="56" height="56" fill="#04122b" />
+            <rect x="1032" y="248" width="56" height="56" fill="#ffffff" />
+            <rect x="1088" y="304" width="56" height="56" fill="#0066FF" />
+            <rect x="1144" y="304" width="56" height="56" fill="#ffffff" />
+          </svg>
+
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 360 280"
+            preserveAspectRatio="none"
+            shapeRendering="crispEdges"
+            className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
+          >
+            <rect x="0" y="0" width="28" height="28" fill="#ffffff" />
+            <rect x="28" y="0" width="28" height="28" fill="#0066FF" />
+            <rect x="332" y="0" width="28" height="28" fill="#ffffff" />
+            <rect x="304" y="0" width="28" height="28" fill="#04122b" />
+            <rect x="0" y="252" width="28" height="28" fill="#04122b" />
+            <rect x="28" y="252" width="28" height="28" fill="#ffffff" />
+            <rect x="332" y="252" width="28" height="28" fill="#ffffff" />
+            <rect x="304" y="252" width="28" height="28" fill="#0066FF" />
+          </svg>
+
+          <div className="relative z-10 mx-auto max-w-2xl space-y-5">
+            <h2
+              className="pricing-proposal-heading font-ptserif text-3xl sm:text-4xl lg:text-[48px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.06]"
+              style={{ fontFamily: "'PT Serif', serif" }}
+            >
+              Start with a clear, transparent proposal.
+            </h2>
+            <p className="mx-auto max-w-xl font-sans text-sm sm:text-[15px] text-[#04122b]/80 font-normal leading-[1.6]">
+              Tell us what you want to improve. We will outline the scope, available options, exact deliverables, and timeline without making it complicated.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={() => setCurrentPage('contact')}
-                className="group w-full py-3.5 px-6 rounded-lg text-xs font-sans font-bold bg-[#0066FF] hover:bg-[#0052cc] text-white shadow-md hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                className="group inline-flex items-center justify-center gap-2 rounded-none bg-[#04122b] px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-white transition-colors duration-200 hover:bg-[#0066FF] cursor-pointer active:scale-[0.99]"
               >
                 <RollingButtonText text="Request a proposal" icon={<ArrowRight className="w-4 h-4" />} />
               </button>
               <button
                 type="button"
                 onClick={() => setCurrentPage('services')}
-                className="group w-full py-3.5 px-6 rounded-lg text-xs font-sans font-semibold border border-blue-200 text-[#0066FF] hover:bg-blue-50/50 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                className="group inline-flex items-center justify-center gap-2 rounded-none border border-[#04122b]/25 bg-white px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-[#04122b] transition-colors duration-200 hover:border-[#0066FF] hover:text-[#0066FF] cursor-pointer active:scale-[0.99]"
               >
                 <RollingButtonText text="Explore all services" />
               </button>
@@ -727,7 +797,6 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

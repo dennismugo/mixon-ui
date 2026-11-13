@@ -108,7 +108,7 @@ export const ThirtyDayImpactSection: React.FC = () => {
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
                   whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
-                  className={`group relative rounded-2xl sm:rounded-3xl p-6 sm:p-7 xl:p-8 backdrop-blur-xl transition-all duration-300 text-left border overflow-hidden cursor-default ${
+                  className={`group relative rounded-none p-6 sm:p-7 xl:p-8 backdrop-blur-xl transition-all duration-300 text-left border overflow-hidden cursor-default ${
                     isHovered 
                       ? 'bg-white/[0.08] border-white/25 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.5)]' 
                       : 'bg-white/[0.04] border-white/[0.09] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]'

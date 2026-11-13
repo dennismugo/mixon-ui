@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { Sliders, Check } from 'lucide-react';
 import { ScrollRevealHeading, ScrollRevealParagraph } from '../ui/ScrollRevealText';
 import { ScrollStaggerContainer, ScrollStaggerCard } from '../ui/ScrollStagger';
+import PixelMosaicBackdrop from '../PixelMosaicBackdrop';
 
 interface FleetoraWorkStepperProps {
   setCurrentPage?: (page: string) => void;
@@ -30,12 +31,6 @@ export const FleetoraWorkStepper: React.FC<FleetoraWorkStepperProps> = () => {
       title: 'Launch and improve',
       desc: 'We go live, then stay close. Records are matched automatically, issues are flagged early, and we keep measuring and refining so the value keeps growing.'
     }
-  ];
-
-  // Subtle audio/telemetry equalizer waveform bars pattern matching Image 1
-  const equalizerBars = [
-    30, 48, 68, 42, 60, 85, 50, 72, 92, 64, 38, 55, 78, 96, 62, 40,
-    66, 88, 52, 74, 90, 46, 62, 82, 52, 76, 95, 62, 44, 58, 80, 45
   ];
 
   return (
@@ -95,26 +90,13 @@ export const FleetoraWorkStepper: React.FC<FleetoraWorkStepperProps> = () => {
           
           {/* CARD 1: Discover & Architect */}
           <ScrollStaggerCard className="group flex flex-col" yOffset={32} duration={0.65}>
-            {/* Top Visual Gradient Box */}
-            <div className="relative w-full aspect-[4/3] rounded-[8px] sm:rounded-[10px] overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-gradient-to-b from-[#BBD9FD] via-[#6B9DF2] to-[#1C3D68]">
-              
-              {/* Radial sky-soft highlight */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.45),transparent_65%)] pointer-events-none" />
-
-              {/* Background Audio / Telemetry Equalizer Bars */}
-              <div className="absolute inset-x-5 inset-y-0 flex items-center justify-between pointer-events-none opacity-25">
-                {equalizerBars.map((height, idx) => (
-                  <div
-                    key={idx}
-                    className="w-[2px] bg-white rounded-full transition-all duration-500"
-                    style={{ height: `${height}%` }}
-                  />
-                ))}
-              </div>
+            {/* Top Visual Mosaic Box */}
+            <div className="relative w-full aspect-[4/3] rounded-none overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-[#eaf2ff]">
+              <PixelMosaicBackdrop seedOffset={0} />
 
               {/* Floating Frosted Card */}
-              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-[8px] shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
-                <div className="bg-white rounded-[6px] p-4 sm:p-4.5 shadow-xs border border-black/[0.04] min-h-[162px] flex flex-col justify-between">
+              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-none shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="bg-white rounded-none p-4 sm:p-4.5 shadow-xs border border-black/[0.04] min-h-[162px] flex flex-col justify-between">
                   
                   {/* Header Row */}
                   <div className="flex items-center justify-between gap-2 mb-2">
@@ -165,24 +147,13 @@ export const FleetoraWorkStepper: React.FC<FleetoraWorkStepperProps> = () => {
 
           {/* CARD 2: Build & Integrate */}
           <ScrollStaggerCard className="group flex flex-col" yOffset={32} duration={0.65}>
-            {/* Top Visual Gradient Box */}
-            <div className="relative w-full aspect-[4/3] rounded-[8px] sm:rounded-[10px] overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-gradient-to-b from-[#BBD9FD] via-[#6B9DF2] to-[#1C3D68]">
-              
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.45),transparent_65%)] pointer-events-none" />
-
-              <div className="absolute inset-x-5 inset-y-0 flex items-center justify-between pointer-events-none opacity-25">
-                {equalizerBars.map((height, idx) => (
-                  <div
-                    key={idx}
-                    className="w-[2.5px] bg-white rounded-full transition-all duration-500"
-                    style={{ height: `${height}%` }}
-                  />
-                ))}
-              </div>
+            {/* Top Visual Mosaic Box */}
+            <div className="relative w-full aspect-[4/3] rounded-none overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-[#eaf2ff]">
+              <PixelMosaicBackdrop seedOffset={1} />
 
               {/* Floating Dual Video/Operator Mockup Card */}
-              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-[8px] shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
-                <div className="bg-white rounded-[6px] p-3 shadow-xs border border-black/[0.04] relative min-h-[162px] flex items-center justify-center">
+              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-none shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="bg-white rounded-none p-3 shadow-xs border border-black/[0.04] relative min-h-[162px] flex items-center justify-center">
                   
                   {/* Dual Video Tiles Side by Side */}
                   <div className="grid grid-cols-2 gap-2 w-full">
@@ -246,24 +217,13 @@ export const FleetoraWorkStepper: React.FC<FleetoraWorkStepperProps> = () => {
 
           {/* CARD 3: Deploy & Optimize */}
           <ScrollStaggerCard className="group flex flex-col" yOffset={32} duration={0.65}>
-            {/* Top Visual Gradient Box */}
-            <div className="relative w-full aspect-[4/3] rounded-[8px] sm:rounded-[10px] overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-gradient-to-b from-[#BBD9FD] via-[#6B9DF2] to-[#1C3D68]">
-              
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.45),transparent_65%)] pointer-events-none" />
-
-              <div className="absolute inset-x-5 inset-y-0 flex items-center justify-between pointer-events-none opacity-25">
-                {equalizerBars.map((height, idx) => (
-                  <div
-                    key={idx}
-                    className="w-[2.5px] bg-white rounded-full transition-all duration-500"
-                    style={{ height: `${height}%` }}
-                  />
-                ))}
-              </div>
+            {/* Top Visual Mosaic Box */}
+            <div className="relative w-full aspect-[4/3] rounded-none overflow-hidden flex items-center justify-center p-4 sm:p-5 shadow-sm bg-[#eaf2ff]">
+              <PixelMosaicBackdrop seedOffset={2} />
 
               {/* Floating Audit / Recap Mockup Card */}
-              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-[8px] shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
-                <div className="bg-white rounded-[6px] p-4 sm:p-4.5 shadow-xs border border-black/[0.04] min-h-[162px] flex flex-col justify-between">
+              <div className="relative z-10 w-full max-w-[275px] sm:max-w-[290px] p-1.5 bg-white/25 backdrop-blur-md rounded-none shadow-[0_20px_40px_-15px_rgba(15,23,42,0.35)] border border-white/50 ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="bg-white rounded-none p-4 sm:p-4.5 shadow-xs border border-black/[0.04] min-h-[162px] flex flex-col justify-between">
                   
                   {/* Top Recap Header with Accent Bar */}
                   <div className="flex items-center justify-between gap-2 mb-2">

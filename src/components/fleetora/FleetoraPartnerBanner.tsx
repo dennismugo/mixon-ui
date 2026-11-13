@@ -172,10 +172,10 @@ export const FleetoraPartnerBanner: React.FC<FleetoraPartnerBannerProps> = ({ se
               <button
                 type="button"
                 onClick={() => setCurrentPage ? setCurrentPage('book-demo') : window.location.assign('/book-demo')}
-                className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-gray-950 text-white font-sans text-sm sm:text-[15px] font-bold shadow-lg hover:bg-black hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-none bg-gray-950 text-white font-sans text-sm sm:text-[15px] font-bold shadow-lg hover:bg-black hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <RollingButtonText text="Book a demo" />
-                <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center overflow-hidden">
+                <span className="w-7 h-7 rounded-none bg-white/15 flex items-center justify-center overflow-hidden">
                   <span className="relative inline-flex flex-col h-4 overflow-hidden">
                     <span className="transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full will-change-transform">
                       <ArrowUpRight className="w-4 h-4 text-white" />

@@ -47,7 +47,7 @@ const TestimonialCard: React.FC<{ item: Testimonial }> = ({ item }) => {
     <div
       className={cn(
         "group/card relative w-[320px] sm:w-[380px] md:w-[400px] shrink-0",
-        "rounded-[8px] p-6 sm:p-7 bg-white",
+        "rounded-none p-6 sm:p-7 bg-white",
         "border border-gray-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]",
         "hover:shadow-[0_12px_28px_-6px_rgba(0,0,0,0.1)] hover:border-gray-300",
         "transition-all duration-300 flex flex-col justify-between"
@@ -108,14 +108,8 @@ export const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
 }) => {
   if (!data || data.length === 0) return null;
 
-  // Split into two balanced rows
-  const mid = Math.ceil(data.length / 2);
-  const row1 = data.slice(0, mid);
-  const row2 = data.length > 3 ? data.slice(mid) : data;
-
-  // Duplicate cards per track to ensure wide screens are completely covered
-  const track1 = row1.length < 6 ? [...row1, ...row1] : row1;
-  const track2 = row2.length < 6 ? [...row2, ...row2] : row2;
+  // Single strip marquee with duplicated cards to ensure wide screens are seamlessly covered
+  const track = data.length < 8 ? [...data, ...data] : data;
 
   return (
     <div
@@ -132,36 +126,19 @@ export const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-white to-transparent z-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-36 bg-gradient-to-l from-white to-transparent z-10" />
 
-      {/* Row 1: Leftward scroll with uniform gap across all cards and tracks */}
-      <div className="flex overflow-hidden group/marquee gap-[var(--gap)] mb-6 sm:mb-8">
+      {/* Single infinite marquee strip */}
+      <div className="flex overflow-hidden group/marquee gap-[var(--gap)]">
         <div className="flex shrink-0 gap-[var(--gap)] animate-canopy-x group-hover/marquee:[animation-play-state:paused]">
-          {track1.map((item, idx) => (
-            <TestimonialCard key={`r1-a-${idx}`} item={item} />
+          {track.map((item, idx) => (
+            <TestimonialCard key={`track-a-${idx}`} item={item} />
           ))}
         </div>
         <div
           aria-hidden="true"
           className="flex shrink-0 gap-[var(--gap)] animate-canopy-x group-hover/marquee:[animation-play-state:paused]"
         >
-          {track1.map((item, idx) => (
-            <TestimonialCard key={`r1-b-${idx}`} item={item} />
-          ))}
-        </div>
-      </div>
-
-      {/* Row 2: Rightward scroll with uniform gap across all cards and tracks */}
-      <div className="flex overflow-hidden group/marquee-reverse gap-[var(--gap)]">
-        <div className="flex shrink-0 gap-[var(--gap)] animate-canopy-x-reverse group-hover/marquee-reverse:[animation-play-state:paused]">
-          {track2.map((item, idx) => (
-            <TestimonialCard key={`r2-a-${idx}`} item={item} />
-          ))}
-        </div>
-        <div
-          aria-hidden="true"
-          className="flex shrink-0 gap-[var(--gap)] animate-canopy-x-reverse group-hover/marquee-reverse:[animation-play-state:paused]"
-        >
-          {track2.map((item, idx) => (
-            <TestimonialCard key={`r2-b-${idx}`} item={item} />
+          {track.map((item, idx) => (
+            <TestimonialCard key={`track-b-${idx}`} item={item} />
           ))}
         </div>
       </div>

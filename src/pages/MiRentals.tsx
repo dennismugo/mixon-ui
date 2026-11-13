@@ -26,7 +26,7 @@ import {
   Play
 } from 'lucide-react';
 import BrandButton from '../components/BrandButton';
-import { ExpandingArrowButton } from '../components/ui/expanding-arrow-button';
+import ProductClosingCta from '../components/ProductClosingCta';
 import ProductServiceHero from '../components/ProductServiceHero';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 import { ScrollRevealHeading, ScrollRevealParagraph } from '../components/ui/ScrollRevealText';
@@ -124,7 +124,7 @@ export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
   ];
 
   return (
-    <div className="mixon-interior-page mixon-product-page mixon-rentals-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
+    <div className="mixon-interior-page mixon-product-page mixon-rentals-page bg-white text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* Calendly/Linear Inspired Radiant Gradient Hero Section */}
       <ProductServiceHero
         badge={{
@@ -218,7 +218,7 @@ export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
               return (
                 <div 
                   key={idx} 
-                  className="group relative bg-white rounded-xl p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                  className="group relative bg-white rounded-none p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                   style={{
                     background: `
                       ${cap.ambientGradient},
@@ -265,23 +265,16 @@ export default function MiRentals({ setCurrentPage }: MiRentalsProps) {
       {/* HOW IT WORKS */}
       <HowItWorksSection eyebrow="EXECUTION" heading="How it works" description='Three clean steps from manual spreadsheets to an organized, living portfolio dashboard.' steps={steps} />
 
-      {/* THE OUTCOME — Vessa-style dither-field CTA */}
-      <section className="dither-cta-section py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="dither-cta-plate">
-          <h2 className="font-display">
-            Spend less time chasing updates and more time managing your properties.
-          </h2>
-          <div className="dither-cta-desc">
-            See how miRentals fits your current process and what a practical rollout could look like for your units.
-          </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'miRentals' })} className="mx-auto h-11 min-w-[190px]">
-            Book a miRentals demo
-          </ExpandingArrowButton>
-        </div>
-      </section>
+      <ProductClosingCta
+        title="Spend less time chasing updates and more time managing your properties."
+        description="See how miRentals fits your current process and what a practical rollout could look like for your units."
+        buttonLabel="Book a miRentals demo"
+        onClick={() => setCurrentPage('book-demo', { product: 'miRentals' })}
+        seedOffset={11}
+      />
 
       {/* COMMON QUESTIONS (FAQ) */}
-      <ProductFaqSection faqs={MIRENTALS_FAQS} idPrefix="mirentals-faq" />
+      <ProductFaqSection faqs={MIRENTALS_FAQS} idPrefix="mirentals-faq" compactBottomSpacing />
     </div>
   );
 }

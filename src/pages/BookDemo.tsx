@@ -244,7 +244,7 @@ function SelectableCardGrid({
           return (
             <label
               key={opt.value}
-              className={`h-full flex items-start gap-3.5 rounded-xl border p-4 min-h-[72px] text-left transition-all cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[#0066FF] ${
+              className={`h-full flex items-start gap-3.5 rounded-none border p-4 min-h-[72px] text-left transition-all cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[#0066FF] ${
                 active
                   ? 'border-[#0066FF] bg-blue-50/55 ring-2 ring-[#0066FF]/15 shadow-xs'
                   : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-slate-50/50'
@@ -342,7 +342,7 @@ function InteractiveDropdown({
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
-        className={`w-full flex items-center justify-between gap-3 rounded-xl border px-4 py-3.5 text-left transition-all duration-200 cursor-pointer ${
+        className={`w-full flex items-center justify-between gap-3 rounded-none border px-4 py-3.5 text-left transition-all duration-200 cursor-pointer ${
           open
             ? 'border-[#0066FF] bg-white ring-2 ring-[#0066FF]/15 shadow-sm'
             : 'border-gray-200 bg-white hover:border-gray-300'
@@ -384,7 +384,7 @@ function InteractiveDropdown({
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -4, scale: 0.99 }}
             transition={{ duration: 0.16, ease: 'easeOut' }}
-            className="absolute left-0 right-0 top-full mt-2 z-40 rounded-2xl border border-gray-200/90 bg-white p-1.5 shadow-[0_20px_50px_-12px_rgba(4,18,43,0.18)] max-h-72 overflow-y-auto overscroll-contain"
+            className="absolute left-0 right-0 top-full mt-2 z-40 rounded-none border border-gray-200/90 bg-white p-1.5 shadow-[0_20px_50px_-12px_rgba(4,18,43,0.18)] max-h-72 overflow-y-auto overscroll-contain"
             data-lenis-prevent=""
           >
             {options.map((opt) => {
@@ -400,7 +400,7 @@ function InteractiveDropdown({
                     onChange(opt.value);
                     setOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-left transition-colors cursor-pointer ${
+                  className={`w-full flex items-center justify-between gap-3 rounded-none px-3 py-2.5 text-left transition-colors cursor-pointer ${
                     isSelected
                       ? 'bg-blue-50/90 text-[#0066FF]'
                       : 'text-gray-800 hover:bg-slate-50'
@@ -844,7 +844,7 @@ export default function BookDemo({
       {/* INTERACTIVE STEP-BY-STEP BOOKING FORM                                     */}
       {/* ========================================================================= */}
       <section ref={topCardRef} data-scroll-no-reveal="" className="w-full px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-gray-200/90 bg-white shadow-[0_20px_60px_-20px_rgba(4,18,43,0.12)] overflow-visible">
+        <div className="w-full max-w-4xl mx-auto rounded-none border border-gray-200/90 bg-white shadow-[0_20px_60px_-20px_rgba(4,18,43,0.12)] overflow-visible">
           {submittedRef ? (
             /* ------------------------------------------------------------------- */
             /* CONFIRMATION SCREEN                                                 */
@@ -1033,7 +1033,7 @@ export default function BookDemo({
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                           {/* Monthly Calendar Grid */}
-                          <div className="lg:col-span-7 rounded-2xl border border-gray-200 bg-slate-50/40 p-4 sm:p-5">
+                          <div className="lg:col-span-7 rounded-none border border-gray-200 bg-slate-50/40 p-4 sm:p-5">
                             <div className="flex items-center justify-between mb-4">
                               <span className="font-display font-bold text-base text-gray-950">
                                 {monthLabel}
@@ -1048,7 +1048,7 @@ export default function BookDemo({
                                       (m) => new Date(m.getFullYear(), m.getMonth() - 1, 1),
                                     )
                                   }
-                                  className="w-8 h-8 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
+                                  className="w-8 h-8 rounded-none border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
                                 >
                                   <ChevronLeft className="w-4 h-4" />
                                 </button>
@@ -1060,7 +1060,7 @@ export default function BookDemo({
                                       (m) => new Date(m.getFullYear(), m.getMonth() + 1, 1),
                                     )
                                   }
-                                  className="w-8 h-8 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 cursor-pointer"
+                                  className="w-8 h-8 rounded-none border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 cursor-pointer"
                                 >
                                   <ChevronRight className="w-4 h-4" />
                                 </button>
@@ -1088,7 +1088,7 @@ export default function BookDemo({
                                     disabled={cell.disabled}
                                     aria-pressed={isSelected}
                                     onClick={() => setBookingDate(cell.iso!)}
-                                    className={`relative h-10 rounded-xl text-sm font-medium transition-all ${
+                                    className={`relative h-10 rounded-none text-sm font-medium transition-all ${
                                       isSelected
                                         ? 'bg-[#0066FF] text-white font-bold shadow-sm shadow-blue-500/30 cursor-pointer'
                                         : cell.disabled
@@ -1135,7 +1135,7 @@ export default function BookDemo({
                                       setBookingTime(slot.value);
                                       if (stepError) setStepError('');
                                     }}
-                                    className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 text-left transition-all ${
+                                    className={`flex items-center justify-between rounded-none border px-3.5 py-2.5 text-left transition-all ${
                                       isBooked
                                         ? 'border-gray-100 bg-gray-50 text-gray-400 cursor-not-allowed opacity-70'
                                         : active
@@ -1285,7 +1285,7 @@ export default function BookDemo({
                     <button
                       type="button"
                       onClick={handleBack}
-                      className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white hover:border-gray-950 px-5 py-2.5 text-xs sm:text-sm font-semibold text-gray-800 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-none border border-gray-300 bg-white hover:border-gray-950 px-5 py-2.5 text-xs sm:text-sm font-semibold text-gray-800 transition-colors cursor-pointer"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -1296,7 +1296,7 @@ export default function BookDemo({
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="group inline-flex items-center gap-2 rounded-full bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/20 transition-all cursor-pointer"
+                      className="group inline-flex items-center gap-2 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/20 transition-all cursor-pointer"
                     >
                       <RollingButtonText
                         text="Next step"
@@ -1307,7 +1307,7 @@ export default function BookDemo({
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group inline-flex items-center gap-2 rounded-full bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/25 transition-all cursor-pointer disabled:opacity-60"
+                      className="group inline-flex items-center gap-2 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/25 transition-all cursor-pointer disabled:opacity-60"
                     >
                       <span>{isSubmitting ? 'Sending Booking...' : 'Send Booking'}</span>
                       <Send className="w-4 h-4" />

@@ -193,7 +193,7 @@ export const InteractiveServiceStack: React.FC<InteractiveServiceStackProps> = (
             return (
               <motion.div
                 key={service.id}
-                className={`relative shrink-0 w-[245px] xl:w-[265px] h-[490px] xl:h-[510px] rounded-[24px] p-6 xl:p-7 flex flex-col justify-between cursor-pointer border shadow-lg ${overlapMargin}`}
+                className={`relative shrink-0 w-[245px] xl:w-[265px] h-[490px] xl:h-[510px] rounded-none p-6 xl:p-7 flex flex-col justify-between cursor-pointer border shadow-lg ${overlapMargin}`}
                 style={{
                   backgroundColor: service.bgHex,
                   borderColor: borderColor,
@@ -227,7 +227,7 @@ export const InteractiveServiceStack: React.FC<InteractiveServiceStackProps> = (
               >
                 {/* Subtle Inner Highlight Border */}
                 <div 
-                  className="absolute inset-0 rounded-[24px] pointer-events-none"
+                  className="absolute inset-0 rounded-none pointer-events-none"
                   style={{
                     boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.3), inset 0 -1px 1px rgba(0, 0, 0, 0.15)",
                   }}
@@ -300,7 +300,7 @@ export const InteractiveServiceStack: React.FC<InteractiveServiceStackProps> = (
                         e.stopPropagation();
                         setCurrentPage?.(service.pageId);
                       }}
-                      className={`inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-[10.5px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${buttonBg}`}
+                      className={`inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-none text-[10.5px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${buttonBg}`}
                     >
                       <span>LEARN MORE</span>
                       <ArrowUpRight className="w-3 h-3" />
@@ -338,7 +338,7 @@ export const InteractiveServiceStack: React.FC<InteractiveServiceStackProps> = (
                   setMobileActiveIdx(index);
                   setCurrentPage?.(service.pageId);
                 }}
-                className="shrink-0 w-[280px] sm:w-[310px] h-[490px] rounded-[24px] p-6 flex flex-col justify-between snap-center shadow-lg cursor-pointer"
+                className="shrink-0 w-[280px] sm:w-[310px] h-[490px] rounded-none p-6 flex flex-col justify-between snap-center shadow-lg cursor-pointer"
                 style={{ backgroundColor: service.bgHex }}
               >
                 {/* Top Section */}
@@ -397,7 +397,7 @@ export const InteractiveServiceStack: React.FC<InteractiveServiceStackProps> = (
                   <div className="flex items-center justify-between pt-1">
                     <button
                       type="button"
-                      className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-xs ${buttonBg}`}
+                      className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-bold uppercase tracking-wider shadow-xs ${buttonBg}`}
                     >
                       <span>LEARN MORE</span>
                       <ArrowUpRight className="w-3 h-3" />

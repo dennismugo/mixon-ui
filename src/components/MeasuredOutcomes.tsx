@@ -165,11 +165,11 @@ export const MeasuredOutcomes: React.FC = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
               transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6, transition: { duration: 0.22, ease: "easeOut" } }}
-              className={`group/card relative rounded-2xl lg:rounded-3xl p-6 sm:p-7 xl:p-8 flex flex-col justify-between overflow-hidden select-none transition-all duration-300 ${card.bgClass} ${card.borderClass} ${card.shadowClass} ${card.mobileHeight} ${card.tabletHeight} ${card.desktopHeight}`}
+              className={`group/card relative rounded-none p-6 sm:p-7 xl:p-8 flex flex-col justify-between overflow-hidden select-none transition-all duration-300 ${card.bgClass} ${card.borderClass} ${card.shadowClass} ${card.mobileHeight} ${card.tabletHeight} ${card.desktopHeight}`}
             >
               {/* Optional generative visual artwork on Card 4 */}
               {card.hasArtwork && (
-                <div className="absolute inset-y-0 right-0 w-3/4 sm:w-2/3 pointer-events-none overflow-hidden rounded-r-2xl lg:rounded-r-3xl">
+                <div className="absolute inset-y-0 right-0 w-3/4 sm:w-2/3 pointer-events-none overflow-hidden rounded-none">
                   <img
                     src="/explosion.jpg"
                     alt=""

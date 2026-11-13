@@ -149,7 +149,7 @@ export default function Home({ onLeadCaptured, setCurrentPage, leadRefresh }: Ho
                   setCurrentPage('services');
                 }
               }}
-              className="group w-full sm:w-auto h-12 px-7 rounded-full bg-[#0066FF] hover:bg-[#1a75ff] text-white border border-sky-300/35 text-sm sm:text-[15px] font-medium transition-all duration-200 shadow-[0_8px_30px_rgba(0,102,255,0.45)] hover:shadow-[0_10px_36px_rgba(56,189,248,0.5)] hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center"
+              className="group w-full sm:w-auto h-12 px-7 rounded-none bg-[#0066FF] hover:bg-[#1a75ff] text-white border border-sky-300/35 text-sm sm:text-[15px] font-medium transition-all duration-200 shadow-[0_8px_30px_rgba(0,102,255,0.45)] hover:shadow-[0_10px_36px_rgba(56,189,248,0.5)] hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center"
             >
               <RollingButtonText 
                 text="Explore our solutions" 
@@ -160,7 +160,7 @@ export default function Home({ onLeadCaptured, setCurrentPage, leadRefresh }: Ho
             <button
               type="button"
               onClick={() => setCurrentPage('contact')}
-              className="group w-full sm:w-auto h-12 px-7 rounded-full bg-white hover:bg-white text-gray-950 border border-white/80 text-sm sm:text-[15px] font-medium transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-lg hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center"
+              className="group w-full sm:w-auto h-12 px-7 rounded-none bg-white hover:bg-white text-gray-950 border border-white/80 text-sm sm:text-[15px] font-medium transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-lg hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center"
             >
               <RollingButtonText 
                 text="Talk to our team" 

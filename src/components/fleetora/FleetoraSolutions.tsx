@@ -254,7 +254,7 @@ const StackingCardItem: React.FC<{
                     className="w-10 h-10 rounded-full object-cover shadow-md ring-2 ring-white shrink-0 mt-1"
                   />
                   
-                  <div className="relative bg-white rounded-2xl rounded-tl-sm p-4 sm:p-5 shadow-lg shadow-black/[0.04] border border-black/[0.04] text-left">
+                  <div className="relative bg-white rounded-none p-4 sm:p-5 shadow-lg shadow-black/[0.04] border border-black/[0.04] text-left">
                     {/* Speech bubble pointer arrow */}
                     <div className="absolute -left-1.5 top-4 w-3 h-3 bg-white rotate-45 border-l border-b border-black/[0.04]" />
                     
@@ -265,7 +265,7 @@ const StackingCardItem: React.FC<{
                 </div>
 
                 {/* Bottom Main UI Card (Image 2 style) */}
-                <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl shadow-black/[0.06] border border-black/[0.05] text-left space-y-4 ml-6 sm:ml-12">
+                <div className="bg-white rounded-none p-5 sm:p-6 shadow-xl shadow-black/[0.06] border border-black/[0.05] text-left space-y-4 ml-6 sm:ml-12">
                   
                   {/* Body statement */}
                   <p className="font-sans text-xs sm:text-[13px] text-gray-700 leading-relaxed font-normal">

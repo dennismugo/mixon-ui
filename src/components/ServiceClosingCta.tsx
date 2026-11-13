@@ -1,9 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import RollingButtonText from './RollingButtonText';
-import { motion, useReducedMotion } from 'motion/react';
-
-const grungeBackground = 'https://media.base44.com/images/public/marketing-site-assets/grunge-cover.webp';
 
 interface ServiceClosingCtaProps {
   title?: React.ReactNode;
@@ -12,7 +9,6 @@ interface ServiceClosingCtaProps {
   secondaryButtonText?: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
-  bgImageSrc?: string;
   className?: string;
 }
 
@@ -23,64 +19,86 @@ export const ServiceClosingCta: React.FC<ServiceClosingCtaProps> = ({
   secondaryButtonText = 'Explore Packages',
   onPrimaryClick,
   onSecondaryClick,
-  bgImageSrc,
   className
 }) => {
-  const reducedMotion = useReducedMotion();
   return (
-    <section className={`service-grunge-cta relative w-full overflow-hidden select-none m-0 p-0 border-t border-gray-100 ${className || ''}`}>
-      {/* Full-width Image Background stretching edge-to-edge */}
-      <img
-        src={bgImageSrc || grungeBackground}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-      />
-
-      {/* Diffused light tint overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/35 pointer-events-none" />
-
-      {/* Centered Content Container */}
-      <motion.div
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 py-20 sm:py-24 lg:py-28 min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] flex flex-col items-center justify-center text-center"
-        initial={reducedMotion ? false : { opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.18 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    <section data-scroll-no-reveal="" className={`service-closing-cta relative isolate m-0 w-full overflow-hidden border-y border-white/15 bg-[#0066FF] ${className || ''}`}>
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 1200 560"
+        preserveAspectRatio="none"
+        shapeRendering="crispEdges"
+        className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
       >
-        
+        <rect x="64" y="0" width="72" height="72" fill="#07132e" />
+        <rect x="136" y="72" width="72" height="72" fill="#D9E88E" />
+        <rect x="0" y="72" width="64" height="64" fill="#D9E88E" />
+        <rect x="64" y="488" width="72" height="72" fill="#07132e" />
+        <rect x="136" y="416" width="72" height="72" fill="#D9E88E" />
+        <rect x="0" y="424" width="64" height="64" fill="#D9E88E" />
+
+        <rect x="1064" y="0" width="72" height="72" fill="#D9E88E" />
+        <rect x="992" y="72" width="72" height="72" fill="#07132e" />
+        <rect x="1136" y="72" width="64" height="64" fill="#D9E88E" />
+        <rect x="1064" y="488" width="72" height="72" fill="#D9E88E" />
+        <rect x="992" y="416" width="72" height="72" fill="#07132e" />
+        <rect x="1136" y="424" width="64" height="64" fill="#D9E88E" />
+      </svg>
+
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 360 480"
+        preserveAspectRatio="none"
+        shapeRendering="crispEdges"
+        className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
+      >
+        <rect x="0" y="0" width="32" height="32" fill="#07132e" />
+        <rect x="32" y="32" width="32" height="32" fill="#D9E88E" />
+        <rect x="328" y="0" width="32" height="32" fill="#D9E88E" />
+        <rect x="296" y="32" width="32" height="32" fill="#07132e" />
+        <rect x="0" y="448" width="32" height="32" fill="#07132e" />
+        <rect x="32" y="416" width="32" height="32" fill="#D9E88E" />
+        <rect x="328" y="448" width="32" height="32" fill="#D9E88E" />
+        <rect x="296" y="416" width="32" height="32" fill="#07132e" />
+      </svg>
+
+      <div
+        className="relative z-10 mx-auto flex min-h-[480px] w-full max-w-6xl flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[520px] sm:px-12 sm:py-24 lg:min-h-[560px] lg:py-28"
+      >
         {/* Centered Editorial Serif Headline */}
-        <h2 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-normal text-gray-950 tracking-[-0.02em] leading-[1.12] max-w-3xl mx-auto">
+        <h2 className="font-ptserif !text-[clamp(2rem,4vw,3.5rem)] font-normal !leading-[1.1] tracking-[-0.025em] text-white max-w-3xl mx-auto text-balance">
           {title}
         </h2>
 
         {/* Subtitle */}
         {subtitle && (
-          <p className="text-sm sm:text-base md:text-[16.5px] text-gray-700/90 max-w-xl mx-auto font-normal leading-relaxed mt-4 sm:mt-5">
+          <p className="mt-5 mx-auto max-w-[66ch] text-sm font-normal leading-relaxed text-white/90 sm:text-base md:text-[17px]">
             {subtitle}
           </p>
         )}
 
         {/* Action Buttons with Rolling Text on Hover */}
-        <div className="pt-7 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 w-full sm:w-auto">
+        <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-3.5">
           <button
+            type="button"
             onClick={onPrimaryClick}
-            className="group w-full sm:w-auto bg-[#EEF0AF] hover:bg-[#e4e79b] text-gray-950 font-sans font-semibold text-sm sm:text-[14.5px] px-6 sm:px-7 py-3.5 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+            className="group inline-flex min-h-14 w-full items-center justify-center bg-[#D9E88E] px-6 py-3.5 text-sm font-semibold text-[#04122b] transition-colors hover:bg-[#cfdf80] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:w-auto sm:px-7 sm:text-[14.5px]"
           >
             <RollingButtonText
               text={primaryButtonText}
-              icon={<ArrowRight className="w-3.5 h-3.5 text-gray-800" />}
+              icon={<ArrowRight className="h-4 w-4 text-[#04122b]" />}
             />
           </button>
           
           <button
+            type="button"
             onClick={onSecondaryClick}
-            className="group w-full sm:w-auto bg-white/95 hover:bg-white text-gray-900 font-sans font-medium text-sm sm:text-[14.5px] px-6 sm:px-7 py-3.5 rounded-xl border border-black/10 shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center"
+            className="group inline-flex min-h-14 w-full items-center justify-center bg-[#04122b] px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-[#0b1f45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:w-auto sm:px-7 sm:text-[14.5px]"
           >
             <RollingButtonText text={secondaryButtonText} />
           </button>
         </div>
-
-      </motion.div>
+      </div>
     </section>
   );
 };

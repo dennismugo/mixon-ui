@@ -267,7 +267,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
               <button
                 key={service.id}
                 onClick={() => setSelectedServiceIndex(idx)}
-                className={`p-3.5 rounded-xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                className={`p-3.5 rounded-none border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                   isSelected 
                     ? 'bg-white border-[#0066FF] shadow-[0_8px_24px_rgba(0,102,255,0.12)] ring-1 ring-[#0066FF]' 
                     : 'bg-white/70 hover:bg-white border-gray-200/80 text-gray-600 hover:border-gray-300'
@@ -300,7 +300,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden"
+            className="bg-white border border-gray-200 rounded-none shadow-xl overflow-hidden"
           >
             {/* Service Header Banner */}
             <div className="p-8 sm:p-10 border-b border-gray-100 bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
@@ -325,7 +325,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
 
                 <div className="space-y-3.5">
                   {currentService.whatYouGet.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-slate-50 transition-colors">
+                    <div key={i} className="flex items-start gap-3 p-3 rounded-none bg-slate-50/70 border border-slate-100 hover:bg-slate-50 transition-colors">
                       <CheckCircle2 className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm text-gray-800 leading-relaxed font-normal">
                         {item}
@@ -348,7 +348,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
 
                   <div className="space-y-3">
                     {currentService.howWeWork.map((step) => (
-                      <div key={step.step} className="p-3.5 rounded-xl bg-white border border-gray-200/90 shadow-2xs">
+                      <div key={step.step} className="p-3.5 rounded-none bg-white border border-gray-200/90 shadow-2xs">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-gray-700">
                             {step.step}
@@ -416,7 +416,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         </div>
 
         {/* Connected Architectural Matrix: 3-Column Grid with 1px border dividers */}
-        <div className="rounded-3xl border border-gray-200/90 bg-gray-200/80 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px">
+        <div className="rounded-none border border-gray-200/90 bg-gray-200/80 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -462,7 +462,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
 
       {/* Integration Verification Disclaimer Strip */}
       <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-8">
-        <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-none bg-amber-500/5 border border-amber-500/20 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="inline-block text-[10px] font-mono uppercase tracking-wider font-bold text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded">
               A NOTE ON INTEGRATIONS &amp; APIS
@@ -473,7 +473,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
           </div>
           <button
             onClick={() => setCurrentPage('contact')}
-            className="shrink-0 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200/80 px-4 py-2 rounded-lg transition-colors cursor-pointer"
+            className="shrink-0 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200/80 px-4 py-2 rounded-none transition-colors cursor-pointer"
           >
             Request API Assessment →
           </button>
@@ -482,7 +482,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
 
       {/* Final Closing Action Block (Section 11) */}
       <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-12">
-        <div className="bg-gray-950 text-white rounded-3xl p-8 sm:p-14 relative overflow-hidden text-center">
+        <div className="bg-gray-950 text-white rounded-none p-8 sm:p-14 relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent pointer-events-none" />
           
           <div className="relative z-10 max-w-4xl mx-auto space-y-5">
@@ -495,13 +495,13 @@ export default function Services({ setCurrentPage }: ServicesProps) {
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => setCurrentPage('contact')}
-                className="w-full sm:w-auto bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold py-3.5 px-8 rounded-full text-sm transition-all shadow-lg cursor-pointer"
+                className="w-full sm:w-auto bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold py-3.5 px-8 rounded-none text-sm transition-all shadow-lg cursor-pointer"
               >
                 Tell us what you need
               </button>
               <button
                 onClick={() => setCurrentPage('pricing')}
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-sans font-semibold py-3.5 px-8 rounded-full text-sm transition-all border border-white/20 cursor-pointer"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-sans font-semibold py-3.5 px-8 rounded-none text-sm transition-all border border-white/20 cursor-pointer"
               >
                 View Website Packages
               </button>

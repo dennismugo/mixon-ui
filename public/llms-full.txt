@@ -80,23 +80,15 @@ From rent collection and bookings to ticket sales and stock control, Mixon helps
 
 #### Frequently Asked Questions
 - **Q: Which Mixon platform is right for our operational scale?**
-  A: We evaluate your daily operations and transaction volume to recommend the optimal platform—whether you manage multi-unit commercial real estate (miRentals), short-stay vacation rentals (miReserve), multi-terminal retail stores (miPOS), or high-attendance ticketed events (Event Yetu).
+  A: We evaluate your daily operations and transaction volume to recommend the right fit—whether you manage rental portfolios (miRentals), short-stay hospitality (miReserve), retail stores (miPOS), or ticketed events (Event Yetu).
 - **Q: Can Mixon integrate with our existing banks and M-Pesa Paybill / Till?**
-  A: Yes. Mixon connects directly to Safaricom Daraja STK Push, C2B/B2C rails, and East African commercial banking APIs. Payments are reconciled automatically with instant ledger confirmation and zero manual data entry.
-- **Q: Does miReserve prevent double bookings across Airbnb and Booking.com?**
-  A: Yes. Our sub-second calendar synchronization engine locks dates across all connected OTAs and your direct booking portal within 14 milliseconds of an incoming reservation, completely eradicating double-booking errors.
-- **Q: How does miPOS continue operating during internet connectivity dips?**
-  A: Our point-of-sale terminals feature an offline-first indexed data engine. Cashiers can continue scanning, issuing receipts, and recording orders without delay; all transactions sync automatically to the cloud ledger as soon as connectivity resumes.
-- **Q: What is the implementation timeline and developer SLA?**
-  A: Standard production onboarding takes between 3 to 10 business days. Every enterprise client is assigned a dedicated technical specialist, backed by our 99.95% uptime SLA and 1-business-day response guarantee.
+  A: Yes. Mixon connects directly to Safaricom Daraja STK Push, C2B/B2C rails, and commercial banking APIs so incoming payments reconcile automatically with instant ledger confirmation.
+- **Q: How does Mixon stay reliable during internet connectivity dips?**
+  A: Our retail and field workflows run on an offline-first local engine. Teams can keep billing, checking tickets, and recording transactions without delay—everything syncs automatically once connectivity returns.
+- **Q: What is the implementation timeline, training, and ongoing support?**
+  A: Standard onboarding takes 3 to 10 business days including historical data migration and guided staff training, backed by our 99.95% uptime SLA and 1-business-day technical response guarantee.
 - **Q: How do you handle data security, backups, and privacy compliance?**
-  A: All data is encrypted in transit using TLS 1.3 and at rest with AES-256. We maintain automated multi-region daily backups and strict access controls compliant with regional data protection acts and international PCI-DSS standards for financial transactions.
-- **Q: Can our existing customer and product data be imported seamlessly?**
-  A: Yes. Our dedicated onboarding team handles complete data migration from legacy spreadsheets, old ERPs, or point-of-sale systems. We validate, sanitize, and verify historical records before going live to ensure zero operational downtime.
-- **Q: Do you offer staff training and ongoing technical support?**
-  A: Every rollout includes guided team training sessions, localized video walkthroughs, and plain-language operator cheat sheets. Our support team is available via direct WhatsApp channels and priority email with rapid turnaround times.
-- **Q: Can you build custom features or integrations specific to our business workflow?**
-  A: Absolutely. In addition to our core platforms, Mixon engineers custom API middleware, automated webhook pipelines, and bespoke client portals to adapt software around your exact organizational structure.
+  A: All data is encrypted in transit with TLS 1.3 and at rest using AES-256, supported by automated multi-region daily backups and role-based access controls aligned with regional data protection laws.
 
 ---
 

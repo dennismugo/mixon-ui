@@ -12,7 +12,7 @@ export default function ProductVisualizer() {
 
   return (
     <div 
-      className="relative w-full h-full min-h-[500px] lg:min-h-0 lg:h-full max-w-[520px] mx-auto bg-gradient-to-br from-[#093173] to-[#06204c] border border-white/15 rounded-3xl p-8 flex items-center justify-center shadow-2xl overflow-hidden" 
+      className="relative w-full h-full min-h-[500px] lg:min-h-0 lg:h-full max-w-[520px] mx-auto bg-gradient-to-br from-[#093173] to-[#06204c] border border-white/15 rounded-none p-8 flex items-center justify-center shadow-2xl overflow-hidden" 
       id="mixon-engine-schematic"
     >
       {/* Creative background grids & tech accents */}
@@ -72,7 +72,7 @@ export default function ProductVisualizer() {
         whileHover={{ scale: 1.05 }}
         onHoverStart={() => setHoveredNode('mirentals')}
         onHoverEnd={() => setHoveredNode(null)}
-        className={`absolute top-[6%] left-1/2 -translate-x-1/2 z-10 px-3.5 py-2 rounded-2xl border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
+        className={`absolute top-[6%] left-1/2 -translate-x-1/2 z-10 px-3.5 py-2 rounded-none border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
           hoveredNode === 'mirentals'
             ? 'bg-[#093173] border-mixon-light-blue text-mixon-light-blue shadow-lg shadow-mixon-light-blue/10'
             : 'bg-[#06204c] border-white/10 text-white'
@@ -92,7 +92,7 @@ export default function ProductVisualizer() {
         whileHover={{ scale: 1.05 }}
         onHoverStart={() => setHoveredNode('mireserve')}
         onHoverEnd={() => setHoveredNode(null)}
-        className={`absolute top-1/2 -translate-y-1/2 left-[4%] z-10 px-3.5 py-2 rounded-2xl border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
+        className={`absolute top-1/2 -translate-y-1/2 left-[4%] z-10 px-3.5 py-2 rounded-none border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
           hoveredNode === 'mireserve'
             ? 'bg-[#093173] border-mixon-light-blue text-mixon-light-blue shadow-lg shadow-mixon-light-blue/10'
             : 'bg-[#06204c] border-white/10 text-white'
@@ -112,7 +112,7 @@ export default function ProductVisualizer() {
         whileHover={{ scale: 1.05 }}
         onHoverStart={() => setHoveredNode('eventyetu')}
         onHoverEnd={() => setHoveredNode(null)}
-        className={`absolute top-1/2 -translate-y-1/2 right-[4%] z-10 px-3.5 py-2 rounded-2xl border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
+        className={`absolute top-1/2 -translate-y-1/2 right-[4%] z-10 px-3.5 py-2 rounded-none border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
           hoveredNode === 'eventyetu'
             ? 'bg-[#093173] border-mixon-light-blue text-mixon-light-blue shadow-lg shadow-mixon-light-blue/10'
             : 'bg-[#06204c] border-white/10 text-white'
@@ -132,7 +132,7 @@ export default function ProductVisualizer() {
         whileHover={{ scale: 1.05 }}
         onHoverStart={() => setHoveredNode('mipos')}
         onHoverEnd={() => setHoveredNode(null)}
-        className={`absolute bottom-[6%] left-1/2 -translate-x-1/2 z-10 px-3.5 py-2 rounded-2xl border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
+        className={`absolute bottom-[6%] left-1/2 -translate-x-1/2 z-10 px-3.5 py-2 rounded-none border flex items-center gap-3 cursor-pointer select-none transition-all duration-300 ${
           hoveredNode === 'mipos'
             ? 'bg-[#093173] border-mixon-light-blue text-mixon-light-blue shadow-lg shadow-mixon-light-blue/10'
             : 'bg-[#06204c] border-white/10 text-white'

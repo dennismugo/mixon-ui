@@ -127,7 +127,7 @@ export const FleetoraServicesStack: React.FC<FleetoraServicesStackProps> = ({ se
                   type="button"
                   id={`service-card-${service.id}`}
                   onClick={() => setCurrentPage?.(service.pageId)}
-                  className="group bg-white border border-white/25 rounded-[2px] p-6 sm:p-7 min-h-[252px] flex flex-col justify-between text-left transition-all duration-200 shadow-[0_18px_38px_-14px_rgba(2,18,58,0.38)] hover:border-sky-200 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-14px_rgba(2,18,58,0.52)] cursor-pointer select-text"
+                  className="group bg-white border border-white/25 rounded-none p-6 sm:p-7 min-h-[252px] flex flex-col justify-between text-left transition-all duration-200 shadow-[0_18px_38px_-14px_rgba(2,18,58,0.38)] hover:border-sky-200 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-14px_rgba(2,18,58,0.52)] cursor-pointer select-text"
                 >
                   <div>
                     {/* Square sky-blue icon badge matching Design 1 */}

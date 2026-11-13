@@ -27,7 +27,7 @@ export const FleetoraResultBanner: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px 80px 0px' }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 p-8 sm:p-12 rounded-3xl bg-gray-950/80 border border-white/15 backdrop-blur-md shadow-2xl text-left space-y-6"
+            className="lg:col-span-7 p-8 sm:p-12 rounded-none bg-gray-950/80 border border-white/15 backdrop-blur-md shadow-2xl text-left space-y-6"
           >
             <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-[-0.03em] leading-[1.15]">
               An intelligent, zero-leakage enterprise software ecosystem.
@@ -51,7 +51,7 @@ export const FleetoraResultBanner: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '0px 0px 60px 0px' }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:bg-white/[0.09] transition-all"
+              className="p-8 rounded-none bg-white/[0.06] border border-white/15 backdrop-blur-md hover:bg-white/[0.09] transition-all"
             >
               <div className="font-sans text-5xl sm:text-6xl font-extrabold text-white tracking-tight mb-2">
                 47%
@@ -69,7 +69,7 @@ export const FleetoraResultBanner: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '0px 0px 60px 0px' }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:bg-white/[0.09] transition-all"
+              className="p-8 rounded-none bg-white/[0.06] border border-white/15 backdrop-blur-md hover:bg-white/[0.09] transition-all"
             >
               <div className="font-sans text-5xl sm:text-6xl font-extrabold text-white tracking-tight mb-2">
                 3.2x

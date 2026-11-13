@@ -55,11 +55,11 @@ function ScrollFlipCard({
         initial={{ rotateY: 0 }}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: reduceMotion ? 0 : 0.82, delay: reduceMotion ? 0 : index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-        className="relative min-h-[295px] rounded-[18px] shadow-[0_14px_40px_rgba(9,49,115,0.06)] sm:min-h-[330px]"
+        className="relative min-h-[295px] rounded-none shadow-[0_14px_40px_rgba(9,49,115,0.06)] sm:min-h-[330px]"
         style={{ transformStyle: 'preserve-3d' }}
       >
         <div
-          className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[18px] border border-[#dce7f4] p-6 sm:p-7"
+          className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-none border border-[#dce7f4] p-6 sm:p-7"
           style={{ background: wash, backfaceVisibility: 'hidden' }}
         >
           <div className="flex items-start justify-between">
@@ -77,7 +77,7 @@ function ScrollFlipCard({
         </div>
 
         <div
-          className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[18px] border border-[#c9ddf5] p-6 sm:p-7"
+          className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-none border border-[#c9ddf5] p-6 sm:p-7"
           style={{ background: wash, transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
         >
           <div className="flex items-center justify-between">

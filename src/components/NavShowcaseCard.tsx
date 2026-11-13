@@ -11,6 +11,7 @@ interface NavShowcaseCardProps {
   onClick: () => void;
   variants: any;
   className?: string;
+  compact?: boolean;
 }
 
 const CELL = 16;
@@ -104,8 +105,11 @@ export function NavShowcaseCard({
   onClick,
   variants,
   className = '',
+  compact = false,
 }: NavShowcaseCardProps) {
-  const sharedClass = `nav-showcase-card group/showcase relative isolate flex h-full min-h-[292px] cursor-pointer flex-col overflow-hidden rounded-none border border-[#dbe6f7] bg-[#f8fbff] p-[18px] text-left outline-none transition-[border-color,transform,box-shadow] duration-300 hover:border-[#b9d2fa] hover:shadow-[0_14px_34px_-16px_rgba(0,102,255,0.22)] focus-visible:ring-2 focus-visible:ring-[#0066FF] ${className}`;
+  const sharedClass = `nav-showcase-card group/showcase relative isolate flex h-full ${
+    compact ? 'min-h-[168px] p-2.5' : 'min-h-[272px] p-[18px]'
+  } cursor-pointer flex-col overflow-hidden rounded-none border border-[#dbe6f7] bg-[#f8fbff] text-left outline-none transition-[border-color,transform,box-shadow] duration-300 hover:border-[#b9d2fa] hover:shadow-[0_14px_34px_-16px_rgba(0,102,255,0.22)] focus-visible:ring-2 focus-visible:ring-[#0066FF] ${className}`;
 
   const innerContent = (
     <>
@@ -139,20 +143,28 @@ export function NavShowcaseCard({
         <rect width="100%" height="100%" fill="url(#navMosaicGrid)" />
       </svg>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-between rounded-none bg-white px-5 py-5 sm:px-6 sm:py-6">
-        <div className="space-y-3">
-          <span className="inline-block w-fit rounded-none bg-[#0066FF] px-2.5 py-1 text-[11px] font-semibold tracking-[0.01em] text-white">
+      <div
+        className={`relative z-10 flex flex-1 flex-col justify-between rounded-none bg-white ${
+          compact ? 'px-3.5 py-2.5' : 'px-5 py-5 sm:px-6 sm:py-6'
+        }`}
+      >
+        <div className={compact ? 'space-y-1' : 'space-y-3'}>
+          <span className="inline-block w-fit rounded-none bg-[#0066FF] px-2.5 py-0.5 text-[10.5px] font-semibold tracking-[0.01em] text-white">
             {eyebrow}
           </span>
-          <h3 className="nav-showcase-title font-ptserif text-[#04122b]">
+          <h3 className={`nav-showcase-title font-ptserif text-[#04122b] ${compact ? '!text-[18px] !leading-[1.16]' : ''}`}>
             {title}
           </h3>
-          <p className="text-[13px] leading-[1.52] text-[#04122b]/85 sm:text-[13.5px]">
+          <p className={compact ? 'text-[11.5px] leading-[1.36] text-[#04122b]/85' : 'text-[13px] leading-[1.52] text-[#04122b]/85 sm:text-[13.5px]'}>
             {description}
           </p>
         </div>
 
-        <div className="mt-5 inline-flex w-fit items-center gap-2 rounded-none bg-[#edf4ff] px-3.5 py-2 text-[13px] font-semibold text-[#0755b8] transition-colors duration-200 group-hover/showcase:bg-[#dceaff] group-hover/showcase:text-[#04122b]">
+        <div
+          className={`${
+            compact ? 'mt-2 px-3 py-1.5 text-[12px]' : 'mt-5 px-3.5 py-2 text-[13px]'
+          } inline-flex w-fit items-center gap-2 rounded-none bg-[#edf4ff] font-semibold text-[#0755b8] transition-colors duration-200 group-hover/showcase:bg-[#dceaff] group-hover/showcase:text-[#04122b]`}
+        >
           <span>{action}</span>
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/showcase:translate-x-1" aria-hidden="true" />
         </div>

@@ -105,7 +105,7 @@ export default function LeadForm({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-slate-50 border border-gray-200 p-8 rounded-2xl text-center space-y-6 shadow-sm relative overflow-hidden"
+        className="bg-slate-50 border border-gray-200 p-8 rounded-none text-center space-y-6 shadow-sm relative overflow-hidden"
         id="lead-form-success"
       >
         <div className="absolute top-0 left-0 w-full h-1.5 bg-mixon-blue" />
@@ -159,7 +159,7 @@ export default function LeadForm({
   }
 
   return (
-    <div className={`bg-white border border-gray-200 p-6 md:p-8 rounded-2xl shadow-sm relative overflow-hidden ${className}`} id="mixon-lead-capture-card">
+    <div className={`bg-white border border-gray-200 p-6 md:p-8 rounded-none shadow-sm relative overflow-hidden ${className}`} id="mixon-lead-capture-card">
       <div className="absolute top-0 right-0 w-32 h-32 bg-mixon-blue/5 rounded-full blur-3xl pointer-events-none" />
       
       <div className="space-y-2 mb-6 text-left">
@@ -281,7 +281,7 @@ export default function LeadForm({
           whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-black text-white font-display font-bold py-3.5 px-6 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-all cursor-pointer shadow-sm"
+          className="w-full bg-black text-white font-display font-bold py-3.5 px-6 rounded-none text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-all cursor-pointer shadow-sm"
         >
           {isSubmitting ? (
             <div className="flex items-center gap-2 font-mono">

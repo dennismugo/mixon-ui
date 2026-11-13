@@ -96,7 +96,7 @@ export const FleetoraProblemSolution: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
+              className="p-8 rounded-none bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
             >
               <div className="font-mono text-sm font-bold text-red-400/90 mb-3">
                 [01]
@@ -114,7 +114,7 @@ export const FleetoraProblemSolution: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
+              className="p-8 rounded-none bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
             >
               <div className="font-mono text-sm font-bold text-red-400/90 mb-3">
                 [02]
@@ -134,7 +134,7 @@ export const FleetoraProblemSolution: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 rounded-3xl bg-gradient-to-b from-[#083071] to-[#0066FF]/20 border border-[#38BDF8]/30 text-center relative overflow-hidden shadow-2xl flex flex-col items-center justify-center min-h-[360px]"
+            className="p-8 rounded-none bg-gradient-to-b from-[#083071] to-[#0066FF]/20 border border-[#38BDF8]/30 text-center relative overflow-hidden shadow-2xl flex flex-col items-center justify-center min-h-[360px]"
           >
             {/* Center pulsing radar */}
             <div className="w-20 h-20 rounded-full bg-[#0066FF]/30 border border-[#38BDF8] flex items-center justify-center mb-6 relative">
@@ -165,7 +165,7 @@ export const FleetoraProblemSolution: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
+              className="p-8 rounded-none bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
             >
               <div className="font-mono text-sm font-bold text-red-400/90 mb-3">
                 [03]
@@ -183,7 +183,7 @@ export const FleetoraProblemSolution: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
+              className="p-8 rounded-none bg-white/[0.03] border border-white/10 hover:border-red-400/40 transition-colors"
             >
               <div className="font-mono text-sm font-bold text-red-400/90 mb-3">
                 [04]

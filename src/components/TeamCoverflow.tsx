@@ -15,65 +15,65 @@ const MEMBERS: TeamMember[] = [
     slug: 'ibrahim-amwayi',
     name: 'Ibrahim Amwayi',
     role: 'CEO',
-    highlightBg: '#3D9BFF',
+    highlightBg: '#093173',
     pastelBg: '#BFE0FF',
-    mosaicRamp: ['#f5faff', '#dceeff', '#add7ff', '#70b8ff', '#2b8aff', '#0066FF'],
+    mosaicRamp: ['#ffffff', '#dceeff', '#add7ff', '#70b8ff', '#2b8aff', '#0066FF'],
   },
   {
     slug: 'phelix-ongoro',
     name: 'Phelix Ongoro',
     role: 'CTO',
-    highlightBg: '#5CE88A',
-    pastelBg: '#C8FBE0',
-    mosaicRamp: ['#f5fff9', '#dafce9', '#a6f4c7', '#6be89e', '#32d474', '#16b359'],
+    highlightBg: '#093173',
+    pastelBg: '#DCE7FA',
+    mosaicRamp: ['#ffffff', '#e2edfc', '#b5d2f8', '#78aef2', '#347ce6', '#1451b8'],
   },
   {
     slug: 'dennis-mugo',
     name: 'Dennis Mugo',
     role: 'UI/UX Designer',
-    highlightBg: '#38BDF8',
+    highlightBg: '#093173',
     pastelBg: '#CFF2FF',
-    mosaicRamp: ['#f5fbff', '#daf1ff', '#a8deff', '#6cc4fc', '#2ca4f0', '#027cc7'],
+    mosaicRamp: ['#ffffff', '#daf1ff', '#a8deff', '#6cc4fc', '#2ca4f0', '#027cc7'],
   },
   {
     slug: 'beda-musindalo',
     name: 'Beda Musindalo',
     role: 'Web Developer',
-    highlightBg: '#34D399',
-    pastelBg: '#CCFBF1',
-    mosaicRamp: ['#f4fffb', '#d5fcf0', '#9ef5da', '#5ee6bf', '#23c79b', '#0a9975'],
+    highlightBg: '#093173',
+    pastelBg: '#D9ECFB',
+    mosaicRamp: ['#ffffff', '#e1f1fc', '#b3ddf9', '#6ebcf4', '#2693e3', '#0369a1'],
   },
   {
     slug: 'sam-kagunye',
     name: 'Sam Kagunye',
     role: 'AI Specialist',
-    highlightBg: '#6EE787',
-    pastelBg: '#D6FCE0',
-    mosaicRamp: ['#f6fff8', '#dcfce4', '#aaf5be', '#74e693', '#3ccf65', '#19a342'],
+    highlightBg: '#093173',
+    pastelBg: '#E0E7FC',
+    mosaicRamp: ['#ffffff', '#e6edfe', '#c0d2fc', '#8da8f8', '#4b73ef', '#1d42be'],
   },
   {
     slug: 'faith-wanjiku',
     name: 'Faith Wanjiku',
     role: 'Lead Systems Architect',
-    highlightBg: '#60A5FA',
+    highlightBg: '#093173',
     pastelBg: '#DBEAFE',
-    mosaicRamp: ['#f6faff', '#e0ecff', '#bad6ff', '#85b5ff', '#4b8ff7', '#1d64e0'],
+    mosaicRamp: ['#ffffff', '#e0ecff', '#bad6ff', '#85b5ff', '#4b8ff7', '#1d64e0'],
   },
   {
     slug: 'brian-otieno',
     name: 'Brian Otieno',
     role: 'Head of Design & UX Craft',
-    highlightBg: '#4ADE80',
-    pastelBg: '#D1FAE5',
-    mosaicRamp: ['#f4fff8', '#d5fae4', '#a1f0c4', '#63df9d', '#2ec276', '#0f9653'],
+    highlightBg: '#093173',
+    pastelBg: '#DBEAFE',
+    mosaicRamp: ['#ffffff', '#dff0fe', '#b1d8fd', '#6bb5fc', '#248cf6', '#0863c9'],
   },
   {
     slug: 'amina-hassan',
     name: 'Amina Hassan',
     role: 'Senior Full-Stack Engineer',
-    highlightBg: '#38D6E0',
-    pastelBg: '#C4F6FA',
-    mosaicRamp: ['#f4feff', '#d6f9fc', '#a0eff5', '#5fe0ea', '#1fc7d4', '#0899a6'],
+    highlightBg: '#093173',
+    pastelBg: '#D6EAF8',
+    mosaicRamp: ['#ffffff', '#e3f1fb', '#b6daf4', '#72b7e9', '#2c89d2', '#0961a8'],
   },
 ];
 
@@ -148,7 +148,7 @@ export default function TeamCoverflow() {
                   delay: reduceMotion ? 0 : (index % 4) * 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="team-editorial-card group flex flex-col bg-white text-left"
+                className="team-editorial-card flex flex-col bg-white text-left"
               >
                 {/* Woven Diagonal Pixel-Mosaic Top Block */}
                 <div
@@ -158,7 +158,7 @@ export default function TeamCoverflow() {
                   <svg
                     viewBox={`0 0 ${GRID_COLS * GRID_CELL} ${GRID_ROWS * GRID_CELL}`}
                     preserveAspectRatio="xMidYMid slice"
-                    className="absolute inset-0 h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className="absolute inset-0 h-full w-full"
                   >
                     <defs>
                       <pattern id={gridPatternId} width={GRID_CELL} height={GRID_CELL} patternUnits="userSpaceOnUse">
@@ -190,7 +190,7 @@ export default function TeamCoverflow() {
                   style={{ backgroundColor: member.pastelBg }}
                 >
                   <div
-                    className="-ml-4 -mt-7 mb-2.5 inline-block w-fit max-w-[calc(100%+0.5rem)] px-3.5 py-1.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+                    className="-ml-4 -mt-7 mb-2.5 inline-block w-fit max-w-[calc(100%+0.5rem)] px-3.5 py-1.5"
                     style={{ backgroundColor: member.highlightBg }}
                   >
                     <h3 className="team-card-name">{member.name}</h3>

@@ -150,7 +150,7 @@ export default function InteractiveHeroConsole({ onLeadCaptured }: InteractiveHe
   return (
     <div className="w-full max-w-3xl mx-auto mt-8 sm:mt-12 relative z-20">
       {/* Frosted Glass Floating Console Bar */}
-      <div className="bg-white/90 sm:bg-white/80 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/70 shadow-[0_20px_50px_rgba(2,132,199,0.20),0_2px_15px_rgba(0,0,0,0.05)] p-2 sm:p-4 text-left transition-all">
+      <div className="bg-white/90 sm:bg-white/80 backdrop-blur-2xl rounded-none border border-white/70 shadow-[0_20px_50px_rgba(2,132,199,0.20),0_2px_15px_rgba(0,0,0,0.05)] p-2 sm:p-4 text-left transition-all">
         
         {/* Navigation Tabs (Replicating Context.dev top pill tabs) */}
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 sm:pb-3 px-1">
@@ -224,7 +224,7 @@ export default function InteractiveHeroConsole({ onLeadCaptured }: InteractiveHe
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              className="mt-3 p-3 rounded-2xl bg-emerald-50/90 border border-emerald-200/80 flex items-center justify-between text-xs sm:text-sm text-emerald-950 font-medium"
+              className="mt-3 p-3 rounded-none bg-emerald-50/90 border border-emerald-200/80 flex items-center justify-between text-xs sm:text-sm text-emerald-950 font-medium"
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

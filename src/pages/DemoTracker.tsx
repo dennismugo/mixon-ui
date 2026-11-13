@@ -190,7 +190,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
   if (needsAuth) {
     return (
       <div className="mixon-interior-page bg-white text-gray-900 pt-28 sm:pt-32 pb-24 px-4">
-        <div className="max-w-md mx-auto rounded-2xl border border-gray-200 bg-white p-7 shadow-lg space-y-5">
+        <div className="max-w-md mx-auto rounded-none border border-gray-200 bg-white p-7 shadow-lg space-y-5">
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center">
             <Lock className="w-5 h-5" />
           </div>
@@ -219,7 +219,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
             </div>
             <button
               type="submit"
-              className="w-full rounded-full bg-[#0066FF] hover:bg-[#0052cc] text-white py-3 text-sm font-semibold transition-colors cursor-pointer"
+              className="w-full rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white py-3 text-sm font-semibold transition-colors cursor-pointer"
             >
               Unlock Tracker
             </button>
@@ -251,14 +251,14 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
             <button
               type="button"
               onClick={() => loadBookings()}
-              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white hover:border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-none border border-gray-200 bg-white hover:border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 cursor-pointer"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
               <span>Refresh</span>
             </button>
             <a
               href={csvDownloadUrl}
-              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white hover:border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-none border border-gray-200 bg-white hover:border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export CSV</span>
@@ -266,7 +266,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
             <button
               type="button"
               onClick={() => setCurrentPage('book-demo')}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#0066FF] hover:bg-[#0052cc] px-4 py-2 text-xs font-semibold text-white cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-none bg-[#0066FF] hover:bg-[#0052cc] px-4 py-2 text-xs font-semibold text-white cursor-pointer"
             >
               <span>+ Book Demo</span>
             </button>
@@ -275,19 +275,19 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
 
         {/* Summary Metrics + Google Calendar Status */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
-          <div className="rounded-2xl border border-gray-200 bg-slate-50/50 p-4">
+          <div className="rounded-none border border-gray-200 bg-slate-50/50 p-4">
             <span className="text-xs text-gray-500">Total Booked</span>
             <p className="font-display text-2xl font-bold text-gray-950 mt-1">{stats.total}</p>
           </div>
-          <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
+          <div className="rounded-none border border-blue-100 bg-blue-50/40 p-4">
             <span className="text-xs text-[#0066FF] font-medium">Confirmed</span>
             <p className="font-display text-2xl font-bold text-gray-950 mt-1">{stats.confirmed}</p>
           </div>
-          <div className="rounded-2xl border border-emerald-100 bg-emerald-50/40 p-4">
+          <div className="rounded-none border border-emerald-100 bg-emerald-50/40 p-4">
             <span className="text-xs text-emerald-700 font-medium">Completed</span>
             <p className="font-display text-2xl font-bold text-gray-950 mt-1">{stats.completed}</p>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-white p-4 flex flex-col justify-between">
+          <div className="rounded-none border border-gray-200 bg-white p-4 flex flex-col justify-between">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs text-gray-500">Google Calendar</span>
               <button
@@ -309,7 +309,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
         </div>
 
         {showCalendarGuide && (
-          <div className="rounded-2xl border border-blue-200 bg-blue-50/40 p-5 text-xs sm:text-[13px] text-gray-700 space-y-2">
+          <div className="rounded-none border border-blue-200 bg-blue-50/40 p-5 text-xs sm:text-[13px] text-gray-700 space-y-2">
             <p className="font-semibold text-gray-950">
               How to enable 2-way automatic Google Calendar syncing on this server:
             </p>
@@ -338,7 +338,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
                 key={tab}
                 type="button"
                 onClick={() => setStatusFilter(tab)}
-                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold capitalize transition-colors cursor-pointer ${
+                className={`rounded-none px-3.5 py-1.5 text-xs font-semibold capitalize transition-colors cursor-pointer ${
                   statusFilter === tab
                     ? 'bg-[#0E1B36] text-white'
                     : 'bg-slate-100 text-gray-600 hover:bg-slate-200'
@@ -370,11 +370,11 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
 
         {/* Bookings List */}
         {loading && demos.length === 0 ? (
-          <div className="rounded-2xl border border-gray-200 p-12 text-center text-sm text-gray-400">
+          <div className="rounded-none border border-gray-200 p-12 text-center text-sm text-gray-400">
             Loading scheduled demos...
           </div>
         ) : filteredDemos.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-gray-300 p-12 text-center space-y-2">
+          <div className="rounded-none border border-dashed border-gray-300 p-12 text-center space-y-2">
             <p className="text-sm font-semibold text-gray-900">No demo bookings match this view yet.</p>
             <p className="text-xs text-gray-500">
               Completed submissions on /book-demo appear here automatically and persist across restarts.
@@ -385,7 +385,7 @@ export default function DemoTracker({ setCurrentPage }: DemoTrackerProps) {
             {filteredDemos.map((demo) => (
               <div
                 key={demo.id}
-                className="rounded-2xl border border-gray-200 bg-white p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 hover:border-gray-300 transition-colors"
+                className="rounded-none border border-gray-200 bg-white p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 hover:border-gray-300 transition-colors"
               >
                 <div className="space-y-2 min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">

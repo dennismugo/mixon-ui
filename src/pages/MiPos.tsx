@@ -29,7 +29,7 @@ import {
   Play
 } from 'lucide-react';
 import BrandButton from '../components/BrandButton';
-import { ExpandingArrowButton } from '../components/ui/expanding-arrow-button';
+import ProductClosingCta from '../components/ProductClosingCta';
 import ProductServiceHero from '../components/ProductServiceHero';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 import { ScrollRevealHeading, ScrollRevealParagraph } from '../components/ui/ScrollRevealText';
@@ -127,7 +127,7 @@ export default function MiPos({ setCurrentPage }: MiPosProps) {
   ];
 
   return (
-    <div className="mixon-interior-page mixon-product-page mixon-pos-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
+    <div className="mixon-interior-page mixon-product-page mixon-pos-page bg-white text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* Calendly/Linear Inspired Radiant Gradient Hero Section */}
       <ProductServiceHero
         badge={{
@@ -221,7 +221,7 @@ export default function MiPos({ setCurrentPage }: MiPosProps) {
               return (
                 <div 
                   key={idx} 
-                  className="group relative bg-white rounded-xl p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                  className="group relative bg-white rounded-none p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                   style={{
                     background: `
                       ${cap.ambientGradient},
@@ -268,23 +268,16 @@ export default function MiPos({ setCurrentPage }: MiPosProps) {
       {/* HOW IT WORKS */}
       <HowItWorksSection eyebrow="EXECUTION" heading="How it works" description='Three clean steps from inventory intake to balanced cash registers.' steps={steps} />
 
-      {/* THE OUTCOME — Vessa-style dither-field CTA */}
-      <section className="dither-cta-section py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="dither-cta-plate">
-          <h2 className="font-display">
-            Make stock decisions with more confidence, and spend less time reconciling the day.
-          </h2>
-          <div className="dither-cta-desc">
-            See how miPOS fits your current store setup and what a practical rollout could look like across your checkout terminals.
-          </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'miPOS' })} className="mx-auto h-11 min-w-[190px]">
-            Book a miPOS demo
-          </ExpandingArrowButton>
-        </div>
-      </section>
+      <ProductClosingCta
+        title="Make stock decisions with more confidence, and spend less time reconciling the day."
+        description="See how miPOS fits your current store setup and what a practical rollout could look like across your checkout terminals."
+        buttonLabel="Book a miPOS demo"
+        onClick={() => setCurrentPage('book-demo', { product: 'miPOS' })}
+        seedOffset={19}
+      />
 
       {/* COMMON QUESTIONS (FAQ) */}
-      <ProductFaqSection faqs={MIPOS_FAQS} idPrefix="mipos-faq" />
+      <ProductFaqSection faqs={MIPOS_FAQS} idPrefix="mipos-faq" compactBottomSpacing />
     </div>
   );
 }

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { 
-  CheckCircle2, 
-  ChevronDown, 
-  Phone, 
+import {
+  CheckCircle2,
+  ChevronDown,
+  Phone,
   PhoneCall,
-  Mail, 
-  MapPin, 
-  ArrowRight,
-  ArrowUpRight
+  Mail,
+  MapPin,
+  ArrowUpRight,
 } from 'lucide-react';
 import { Lead } from '../types';
 import { AppLink } from '../components/AppLink';
@@ -19,6 +18,12 @@ interface ContactProps {
   setCurrentPage?: (page: PageId) => void;
 }
 
+const CONTACT_VALUE_POINTS = [
+  'Connect M-Pesa, bank settlements, and multi-branch POS workflows',
+  'Automate property rentals, hospitality bookings, and event ticketing in one system',
+  'Launch custom web applications and integrations built around your operations',
+];
+
 export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps) {
   const reduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
@@ -28,7 +33,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
     phone: '',
     country: 'Kenya',
     discussTopic: 'A general enquiry',
-    requirement: ''
+    requirement: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -46,7 +51,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
         company: formData.businessName || 'Inquiry',
         productOfInterest: formData.discussTopic || 'General Consultation',
         notes: `Country: ${formData.country} | Phone: ${formData.phone} | Topic: ${formData.discussTopic} | Requirement: ${formData.requirement}`,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       });
       setIsSubmitting(false);
       setSubmitted(true);
@@ -54,214 +59,151 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
   };
 
   return (
-    <div className="mixon-interior-page mixon-contact-page bg-white text-gray-900 pt-28 pb-20 selection:bg-[#0066FF] selection:text-white">
-      
-      {/* =========================================================================
-          HERO BANNER: Radiant Gradient Card with ONLY the Title (Centered)
-         ========================================================================= */}
-      <section aria-label="contact-hero" className="w-full px-4 sm:px-6 lg:px-8 pt-4 pb-10 sm:pb-14 select-none mixon-contact-hero-section">
-        <div 
-          className="mixon-contact-hero relative w-full max-w-7xl mx-auto rounded-lg sm:rounded-xl overflow-hidden py-14 sm:py-20 lg:py-24 px-6 sm:px-12 text-center shadow-[0_24px_70px_-20px_rgba(79,70,229,0.35)] border border-white/20 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px]"
-          style={{
-            background: `
-              radial-gradient(ellipse 65% 55% at 92% 102%, rgba(216, 148, 255, 0.95) 0%, rgba(216, 148, 255, 0.4) 40%, transparent 70%),
-              radial-gradient(ellipse 65% 55% at 8% 102%, rgba(168, 146, 255, 0.95) 0%, rgba(168, 146, 255, 0.4) 40%, transparent 70%),
-              radial-gradient(ellipse 85% 45% at 50% 105%, rgba(190, 160, 240, 0.85) 0%, rgba(190, 160, 240, 0.3) 45%, transparent 75%),
-              linear-gradient(135deg, #1e40af 0%, #2563eb 25%, #4f46e5 55%, #6d28d9 80%, #9333ea 100%)
-            `
-          }}
-        >
-          {/* Diffused ambient light sheen */}
-          <div 
-            aria-hidden="true" 
-            className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.4)_0%,transparent_60%)]" 
-          />
-
-          <h1 className="relative z-10 hero-title font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold !text-white tracking-[-0.03em] leading-[1.12] max-w-4xl mx-auto text-center [text-wrap:balance]">
-            Ready to take the work out of managing tasks?
-          </h1>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          MAIN CONTACT & REQUIREMENT SECTION: Format matching Image 2
-         ========================================================================= */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-24 sm:pb-32">
-        <div className="w-full max-w-7xl mx-auto">
+    <div className="mixon-interior-page mixon-contact-page bg-white text-[#04122b] pt-28 sm:pt-36 pb-20 sm:pb-28 selection:bg-[#0066FF] selection:text-white">
+      <section aria-label="Contact Mixon" className="w-full px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-[1220px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
-            {/* LEFT COLUMN: Tell us what your business needs & Details */}
+            {/* LEFT COLUMN: Jasper Demo-Inspired Editorial Pitch & Direct Contacts */}
             <motion.div
-              initial={reduceMotion ? false : { opacity: 0, x: -16 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.18 }}
-              transition={{ duration: reduceMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6 space-y-8 text-left"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-6 text-left pt-1"
             >
-              
-              {/* Main Heading & Subtitle matching Image 2 */}
-              <div className="space-y-4">
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold text-gray-950 tracking-tight leading-[1.15]">
-                  Tell us what your business <span className="text-[#0066FF]">needs</span>
-                </h2>
-                <p className="text-gray-600 font-sans text-sm sm:text-base leading-relaxed font-normal max-w-xl">
-                  Whether you are planning a banking solution, connecting systems, improving customer service or developing a business application, start with the requirement. We will work with you to identify the next step.
+              <h1
+                className="hero-title font-ptserif text-[2.65rem] sm:text-[3.5rem] lg:text-[4rem] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.03] max-w-[540px]"
+                style={{ fontFamily: "'PT Serif', serif" }}
+              >
+                Ready to take the work out of managing tasks?
+              </h1>
+
+              <p className="mt-6 font-sans text-[15.5px] sm:text-[17px] leading-[1.6] text-[#1e293b] max-w-[520px]">
+                Mixon brings together dedicated Kenyan software engineers, operational visibility, and purpose-built business platforms.
+              </p>
+
+              <div className="mt-7 max-w-[520px]">
+                <p className="font-sans text-[14.5px] sm:text-[15.5px] font-semibold text-[#04122b]">
+                  Reach out to see how Mixon can help you:
                 </p>
+                <ul className="mt-3 space-y-2.5 text-[14.5px] sm:text-[15.5px] leading-[1.52] text-[#1e293b]">
+                  {CONTACT_VALUE_POINTS.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5">
+                      <span
+                        className="mt-[0.52em] h-1.5 w-1.5 shrink-0 bg-[#04122b]"
+                        aria-hidden="true"
+                      />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Contact Info Tiles (Email, Phone, Additional Contact, Office) - Premium Redesign */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 pt-2">
-                
-                {/* 1. Email Box */}
-                <a 
-                  href="mailto:info@mixonsoftwares.co.ke" 
-                  className="group relative p-5 rounded-2xl bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04),0_6px_16px_-4px_rgba(15,23,42,0.03)] hover:border-[#0066FF]/60 hover:shadow-[0_18px_36px_-8px_rgba(0,102,255,0.18),0_6px_16px_-4px_rgba(15,23,42,0.05)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer min-h-[148px]"
+              {/* Direct Kenyan Desk Channels */}
+              <div className="mt-10 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-[540px]">
+                <a
+                  href="mailto:info@mixonsoftwares.co.ke"
+                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0066FF]/[0.04] group-hover:bg-[#0066FF]/[0.12] rounded-full blur-2xl transition-all duration-500 pointer-events-none" />
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#0066FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="flex items-center justify-between gap-2 mb-3.5 relative z-10">
-                    <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#0052D4] border border-blue-400/30 text-white flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(0,102,255,0.32)] group-hover:shadow-[0_8px_24px_rgba(0,102,255,0.5),0_0_0_4px_rgba(0,102,255,0.2)] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 ease-out overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-[160%] group-hover:before:translate-x-[160%] before:transition-transform before:duration-700 before:ease-in-out">
-                      <Mail className="w-5 h-5 text-white stroke-[2.2] transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:rotate-[-6deg]" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.14em] font-bold text-slate-500 group-hover:text-[#0066FF] transition-colors">
-                        EMAIL
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                    </div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                      <Mail className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
+                      Email
+                    </span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <div className="space-y-0.5 min-w-0 relative z-10">
-                    <p className="font-sans font-bold text-[14px] sm:text-[14.5px] text-slate-900 group-hover:text-[#0066FF] transition-colors truncate tracking-tight">
-                      info@mixonsoftwares.co.ke
-                    </p>
-                    <p className="text-[11.5px] sm:text-xs text-slate-500 font-normal truncate">
-                      contact@mixonsoftwares.co.ke
-                    </p>
-                  </div>
+                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
+                    info@mixonsoftwares.co.ke
+                  </p>
+                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                    contact@mixonsoftwares.co.ke
+                  </p>
                 </a>
 
-                {/* 2. Primary Phone Box */}
-                <a 
-                  href="tel:+254713958492" 
-                  className="group relative p-5 rounded-2xl bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04),0_6px_16px_-4px_rgba(15,23,42,0.03)] hover:border-[#0066FF]/60 hover:shadow-[0_18px_36px_-8px_rgba(0,102,255,0.18),0_6px_16px_-4px_rgba(15,23,42,0.05)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer min-h-[148px]"
+                <a
+                  href="tel:+254713958492"
+                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0066FF]/[0.04] group-hover:bg-[#0066FF]/[0.12] rounded-full blur-2xl transition-all duration-500 pointer-events-none" />
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#0066FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="flex items-center justify-between gap-2 mb-3.5 relative z-10">
-                    <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#0052D4] border border-blue-400/30 text-white flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(0,102,255,0.32)] group-hover:shadow-[0_8px_24px_rgba(0,102,255,0.5),0_0_0_4px_rgba(0,102,255,0.2)] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ease-out overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-[160%] group-hover:before:translate-x-[160%] before:transition-transform before:duration-700 before:ease-in-out">
-                      <Phone className="w-5 h-5 text-white stroke-[2.2] transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-[16deg]" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.14em] font-bold text-slate-500 group-hover:text-[#0066FF] transition-colors">
-                        PHONE
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                    </div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                      <Phone className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
+                      Phone Desk
+                    </span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <div className="space-y-0.5 min-w-0 relative z-10">
-                    <p className="font-sans font-bold text-[14.5px] sm:text-[15px] text-slate-900 group-hover:text-[#0066FF] transition-colors tracking-tight">
-                      +254 713 958 492
-                    </p>
-                    <p className="text-[11.5px] sm:text-xs text-slate-500 font-normal truncate">
-                      Direct engineering &amp; sales desk
-                    </p>
-                  </div>
+                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
+                    +254 713 958 492
+                  </p>
+                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                    Direct engineering &amp; sales desk
+                  </p>
                 </a>
 
-                {/* 3. Additional Contact Phone Box */}
-                <a 
-                  href="tel:+254741733878" 
-                  className="group relative p-5 rounded-2xl bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04),0_6px_16px_-4px_rgba(15,23,42,0.03)] hover:border-[#0066FF]/60 hover:shadow-[0_18px_36px_-8px_rgba(0,102,255,0.18),0_6px_16px_-4px_rgba(15,23,42,0.05)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer min-h-[148px]"
+                <a
+                  href="tel:+254741733878"
+                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0066FF]/[0.04] group-hover:bg-[#0066FF]/[0.12] rounded-full blur-2xl transition-all duration-500 pointer-events-none" />
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#0066FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="flex items-center justify-between gap-2 mb-3.5 relative z-10">
-                    <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#0052D4] border border-blue-400/30 text-white flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(0,102,255,0.32)] group-hover:shadow-[0_8px_24px_rgba(0,102,255,0.5),0_0_0_4px_rgba(0,102,255,0.2)] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 ease-out overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-[160%] group-hover:before:translate-x-[160%] before:transition-transform before:duration-700 before:ease-in-out">
-                      <PhoneCall className="w-5 h-5 text-white stroke-[2.2] transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-[16deg]" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.14em] font-bold text-slate-500 group-hover:text-[#0066FF] transition-colors">
-                        ADDITIONAL CONTACT
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                    </div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                      <PhoneCall className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
+                      Operations
+                    </span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <div className="space-y-0.5 min-w-0 relative z-10">
-                    <p className="font-sans font-bold text-[14.5px] sm:text-[15px] text-slate-900 group-hover:text-[#0066FF] transition-colors tracking-tight">
-                      +254 741 733 878
-                    </p>
-                    <p className="text-[11.5px] sm:text-xs text-slate-500 font-normal truncate">
-                      Client operations &amp; support desk
-                    </p>
-                  </div>
+                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
+                    +254 741 733 878
+                  </p>
+                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                    Client operations &amp; support desk
+                  </p>
                 </a>
 
-                {/* 4. Office Location Box */}
-                <a 
-                  href="https://maps.google.com/?q=Mihrab+Building,+15th+Floor,+Ring+Road+Kilimani,+Nairobi,+Kenya" 
-                  target="_blank" 
+                <a
+                  href="https://maps.google.com/?q=Mihrab+Building,+15th+Floor,+Ring+Road+Kilimani,+Nairobi,+Kenya"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-5 rounded-2xl bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04),0_6px_16px_-4px_rgba(15,23,42,0.03)] hover:border-[#0066FF]/60 hover:shadow-[0_18px_36px_-8px_rgba(0,102,255,0.18),0_6px_16px_-4px_rgba(15,23,42,0.05)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer min-h-[148px]"
+                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0066FF]/[0.04] group-hover:bg-[#0066FF]/[0.12] rounded-full blur-2xl transition-all duration-500 pointer-events-none" />
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#0066FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="flex items-center justify-between gap-2 mb-3.5 relative z-10">
-                    <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#0052D4] border border-blue-400/30 text-white flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(0,102,255,0.32)] group-hover:shadow-[0_8px_24px_rgba(0,102,255,0.5),0_0_0_4px_rgba(0,102,255,0.2)] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ease-out overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-[160%] group-hover:before:translate-x-[160%] before:transition-transform before:duration-700 before:ease-in-out">
-                      <MapPin className="w-5 h-5 text-white stroke-[2.2] transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.14em] font-bold text-slate-500 group-hover:text-[#0066FF] transition-colors">
-                        OFFICE LOCATION
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                    </div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                      <MapPin className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
+                      Nairobi Office
+                    </span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <div className="space-y-0.5 min-w-0 relative z-10">
-                    <p className="font-sans font-bold text-[14px] sm:text-[14.5px] text-slate-900 group-hover:text-[#0066FF] transition-colors leading-snug">
-                      Mihrab Building, 15th Floor
-                    </p>
-                    <p className="text-[11.5px] sm:text-xs text-slate-500 font-normal truncate">
-                      Ring Road Kilimani, Nairobi, Kenya
-                    </p>
-                  </div>
+                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
+                    Mihrab Building, 15th Floor
+                  </p>
+                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                    Ring Road Kilimani, Nairobi, Kenya
+                  </p>
                 </a>
-
               </div>
-
             </motion.div>
 
-            {/* RIGHT COLUMN: The Form Card matching Image 2 */}
+            {/* RIGHT COLUMN: Jasper Demo-Style Tinted Soft Ice-Blue Form Box (0px Radius) */}
             <motion.div
-              initial={reduceMotion ? false : { opacity: 0, x: 16 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.18 }}
-              transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : 0.1, ease: [0.22, 1, 0.36, 1] }}
+              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-6 w-full"
             >
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-[0_16px_45px_rgba(0,0,0,0.06)] border border-gray-200/90 select-text">
-                
-                <div className="text-center mb-8 space-y-2">
-                  <h3 className="font-display text-2xl sm:text-[28px] font-bold text-gray-950">
-                    Let's discuss the requirement
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-500 max-w-md mx-auto">
-                    Tell us what you want to improve and the systems you currently use.
-                  </p>
-                </div>
-
+              <div className="mixon-contact-form-panel bg-[#EAF1FF] border border-[#C5DAF8] rounded-none p-7 sm:p-10 select-text">
                 {submitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
+                    initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="py-12 text-center space-y-4"
+                    className="py-12 text-center space-y-4 bg-white border border-[#C5DAF8] p-8 rounded-none"
                   >
-                    <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-                      <CheckCircle2 className="w-8 h-8" />
+                    <div className="w-12 h-12 rounded-none bg-[#eaf1ff] text-[#0066FF] mx-auto flex items-center justify-center border border-[#c5daf8]">
+                      <CheckCircle2 className="w-6 h-6" />
                     </div>
-                    <h4 className="font-display text-2xl font-bold text-gray-950">
+                    <h2
+                      className="font-ptserif text-2xl sm:text-3xl font-normal text-[#04122b]"
+                      style={{ fontFamily: "'PT Serif', serif" }}
+                    >
                       Enquiry Received
-                    </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed max-w-sm mx-auto">
+                    </h2>
+                    <p className="text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
                       Thank you for submitting your requirement. One of our engineers will review it and reply within one business day.
                     </p>
                     <button
@@ -275,22 +217,39 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                           phone: '',
                           country: 'Kenya',
                           discussTopic: 'A general enquiry',
-                          requirement: ''
+                          requirement: '',
                         });
                       }}
-                      className="mt-3 text-xs font-mono font-semibold text-[#0066FF] hover:underline"
+                      className="mt-3 inline-flex items-center justify-center rounded-none bg-[#04122b] px-5 py-2.5 text-xs font-sans font-semibold text-white hover:bg-[#0066FF] transition-colors cursor-pointer"
                     >
                       Submit another enquiry
                     </button>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    {/* Row 1: Full name & Business/Organisation */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          Full name <span className="text-rose-500">*</span>
+                    {/* Email Address + Helper Caption matching Jasper Demo */}
+                    <div className="space-y-1 text-left">
+                      <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                        Business Email <span className="text-[#0066FF]">*</span>
+                      </label>
+                      <p className="text-[11.5px] text-[#475569] pb-1">
+                        Please use your email to be connected directly with our engineering team
+                      </p>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="Enter your work email"
+                        className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
+                      />
+                    </div>
+
+                    {/* Row: Full name & Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1 text-left">
+                        <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                          Full Name <span className="text-[#0066FF]">*</span>
                         </label>
                         <input
                           type="text"
@@ -298,67 +257,50 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           placeholder="Enter your full name"
-                          className="w-full bg-white border border-gray-250 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all"
+                          className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
                         />
                       </div>
 
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          Business or organisation <span className="text-rose-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.businessName}
-                          onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                          placeholder="Enter your business or organisation"
-                          className="w-full bg-white border border-gray-250 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 2: Email address & Phone number */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          Email address <span className="text-rose-500">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="Enter your email address"
-                          className="w-full bg-white border border-gray-250 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all"
-                        />
-                      </div>
-
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          Phone number
+                      <div className="space-y-1 text-left">
+                        <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                          Phone Number
                         </label>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="Enter your phone number"
-                          className="w-full bg-white border border-gray-250 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all"
+                          className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
                         />
                       </div>
                     </div>
 
-                    {/* Row 3: Country & What would you like to discuss */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          Country <span className="text-rose-500">*</span>
+                    {/* Row: Company Name & Country */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1 text-left">
+                        <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                          Company Name <span className="text-[#0066FF]">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.businessName}
+                          onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                          placeholder="Enter your company's name"
+                          className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
+                        />
+                      </div>
+
+                      <div className="space-y-1 text-left">
+                        <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                          Country <span className="text-[#0066FF]">*</span>
                         </label>
                         <div className="relative">
                           <select
                             required
                             value={formData.country}
                             onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                            className="w-full appearance-none bg-white border border-gray-250 rounded-xl pl-4 pr-10 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all cursor-pointer"
+                            className="w-full appearance-none bg-white border border-[#C5DAF8] rounded-none pl-3.5 pr-9 py-2.5 text-sm text-[#04122b] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer"
                           >
                             <option value="Kenya">Kenya</option>
                             <option value="Uganda">Uganda</option>
@@ -370,97 +312,88 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                             <option value="United States">United States</option>
                             <option value="Other">Other</option>
                           </select>
-                          <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 stroke-[2]" />
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5 text-left">
-                        <label className="block text-xs font-semibold text-gray-700">
-                          What would you like to discuss <span className="text-rose-500">*</span>
-                        </label>
-                        <div className="relative">
-                          <select
-                            required
-                            value={formData.discussTopic}
-                            onChange={(e) => setFormData({ ...formData, discussTopic: e.target.value })}
-                            className="w-full appearance-none bg-white border border-gray-250 rounded-xl pl-4 pr-10 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all cursor-pointer truncate"
-                          >
-                            <option value="A general enquiry">A general enquiry</option>
-                            <option value="miRentals Property Platform">miRentals Property Platform</option>
-                            <option value="miReserve Booking Engine">miReserve Booking Engine</option>
-                            <option value="Event Yetu Ticketing">Event Yetu Ticketing</option>
-                            <option value="miPOS Retail POS">miPOS Retail POS</option>
-                            <option value="M-Pesa & Card Payments">M-Pesa &amp; Card Payments</option>
-                            <option value="Custom Software Engineering">Custom Software Engineering</option>
-                          </select>
-                          <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 stroke-[2]" />
+                          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 stroke-[2]" />
                         </div>
                       </div>
                     </div>
 
-                    {/* Row 4: Your requirement */}
-                    <div className="space-y-1.5 text-left">
-                      <label className="block text-xs font-semibold text-gray-700">
-                        Your requirement <span className="text-rose-500">*</span>
+                    {/* What would you like to discuss */}
+                    <div className="space-y-1 text-left">
+                      <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                        What are you most interested in using Mixon for? <span className="text-[#0066FF]">*</span>
+                      </label>
+                      <div className="relative">
+                        <select
+                          required
+                          value={formData.discussTopic}
+                          onChange={(e) => setFormData({ ...formData, discussTopic: e.target.value })}
+                          className="w-full appearance-none bg-white border border-[#C5DAF8] rounded-none pl-3.5 pr-9 py-2.5 text-sm text-[#04122b] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer truncate"
+                        >
+                          <option value="A general enquiry">A general enquiry</option>
+                          <option value="miRentals Property Platform">miRentals Property Platform</option>
+                          <option value="miReserve Booking Engine">miReserve Booking Engine</option>
+                          <option value="Event Yetu Ticketing">Event Yetu Ticketing</option>
+                          <option value="miPOS Retail POS">miPOS Retail POS</option>
+                          <option value="M-Pesa & Card Payments">M-Pesa &amp; Card Payments</option>
+                          <option value="Custom Software Engineering">Custom Software Engineering</option>
+                        </select>
+                        <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 stroke-[2]" />
+                      </div>
+                    </div>
+
+                    {/* Requirement details */}
+                    <div className="space-y-1 text-left">
+                      <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                        Your requirement <span className="text-[#0066FF]">*</span>
                       </label>
                       <textarea
-                        rows={4}
+                        rows={3}
                         required
                         value={formData.requirement}
                         onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                         placeholder="Tell us what you want to improve and the systems involved..."
-                        className="w-full bg-white border border-gray-250 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all resize-y"
+                        className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors resize-y"
                       />
                     </div>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold py-4 px-6 rounded-xl text-sm sm:text-base transition-all shadow-md hover:shadow-lg active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-70 mt-2"
-                    >
-                      <span>{isSubmitting ? 'Sending Enquiry...' : 'Send Enquiry'}</span>
-                    </button>
-
-                    {/* Footer micro-copy matching Image 2 */}
-                    <p className="text-xs text-gray-500 text-center pt-2">
-                      Prefer to write first?{' '}
-                      <a 
-                        href="mailto:info@mixonsoftwares.co.ke" 
-                        className="text-[#0066FF] font-medium hover:underline"
-                      >
-                        Email our team
-                      </a>
-                      . Read our{' '}
+                    {/* Legal / Privacy Micro-Copy */}
+                    <p className="text-[11.5px] text-[#475569] text-center pt-1 leading-relaxed">
+                      By submitting this form, you agree to Mixon’s{' '}
                       {setCurrentPage ? (
                         <AppLink
                           page="about"
                           hash="#security"
                           onNavigate={setCurrentPage}
-                          className="text-gray-800 font-medium hover:underline"
+                          className="text-[#04122b] underline font-medium hover:text-[#0066FF]"
                         >
                           Privacy Notice
                         </AppLink>
                       ) : (
                         <a
                           href="/about#security"
-                          className="text-gray-800 font-medium hover:underline"
+                          className="text-[#04122b] underline font-medium hover:text-[#0066FF]"
                         >
                           Privacy Notice
                         </a>
-                      )}
-                      .
+                      )}{' '}
+                      and direct response from our team.
                     </p>
 
+                    {/* Submit CTA Button (Sharp 0px Radius) */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-semibold py-3.5 px-6 text-sm transition-colors cursor-pointer flex items-center justify-center disabled:opacity-70"
+                    >
+                      <span>{isSubmitting ? 'Sending Enquiry...' : 'Send Enquiry'}</span>
+                    </button>
                   </form>
                 )}
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
-
     </div>
   );
 }

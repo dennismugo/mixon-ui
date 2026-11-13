@@ -117,7 +117,7 @@ export const CookieConsent: React.FC = () => {
           transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
           className="fixed top-auto left-3 right-3 sm:right-auto bottom-3 sm:bottom-6 sm:left-6 z-[80] m-0 p-0 border-0 bg-transparent sm:w-[372px] max-w-[calc(100vw-1.5rem)] text-left shadow-none"
         >
-          <div className="rounded-xl border border-[#213663] bg-[#0E1B36] p-5 sm:p-6 text-white shadow-[0_22px_54px_rgba(4,18,43,0.45)]">
+          <div className="rounded-none border border-[#213663] bg-[#0E1B36] p-5 sm:p-6 text-white shadow-[0_22px_54px_rgba(4,18,43,0.45)]">
             {/* Top Bar */}
             <div className="flex items-center justify-between gap-3 mb-2.5">
               {showPreferences ? (
@@ -135,7 +135,7 @@ export const CookieConsent: React.FC = () => {
                 type="button"
                 onClick={handleRejectAll}
                 aria-label="Close cookie notice"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8] -mt-1 -mr-1"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-none text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8] -mt-1 -mr-1"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
@@ -153,7 +153,7 @@ export const CookieConsent: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleAcceptAll}
-                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                    className="w-full rounded-none bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
                     Accept All Cookies
                   </button>
@@ -161,7 +161,7 @@ export const CookieConsent: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleRejectAll}
-                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                    className="w-full rounded-none bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
                     Reject All
                   </button>
@@ -169,7 +169,7 @@ export const CookieConsent: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPreferences(true)}
-                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                    className="w-full rounded-none bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
                     Cookies Settings
                   </button>
@@ -255,7 +255,7 @@ export const CookieConsent: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleSaveCustom}
-                    className="w-full rounded-lg bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                    className="w-full rounded-none bg-white hover:bg-[#EAF2FF] text-[#0E1B36] border border-white font-sans font-bold text-[13.5px] py-2.5 px-4 text-center transition-colors cursor-pointer active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
                     Save Preferences
                   </button>
@@ -263,7 +263,7 @@ export const CookieConsent: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPreferences(false)}
-                    className="w-full rounded-lg border border-white/25 bg-transparent hover:bg-white/10 text-white font-sans font-semibold text-[13px] py-2 px-4 text-center transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
+                    className="w-full rounded-none border border-white/25 bg-transparent hover:bg-white/10 text-white font-sans font-semibold text-[13px] py-2 px-4 text-center transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
                   >
                     Back
                   </button>

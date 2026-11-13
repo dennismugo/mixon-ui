@@ -270,7 +270,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ setCurrentPa
         {/* =========================================================================
             3. WIDE CINEMATIC PHOTOGRAPHIC BANNER WITH DYNAMIC CONTEXT CARD
            ========================================================================= */}
-        <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200/90 shadow-[0_16px_50px_rgba(0,0,0,0.07)] relative group aspect-[16/9] sm:aspect-[21/9] lg:aspect-[24/9] min-h-[320px] sm:min-h-[400px] bg-neutral-900 select-none">
+        <div className="rounded-none overflow-hidden border border-gray-200/90 shadow-[0_16px_50px_rgba(0,0,0,0.07)] relative group aspect-[16/9] sm:aspect-[21/9] lg:aspect-[24/9] min-h-[320px] sm:min-h-[400px] bg-neutral-900 select-none">
           
           {/* Photographic Background */}
           <img 
@@ -297,7 +297,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ setCurrentPa
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.98 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-white/80 text-left space-y-2"
+                className="bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-none shadow-xl border border-white/80 text-left space-y-2"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5">

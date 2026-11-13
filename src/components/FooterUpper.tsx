@@ -56,7 +56,7 @@ export default function FooterUpper({
             <AppLink
               page="contact"
               onNavigate={(p) => handleNav(p)}
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] text-white text-[13px] font-medium tracking-tight transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] text-white text-[13px] font-medium tracking-tight transition-all duration-200 cursor-pointer shadow-xs active:scale-95"
             >
               <span>Start a conversation</span>
               <ArrowUpRight className="w-4 h-4 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

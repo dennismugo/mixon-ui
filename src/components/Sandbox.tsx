@@ -105,7 +105,7 @@ export default function Sandbox() {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl relative" id="mixon-interactive-sandbox">
+    <div className="bg-white border border-gray-200 rounded-none overflow-hidden shadow-xl relative" id="mixon-interactive-sandbox">
       {/* Visual background details */}
       <div className="absolute top-0 left-0 w-full h-1 bg-mixon-blue" />
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-mixon-blue/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -147,7 +147,7 @@ export default function Sandbox() {
                 role="tab"
                 aria-selected={activeProduct === prod}
                 onClick={() => setActiveProduct(prod)}
-                className={`py-2.5 px-2 rounded-lg font-mono text-[10px] uppercase tracking-wider text-center border font-semibold transition-all cursor-pointer truncate ${
+                className={`py-2.5 px-2 rounded-none font-mono text-[10px] uppercase tracking-wider text-center border font-semibold transition-all cursor-pointer truncate ${
                   activeProduct === prod
                     ? 'bg-mixon-cotton border-mixon-blue text-mixon-blue'
                     : 'bg-white border-gray-200 text-gray-500 hover:text-gray-950 hover:border-gray-300'
@@ -179,7 +179,7 @@ export default function Sandbox() {
                 <button
                   key={idx}
                   onClick={() => handleSelectPreset(preset.text)}
-                  className={`text-xs px-3 py-2 rounded-lg border text-left transition-all max-w-full truncate cursor-pointer ${
+                  className={`text-xs px-3 py-2 rounded-none border text-left transition-all max-w-full truncate cursor-pointer ${
                     customScenario === preset.text
                       ? 'bg-slate-100 border-gray-400 text-gray-900 font-semibold'
                       : 'bg-slate-50 border-gray-200 text-gray-600 hover:text-gray-950 hover:border-gray-300'
@@ -210,7 +210,7 @@ export default function Sandbox() {
             whileTap={{ scale: 0.99 }}
             onClick={handleSimulate}
             disabled={isLoading || !customScenario.trim()}
-            className="w-full bg-black text-white font-display font-bold py-3.5 px-6 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-all disabled:opacity-50 cursor-pointer shadow-sm"
+            className="w-full bg-black text-white font-display font-bold py-3.5 px-6 rounded-none text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-all disabled:opacity-50 cursor-pointer shadow-sm"
           >
             <Play className="w-4 h-4 fill-white" />
             <span>Simulate AI Engine Pipeline</span>
@@ -218,7 +218,7 @@ export default function Sandbox() {
         </div>
 
         {/* Right Execution Terminal Column */}
-        <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-8 flex flex-col justify-between min-h-[420px] rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl">
+        <div className="lg:col-span-7 bg-zinc-950 p-6 md:p-8 flex flex-col justify-between min-h-[420px] rounded-none">
           <div className="text-left">
             <div className="flex items-center justify-between border-b border-zinc-900 pb-4 mb-4">
               <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-2">

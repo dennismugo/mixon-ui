@@ -22,10 +22,26 @@ import { ExpandingArrowButton } from '../components/ui/expanding-arrow-button';
 import TeamCoverflow from '../components/TeamCoverflow';
 import { DitheredStripeBand } from '../components/ui/DitheredStripeBand';
 import MixonKeycaps from '../components/ui/MixonKeycaps';
-import { HeroDotField } from '../components/ui/HeroDotField';
+import aboutCtaPhoto from '../assets/images/about-cta-desk.jpg';
 
 interface AboutProps {
   setCurrentPage: (page: any) => void;
+}
+
+function RollingCtaLabel({ text }: { text: string }) {
+  return (
+    <span className="relative inline-flex h-[1.25em] items-center overflow-hidden leading-[1.25]">
+      <span className="block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full group-focus-visible:-translate-y-full motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-focus-visible:translate-y-0">
+        {text}
+      </span>
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full group-focus-visible:-translate-y-full motion-reduce:hidden"
+      >
+        {text}
+      </span>
+    </span>
+  );
 }
 
 export default function About({ setCurrentPage }: AboutProps) {
@@ -135,22 +151,13 @@ export default function About({ setCurrentPage }: AboutProps) {
   return (
     <div className="mixon-about-page text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION: Crisp white surface + sweeping blue dot field */}
+      {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
       <section
         id="about-hero"
         data-scroll-no-reveal=""
         className="relative isolate flex min-h-[clamp(520px,74svh,700px)] flex-col justify-center overflow-hidden bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-14"
       >
-        <HeroDotField
-          className="text-[#0066FF]/65"
-          fine
-          lively
-          streams
-          fillFootOnPhones
-          solidDots
-        />
-
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center text-center">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -409,25 +416,43 @@ export default function About({ setCurrentPage }: AboutProps) {
       {/* THE PEOPLE BEHIND MIXON */}
       <TeamCoverflow />
 
-      {/* CLOSING SECTION — Vessa-style dither-field CTA */}
-      <section className="dither-cta-section py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="dither-cta-plate">
-          <h2 className="font-display">
-            Let's make your next chapter easier.
-          </h2>
-          <div className="dither-cta-desc">
-            Wherever you are in the world, whether you are running a rental portfolio, a guest house, a ticketed event, a shop or a growing company that needs a better digital presence, we would like to hear what you want to improve.
+      {/* CLOSING SECTION — Jasper-style split CTA on Mixon blue */}
+      <section className="about-split-cta" aria-labelledby="about-split-cta-heading">
+        <div className="about-split-cta-rules" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="about-split-cta-frame">
+          <div className="about-split-cta-copy">
+            <div className="about-split-cta-copy-inner">
+              <h2 id="about-split-cta-heading">
+                <span className="about-split-cta-lead">Let&apos;s make your next chapter</span>
+                <span className="about-split-cta-accent">easier.</span>
+              </h2>
+              <p>
+                Wherever you are in the world, whether you are running a rental portfolio, a guest house, a ticketed event, a shop or a growing company that needs a better digital presence, we would like to hear what you want to improve.
+              </p>
+              <button
+                type="button"
+                onClick={() => setCurrentPage('contact')}
+                className="about-split-cta-button group"
+              >
+                <RollingCtaLabel text="Start a conversation" />
+              </button>
+            </div>
           </div>
-          <ExpandingArrowButton
-            size="pill"
-            onClick={() => setCurrentPage('contact')}
-            className="mx-auto h-11 min-w-[190px]"
-          >
-            Start a conversation
-          </ExpandingArrowButton>
+
+          <div className="about-split-cta-photo">
+            <img
+              src={aboutCtaPhoto}
+              alt="Hands typing on a laptop at a desk"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </section>
     </div>
   );
 }
-

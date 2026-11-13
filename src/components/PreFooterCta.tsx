@@ -110,7 +110,7 @@ export default function PreFooterCta({
               <button
                 type="button"
                 onClick={handleStartConversation}
-                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[13.5px] font-semibold tracking-[-0.01em] text-[#04122b] shadow-[0_8px_24px_rgba(4,18,43,0.16)] transition-colors duration-200 hover:bg-[#edf4ff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-none bg-white px-6 py-3.5 text-[13.5px] font-semibold tracking-[-0.01em] text-[#04122b] shadow-[0_8px_24px_rgba(4,18,43,0.16)] transition-colors duration-200 hover:bg-[#edf4ff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <RollingButtonLabel text="Start the conversation" />
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5" aria-hidden="true" />
@@ -119,7 +119,7 @@ export default function PreFooterCta({
               <button
                 type="button"
                 onClick={handleBookDemo}
-                className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/45 bg-white/10 px-6 py-3.5 text-[13.5px] font-semibold tracking-[-0.01em] text-white transition-colors duration-200 hover:border-white/80 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-none border border-white/45 bg-white/10 px-6 py-3.5 text-[13.5px] font-semibold tracking-[-0.01em] text-white transition-colors duration-200 hover:border-white/80 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <RollingButtonLabel text="Book a demo" />
               </button>

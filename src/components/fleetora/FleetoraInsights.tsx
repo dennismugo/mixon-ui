@@ -76,7 +76,7 @@ export const FleetoraInsights: React.FC<FleetoraInsightsProps> = ({ setCurrentPa
             >
               <div>
                 {/* Image Wrap */}
-                <div className="w-full aspect-[16/10] rounded-3xl overflow-hidden bg-gray-100 mb-6 relative">
+                <div className="w-full aspect-[16/10] rounded-none overflow-hidden bg-gray-100 mb-6 relative">
                   <img
                     src={art.image}
                     alt={art.title}

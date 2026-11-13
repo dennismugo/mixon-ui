@@ -27,7 +27,7 @@ import {
   Play
 } from 'lucide-react';
 import BrandButton from '../components/BrandButton';
-import { ExpandingArrowButton } from '../components/ui/expanding-arrow-button';
+import ProductClosingCta from '../components/ProductClosingCta';
 import ProductServiceHero from '../components/ProductServiceHero';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 import { ScrollRevealHeading, ScrollRevealParagraph } from '../components/ui/ScrollRevealText';
@@ -125,7 +125,7 @@ export default function EventYetu({ setCurrentPage }: EventYetuProps) {
   ];
 
   return (
-    <div className="mixon-interior-page mixon-product-page mixon-event-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
+    <div className="mixon-interior-page mixon-product-page mixon-event-page bg-white text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* Calendly/Linear Inspired Radiant Gradient Hero Section */}
       <ProductServiceHero
         badge={{
@@ -219,7 +219,7 @@ export default function EventYetu({ setCurrentPage }: EventYetuProps) {
               return (
                 <div 
                   key={idx} 
-                  className="group relative bg-white rounded-xl p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                  className="group relative bg-white rounded-none p-8 sm:p-9 shadow-[0_10px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                   style={{
                     background: `
                       ${cap.ambientGradient},
@@ -266,23 +266,16 @@ export default function EventYetu({ setCurrentPage }: EventYetuProps) {
       {/* HOW IT WORKS */}
       <HowItWorksSection eyebrow="EXECUTION" heading="How it works" description='Three clean steps from ticketing launch to seamless turnstile entry.' steps={steps} />
 
-      {/* THE OUTCOME — Vessa-style dither-field CTA */}
-      <section className="dither-cta-section py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="dither-cta-plate">
-          <h2 className="font-display">
-            Ticket sales that stay responsive, and entry checks that stay straightforward.
-          </h2>
-          <div className="dither-cta-desc">
-            See how Event Yetu fits your current event process and what a practical rollout could look like for your upcoming date.
-          </div>
-          <ExpandingArrowButton size="pill" onClick={() => setCurrentPage('book-demo', { product: 'Event Yetu' })} className="mx-auto h-11 min-w-[210px]">
-            Request an Event Yetu demo
-          </ExpandingArrowButton>
-        </div>
-      </section>
+      <ProductClosingCta
+        title="Ticket sales that stay responsive, and entry checks that stay straightforward."
+        description="See how Event Yetu fits your current event process and what a practical rollout could look like for your upcoming date."
+        buttonLabel="Request an Event Yetu demo"
+        onClick={() => setCurrentPage('book-demo', { product: 'Event Yetu' })}
+        seedOffset={17}
+      />
 
       {/* COMMON QUESTIONS (FAQ) */}
-      <ProductFaqSection faqs={EVENTYETU_FAQS} idPrefix="eventyetu-faq" />
+      <ProductFaqSection faqs={EVENTYETU_FAQS} idPrefix="eventyetu-faq" compactBottomSpacing />
     </div>
   );
 }

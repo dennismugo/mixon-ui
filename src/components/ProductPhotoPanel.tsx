@@ -39,7 +39,7 @@ export default function ProductPhotoPanel({ image, alt = '', variant }: ProductP
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: reduceMotion ? 0 : 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className="relative isolate w-full overflow-hidden rounded-[22px] sm:rounded-[26px] shadow-[0_20px_50px_-20px_rgba(7,21,54,0.35)]"
+      className="relative isolate w-full overflow-hidden rounded-none shadow-[0_20px_50px_-20px_rgba(7,21,54,0.35)]"
     >
       {resolvedVariant === 'mi-rentals' ? (
         <MiRentalsDashboardIllustration />

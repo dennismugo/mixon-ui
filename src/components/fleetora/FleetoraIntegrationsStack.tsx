@@ -122,7 +122,7 @@ export const FleetoraIntegrationsStack: React.FC<FleetoraIntegrationsStackProps>
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -3 }}
-              className="flex h-full items-start gap-3.5 rounded-[8px] border border-black/[0.08] bg-white p-4 sm:p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-[#0066FF]/40 hover:shadow-[0_12px_28px_-6px_rgba(0,102,255,0.09)] transition-all cursor-pointer group"
+              className="flex h-full items-start gap-3.5 rounded-none border border-black/[0.08] bg-white p-4 sm:p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-[#0066FF]/40 hover:shadow-[0_12px_28px_-6px_rgba(0,102,255,0.09)] transition-all cursor-pointer group"
               onClick={() => setCurrentPage?.('contact')}
             >
               <div className="flex size-13 sm:size-14 shrink-0 items-center justify-center rounded-[6px] bg-slate-50 ring-1 ring-black/[0.04] p-2.5 transition-transform duration-300 group-hover:scale-105">

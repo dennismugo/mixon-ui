@@ -264,7 +264,7 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mireserve')}
                   aria-label="Explore miReserve hospitality stays"
-                  className="pointer-events-auto group relative block w-full overflow-hidden rounded-[8px] shadow-[0_20px_48px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
+                  className="pointer-events-auto group relative block w-full overflow-hidden rounded-none shadow-[0_20px_48px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
                 >
                   <div className="aspect-[6/5] w-full overflow-hidden bg-slate-100">
                     <img
@@ -286,9 +286,9 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mipos')}
                   aria-label="Explore miPOS retail and inventory product"
-                  className="pointer-events-auto group relative block w-full rounded-[8px] bg-[#0066FF] p-2.5 sm:p-3.5 text-white shadow-[0_22px_50px_rgba(0,102,255,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
+                  className="pointer-events-auto group relative block w-full rounded-none bg-[#0066FF] p-2.5 sm:p-3.5 text-white shadow-[0_22px_50px_rgba(0,102,255,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
                 >
-                  <div className="rounded-[6px] bg-white p-2.5 sm:p-3.5 text-[#04122B]">
+                  <div className="rounded-none bg-white p-2.5 sm:p-3.5 text-[#04122B]">
                     <div className="flex items-center justify-between gap-1.5 mb-1.5 sm:mb-2">
                       <div className="inline-flex items-center gap-1.5 min-w-0">
                         <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0066FF] text-white">
@@ -322,7 +322,7 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mireserve')}
                   aria-label="Explore miReserve guest check-in and front desk workflow"
-                  className="pointer-events-auto group relative block w-full overflow-hidden rounded-[8px] shadow-[0_22px_50px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
+                  className="pointer-events-auto group relative block w-full overflow-hidden rounded-none shadow-[0_22px_50px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
                 >
                   <div className="aspect-[1/1] w-full overflow-hidden bg-slate-100">
                     <img
@@ -344,9 +344,9 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('eventyetu')}
                   aria-label="Explore Event Yetu ticketing product"
-                  className="pointer-events-auto group relative block w-full rounded-[8px] bg-[#EEF2FF] p-3 sm:p-3.5 text-[#1E1B4B] shadow-[0_24px_56px_rgba(4,18,43,0.18)] border border-[#C7D2FE] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F46E5] cursor-pointer text-center"
+                  className="pointer-events-auto group relative block w-full rounded-none bg-[#EEF2FF] p-3 sm:p-3.5 text-[#1E1B4B] shadow-[0_24px_56px_rgba(4,18,43,0.18)] border border-[#C7D2FE] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F46E5] cursor-pointer text-center"
                 >
-                  <div className="rounded-[6px] bg-white/90 px-3 py-4 flex flex-col items-center">
+                  <div className="rounded-none bg-white/90 px-3 py-4 flex flex-col items-center">
                     <div className="h-10 w-10 rounded-full bg-[#4F46E5] text-white flex items-center justify-center shadow-sm mb-2">
                       <Ticket className="h-5 w-5" />
                     </div>
@@ -373,7 +373,7 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mirentals')}
                   aria-label="Explore miRentals rent collection product"
-                  className="pointer-events-auto group relative flex flex-col justify-between w-full min-h-[124px] sm:min-h-[192px] rounded-[8px] bg-[#10B981] p-2.5 sm:p-4 text-white shadow-[0_22px_50px_rgba(16,185,129,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
+                  className="pointer-events-auto group relative flex flex-col justify-between w-full min-h-[124px] sm:min-h-[192px] rounded-none bg-[#10B981] p-2.5 sm:p-4 text-white shadow-[0_22px_50px_rgba(16,185,129,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
                 >
                   <div>
                     <div className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-white/95 mb-1.5 sm:mb-2">

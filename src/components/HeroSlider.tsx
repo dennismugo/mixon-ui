@@ -107,7 +107,7 @@ export default function HeroSlider() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Main Image Slider Card */}
-      <div className="relative w-full aspect-[4/3.7] sm:aspect-[4/3.4] lg:aspect-[4/3.5] max-h-[560px] rounded-[32px] sm:rounded-[42px] overflow-hidden bg-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-black/5">
+      <div className="relative w-full aspect-[4/3.7] sm:aspect-[4/3.4] lg:aspect-[4/3.5] max-h-[560px] rounded-none overflow-hidden bg-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-black/5">
         
         {/* Animated Background Slide */}
         <AnimatePresence mode="wait">
@@ -141,7 +141,7 @@ export default function HeroSlider() {
               className="flex flex-col gap-2.5"
             >
               {/* Pill 1 */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 px-4 sm:px-5 shadow-lg shadow-black/8 border border-black/5 flex items-center justify-between gap-4">
+              <div className="bg-white/95 backdrop-blur-md rounded-none p-3 sm:p-3.5 px-4 sm:px-5 shadow-lg shadow-black/8 border border-black/5 flex items-center justify-between gap-4">
                 <div className="text-left">
                   <h4 className="text-xs sm:text-[13px] font-bold text-gray-950 leading-tight">
                     {activeSlide.pill1.title}
@@ -156,7 +156,7 @@ export default function HeroSlider() {
               </div>
 
               {/* Pill 2 */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 px-4 sm:px-5 shadow-lg shadow-black/8 border border-black/5 flex items-center justify-between gap-4">
+              <div className="bg-white/95 backdrop-blur-md rounded-none p-3 sm:p-3.5 px-4 sm:px-5 shadow-lg shadow-black/8 border border-black/5 flex items-center justify-between gap-4">
                 <div className="text-left">
                   <h4 className="text-xs sm:text-[13px] font-bold text-gray-950 leading-tight">
                     {activeSlide.pill2.title}

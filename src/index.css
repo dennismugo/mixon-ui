@@ -489,13 +489,13 @@ nav a, nav button, header nav a, header nav button {
 }
 
 /* Global Headings: Alan Sans across h1 */
-h1:not(#home-hero *), 
+h1:not(#home-hero *):not(.hero-title), 
 .font-alansans:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
 .font-notch:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
 .font-bdogrotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]), 
 .font-grotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]), 
 .title-grotesk:not(h2):not(h2 *):not(h3):not(h3 *):not(h4):not(h4 *):not(h5):not(h5 *):not(p):not(p *):not([role="heading"][aria-level="2"]):not([role="heading"][aria-level="3"]):not([role="heading"][aria-level="4"]):not([role="heading"][aria-level="5"]),
-[role="heading"][aria-level="1"]:not(#home-hero *) {
+[role="heading"][aria-level="1"]:not(#home-hero *):not(.hero-title) {
   font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
@@ -635,8 +635,8 @@ h2 *,
 /* ==========================================================================
    FAQS TYPOGRAPHY: Aktiv Grotesk
    ========================================================================== */
-.font-aktiv-faq,
-.faq-question,
+.font-aktiv-faq:not(.faq-jasper-question),
+.faq-question:not(.faq-jasper-question),
 #faq button > span:first-child:not(.faq-jasper-question),
 section#faq button > span:first-child:not(.faq-jasper-question),
 [aria-label*="faq"] button > span:first-child:not(.faq-jasper-question),
@@ -950,7 +950,7 @@ b, strong, h6 {
   background: var(--mixon-paper) !important;
 }
 
-.mixon-interior-page h1:not(.demo-step-heading) {
+.mixon-interior-page h1:not(.demo-step-heading):not(.hero-title) {
   max-width: 19ch;
   color: var(--mixon-ink) !important;
   font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -998,6 +998,15 @@ b, strong, h6 {
   text-align: center !important;
 }
 
+.mixon-pricing-page .pricing-plan-highlights-title {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.mixon-pricing-page .pricing-plan-tagline {
+  font-size: 15px !important;
+}
+
 .mixon-interior-page h1 span.text-transparent {
   color: var(--mixon-accent) !important;
   background: none !important;
@@ -1036,22 +1045,30 @@ b, strong, h6 {
   line-height: 1.7 !important;
 }
 
-/* Product & Service Modern Gradient Hero: Pure White Typography & Custom Styling */
+/* Product & Service Horizon Hero: Full-Bleed Mixon Blue + PT Serif White Editorial */
+.mixon-interior-page:has(.product-service-hero) {
+  padding-top: 90px !important;
+}
+
 .product-service-hero,
 .mixon-interior-page section.product-service-hero {
-  background-color: transparent !important;
   border-color: transparent !important;
 }
 
-.product-service-hero h1,
 .mixon-contact-hero h1,
-.mixon-interior-page section.product-service-hero h1,
-.mixon-interior-page section[aria-label*="hero"] h1,
-.mixon-contact-hero .hero-title,
-.product-service-hero .hero-title {
+.mixon-contact-hero .hero-title {
   color: #ffffff !important;
   font-family: 'Alan Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 700 !important;
+  max-width: 48rem !important;
+}
+
+.product-service-hero h1,
+.mixon-interior-page section.product-service-hero h1,
+.product-service-hero .hero-title {
+  color: #ffffff !important;
+  font-family: 'PT Serif', Georgia, serif !important;
+  font-weight: 400 !important;
   max-width: 48rem !important;
 }
 
@@ -1060,7 +1077,7 @@ b, strong, h6 {
 .mixon-interior-page section.product-service-hero p,
 .mixon-interior-page section[aria-label*="hero"] p:not(.bg-white *):not(form *),
 .product-service-hero .hero-subtitle {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   opacity: 1 !important;
 }
 
@@ -1071,16 +1088,9 @@ b, strong, h6 {
   line-height: 1.4 !important;
 }
 
-.product-service-hero .hero-badge,
 .product-service-hero .hero-badge span {
   color: #ffffff !important;
-  font-weight: 400 !important;
-}
-
-.product-service-hero .hero-badge .hero-badge-icon,
-.product-service-hero .hero-badge .hero-badge-icon svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
+  font-weight: 700 !important;
 }
 
 .mixon-interior-page section:not(:first-of-type) {
@@ -1093,16 +1103,16 @@ b, strong, h6 {
 }
 
 .mixon-product-page section:not(:first-of-type):nth-of-type(even),
-.mixon-service-detail section:not(:first-of-type):nth-of-type(even),
+.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):nth-of-type(even),
 .mixon-services-page section:not(:first-of-type):nth-of-type(even),
-.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(:first-of-type):nth-of-type(even) {
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(:first-of-type):nth-of-type(even) {
   background-color: #fff !important;
 }
 
 .mixon-product-page section:not(:first-of-type):nth-of-type(odd),
-.mixon-service-detail section:not(:first-of-type):nth-of-type(odd),
+.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):nth-of-type(odd),
 .mixon-services-page section:not(:first-of-type):nth-of-type(odd),
-.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(:first-of-type):nth-of-type(odd) {
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(:first-of-type):nth-of-type(odd) {
   background-color: #ffffff !important;
 }
 
@@ -1253,7 +1263,7 @@ b, strong, h6 {
   gap: .85rem;
   padding: 1.65rem;
   border: 1px solid rgba(9, 49, 115, .1);
-  border-radius: 1.1rem;
+  border-radius: 0px;
   background: rgba(255, 255, 255, .9);
   box-shadow: 0 20px 55px rgba(9, 49, 115, .1);
   transform: rotate(-2deg);
@@ -1336,7 +1346,7 @@ b, strong, h6 {
   position: relative;
   padding: clamp(1.25rem, 3vw, 2.25rem) !important;
   border: 1px solid #e4e1d9;
-  border-radius: 24px;
+  border-radius: 0px;
   background: linear-gradient(112deg, #fff 0%, #fff 45%, #f4f7fc 100%) !important;
   box-shadow: 0 22px 54px rgba(23, 36, 58, 0.09);
 }
@@ -1351,7 +1361,7 @@ b, strong, h6 {
 }
 
 .mixon-home-page #products .sticky [class*="aspect-"] {
-  border-radius: 18px;
+  border-radius: 0px;
 }
 
 .mixon-home-page #products .sticky h3 {
@@ -1369,7 +1379,7 @@ b, strong, h6 {
 
 .mixon-home-page #services .grid > button {
   min-height: 230px;
-  border-radius: 18px;
+  border-radius: 0px;
   border-color: #e4e3dd;
   box-shadow: 0 8px 24px rgba(23, 36, 58, 0.035);
 }
@@ -1392,7 +1402,7 @@ b, strong, h6 {
   overflow: hidden;
   padding: 20px;
   border: 1px solid rgba(9, 49, 115, .11);
-  border-radius: 24px;
+  border-radius: 0px;
   background: linear-gradient(145deg, #e8eef7 0%, #eef0ec 55%, #f2e7dc 100%);
   box-shadow: 0 22px 50px rgba(18, 36, 65, .11);
 }
@@ -1434,7 +1444,7 @@ b, strong, h6 {
 .spotlight-product-label b { color: #16243a; font-size: 10px; font-weight: 700; letter-spacing: .02em; }
 .spotlight-product-label small { font-size: 8px; }
 .spotlight-preview-tag { margin-left: auto; padding: 5px 7px; border: 1px solid rgba(9,49,115,.13); border-radius: 999px; background: rgba(255,255,255,.55); font-size: 7px; white-space: nowrap; }
-.spotlight-window { overflow: hidden; border: 1px solid rgba(23,36,58,.11); border-radius: 14px; background: #fff; box-shadow: 0 9px 25px rgba(23,36,58,.09); }
+.spotlight-window { overflow: hidden; border: 1px solid rgba(23,36,58,.11); border-radius: 0px; background: #fff; box-shadow: 0 9px 25px rgba(23,36,58,.09); }
 .spotlight-window-top { display: flex; align-items: center; justify-content: space-between; min-height: 34px; padding: 0 12px; border-bottom: 1px solid #edf0f2; color: #536075; font-size: 9px; font-weight: 600; }
 .spotlight-window-dots { display: flex; gap: 4px; }
 .spotlight-window-dots i { width: 5px; height: 5px; border-radius: 50%; background: #d7dce3; }
@@ -1445,10 +1455,10 @@ b, strong, h6 {
 .spotlight-preview-heading > div > strong { color: #1a2942; font-size: 13px; font-weight: 650; letter-spacing: -.02em; }
 .spotlight-date { padding: 6px 8px; border: 1px solid #e9edf1; border-radius: 6px; background: #fbfcfd; color: #536075; font-size: 8px; white-space: nowrap; }
 .spotlight-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-.spotlight-stat-row > div { display: grid; gap: 5px; padding: 9px; border: 1px solid #edf0f2; border-radius: 8px; background: #fafbfc; }
+.spotlight-stat-row > div { display: grid; gap: 5px; padding: 9px; border: 1px solid #edf0f2; border-radius: 0px; background: #fafbfc; }
 .spotlight-stat-row span { font-size: 7px; letter-spacing: .04em; }
 .spotlight-stat-row strong { color: #20324c; font-size: 9px; font-weight: 600; }
-.spotlight-table { overflow: hidden; border: 1px solid #edf0f2; border-radius: 8px; }
+.spotlight-table { overflow: hidden; border: 1px solid #edf0f2; border-radius: 0px; }
 .spotlight-table > div { display: grid; grid-template-columns: 1.4fr .45fr .8fr; align-items: center; gap: 5px; min-height: 29px; padding: 0 7px; border-top: 1px solid #f0f2f4; font-size: 7px; }
 .spotlight-table > div > span:first-child { display: flex; align-items: center; gap: 5px; }
 .spotlight-table-head { min-height: 22px !important; border-top: 0 !important; background: #fafbfc; font-size: 6px !important; }
@@ -1465,7 +1475,7 @@ b, strong, h6 {
 .spotlight-calendar-grid .spotlight-booked--blue { background: #e6effb; color: #225aa0; }
 .spotlight-calendar-grid small { font-size: 5px; }
 .spotlight-list-row,
-.spotlight-pos-summary { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #edf0f2; border-radius: 8px; background: #fbfcfd; }
+.spotlight-pos-summary { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #edf0f2; border-radius: 0px; background: #fbfcfd; }
 .spotlight-list-row > span:nth-child(2),
 .spotlight-pos-summary > div { display: grid; flex: 1; gap: 3px; }
 .spotlight-list-row b,
@@ -1474,7 +1484,7 @@ b, strong, h6 {
 .spotlight-icon { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 7px; background: #eaf1fb; color: #2059a5; }
 .spotlight-live { display: flex; align-items: center; gap: 5px; color: #237a5d; font-size: 7px; font-weight: 700; letter-spacing: .05em; }
 .spotlight-live i { width: 5px; height: 5px; border-radius: 50%; background: #34a57a; }
-.spotlight-event-card { display: flex; align-items: center; gap: 9px; padding: 9px; border-radius: 9px; background: #f4f7fc; }
+.spotlight-event-card { display: flex; align-items: center; gap: 9px; padding: 9px; border-radius: 0px; background: #f4f7fc; }
 .spotlight-ticket-art { display: grid; width: 48px; height: 56px; place-items: center; align-content: center; gap: 4px; border-radius: 6px; background: #13356d; color: white; }
 .spotlight-ticket-art span { font-size: 5px; letter-spacing: .08em; }
 .spotlight-event-card > div:last-child { display: grid; gap: 4px; }
@@ -1495,7 +1505,7 @@ b, strong, h6 {
   min-height: 320px;
   overflow: hidden;
   border: 1px solid rgba(9, 49, 115, .12);
-  border-radius: 24px;
+  border-radius: 0px;
   background: #dfe6ef;
   box-shadow: 0 22px 50px rgba(18, 36, 65, .12);
 }
@@ -1509,13 +1519,13 @@ b, strong, h6 {
 .mixon-service-spotlight figcaption span:last-child { font-weight: 450; letter-spacing: .01em; }
 
 @media (max-width: 640px) {
-  .mixon-product-spotlight { min-height: 0; padding: 15px; border-radius: 19px; }
-  .mixon-service-spotlight { min-height: 300px; border-radius: 19px; }
+  .mixon-product-spotlight { min-height: 0; padding: 15px; border-radius: 0px; }
+  .mixon-service-spotlight { min-height: 300px; border-radius: 0px; }
   .spotlight-audience { margin-bottom: 12px; }
 }
 
 @media (max-width: 640px) {
-  .mixon-interior-page h1:not(.demo-step-heading) {
+  .mixon-interior-page h1:not(.demo-step-heading):not(.hero-title) {
     font-size: clamp(2.15rem, 10vw, 2.75rem) !important;
   }
 
@@ -1529,7 +1539,7 @@ b, strong, h6 {
   }
 
   .mixon-home-page #products .sticky > div {
-    border-radius: 18px;
+    border-radius: 0px;
     box-shadow: 0 10px 28px rgba(23, 36, 58, 0.055);
   }
 }
@@ -1637,7 +1647,7 @@ html.lenis body {
   padding: clamp(1.25rem, 2vw, 1.7rem);
   overflow: hidden;
   border: 1px solid rgba(16, 32, 58, .085);
-  border-radius: .75rem;
+  border-radius: 0px;
   box-shadow: 0 12px 34px rgba(16, 32, 58, .035);
   isolation: isolate;
 }
@@ -1718,122 +1728,185 @@ html.lenis body {
 }
 
 
-/* =====================================================================
-   Vessa-inspired Dither-Field CTA Section
-   Full-width accent background with Bayer-dither dot texture and
-   centered solid-accent plate card.
-   ===================================================================== */
-
-.dither-cta-section {
+/* About page split CTA — Jasper geo placement, Mixon lighter blue. */
+.about-split-cta {
+  --about-cta-inset: clamp(1.25rem, 0.4rem + 2.3vw, 2.5rem);
   position: relative;
   overflow: hidden;
-  background-color: #075be7;
-  background-image:
-    linear-gradient(135deg, rgba(3, 81, 226, .72), rgba(9, 48, 113, .72)),
-    url('https://media.base44.com/images/public/marketing-site-assets/grunge-cover.webp');
-  background-size: cover;
-  background-position: center;
+  background: #0066FF;
+  color: #fff;
 }
 
-/* Dither dot pattern overlay — Bayer-like halftone texture using radial-gradient */
-.dither-cta-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.12) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 1px, transparent 1px),
-    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0.8px, transparent 0.8px),
-    radial-gradient(circle at 0% 50%, rgba(255,255,255,0.10) 0.8px, transparent 0.8px);
-  background-size: 6px 6px, 8px 8px, 10px 10px, 12px 12px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.38;
+.about-split-cta ::selection {
+  background: #04122b;
+  color: #fff;
 }
 
-/* Subtle animated wave band overlays for depth */
-.dither-cta-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 15% 50%, rgba(3, 81, 226, .16) 0%, transparent 70%),
-    radial-gradient(ellipse 70% 50% at 85% 50%, rgba(3, 81, 226, .13) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 50% 90%, rgba(9, 48, 113, .1) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  mix-blend-mode: multiply;
-}
-
-/* Open CTA layout keeps the texture visible behind the full content group. */
-.dither-cta-plate {
+.about-split-cta-frame {
   position: relative;
-  z-index: 1;
-  background: transparent;
-  border-radius: 0;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.about-split-cta-copy {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: clamp(1.35rem, 2.4vw, 2rem);
-  width: min(72rem, 100%);
-  margin-inline: auto;
-  padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 5vw, 4rem);
+  justify-content: center;
+  padding: clamp(3.25rem, 7vw, 4.5rem) clamp(1.35rem, 5vw, 2.5rem);
 }
 
-/* Title inside the plate */
-.dither-cta-plate h2 {
-  font-weight: 600 !important;
-  font-size: clamp(1.85rem, 3vw, 2.75rem) !important;
-  line-height: 1.08 !important;
+.about-split-cta-copy-inner {
+  width: min(100%, 38rem);
+}
+
+.about-split-cta-photo {
+  position: relative;
+  min-height: 240px;
+  margin: 0 var(--about-cta-inset) var(--about-cta-inset);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #04122b;
+}
+
+.about-split-cta-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.about-split-cta-rules {
+  display: none;
+}
+
+.about-split-cta h2,
+.about-split-cta h2 * {
+  font-family: 'PT Serif', Georgia, serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.7rem, 1.15rem + 3.35vw, 5rem) !important;
+  line-height: 1 !important;
   letter-spacing: -0.03em !important;
   color: #ffffff !important;
-  max-width: 30ch;
-  margin: 0;
-  text-wrap: balance;
 }
 
-/* Description inside the plate */
-.dither-cta-plate .dither-cta-desc {
-  font-size: clamp(.98rem, 1.2vw, 1.08rem) !important;
-  line-height: 1.72 !important;
-  color: rgba(255, 255, 255, 0.78) !important;
-  max-width: 66ch;
-  margin: 0;
+.about-split-cta h2 .about-split-cta-lead {
+  display: block;
+  max-width: 11ch;
 }
 
-.service-grunge-cta > img { filter: saturate(1.08); }
-.service-grunge-cta > div.absolute { background: linear-gradient(135deg, rgba(3, 81, 226, .72), rgba(9, 48, 113, .72)); }
-.service-grunge-cta > div.relative { max-width: 76rem; min-height: 0; padding-block: clamp(5rem, 10vw, 8.5rem); }
-.service-grunge-cta h2 { max-width: 30ch; color: #fff !important; font-size: clamp(1.85rem, 3vw, 2.75rem) !important; line-height: 1.12 !important; }
-.service-grunge-cta p { max-width: 66ch; color: rgba(255,255,255,.86) !important; font-size: clamp(.98rem, 1.2vw, 1.08rem) !important; line-height: 1.72 !important; }
+.about-split-cta h2 .about-split-cta-accent {
+  display: block;
+  color: #04122b !important;
+  font-weight: 500 !important;
+}
 
-/* CTA button — white with accent-colored text, matching Vessa's inverted CTA */
-.dither-cta-btn {
+.about-split-cta p {
+  max-width: 46ch;
+  margin: 1rem 0 0;
+  color: #fff;
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 450;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.about-split-cta-button {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
-  gap: 0.5rem;
-  height: 42px;
-  padding-inline: 20px;
-  background: #ffffff;
-  color: #0052D4;
-  font-size: 14px;
+  margin-top: 2rem;
+  padding: 1.2rem 1.85rem;
+  border: 0;
+  border-radius: 0;
+  background: #04122b;
+  color: #fff;
+  font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif;
+  font-size: 1.125rem;
   font-weight: 600;
-  border-radius: 8px;
-  border: none;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.15s;
-  text-decoration: none;
+  transition: background-color 200ms ease;
 }
 
-.dither-cta-btn:hover {
-  background: #f0f4ff;
-  transform: scale(1.03);
+.about-split-cta-button:hover {
+  background: #020a16;
 }
 
-.dither-cta-btn:active {
-  transform: scale(0.97);
+.about-split-cta-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
+
+@media (min-width: 1024px) {
+  .about-split-cta-frame {
+    display: block;
+    min-height: clamp(640px, 72vh, 854px);
+  }
+
+  .about-split-cta-copy {
+    width: 50%;
+    min-height: clamp(640px, 72vh, 854px);
+    padding: clamp(3rem, 6vh, 5rem) clamp(2rem, 3vw, 3rem) clamp(3rem, 6vh, 5rem) calc(var(--about-cta-inset) + clamp(1.5rem, 2.2vw, 2.5rem));
+  }
+
+  .about-split-cta-copy-inner {
+    width: min(100%, 38.5rem);
+  }
+
+  .about-split-cta-photo {
+    position: absolute;
+    top: var(--about-cta-inset);
+    right: 0;
+    bottom: var(--about-cta-inset);
+    width: 50%;
+    min-height: 0;
+    margin: 0;
+    aspect-ratio: auto;
+  }
+
+  .about-split-cta-rules {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .about-split-cta-rules span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #04122b;
+  }
+
+  .about-split-cta-rules span:nth-child(1) {
+    left: var(--about-cta-inset);
+  }
+
+  .about-split-cta-rules span:nth-child(2) {
+    left: 50%;
+  }
+
+  .about-split-cta-rules span:nth-child(3) {
+    right: var(--about-cta-inset);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-split-cta-button {
+    transition: none;
+  }
+}
+
+.service-closing-cta h2 { max-width: 30ch; color: #fff !important; font-size: clamp(2rem, 4vw, 3.5rem) !important; line-height: 1.1 !important; }
+.service-closing-cta p { max-width: 66ch; color: rgba(255,255,255,.9) !important; font-size: clamp(.98rem, 1.2vw, 1.08rem) !important; line-height: 1.65 !important; }
 
 /* Keep section transitions clean; component and card borders remain intact. */
 main section.border-t,
@@ -2116,8 +2189,8 @@ main section.border-y {
 
 #about-metrics .about-metric-cell {
   background-color: var(--about-tint);
-  min-block-size: clamp(11rem, 15vw, 13.75rem);
-  padding-block: clamp(1.5rem, 2.6vw, 2.25rem);
+  min-block-size: clamp(12rem, 16vw, 15rem);
+  padding-block: clamp(1.6rem, 2.8vw, 2.5rem);
   padding-inline: clamp(1.35rem, 2.6vw, 2.25rem);
   transition: background-color 220ms ease;
 }
@@ -2130,11 +2203,11 @@ main section.border-y {
 
 #about-metrics .about-metric-number {
   font-family: 'PT Serif', serif !important;
-  font-size: clamp(2.45rem, 1.75rem + 2.4cqi, 3.35rem);
+  font-size: clamp(3.2rem, 2.3rem + 3cqi, 4.25rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--about-ink);
+  color: var(--about-accent);
   font-variant-numeric: tabular-nums;
 }
 
@@ -2333,14 +2406,6 @@ main section.border-y {
 
 #our-team .team-editorial-card {
   box-shadow: 0 1px 0 rgba(4, 18, 43, 0.06);
-  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 240ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  #our-team .team-editorial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 44px rgba(4, 18, 43, 0.14);
-  }
 }
 
 #our-team h3.team-card-name,
@@ -2350,7 +2415,7 @@ main section.border-y {
   font-size: clamp(1.25rem, 1.05rem + 0.48vw, 1.48rem) !important;
   line-height: 1.12 !important;
   letter-spacing: -0.025em !important;
-  color: #04122b !important;
+  color: #ffffff !important;
   white-space: nowrap;
 }
 
@@ -2416,9 +2481,9 @@ main section.border-y {
 }
 
 /* ==========================================================================
-   HOME FAQ JASPER-INSPIRED MIXON THEME (Zero Border-Radius)
+   HOME / PRICING / PRODUCT / SERVICE FAQ JASPER-INSPIRED MIXON THEME (Zero Radius)
    ========================================================================== */
-section#faq button > span.faq-jasper-question:first-child,
+.faq-jasper-box button > span.faq-jasper-question:first-child,
 #faq button > span.faq-jasper-question {
   font-family: 'PT Serif', serif !important;
   font-size: clamp(1.03rem, 0.92rem + 0.45vw, 1.1875rem) !important;
@@ -2428,9 +2493,27 @@ section#faq button > span.faq-jasper-question:first-child,
   color: #04122b !important;
 }
 
-#faq .faq-jasper-box,
-#faq .faq-jasper-row,
-#faq .faq-jasper-box button,
-#faq .faq-jasper-box button > span {
+.faq-jasper-box,
+.faq-jasper-row,
+.faq-jasper-box button,
+.faq-jasper-box button > span {
+  border-radius: 0px !important;
+}
+
+/* ==========================================================================
+   GLOBAL ZERO BORDER-RADIUS ON ALL BUTTONS & ACTION CTAs
+   ========================================================================== */
+button:not([role="switch"]):not([aria-label*="slide" i]),
+a[role="button"],
+input[type="submit"],
+input[type="button"],
+.btn-primary,
+.btn-secondary {
+  border-radius: 0px !important;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
   border-radius: 0px !important;
 }

@@ -597,7 +597,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mirentals'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-[4px] bg-blue-50/80 border border-blue-150/70 flex items-center justify-center shrink-0 text-[#0066FF] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-blue-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-none bg-blue-50/80 border border-blue-150/70 flex items-center justify-center shrink-0 text-[#0066FF] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-blue-100/70 transition-all duration-300">
                             <Building2 className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -617,7 +617,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mireserve'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-[4px] bg-sky-50/80 border border-sky-150/70 flex items-center justify-center shrink-0 text-[#0284c7] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-sky-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-none bg-sky-50/80 border border-sky-150/70 flex items-center justify-center shrink-0 text-[#0284c7] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-sky-100/70 transition-all duration-300">
                             <Calendar className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -637,7 +637,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('eventyetu'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-[4px] bg-indigo-50/80 border border-indigo-150/70 flex items-center justify-center shrink-0 text-[#4f46e5] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-indigo-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-none bg-indigo-50/80 border border-indigo-150/70 flex items-center justify-center shrink-0 text-[#4f46e5] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-indigo-100/70 transition-all duration-300">
                             <Ticket className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -657,7 +657,7 @@ export default function App() {
                           onClick={(e) => handleAnchorNavigate(e, () => handleSelectProduct('mipos'))}
                           className="w-full text-left p-3 rounded-none hover:bg-slate-50/90 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer"
                         >
-                          <div className="w-10 h-10 rounded-[4px] bg-emerald-50/80 border border-emerald-150/70 flex items-center justify-center shrink-0 text-[#059669] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-emerald-100/70 transition-all duration-300">
+                          <div className="w-10 h-10 rounded-none bg-emerald-50/80 border border-emerald-150/70 flex items-center justify-center shrink-0 text-[#059669] shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 group-hover/item:bg-emerald-100/70 transition-all duration-300">
                             <Cpu className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="space-y-0.5">
@@ -718,10 +718,10 @@ export default function App() {
                       animate="visible"
                       exit="exit"
                       style={{ transformOrigin: 'top center' }}
-                      className="bg-white border border-gray-200 rounded-none p-5 grid grid-cols-12 gap-5 shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
+                      className="bg-white border border-gray-200 rounded-none px-3.5 py-6 grid grid-cols-12 gap-3.5 items-stretch shadow-[0_24px_60px_-12px_rgba(0,102,255,0.16),0_12px_24px_-8px_rgba(0,0,0,0.08)] pointer-events-auto text-left"
                     >
-                      {/* Left Column: 6 Services in a 2-Column Grid with 2-Line Human Descriptions */}
-                      <div className="col-span-8 grid grid-cols-2 gap-2.5 pr-2 items-start">
+                      {/* Left Column: 6 Services in a Balanced, Compact 2-Column Grid */}
+                      <div className="col-span-8 grid grid-cols-2 gap-x-2 gap-y-1 content-start items-start pr-1">
                         {servicesData.map((service) => {
                           const IconComp = service.icon;
                           const servicePage = service.id as PageId;
@@ -731,16 +731,16 @@ export default function App() {
                               variants={dropdownItemVariants}
                               href={getRoutePath(servicePage)}
                               onClick={(e) => handleAnchorNavigate(e, () => handleSelectService(servicePage))}
-                              className="w-full text-left p-3 rounded-none hover:bg-slate-50 transition-all duration-200 flex items-start gap-3.5 group/item cursor-pointer border border-transparent hover:border-slate-200/70"
+                              className="w-full text-left px-2 py-1.5 rounded-none hover:bg-slate-50 transition-all duration-200 flex items-start gap-2.5 group/item cursor-pointer border border-transparent hover:border-slate-200/70"
                             >
-                              <div className={`mt-0.5 w-9 h-9 rounded-[4px] border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
-                                <IconComp className="w-4.5 h-4.5 stroke-[2.2]" />
+                              <div className={`mt-0.5 w-8 h-8 rounded-none border flex items-center justify-center shrink-0 shadow-3xs group-hover/item:scale-108 group-hover/item:-rotate-2 transition-all duration-300 ${service.iconBg} ${service.hoverBg}`}>
+                                <IconComp className="w-4 h-4 stroke-[2.2]" />
                               </div>
-                              <div className="min-w-0 space-y-1">
-                                <span className="block text-[13.5px] font-semibold text-gray-900 leading-tight group-hover/item:text-[#0066FF] transition-colors">
+                              <div className="min-w-0 space-y-0.5">
+                                <span className="block text-[13px] font-semibold text-gray-900 leading-tight group-hover/item:text-[#0066FF] transition-colors">
                                   {service.title}
                                 </span>
-                                <p className="!text-[11px] font-normal leading-[1.4] text-gray-500">
+                                <p className="!text-[11px] font-normal leading-[1.35] text-gray-500">
                                   {service.desc}
                                 </p>
                               </div>
@@ -758,6 +758,7 @@ export default function App() {
                         href={getRoutePath('services')}
                         onClick={() => handleSelectService('services')}
                         className="col-span-4"
+                        compact
                       />
 
                     </motion.div>
@@ -797,7 +798,7 @@ export default function App() {
             <AppLink
               page="contact"
               onNavigate={setCurrentPage}
-              className="group h-10 min-w-[145px] rounded-full border-2 border-[#222] bg-white px-4 text-[13.5px] font-semibold tracking-tight text-[#222] transition-colors hover:bg-neutral-50 cursor-pointer inline-flex items-center justify-center"
+              className="group h-10 min-w-[145px] rounded-none border-2 border-[#222] bg-white px-4 text-[13.5px] font-semibold tracking-tight text-[#222] transition-colors hover:bg-neutral-50 cursor-pointer inline-flex items-center justify-center"
             >
               <RollingButtonText text="Talk to us" className="justify-center" />
             </AppLink>
@@ -816,7 +817,7 @@ export default function App() {
           <button 
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="lg:hidden text-gray-900 hover:text-mixon-blue transition-colors cursor-pointer w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100"
+            className="lg:hidden text-gray-900 hover:text-mixon-blue transition-colors cursor-pointer w-9 h-9 flex items-center justify-center rounded-none hover:bg-slate-100"
             aria-label="Toggle mobile navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -895,7 +896,7 @@ export default function App() {
               <AppLink
                 page="contact"
                 onNavigate={(page) => { setMobileMenuOpen(false); setCurrentPage(page); }}
-                className="group h-11 w-full rounded-full border-2 border-[#222] bg-white px-4 text-sm font-semibold tracking-tight text-[#222] transition-colors hover:bg-neutral-50 cursor-pointer inline-flex items-center justify-center"
+                className="group h-11 w-full rounded-none border-2 border-[#222] bg-white px-4 text-sm font-semibold tracking-tight text-[#222] transition-colors hover:bg-neutral-50 cursor-pointer inline-flex items-center justify-center"
               >
                 <RollingButtonText text="Talk to us" className="justify-center" />
               </AppLink>
