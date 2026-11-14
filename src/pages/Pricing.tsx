@@ -67,7 +67,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
     },
     {
       name: 'Growth',
-      tagline: 'For expanding businesses & dynamic multi-channel workflows.',
+      tagline: 'For expanding businesses & multi-channel workflows.',
       kes: 40500,
       usd: 325,
       cta: 'Choose Growth',
@@ -83,7 +83,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
     },
     {
       name: 'Pro',
-      tagline: 'For high-concurrency commercial ops & direct payment rails.',
+      tagline: 'For high-volume operations & direct payment rails.',
       kes: 75500,
       usd: 600,
       cta: 'Start Pro',
@@ -99,7 +99,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
     },
     {
       name: 'Scale',
-      tagline: 'For multi-branch organizations & custom API ecosystems.',
+      tagline: 'For multi-branch teams & custom API ecosystems.',
       kes: 145000,
       usd: 1150,
       cta: 'Start Scale',
@@ -354,7 +354,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
                   </h2>
 
                   {/* Plan Tagline: uniform min-height for horizontal alignment */}
-                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#475569] leading-relaxed min-h-[44px]">
+                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#475569] leading-relaxed line-clamp-2 min-h-[40px]">
                     {plan.tagline}
                   </p>
 
