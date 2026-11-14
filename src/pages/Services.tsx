@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { 
   Code2, 
   Smartphone, 
@@ -22,14 +22,20 @@ import {
 } from 'lucide-react';
 import { ThirtyDayImpactSection } from '../components/ThirtyDayImpactSection';
 import ProductServiceHero from '../components/ProductServiceHero';
+import {
+  WebServiceDiagram,
+  AppServiceDiagram,
+  SeoServiceDiagram,
+  PaymentsServiceDiagram,
+  EcommerceServiceDiagram,
+  AiServiceDiagram,
+} from '../components/illustrations/ServiceDiagramIllustrations';
 
 interface ServicesProps {
   setCurrentPage: (page: any) => void;
 }
 
 export default function Services({ setCurrentPage }: ServicesProps) {
-  const [activeTab, setActiveTab] = useState<string>('all');
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState<number>(0);
   const reduceMotion = useReducedMotion();
 
   const services = [
@@ -38,18 +44,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '01',
       category: 'Web Architecture',
       title: 'Web Design & Development',
-      tagline: 'A website that helps people understand you, and act.',
-      description: 'Your website is often the first conversation a customer has with your business. It should answer the right question quickly: what do you do, is it for me, and what do I do next? We design and develop responsive websites that bring your brand, content and business goals together. Modern, fast, accessible and built to be found.',
+      tagline: 'Fast, conversion-focused websites engineered for trust.',
+      description: 'Responsive web platforms that unify your brand, accelerate load times, and turn visitors into qualified enquiries.',
       icon: Code2,
       accentColor: 'from-blue-600 to-indigo-600',
       badge: 'Core Platform',
       whatYouGet: [
-        'Custom, mobile-first design that reflects your brand and typography',
-        'Performance, sub-second load times and enterprise-grade security built in',
-        'Clear page structure and conversion-tested calls to action that guide visitors',
-        'Intuitive content management system your team can update with confidence',
-        'Semantic HTML and technical SEO foundations configured from day one',
-        'Web applications, secure client portals, and interactive dashboards when you need more than a brochure'
+        'Sub-second load speeds with technical SEO configured from day one',
+        'Custom mobile-first layouts tailored to your brand identity',
+        'Intuitive CMS and client dashboards your team can update easily'
       ],
       howWeWork: [
         { step: '01', title: 'Discover', desc: 'Clarify business goals, audience intent, and primary customer actions.' },
@@ -57,7 +60,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Build & Test', desc: 'Develop with modern TypeScript & responsive tests across mobile & desktop.' },
         { step: '04', title: 'Launch & Measure', desc: 'Deploy with zero-downtime, monitor analytics, and refine post-launch.' }
       ],
-      bestFor: 'Businesses anywhere establishing a professional presence, redesigning an outdated site, or needing a scalable content-managed web platform.',
+      bestFor: 'Businesses establishing a professional web presence or redesigning an outdated site.',
       ctaText: 'Get a website proposal',
       ctaTarget: 'contact',
       pageId: 'service-web',
@@ -70,18 +73,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '02',
       category: 'Mobile & USSD',
       title: 'App Development',
-      tagline: 'Turn a process or an idea into something people use every day.',
-      description: 'Some of the best business ideas are really processes that have not yet become products. We help you define the requirements, map the user journey and build an application around the tasks people need to complete. Where it makes sense, we also build for the reach of USSD, so customers can use your service on any phone, without needing data.',
+      tagline: 'Turn daily operational processes into software people use.',
+      description: 'Mobile apps and offline-resilient USSD menus built for Android, iOS, and basic feature phones across Africa.',
       icon: Smartphone,
       accentColor: 'from-indigo-600 to-violet-600',
       badge: 'Native & Hybrid',
       whatYouGet: [
-        'High-performance Android and iOS native & cross-platform applications',
-        'USSD solutions with telco shortcode registration and interactive menu trees',
-        'Clear user journeys, accessible components, and thoughtful tactile micro-interactions',
-        'Encrypted back-end architecture, real-time analytics, and automated updates',
-        'Offline-first synchronization for areas with intermittent mobile network coverage',
-        'AI-assisted workflows where there is a genuine, explainable business use case'
+        'Native Android and iOS mobile applications with fluid UX',
+        'Interactive USSD menus reachable on any phone without data',
+        'Offline-first sync for areas with intermittent mobile coverage'
       ],
       howWeWork: [
         { step: '01', title: 'Define', desc: 'Map user journey bottlenecks, offline requirements, and success metrics.' },
@@ -89,7 +89,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Build & Test', desc: 'Engineer with rigorous automated testing under real-world connectivity.' },
         { step: '04', title: 'Launch & Support', desc: 'Handle App Store/Play Store submissions, telemetry, and ongoing updates.' }
       ],
-      bestFor: 'Founders, service businesses, logistics teams, and established enterprises ready to digitise an operational process into mobile software.',
+      bestFor: 'Teams digitising an operational workflow into intuitive mobile software.',
       ctaText: 'Discuss your app idea',
       ctaTarget: 'contact',
       pageId: 'service-app',
@@ -102,18 +102,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '03',
       category: 'Search & Discovery',
       title: 'SEO & Digital Marketing',
-      tagline: 'Be found. Then be chosen.',
-      description: 'People do not only search on Google any more. They ask AI assistants for recommendations, and those assistants pick businesses that are clear, trustworthy and well described. We support search visibility and digital campaigns with clear messaging, useful content and a focus on meaningful conversions, so the right audience finds you and has a reason to act.',
+      tagline: 'Be found on Google, ChatGPT, and Gemini.',
+      description: 'Answer-engine optimization, technical site speed audits, and digital acquisition campaigns that drive real pipeline revenue.',
       icon: Search,
       accentColor: 'from-emerald-600 to-teal-600',
       badge: 'AEO & GEO Ready',
       whatYouGet: [
-        'Comprehensive technical SEO audits, site speed tuning, and on-page crawl optimizations',
-        'Answer-Engine & Generative-Engine Optimisation (AEO & GEO) for ChatGPT, Perplexity & Gemini discovery',
-        'Authoritative content architecture that directly answers high-intent customer queries',
-        'Structured digital acquisition campaign planning across Google Search, Meta & LinkedIn',
-        'High-deliverability Bulk SMS campaigns for instant direct reach and customer updates',
-        'Transparent, plain-English conversion reporting focusing on real pipeline revenue'
+        'Answer-Engine & Generative-Engine Optimisation (AEO & GEO)',
+        'Technical crawl audits, schema architecture, and speed tuning',
+        'High-deliverability Bulk SMS campaigns for instant direct reach'
       ],
       howWeWork: [
         { step: '01', title: 'Audit', desc: 'Analyze current search footprint, technical indexability, and competitor gaps.' },
@@ -121,7 +118,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Execute', desc: 'Ship structured data, technical fixes, authoritative content, and campaigns.' },
         { step: '04', title: 'Refine', desc: 'Review monthly conversion dashboards and adapt to search engine algorithms.' }
       ],
-      bestFor: 'Businesses that want more qualified customer enquiries, higher organic search placement, and sustainable organic pipeline.',
+      bestFor: 'Companies seeking higher organic search placement and qualified inbound pipeline.',
       ctaText: 'Plan your digital growth',
       ctaTarget: 'contact',
       pageId: 'service-seo',
@@ -134,18 +131,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '04',
       category: 'Fintech & APIs',
       title: 'Payments & Integrations',
-      tagline: 'Close the gaps between your tools.',
-      description: 'Payment journeys and connected systems are where many businesses quietly lose time. A customer pays, but the order does not update. A system holds data another one needs. Someone retypes it. We assess the right integration approach and plan for transaction status, exceptions and reconciliation, so payments and systems work together, including the awkward moments when something fails.',
+      tagline: 'Automated settlement rails with zero discrepancy.',
+      description: 'Payment integration connecting M-Pesa Daraja, bank rails, and card checkout directly to your ERP and inventory.',
       icon: CreditCard,
       accentColor: 'from-sky-600 to-blue-700',
       badge: 'Zero-Leakage Rails',
       whatYouGet: [
-        'Direct payment integration for mobile money (M-Pesa Daraja STK Push & C2B), cards, PayPal, bank rails',
-        'Multi-currency checkout with transparent FX rates and instant digital confirmation receipts',
-        'Custom REST and GraphQL API integrations linking your CRM, ERP, and internal databases',
-        'Direct Telco Bulk SMS gateway integration with automated transaction triggers',
-        'Automated idempotent error-handling, background webhooks, retry queues, and settlement reconciliation',
-        'Complete audit trails and encrypted telemetry for every shilling, dollar, or euro moved'
+        'Direct M-Pesa Daraja STK Push, C2B webhooks, and card rails',
+        'Automated ledger reconciliation with zero manual discrepancies',
+        'Custom REST and GraphQL API bridges linking disparate systems'
       ],
       howWeWork: [
         { step: '01', title: 'System Map', desc: 'Document existing tools, API endpoints, webhook topologies, and data flows.' },
@@ -153,7 +147,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Sandbox Test', desc: 'Run end-to-end payment simulations with edge cases and latency checks.' },
         { step: '04', title: 'Deploy & Monitor', desc: 'Go live with automated alerting, reconciliation logs, and ongoing support.' }
       ],
-      bestFor: 'Businesses taking payments online in one market or many, managing recurring subscriptions, or running disparate systems that must talk to each other.',
+      bestFor: 'Businesses handling multi-channel payments, subscriptions, or branch reconciliation.',
       ctaText: 'Discuss an integration',
       ctaTarget: 'contact',
       pageId: 'service-payments',
@@ -166,18 +160,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '05',
       category: 'Digital Retail',
       title: 'E-Commerce Development',
-      tagline: 'An online store that makes buying feel easy.',
-      description: 'A good online store feels like a good shop assistant. It helps people find what they came for, answers their questions and makes paying painless. We shape the shopping experience around your catalogue, customers and operations, from product pages to checkout, so shoppers choose with confidence and buy with less friction.',
+      tagline: 'Frictionless storefronts that make buying feel easy.',
+      description: 'High-speed online stores with real-time stock sync, localized payment options, and automated order fulfillment.',
       icon: ShoppingBag,
       accentColor: 'from-rose-600 to-orange-600',
       badge: 'High Conversion',
       whatYouGet: [
-        'Bespoke storefront design tailored specifically to your visual brand and product catalog',
-        'Frictionless checkout experience with localized payment options and guest checkout modes',
-        'Real-time automated inventory tracking, low-stock warnings, and multi-location sync',
-        'Lightning-fast faceted search, intelligent filtering, and related product recommendations',
-        'Mobile-optimized cart recovery workflows and order status tracking via SMS & email',
-        'Staff-friendly backend for bulk product uploads, discount promotions, and tax management'
+        'Frictionless checkout flow with localized M-Pesa and card payments',
+        'Real-time automated inventory tracking across multiple branches',
+        'Automated order status tracking and receipts via SMS & email'
       ],
       howWeWork: [
         { step: '01', title: 'Catalog Audit', desc: 'Review product variants, inventory workflows, and shipping logistics.' },
@@ -185,7 +176,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Build Store', desc: 'Develop headless or full-stack store with payment gateway verification.' },
         { step: '04', title: 'Optimize', desc: 'Run live checkout audits, speed tuning, and conversion rate optimizations.' }
       ],
-      bestFor: 'Retailers, boutique brands, wholesalers, and physical shops expanding into modern direct-to-consumer or B2B online sales.',
+      bestFor: 'Retailers, wholesalers, and brands expanding into direct digital sales.',
       ctaText: 'Build your online store',
       ctaTarget: 'contact',
       pageId: 'service-ecommerce',
@@ -198,18 +189,15 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       number: '06',
       category: 'Intelligent Systems',
       title: 'AI & Automation',
-      tagline: 'Find the work worth automating.',
-      description: 'Not every task needs AI. Some just need a better process. Our approach starts with finding repetitive tasks and information bottlenecks that are genuinely worth improving. We help define a practical use case, understand the risks and scope an AI or automation solution where the capability is available, being open about what is automated, what is assisted and what still needs a human.',
+      tagline: 'Pragmatic background automation that saves real team hours.',
+      description: 'Deterministic workflows connecting WhatsApp, emails, spreadsheets, and databases to eliminate repetitive manual work.',
       icon: Sparkles,
       accentColor: 'from-amber-600 to-orange-600',
       badge: 'Human-in-the-Loop',
       whatYouGet: [
-        'Pragmatic Opportunity Discovery Workshop to identify high-ROI repetitive tasks',
-        'Transparent scoping of data privacy, accuracy thresholds, and business failure modes',
-        'Deterministic workflow automation linking email, spreadsheets, WhatsApp, and databases',
-        'Custom domain-trained assistants that draft responses and extract data for human approval',
-        'Clear human-in-the-loop safeguards ensuring critical financial or customer decisions remain in your hands',
-        'Ongoing evaluation metrics tracking actual hours saved and error reduction rates'
+        'Automated WhatsApp and email inquiry processing and routing',
+        'Deterministic background sync across spreadsheets and databases',
+        'Strict human-in-the-loop safeguards on sensitive business decisions'
       ],
       howWeWork: [
         { step: '01', title: 'Identify', desc: 'Pinpoint exactly where team hours and repetitive data entry get clogged.' },
@@ -217,7 +205,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         { step: '03', title: 'Pilot', desc: 'Deploy a tightly scoped, assisted pilot with human oversight safeguards.' },
         { step: '04', title: 'Scale', desc: 'Integrate into core operational stack only once reliability is proven.' }
       ],
-      bestFor: 'Forward-thinking teams curious about AI who want a grounded, reliable starting point that delivers tangible time savings without buzzwords.',
+      bestFor: 'Operations teams seeking to cut manual data entry without buzzwords.',
       ctaText: 'Explore an AI use case',
       ctaTarget: 'contact',
       pageId: 'service-ai',
@@ -226,8 +214,6 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       metricLabel: 'saved weekly per team'
     }
   ];
-
-  const currentService = services[selectedServiceIndex];
 
   return (
     <div className="mixon-interior-page mixon-services-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
@@ -250,142 +236,122 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         }}
       />
 
-      {/* Interactive Service Explorer (Freehand-inspired Interactive Master Panel) */}
-      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-16">
-        <div className="mb-10 text-center">
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-950">
+      {/* =========================================================================
+          HUDDLE.WORKS-STYLE CASCADING STACKED CARD DECK (FULL WIDTH, ZERO RADIUS)
+         ========================================================================= */}
+      <section className="w-full max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
+          <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#0066FF] font-semibold">
+            ENGINEERING CAPABILITIES
+          </span>
+          <h2
+            className="mt-2.5 text-3xl sm:text-4xl lg:text-[42px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.12]"
+            style={{ fontFamily: "'PT Serif', serif" }}
+          >
             Engineered around how your business actually works
           </h2>
+          <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Six production-tested software engineering pillars built to scale Kenyan enterprises, fintech operations, and customer reach. Scroll to explore or click any service tab to jump directly.
+          </p>
         </div>
 
-        {/* Tab Selector Pill Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
-          {services.map((service, idx) => {
-            const Icon = service.icon;
-            const isSelected = selectedServiceIndex === idx;
-            return (
-              <button
-                key={service.id}
-                onClick={() => setSelectedServiceIndex(idx)}
-                className={`p-3.5 rounded-none border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
-                  isSelected 
-                    ? 'bg-white border-[#0066FF] shadow-[0_8px_24px_rgba(0,102,255,0.12)] ring-1 ring-[#0066FF]' 
-                    : 'bg-white/70 hover:bg-white border-gray-200/80 text-gray-600 hover:border-gray-300'
-                }`}
+        {/* Stacked Cards Deck Container */}
+        <div className="w-full relative pb-8 sm:pb-12">
+          {services.map((service, idx) => (
+            <div
+              key={service.id}
+              id={`service-deck-${service.id}`}
+              className="huddle-deck-card w-full rounded-none border border-[#d4e0f0] bg-white group"
+              style={{ '--deck-index': idx } as React.CSSProperties}
+            >
+              {/* Exposed Tab Header Bar (Stacked on top of each other as you scroll, 0px radius, full width) */}
+              <div
+                onClick={() => {
+                  const el = document.getElementById(`service-deck-${service.id}`);
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="w-full px-5 sm:px-8 lg:px-10 py-3 sm:py-3.5 border-b border-[#d4e0f0] bg-white flex items-center justify-between cursor-pointer select-none rounded-none"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`text-[11px] font-mono font-bold ${isSelected ? 'text-[#0066FF]' : 'text-gray-400'}`}>
-                    {service.number}
-                  </span>
-                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isSelected ? 'bg-[#0066FF] text-white' : 'bg-gray-100 text-gray-500'}`}>
-                    <Icon className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-                <div>
-                  <span className="block text-[10px] font-mono uppercase tracking-wider text-gray-400 font-semibold">{service.category}</span>
-                  <span className={`text-xs font-bold leading-tight line-clamp-1 ${isSelected ? 'text-gray-950' : 'text-gray-700'}`}>
-                    {service.title}
+                <div className="flex items-center gap-2.5 sm:gap-4">
+                  <span className="font-mono text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] text-[#04122b] group-hover:text-[#0066FF] transition-colors">
+                    SERVICE {service.number} • {service.category.toUpperCase()}
                   </span>
                 </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Detailed Service Inspection Card (Context.dev Blueprint + Avenir Styling) */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentService.id}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="bg-white border border-gray-200 rounded-none shadow-xl overflow-hidden"
-          >
-            {/* Service Header Banner */}
-            <div className="p-8 sm:p-10 border-b border-gray-100 bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
-              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
-                {currentService.title}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-3 max-w-4xl">
-                {currentService.description}
-              </p>
-            </div>
-
-            {/* Service Details Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
-              {/* Left Column: What You Get */}
-              <div className="lg:col-span-7 p-8 sm:p-10 space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">
-                    SPECIFICATIONS &amp; DELIVERABLES
+                <div className="flex items-center gap-2.5 sm:gap-4">
+                  <span className="hidden sm:inline-block text-[10.5px] font-mono uppercase tracking-wider text-slate-500 font-semibold bg-slate-100 px-2 py-0.5 rounded-none border border-slate-200">
+                    {service.badge}
                   </span>
-                  <span className="text-[11px] font-mono text-[#0066FF]">What you get</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#0066FF]">
+                    {service.metric}
+                  </span>
                 </div>
-
-                <div className="space-y-3.5">
-                  {currentService.whatYouGet.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-none bg-slate-50/70 border border-slate-100 hover:bg-slate-50 transition-colors">
-                      <CheckCircle2 className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-gray-800 leading-relaxed font-normal">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
               </div>
 
-              {/* Right Column: How We Work & Direct Action */}
-              <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between bg-slate-50/30">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">
-                      EXECUTION FRAMEWORK
-                    </span>
-                    <span className="text-[11px] font-mono text-gray-500">4-Step Delivery</span>
+              {/* Card Body: Left Column (Concise Typography & Bullets) + Right Column (Vector Diagram) */}
+              <div className="w-full p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-white rounded-none">
+                {/* Left Column */}
+                <div className="lg:col-span-7 text-left space-y-3.5">
+                  <div>
+                    <h3
+                      className="font-ptserif text-2xl sm:text-3xl lg:text-[32px] font-normal text-[#04122b] tracking-[-0.025em] leading-[1.14]"
+                      style={{ fontFamily: "'PT Serif', serif" }}
+                    >
+                      {service.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-sans font-semibold text-[#0066FF] mt-1">
+                      {service.tagline}
+                    </p>
                   </div>
 
-                  <div className="space-y-3">
-                    {currentService.howWeWork.map((step) => (
-                      <div key={step.step} className="p-3.5 rounded-none bg-white border border-gray-200/90 shadow-2xs">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gray-100 text-gray-700">
-                            {step.step}
-                          </span>
-                          <span className="text-xs font-bold text-gray-900">{step.title}</span>
-                        </div>
-                        <p className="text-xs text-gray-600 leading-relaxed pl-6">
-                          {step.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-8 border-t border-gray-200 mt-8 space-y-3">
-                  <button
-                    onClick={() => setCurrentPage(currentService.pageId)}
-                    className="w-full bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-[0_4px_16px_rgba(0,102,255,0.25)] flex items-center justify-center gap-2 cursor-pointer group"
-                  >
-                    <span>View Dedicated {currentService.title} Page</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <button
-                    onClick={() => setCurrentPage(currentService.ctaTarget)}
-                    className="w-full bg-gray-950 hover:bg-black text-white font-sans font-bold py-3 px-6 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer group"
-                  >
-                    <span>{currentService.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <p className="text-center text-[11px] font-mono text-gray-400">
-                    Transparent scoping · Nairobi HQ &amp; Global Remote
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl">
+                    {service.description}
                   </p>
+
+                  {/* 3 Concise Deliverables (1-line each) */}
+                  <ul className="pt-1 space-y-1.5 text-xs sm:text-[13px] text-slate-700">
+                    {service.whatYouGet.slice(0, 3).map((item, i) => (
+                      <li key={i} className="flex items-center gap-2.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF] shrink-0" />
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Clean CTA Buttons (Sharp 0px Radius) */}
+                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3">
+                    <button
+                      onClick={() => setCurrentPage(service.pageId)}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white text-xs sm:text-sm font-semibold rounded-none transition-colors cursor-pointer group"
+                    >
+                      <span>Explore {service.title}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+
+                    <button
+                      onClick={() => setCurrentPage(service.ctaTarget)}
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#04122b] hover:bg-[#04122b] hover:text-white text-[#04122b] text-xs sm:text-sm font-semibold rounded-none transition-colors cursor-pointer"
+                    >
+                      <span>{service.ctaText}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Right Column: Architectural Vector Diagram (Clean, Zero Radius Frame) */}
+                <div className="lg:col-span-5 aspect-[16/10] sm:aspect-[4/3] max-h-[270px] rounded-none border border-slate-200 bg-[#f8fbff] overflow-hidden flex items-center justify-center p-2 sm:p-3">
+                  {service.id === 'web-dev' && <WebServiceDiagram />}
+                  {service.id === 'app-dev' && <AppServiceDiagram />}
+                  {service.id === 'seo-marketing' && <SeoServiceDiagram />}
+                  {service.id === 'payments-integrations' && <PaymentsServiceDiagram />}
+                  {service.id === 'ecommerce' && <EcommerceServiceDiagram />}
+                  {service.id === 'ai-automation' && <AiServiceDiagram />}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          ))}
+        </div>
       </section>
 
       {/* =========================================================================

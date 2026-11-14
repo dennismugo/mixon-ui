@@ -62,97 +62,99 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
     <div className="mixon-interior-page mixon-contact-page bg-white text-[#04122b] pt-28 sm:pt-36 pb-20 sm:pb-28 selection:bg-[#0066FF] selection:text-white">
       <section aria-label="Contact Mixon" className="w-full px-5 sm:px-8 lg:px-10">
         <div className="mx-auto w-full max-w-[1220px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
             {/* LEFT COLUMN: Jasper Demo-Inspired Editorial Pitch & Direct Contacts */}
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 12 }}
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6 text-left pt-1"
+              className="lg:col-span-6 text-left pt-0 flex flex-col justify-between h-full"
             >
-              <h1
-                className="hero-title font-ptserif text-[2.65rem] sm:text-[3.5rem] lg:text-[4rem] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.03] max-w-[540px]"
-                style={{ fontFamily: "'PT Serif', serif" }}
-              >
-                Ready to take the work out of managing tasks?
-              </h1>
+              <div>
+                <h1
+                  className="hero-title font-ptserif text-[2.4rem] sm:text-[3.15rem] lg:text-[3.35rem] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.04] max-w-[540px]"
+                  style={{ fontFamily: "'PT Serif', serif" }}
+                >
+                  Ready to take the work out of managing tasks?
+                </h1>
 
-              <p className="mt-6 font-sans text-[15.5px] sm:text-[17px] leading-[1.6] text-[#1e293b] max-w-[520px]">
-                Mixon brings together dedicated Kenyan software engineers, operational visibility, and purpose-built business platforms.
-              </p>
-
-              <div className="mt-7 max-w-[520px]">
-                <p className="font-sans text-[14.5px] sm:text-[15.5px] font-semibold text-[#04122b]">
-                  Reach out to see how Mixon can help you:
+                <p className="mt-4 sm:mt-5 font-sans text-[15px] sm:text-[16.5px] leading-[1.55] text-[#1e293b] max-w-[520px]">
+                  Mixon brings together dedicated Kenyan software engineers, operational visibility, and purpose-built business platforms.
                 </p>
-                <ul className="mt-3 space-y-2.5 text-[14.5px] sm:text-[15.5px] leading-[1.52] text-[#1e293b]">
-                  {CONTACT_VALUE_POINTS.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5">
-                      <span
-                        className="mt-[0.52em] h-1.5 w-1.5 shrink-0 bg-[#04122b]"
-                        aria-hidden="true"
-                      />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="mt-5 sm:mt-6 max-w-[520px]">
+                  <p className="font-sans text-[14px] sm:text-[15px] font-semibold text-[#04122b]">
+                    Reach out to see how Mixon can help you:
+                  </p>
+                  <ul className="mt-2.5 space-y-2 text-[14px] sm:text-[15px] leading-[1.48] text-[#1e293b]">
+                    {CONTACT_VALUE_POINTS.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5">
+                        <span
+                          className="mt-[0.52em] h-1.5 w-1.5 shrink-0 bg-[#04122b]"
+                          aria-hidden="true"
+                        />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {/* Direct Kenyan Desk Channels */}
-              <div className="mt-10 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-[540px]">
+              {/* Direct Kenyan Desk Channels - Bottom Anchored to Match Form Panel Baseline */}
+              <div className="mt-8 lg:mt-auto pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[540px]">
                 <a
                   href="mailto:info@mixonsoftwares.co.ke"
-                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
+                  className="mixon-contact-tile group flex flex-col justify-between p-3.5 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
                       <Mail className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
                       Email
                     </span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
+                  <p className="font-sans text-[13px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
                     info@mixonsoftwares.co.ke
                   </p>
-                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                  <p className="text-[11px] text-slate-500 mt-0.5 truncate">
                     contact@mixonsoftwares.co.ke
                   </p>
                 </a>
 
                 <a
                   href="tel:+254713958492"
-                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
+                  className="mixon-contact-tile group flex flex-col justify-between p-3.5 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
                       <Phone className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
                       Phone Desk
                     </span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
+                  <p className="font-sans text-[13px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
                     +254 713 958 492
                   </p>
-                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                  <p className="text-[11px] text-slate-500 mt-0.5 truncate">
                     Direct engineering &amp; sales desk
                   </p>
                 </a>
 
                 <a
                   href="tel:+254741733878"
-                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
+                  className="mixon-contact-tile group flex flex-col justify-between p-3.5 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
                       <PhoneCall className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
                       Operations
                     </span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
+                  <p className="font-sans text-[13px] font-semibold text-[#04122b] group-hover:text-[#0066FF]">
                     +254 741 733 878
                   </p>
-                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                  <p className="text-[11px] text-slate-500 mt-0.5 truncate">
                     Client operations &amp; support desk
                   </p>
                 </a>
@@ -161,19 +163,19 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                   href="https://maps.google.com/?q=Mihrab+Building,+15th+Floor,+Ring+Road+Kilimani,+Nairobi,+Kenya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mixon-contact-tile group flex flex-col justify-between p-4 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
+                  className="mixon-contact-tile group flex flex-col justify-between p-3.5 rounded-none bg-[#f8fbff] border border-[#d6e4fa] hover:border-[#0066FF] hover:bg-white transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0755b8]">
                       <MapPin className="w-3.5 h-3.5 text-[#0066FF]" aria-hidden="true" />
                       Nairobi Office
                     </span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0066FF] transition-colors" />
                   </div>
-                  <p className="font-sans text-[13.5px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
+                  <p className="font-sans text-[13px] font-semibold text-[#04122b] group-hover:text-[#0066FF] truncate">
                     Mihrab Building, 15th Floor
                   </p>
-                  <p className="text-[11.5px] text-slate-500 mt-0.5 truncate">
+                  <p className="text-[11px] text-slate-500 mt-0.5 truncate">
                     Ring Road Kilimani, Nairobi, Kenya
                   </p>
                 </a>
@@ -185,9 +187,9 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6 w-full"
+              className="lg:col-span-6 w-full h-full flex flex-col"
             >
-              <div className="mixon-contact-form-panel bg-[#EAF1FF] border border-[#C5DAF8] rounded-none p-7 sm:p-10 select-text">
+              <div className="mixon-contact-form-panel bg-[#EAF1FF] border border-[#C5DAF8] rounded-none p-6 sm:p-8 lg:p-9 select-text h-full flex flex-col justify-between">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
@@ -226,7 +228,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5 flex flex-col justify-between h-full">
                     {/* Email Address + Helper Caption matching Jasper Demo */}
                     <div className="space-y-1 text-left">
                       <label className="block font-sans text-[13px] font-semibold text-[#04122b]">
