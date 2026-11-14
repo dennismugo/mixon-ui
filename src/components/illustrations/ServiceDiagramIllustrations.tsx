@@ -25,11 +25,11 @@ export const AppServiceDiagram: React.FC<{ className?: string }> = ({ className 
     <GridBackground id="grid-app" />
 
     {/* Floating accent dots */}
-    <circle cx="510" cy="115" r="14" fill="#ff4520" />
+    <circle cx="510" cy="115" r="14" fill="#D9E88E" />
     <circle cx="475" cy="85" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="150" cy="265" r="7" fill="#04122b" />
-    <circle cx="595" cy="275" r="11" fill="#ff4520" />
+    <circle cx="595" cy="275" r="11" fill="#D9E88E" />
 
     {/* TOP-LEFT: Smartphone Frame with App Card & Gear */}
     {/* Offset navy shadow outline */}
@@ -108,11 +108,11 @@ export const WebServiceDiagram: React.FC<{ className?: string }> = ({ className 
     <GridBackground id="grid-web" />
 
     {/* Floating accent dots */}
-    <circle cx="505" cy="110" r="14" fill="#ff4520" />
+    <circle cx="505" cy="110" r="14" fill="#D9E88E" />
     <circle cx="470" cy="80" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="155" cy="265" r="7" fill="#04122b" />
-    <circle cx="605" cy="265" r="12" fill="#ff4520" />
+    <circle cx="605" cy="265" r="12" fill="#D9E88E" />
 
     {/* TOP-LEFT: Browser Window Card */}
     {/* Offset navy shadow outline */}
@@ -193,11 +193,11 @@ export const SeoServiceDiagram: React.FC<{ className?: string }> = ({ className 
     <GridBackground id="grid-seo" />
 
     {/* Floating accent dots */}
-    <circle cx="515" cy="110" r="14" fill="#ff4520" />
+    <circle cx="515" cy="110" r="14" fill="#D9E88E" />
     <circle cx="480" cy="80" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="150" cy="265" r="7" fill="#04122b" />
-    <circle cx="600" cy="270" r="11" fill="#ff4520" />
+    <circle cx="600" cy="270" r="11" fill="#D9E88E" />
 
     {/* TOP-LEFT: Search Engine Query Card */}
     <rect x="75" y="48" width="145" height="145" fill="none" stroke="#04122b" strokeWidth="3" />
@@ -239,8 +239,8 @@ export const SeoServiceDiagram: React.FC<{ className?: string }> = ({ className 
     <rect x="478" y="265" width="22" height="75" fill="#0066FF" stroke="#04122b" strokeWidth="2" />
     <rect x="508" y="245" width="22" height="95" fill="#0066FF" stroke="#04122b" strokeWidth="2" />
     {/* Upward Trend Line */}
-    <path d="M425 295 L460 270 L490 250 L525 230" fill="none" stroke="#ff4520" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="525" cy="230" r="4.5" fill="#ff4520" stroke="#04122b" strokeWidth="1.5" />
+    <path d="M425 295 L460 270 L490 250 L525 230" fill="none" stroke="#D9E88E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="525" cy="230" r="4.5" fill="#D9E88E" stroke="#04122b" strokeWidth="1.5" />
 
     {/* Arrow: Chart Card -> Target Triangle */}
     <line x1="380" y1="300" x2="290" y2="300" stroke="#04122b" strokeWidth="3" />
@@ -266,11 +266,11 @@ export const PaymentsServiceDiagram: React.FC<{ className?: string }> = ({ class
     <GridBackground id="grid-pay" />
 
     {/* Floating accent dots */}
-    <circle cx="510" cy="110" r="14" fill="#ff4520" />
+    <circle cx="510" cy="110" r="14" fill="#D9E88E" />
     <circle cx="475" cy="80" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="150" cy="265" r="7" fill="#04122b" />
-    <circle cx="600" cy="270" r="11" fill="#ff4520" />
+    <circle cx="600" cy="270" r="11" fill="#D9E88E" />
 
     {/* TOP-LEFT: Payment & Mobile Money Card */}
     <rect x="75" y="48" width="145" height="145" rx="8" fill="none" stroke="#04122b" strokeWidth="3" />
@@ -346,11 +346,11 @@ export const EcommerceServiceDiagram: React.FC<{ className?: string }> = ({ clas
     <GridBackground id="grid-ecom" />
 
     {/* Floating accent dots */}
-    <circle cx="510" cy="110" r="14" fill="#ff4520" />
+    <circle cx="510" cy="110" r="14" fill="#D9E88E" />
     <circle cx="475" cy="80" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="150" cy="265" r="7" fill="#04122b" />
-    <circle cx="600" cy="270" r="11" fill="#ff4520" />
+    <circle cx="600" cy="270" r="11" fill="#D9E88E" />
 
     {/* TOP-LEFT: Product Showcase Card */}
     <rect x="75" y="48" width="145" height="145" fill="none" stroke="#04122b" strokeWidth="3" />
@@ -360,7 +360,7 @@ export const EcommerceServiceDiagram: React.FC<{ className?: string }> = ({ clas
     {/* Product Image Placeholder Box */}
     <rect x="105" y="78" width="95" height="60" rx="4" fill="#e8edf5" stroke="#04122b" strokeWidth="2" />
     <polygon points="120,125 145,95 165,115 180,105 195,125" fill="#0066FF" />
-    <circle cx="135" cy="92" r="5" fill="#ff4520" />
+    <circle cx="135" cy="92" r="5" fill="#D9E88E" />
     {/* Price Tag & Description */}
     <rect x="105" y="148" width="40" height="18" rx="3" fill="#0066FF" />
     <text x="112" y="161" fill="#ffffff" fontSize="9" fontFamily="sans-serif" fontWeight="bold">KES</text>
@@ -423,11 +423,11 @@ export const AiServiceDiagram: React.FC<{ className?: string }> = ({ className =
     <GridBackground id="grid-ai" />
 
     {/* Floating accent dots */}
-    <circle cx="515" cy="110" r="14" fill="#ff4520" />
+    <circle cx="515" cy="110" r="14" fill="#D9E88E" />
     <circle cx="480" cy="80" r="7" fill="#04122b" />
-    <circle cx="95" cy="315" r="15" fill="#ff4520" />
+    <circle cx="95" cy="315" r="15" fill="#D9E88E" />
     <circle cx="150" cy="265" r="7" fill="#04122b" />
-    <circle cx="600" cy="270" r="11" fill="#ff4520" />
+    <circle cx="600" cy="270" r="11" fill="#D9E88E" />
 
     {/* TOP-LEFT: Prompt & Context Card (Matching Jasper Card 1) */}
     <rect x="75" y="48" width="145" height="145" fill="none" stroke="#04122b" strokeWidth="3" />
