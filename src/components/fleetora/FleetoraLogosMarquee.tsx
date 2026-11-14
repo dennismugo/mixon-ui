@@ -21,13 +21,15 @@ export const FleetoraLogosMarquee: React.FC = () => {
   ];
 
   return (
-    <section className="pt-10 pb-3 sm:pt-14 sm:pb-4 bg-white relative overflow-hidden select-none w-full px-6 sm:px-10 lg:px-14">
+    <section className="pt-8 pb-3 sm:pt-14 sm:pb-4 bg-white relative overflow-hidden select-none w-full px-4 sm:px-10 lg:px-14">
       <div className="w-full max-w-7xl mx-auto mb-6 sm:mb-8 text-center">
-        <div className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] text-gray-500 font-medium tracking-tight">
-          <span>Trusted by over</span>
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gray-950 text-white font-mono font-bold text-[11px] sm:text-xs shadow-2xs">
-            2,400+
-          </span>
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] text-gray-500 font-medium tracking-tight">
+          <div className="flex items-center gap-2">
+            <span>Trusted by over</span>
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gray-950 text-white font-mono font-bold text-[11px] sm:text-xs shadow-2xs">
+              2,400+
+            </span>
+          </div>
           <span>active businesses &amp; operators worldwide</span>
         </div>
       </div>

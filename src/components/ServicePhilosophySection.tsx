@@ -132,8 +132,8 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
           >
             <ScrollFadeIn delay={0.15}>
               <div className="relative group max-w-2xl mx-auto lg:max-w-none">
-                {/* Stepped Pixel Motif blooming out from top-left */}
-                <div className="absolute -top-7 -left-7 sm:-top-9 sm:-left-9 z-0 pointer-events-none group-hover:-translate-y-1 group-hover:-translate-x-1 transition-transform duration-500 ease-out">
+                {/* Stepped Pixel Motif blooming out from top-left (Hidden on mobile per user instruction) */}
+                <div className="hidden sm:block absolute -top-7 -left-7 sm:-top-9 sm:-left-9 z-0 pointer-events-none group-hover:-translate-y-1 group-hover:-translate-x-1 transition-transform duration-500 ease-out">
                   <SteppedPixelMotif palette={motifPalette} cellSize={18} />
                 </div>
 

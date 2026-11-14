@@ -91,7 +91,7 @@ const ModularTileCorner: React.FC<ModularTileCornerProps> = ({ tiles, position }
 
   return (
     <div
-      className={`absolute ${posClasses} pointer-events-auto z-10 grid grid-cols-4 grid-rows-4 w-[116px] h-[116px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px]`}
+      className={`hidden sm:grid absolute ${posClasses} pointer-events-auto z-10 grid-cols-4 grid-rows-4 w-[116px] h-[116px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px]`}
       style={{ shapeRendering: 'crispEdges' }}
     >
       {tiles.map((tile) => {

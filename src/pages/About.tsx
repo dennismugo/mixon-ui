@@ -150,14 +150,14 @@ export default function About({ setCurrentPage }: AboutProps) {
   ];
 
   return (
-    <div className="mixon-about-page text-gray-900 pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
+    <div className="mixon-about-page text-gray-900 pt-16 sm:pt-24 lg:pt-28 pb-0 selection:bg-[#0066FF] selection:text-white">
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
       <section
         id="about-hero"
         data-scroll-no-reveal=""
-        className="relative isolate flex min-h-[clamp(520px,74svh,700px)] flex-col justify-center overflow-hidden bg-white px-6 py-16 sm:px-10 sm:py-20 lg:px-14"
+        className="relative isolate flex min-h-0 sm:min-h-[clamp(480px,65svh,640px)] flex-col justify-center overflow-hidden bg-white px-4 py-8 sm:px-10 sm:py-16 lg:px-14"
       >
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center text-center">
           <motion.div
@@ -166,27 +166,27 @@ export default function About({ setCurrentPage }: AboutProps) {
             transition={{ duration: reduceMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="flex w-full flex-col items-center"
           >
-            <h1 className="max-w-4xl font-display text-[2.45rem] font-medium leading-[1.05] tracking-[-0.045em] text-[#10203a] sm:text-5xl lg:text-[3.7rem]">
+            <h1 className="max-w-4xl font-display text-[2.1rem] sm:text-5xl lg:text-[3.7rem] font-medium leading-[1.08] tracking-[-0.045em] text-[#10203a]">
               <span data-hero-pattern-hole="text">
                 Technology that makes business <span className="text-[#0755b8]">easier to run.</span>
               </span>
             </h1>
 
             {/* 3D Tactile MIXON Keycaps with Entrance and Scroll Physics */}
-            <div data-hero-pattern-hole="box" className="inline-flex max-w-full justify-center">
-              <MixonKeycaps className="!w-fit" />
+            <div data-hero-pattern-hole="box" className="inline-flex max-w-full justify-center my-1 sm:my-2">
+              <MixonKeycaps className="!w-fit scale-90 sm:scale-100 origin-center" />
             </div>
 
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#52647d] sm:text-base sm:leading-7">
+            <p className="mt-1 sm:mt-2 max-w-2xl text-xs sm:text-base leading-relaxed text-[#52647d]">
               <span data-hero-pattern-hole="text">
                 This is how practical software, connected telco rails, and modern digital platforms should work — eliminating friction and fitting how teams actually operate.
               </span>
             </p>
-            <div data-hero-pattern-hole="box" className="mt-6 inline-flex justify-center">
+            <div data-hero-pattern-hole="box" className="mt-5 sm:mt-6 inline-flex justify-center">
               <ExpandingArrowButton
                 size="pill"
                 onClick={() => setCurrentPage('book-demo')}
-                className="h-10 min-w-[145px]"
+                className="h-9 sm:h-10 min-w-[140px] text-xs sm:text-sm"
               >
                 Book a demo
               </ExpandingArrowButton>
@@ -295,26 +295,26 @@ export default function About({ setCurrentPage }: AboutProps) {
             <MissionScrollReveal />
           </div>
 
-          {/* Avatar Cluster with Social Proof (Matching User Reference) */}
-          <div className="pt-2 flex items-center gap-4">
-            <div className="flex items-center -space-x-2.5">
+          {/* Avatar Cluster with Social Proof (Well-Aligned, No Overlapping on Mobile) */}
+          <div className="pt-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+            <div className="flex items-center -space-x-2 shrink-0">
               <img 
                 src="/avatars/avatar1.jpg" 
                 alt="Community member" 
-                className="w-9 h-9 rounded-full object-cover border-2 border-[#FAF9F5] shadow-xs" 
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover ring-2 ring-white shadow-xs shrink-0" 
               />
               <img 
                 src="/avatars/avatar2.jpg" 
                 alt="Community member" 
-                className="w-9 h-9 rounded-full object-cover border-2 border-[#FAF9F5] shadow-xs" 
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover ring-2 ring-white shadow-xs shrink-0" 
               />
               <img 
                 src="/avatars/avatar4.jpg" 
                 alt="Community member" 
-                className="w-9 h-9 rounded-full object-cover border-2 border-[#FAF9F5] shadow-xs" 
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover ring-2 ring-white shadow-xs shrink-0" 
               />
             </div>
-            <p className="text-xs sm:text-sm font-medium text-gray-600">
+            <p className="text-xs sm:text-sm font-medium text-gray-600 leading-snug">
               Join <span className="font-semibold text-gray-900">1,000+ businesses</span> and forward-thinking teams worldwide.
             </p>
           </div>

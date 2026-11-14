@@ -41,7 +41,7 @@ export default function ProductServiceHero({
   return (
     <section
       aria-label={`${badge.name} hero`}
-      className="product-service-hero relative flex min-h-[110vh] w-full items-center overflow-hidden rounded-none bg-[#03122b] select-none"
+      className="product-service-hero relative flex min-h-[68svh] sm:min-h-[82vh] lg:min-h-[90vh] w-full items-center overflow-hidden rounded-none bg-[#03122b] select-none"
     >
       {/* Full-bleed Mixon blue particle-wave horizon artwork */}
       <img
@@ -63,7 +63,7 @@ export default function ProductServiceHero({
       />
 
       {/* Main Content Centered Above the Particle Wave Horizon */}
-      <div className="hero-card relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center rounded-none px-6 pt-16 pb-36 text-center sm:px-10 sm:pt-20 sm:pb-44 lg:px-12 lg:pt-24 lg:pb-52">
+      <div className="hero-card relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center rounded-none px-4 pt-10 pb-14 sm:px-10 sm:pt-20 sm:pb-36 lg:px-12 lg:pt-24 lg:pb-44 text-center">
         {/* Editorial PT Serif Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 12 }}

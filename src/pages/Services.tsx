@@ -217,7 +217,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
   ];
 
   return (
-    <div className="mixon-interior-page mixon-services-page bg-white text-gray-900 pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
+    <div className="mixon-interior-page mixon-services-page bg-white text-gray-900 pt-16 sm:pt-24 lg:pt-28 pb-24 selection:bg-[#0066FF] selection:text-white">
       {/* Calendly/Linear Inspired Radiant Gradient Hero Section */}
       <ProductServiceHero
         badge={{
@@ -240,7 +240,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       {/* =========================================================================
           HUDDLE.WORKS-STYLE CASCADING STACKED CARD DECK (FULL WIDTH, ZERO RADIUS)
          ========================================================================= */}
-      <section className="w-full px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
+      <section className="w-full px-3 sm:px-8 lg:px-14 py-10 sm:py-16">
         <div className="w-full max-w-7xl mx-auto">
           <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
             <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#0066FF] font-semibold">
@@ -267,7 +267,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
               style={{ '--deck-index': idx } as React.CSSProperties}
             >
               {/* Card Body: Left Column (Concise Typography & Bullets) + Right Column (Vector Diagram) */}
-              <div className="w-full p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-white rounded-none">
+              <div className="w-full p-4 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-white rounded-none">
                 {/* Left Column */}
                 <div className="lg:col-span-7 text-left space-y-3.5">
                   <div>
@@ -448,23 +448,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
             <rect x="1144" y="304" width="56" height="56" fill="#ffffff" />
           </svg>
 
-          {/* Mobile Geometric Edge SVGs */}
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 360 280"
-            preserveAspectRatio="none"
-            shapeRendering="crispEdges"
-            className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
-          >
-            <rect x="0" y="0" width="28" height="28" fill="#ffffff" />
-            <rect x="28" y="0" width="28" height="28" fill="#0066FF" />
-            <rect x="332" y="0" width="28" height="28" fill="#ffffff" />
-            <rect x="304" y="0" width="28" height="28" fill="#04122b" />
-            <rect x="0" y="252" width="28" height="28" fill="#04122b" />
-            <rect x="28" y="252" width="28" height="28" fill="#ffffff" />
-            <rect x="332" y="252" width="28" height="28" fill="#ffffff" />
-            <rect x="304" y="252" width="28" height="28" fill="#0066FF" />
-          </svg>
+          {/* Mobile Geometric Edge SVGs (Removed on mobile per user instruction) */}
 
           <div className="relative z-10 mx-auto max-w-2xl space-y-5">
             <h2

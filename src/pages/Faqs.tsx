@@ -292,23 +292,7 @@ export default function Faqs({ setCurrentPage }: FaqsProps) {
             <rect x="1144" y="304" width="56" height="56" fill="#ffffff" />
           </svg>
 
-          {/* Mobile Geometric Edge SVGs */}
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 360 280"
-            preserveAspectRatio="none"
-            shapeRendering="crispEdges"
-            className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
-          >
-            <rect x="0" y="0" width="28" height="28" fill="#ffffff" />
-            <rect x="28" y="0" width="28" height="28" fill="#0066FF" />
-            <rect x="332" y="0" width="28" height="28" fill="#ffffff" />
-            <rect x="304" y="0" width="28" height="28" fill="#04122b" />
-            <rect x="0" y="252" width="28" height="28" fill="#04122b" />
-            <rect x="28" y="252" width="28" height="28" fill="#ffffff" />
-            <rect x="332" y="252" width="28" height="28" fill="#ffffff" />
-            <rect x="304" y="252" width="28" height="28" fill="#0066FF" />
-          </svg>
+          {/* Mobile Geometric Edge SVGs (Removed on mobile per user instruction) */}
 
           <div className="relative z-10 mx-auto max-w-2xl space-y-5">
             <h2
