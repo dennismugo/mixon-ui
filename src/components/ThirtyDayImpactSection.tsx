@@ -123,7 +123,7 @@ export const ThirtyDayImpactSection: React.FC = () => {
                       {step.week}
                     </span>
 
-                    <div className="w-8 h-8 rounded-xl bg-white/[0.08] border border-white/10 flex items-center justify-center text-white/90 group-hover:bg-white/15 group-hover:text-white group-hover:scale-105 transition-all duration-200">
+                    <div className="w-8 h-8 rounded-none bg-white/[0.08] border border-white/10 flex items-center justify-center text-white/90 group-hover:bg-white/15 group-hover:text-white group-hover:scale-105 transition-all duration-200">
                       <Icon className="w-4 h-4 stroke-[2]" />
                     </div>
                   </div>

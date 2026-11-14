@@ -19,7 +19,7 @@ import { FleetoraAboutMetrics } from '../components/fleetora/FleetoraAboutMetric
 import { FleetoraPartnerBanner } from '../components/fleetora/FleetoraPartnerBanner';
 import { UnifyOperationsSection } from '../components/UnifyOperationsSection';
 import { FleetoraServicesStack } from '../components/fleetora/FleetoraServicesStack';
-import { FleetoraWorkStepper } from '../components/fleetora/FleetoraWorkStepper';
+import { ThirtyDayImpactSection } from '../components/ThirtyDayImpactSection';
 import { FleetoraIntegrationsStack } from '../components/fleetora/FleetoraIntegrationsStack';
 import { FleetoraTestimonials } from '../components/fleetora/FleetoraTestimonials';
 import { FleetoraFaq } from '../components/fleetora/FleetoraFaq';
@@ -188,8 +188,8 @@ export default function Home({ onLeadCaptured, setCurrentPage, leadRefresh }: Ho
       {/* 5. OUR SERVICES - CARDS STACKING ON SCROLL (NEXGO DESIGN WITH GSAP) */}
       <FleetoraServicesStack setCurrentPage={setCurrentPage} />
 
-      {/* 6. FLEETORA HOW WE WORK PROGRESS STEPPER (DARK NAVY #051838) */}
-      <FleetoraWorkStepper setCurrentPage={setCurrentPage} />
+      {/* 6. HOW IT WORKS: FROM SETUP TO MEASURABLE IMPACT IN 30 DAYS */}
+      <ThirtyDayImpactSection />
 
       {/* 6B. PLAYS WITH YOUR STACK / COMPOSIO INTEGRATIONS ECOSYSTEM */}
       <FleetoraIntegrationsStack setCurrentPage={setCurrentPage} />

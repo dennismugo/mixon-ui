@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { ThirtyDayImpactSection } from '../components/ThirtyDayImpactSection';
 import ProductServiceHero from '../components/ProductServiceHero';
+import RollingButtonText from '../components/RollingButtonText';
 import {
   WebServiceDiagram,
   AppServiceDiagram,
@@ -239,7 +240,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       {/* =========================================================================
           HUDDLE.WORKS-STYLE CASCADING STACKED CARD DECK (FULL WIDTH, ZERO RADIUS)
          ========================================================================= */}
-      <section className="w-full max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
         <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#0066FF] font-semibold">
             ENGINEERING CAPABILITIES
@@ -426,55 +427,93 @@ export default function Services({ setCurrentPage }: ServicesProps) {
         </div>
       </section>
 
-      {/* Integration Verification Disclaimer Strip */}
-      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-8">
-        <div className="p-6 rounded-none bg-amber-500/5 border border-amber-500/20 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <span className="inline-block text-[10px] font-mono uppercase tracking-wider font-bold text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded">
-              A NOTE ON INTEGRATIONS &amp; APIS
-            </span>
-            <p className="text-xs text-amber-900/80 leading-relaxed">
-              Integrations depend on the target systems, available APIs and provider permissions. We assess your exact technical requirements up front before confirming any specific connection.
-            </p>
-          </div>
-          <button
-            onClick={() => setCurrentPage('contact')}
-            className="shrink-0 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200/80 px-4 py-2 rounded-none transition-colors cursor-pointer"
+      {/* =========================================================================
+          BOTTOM PIXEL-MOSAIC PROPOSAL BANNER (ZERO BORDER RADIUS, #F2F6FD)
+         ========================================================================= */}
+      <section className="w-full px-5 sm:px-8 lg:px-14 py-16 sm:py-20">
+        <div
+          id="services-proposal-cta"
+          className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-none bg-[#f2f6fd] border border-slate-200/80 px-6 py-16 sm:px-12 sm:py-20 lg:py-24 text-center select-none shadow-[0_16px_40px_-20px_rgba(4,18,43,0.08)]"
+        >
+          {/* Desktop Geometric Edge SVGs */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1200 360"
+            preserveAspectRatio="none"
+            shapeRendering="crispEdges"
+            className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
           >
-            Request API Assessment →
-          </button>
-        </div>
-      </section>
+            <rect x="0" y="0" width="56" height="56" fill="#ffffff" />
+            <rect x="56" y="0" width="56" height="56" fill="#cfe2ff" />
+            <rect x="112" y="0" width="56" height="56" fill="#0066FF" />
+            <rect x="0" y="56" width="56" height="56" fill="#cfe2ff" />
+            <rect x="56" y="56" width="56" height="56" fill="#04122b" />
+            <rect x="0" y="112" width="56" height="56" fill="#0066FF" />
 
-      {/* Final Closing Action Block (Section 11) */}
-      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-12">
-        <div className="bg-gray-950 text-white rounded-none p-8 sm:p-14 relative overflow-hidden text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent pointer-events-none" />
-          
-          <div className="relative z-10 max-w-4xl mx-auto space-y-5">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight whitespace-normal sm:whitespace-nowrap">
-              What is taking too much time in your business?
+            <rect x="0" y="248" width="56" height="56" fill="#04122b" />
+            <rect x="56" y="200" width="56" height="56" fill="#0066FF" />
+            <rect x="112" y="248" width="56" height="56" fill="#ffffff" />
+            <rect x="224" y="248" width="56" height="56" fill="#04122b" />
+            <rect x="0" y="304" width="56" height="56" fill="#cfe2ff" />
+            <rect x="168" y="304" width="56" height="56" fill="#0066FF" />
+            <rect x="280" y="304" width="56" height="56" fill="#ffffff" />
+
+            <rect x="1144" y="0" width="56" height="56" fill="#ffffff" />
+            <rect x="1088" y="0" width="56" height="56" fill="#cfe2ff" />
+            <rect x="1032" y="0" width="56" height="56" fill="#04122b" />
+            <rect x="1088" y="56" width="56" height="56" fill="#0066FF" />
+
+            <rect x="1144" y="200" width="56" height="56" fill="#04122b" />
+            <rect x="1032" y="248" width="56" height="56" fill="#ffffff" />
+            <rect x="1088" y="304" width="56" height="56" fill="#0066FF" />
+            <rect x="1144" y="304" width="56" height="56" fill="#ffffff" />
+          </svg>
+
+          {/* Mobile Geometric Edge SVGs */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 360 280"
+            preserveAspectRatio="none"
+            shapeRendering="crispEdges"
+            className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
+          >
+            <rect x="0" y="0" width="28" height="28" fill="#ffffff" />
+            <rect x="28" y="0" width="28" height="28" fill="#0066FF" />
+            <rect x="332" y="0" width="28" height="28" fill="#ffffff" />
+            <rect x="304" y="0" width="28" height="28" fill="#04122b" />
+            <rect x="0" y="252" width="28" height="28" fill="#04122b" />
+            <rect x="28" y="252" width="28" height="28" fill="#ffffff" />
+            <rect x="332" y="252" width="28" height="28" fill="#ffffff" />
+            <rect x="304" y="252" width="28" height="28" fill="#0066FF" />
+          </svg>
+
+          <div className="relative z-10 mx-auto max-w-2xl space-y-5">
+            <h2
+              className="pricing-proposal-heading font-ptserif text-3xl sm:text-4xl lg:text-[46px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.08]"
+              style={{ fontFamily: "'PT Serif', serif" }}
+            >
+              Start with a clear, transparent proposal.
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              Tell us what you want to improve. We will help you explore the right product, service or next step, without making it complicated.
+            <p className="mx-auto max-w-xl font-sans text-sm sm:text-[15px] text-[#04122b]/80 font-normal leading-[1.6]">
+              Tell us what you want to improve. We will outline the scope, available options, exact deliverables, and timeline without making it complicated.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <button
+                type="button"
                 onClick={() => setCurrentPage('contact')}
-                className="w-full sm:w-auto bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold py-3.5 px-8 rounded-none text-sm transition-all shadow-lg cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 rounded-none bg-[#04122b] px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-white transition-colors duration-200 hover:bg-[#0066FF] cursor-pointer active:scale-[0.99]"
               >
-                Tell us what you need
+                <RollingButtonText text="Request a proposal" icon={<ArrowRight className="w-4 h-4" />} />
               </button>
               <button
+                type="button"
                 onClick={() => setCurrentPage('pricing')}
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-sans font-semibold py-3.5 px-8 rounded-none text-sm transition-all border border-white/20 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 rounded-none border border-[#04122b]/25 bg-white px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-[#04122b] transition-colors duration-200 hover:border-[#0066FF] hover:text-[#0066FF] cursor-pointer active:scale-[0.99]"
               >
-                View Website Packages
+                <RollingButtonText text="Explore our packages" />
               </button>
             </div>
-            <p className="text-[11px] font-mono text-gray-400 pt-2">
-              We reply within one business day · Remote or on-site in Nairobi
-            </p>
           </div>
         </div>
       </section>
