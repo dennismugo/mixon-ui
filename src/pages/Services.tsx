@@ -262,39 +262,19 @@ export default function Services({ setCurrentPage }: ServicesProps) {
             <div
               key={service.id}
               id={`service-deck-${service.id}`}
-              className="huddle-deck-card w-full rounded-none border border-[#d4e0f0] bg-white group"
+              className="huddle-deck-card w-full rounded-none border border-[#d4e0f0] bg-white group shadow-[0_16px_36px_rgba(4,18,43,0.06)]"
               style={{ '--deck-index': idx } as React.CSSProperties}
             >
-              {/* Exposed Tab Header Bar (Stacked on top of each other as you scroll, 0px radius, full width) */}
-              <div
-                onClick={() => {
-                  const el = document.getElementById(`service-deck-${service.id}`);
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }}
-                className="w-full px-5 sm:px-8 lg:px-10 py-3 sm:py-3.5 border-b border-[#d4e0f0] bg-white flex items-center justify-between cursor-pointer select-none rounded-none"
-              >
-                <div className="flex items-center gap-2.5 sm:gap-4">
-                  <span className="font-mono text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] text-[#04122b] group-hover:text-[#0066FF] transition-colors">
-                    SERVICE {service.number} • {service.category.toUpperCase()}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2.5 sm:gap-4">
-                  <span className="hidden sm:inline-block text-[10.5px] font-mono uppercase tracking-wider text-slate-500 font-semibold bg-slate-100 px-2 py-0.5 rounded-none border border-slate-200">
-                    {service.badge}
-                  </span>
-                  <span className="text-xs sm:text-sm font-mono font-bold text-[#0066FF]">
-                    {service.metric}
-                  </span>
-                </div>
-              </div>
-
               {/* Card Body: Left Column (Concise Typography & Bullets) + Right Column (Vector Diagram) */}
               <div className="w-full p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-white rounded-none">
                 {/* Left Column */}
                 <div className="lg:col-span-7 text-left space-y-3.5">
                   <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#0066FF]">
+                        {service.number} // {service.category.toUpperCase()}
+                      </span>
+                    </div>
                     <h3
                       className="font-ptserif text-2xl sm:text-3xl lg:text-[32px] font-normal text-[#04122b] tracking-[-0.025em] leading-[1.14]"
                       style={{ fontFamily: "'PT Serif', serif" }}
