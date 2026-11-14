@@ -1950,6 +1950,7 @@ main section.border-y {
 .unify-operations .unify-snippets li.unify-slot {
   position: absolute;
   width: clamp(164px, 15.4vw, 232px);
+  aspect-ratio: 6 / 5;
 }
 
 .unify-operations .unify-snippet {

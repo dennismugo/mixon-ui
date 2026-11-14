@@ -363,8 +363,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                       By submitting this form, you agree to Mixon’s{' '}
                       {setCurrentPage ? (
                         <AppLink
-                          page="about"
-                          hash="#security"
+                          page="privacy"
                           onNavigate={setCurrentPage}
                           className="text-[#04122b] underline font-medium hover:text-[#0066FF]"
                         >
@@ -372,7 +371,7 @@ export default function Contact({ onLeadCaptured, setCurrentPage }: ContactProps
                         </AppLink>
                       ) : (
                         <a
-                          href="/about#security"
+                          href="/privacy"
                           className="text-[#04122b] underline font-medium hover:text-[#0066FF]"
                         >
                           Privacy Notice

@@ -92,7 +92,7 @@ export default function Faqs({ setCurrentPage }: FaqsProps) {
     },
     {
       id: 'platforms',
-      label: 'Bespoke Platforms',
+      label: 'Platforms',
       icon: Building2,
       description: 'Proprietary enterprise systems: miRentals, miReserve, Event Yetu, and miPOS multi-branch retail.',
       faqs: [...MIRENTALS_FAQS, ...MIRESERVE_FAQS, ...EVENTYETU_FAQS, ...MIPOS_FAQS],
@@ -219,21 +219,6 @@ export default function Faqs({ setCurrentPage }: FaqsProps) {
                   </button>
                 );
               })}
-            </div>
-          )}
-
-          {/* Active Category Description Header */}
-          {!searchQuery && selectedCategory !== 'all' && (
-            <div className="mb-8 text-left max-w-2xl">
-              <h2
-                className="text-2xl sm:text-3xl font-normal text-[#04122b] tracking-[-0.02em] mb-2"
-                style={{ fontFamily: "'PT Serif', serif" }}
-              >
-                {categories.find((c) => c.id === selectedCategory)?.label}
-              </h2>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {categories.find((c) => c.id === selectedCategory)?.description}
-              </p>
             </div>
           )}
 

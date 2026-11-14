@@ -395,8 +395,7 @@ export default function FooterUpper({
         </p>
         <div className="flex items-center gap-6 sm:gap-8 text-xs font-normal">
           <AppLink
-            page="about"
-            hash="#security"
+            page="privacy"
             onNavigate={(p) => handleNav(p)}
             className="hover:text-white transition-colors cursor-pointer"
           >
