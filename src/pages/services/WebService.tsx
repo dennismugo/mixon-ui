@@ -113,8 +113,16 @@ export default function WebService({ setCurrentPage }: WebServiceProps) {
         motifPalette="lime"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'DELIVERABLES'} heading={'What you get'} description={'Six foundational commitments included with every Mixon web project.'} items={deliverables} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="DELIVERABLES & CAPABILITIES"
+        heading="What you get with Mixon Web"
+        description="Six foundational commitments included with every Mixon web project — from custom architecture to sub-second load times."
+        items={deliverables}
+        primaryActionText="Explore Web Packages"
+        onPrimaryAction={() => setCurrentPage('pricing')}
+        onItemClick={() => setCurrentPage('pricing')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='From discovery conversation to a live, converting website.' steps={steps} />

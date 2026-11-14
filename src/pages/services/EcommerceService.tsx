@@ -114,8 +114,16 @@ export default function EcommerceService({ setCurrentPage }: EcommerceServicePro
         motifPalette="lime"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'DELIVERABLES'} heading={'What you get'} description={'Comprehensive digital storefront architecture from inventory intake to post-purchase tracking.'} items={deliverables} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="COMMERCE DELIVERABLES"
+        heading="What you get with Mixon Commerce"
+        description="Comprehensive digital storefront architecture from inventory intake to frictionless 1-tap checkout and post-purchase tracking."
+        items={deliverables}
+        primaryActionText="Explore E-Commerce Plans"
+        onPrimaryAction={() => setCurrentPage('pricing')}
+        onItemClick={() => setCurrentPage('pricing')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='From catalog mapping to checkout optimization with real customer telemetry.' steps={steps} />

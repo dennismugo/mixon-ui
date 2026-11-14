@@ -113,8 +113,16 @@ export default function PaymentsService({ setCurrentPage }: PaymentsServiceProps
         motifPalette="sky"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'CAPABILITIES'} heading={'What you get'} description={'Proven payment architecture, encrypted API gateways, and automated reconciliation queues.'} items={deliverables} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="FINANCIAL INFRASTRUCTURE & RAILS"
+        heading="What you get with Mixon Payments"
+        description="Proven payment architecture, encrypted API gateways, and automated reconciliation queues built for 99.95% uptime."
+        items={deliverables}
+        primaryActionText="Scope a Payment Integration"
+        onPrimaryAction={() => setCurrentPage('contact')}
+        onItemClick={() => setCurrentPage('contact')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='Methodical integration engineering with thorough failure-scenario testing.' steps={steps} />

@@ -114,8 +114,21 @@ export default function SeoService({ setCurrentPage }: SeoServiceProps) {
         motifPalette="lime"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'DELIVERABLES'} heading={'Where search pressure turns into close control.'} description={'Autonomous indexation, generative AI positioning, and direct revenue attribution built for sustainable customer acquisition.'} items={[{ title: 'Autonomous Continuous Reconciliation', desc: 'Deep crawl audits analyzing indexation bottlenecks, Core Web Vitals performance, canonical tagging, and internal link architecture so engines discover and rank every page.' }, { title: 'Centralized Close Management', desc: 'Move beyond spreadsheets and fragmented reports by centralizing search tasks in a single system where AI engines like ChatGPT, Perplexity, and Gemini cite and recommend your business.' }, { title: 'Real-Time Flux & Anomaly Detection', desc: 'Continuous monitoring of commercial search queries, impression dips, and SERP shifts as they happen, helping teams catch drop-offs early instead of discovering them at the end of the month.' }, { title: 'Automated audit trails & traceability', desc: 'Every content deployment, schema modification, and telco SMS broadcast is automatically logged with transparent conversion metrics showing actual revenue, calls, and qualified pipeline.' }]} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="DISCOVERY & CONVERSION DELIVERABLES"
+        heading="Where search pressure turns into close control"
+        description="Autonomous indexation, generative AI positioning, and direct revenue attribution built for sustainable customer acquisition."
+        items={[
+          { title: 'Autonomous Continuous Reconciliation', desc: 'Deep crawl audits analyzing indexation bottlenecks, Core Web Vitals performance, canonical tagging, and internal link architecture so engines discover and rank every page.', tag: 'AEO', secondaryTag: 'Automated' },
+          { title: 'Centralized Close Management', desc: 'Move beyond spreadsheets and fragmented reports by centralizing search tasks in a single system where AI engines like ChatGPT, Perplexity, and Gemini cite and recommend your business.', tag: 'AI Search', secondaryTag: 'Verified' },
+          { title: 'Real-Time Flux & Anomaly Detection', desc: 'Continuous monitoring of commercial search queries, impression dips, and SERP shifts as they happen, helping teams catch drop-offs early instead of discovering them at the end of the month.', tag: 'Monitoring', secondaryTag: 'Real-Time' },
+          { title: 'Automated audit trails & traceability', desc: 'Every content deployment, schema modification, and telco SMS broadcast is automatically logged with transparent conversion metrics showing actual revenue, calls, and qualified pipeline.', tag: 'Attribution', secondaryTag: 'Enterprise' }
+        ]}
+        primaryActionText="Explore SEO & AEO Audit"
+        onPrimaryAction={() => setCurrentPage('contact')}
+        onItemClick={() => setCurrentPage('contact')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='Disciplined optimization cycle focused on commercial pipeline generation.' steps={steps} />

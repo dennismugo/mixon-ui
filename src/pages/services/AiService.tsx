@@ -113,8 +113,16 @@ export default function AiService({ setCurrentPage }: AiServiceProps) {
         motifPalette="blue"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'CAPABILITIES'} heading={'What you get'} description={'Pragmatic artificial intelligence and deterministic automation shaped around your operations.'} items={deliverables} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="AUTOMATION CAPABILITIES"
+        heading="What you get with Mixon AI"
+        description="Pragmatic artificial intelligence and deterministic automation shaped around your operations with zero data retention."
+        items={deliverables}
+        primaryActionText="Explore AI Automation"
+        onPrimaryAction={() => setCurrentPage('pricing')}
+        onItemClick={() => setCurrentPage('pricing')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='From identifying bottlenecks to focused pilots and production scaling.' steps={steps} />

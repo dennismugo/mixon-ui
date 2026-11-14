@@ -112,8 +112,16 @@ export default function AppService({ setCurrentPage }: AppServiceProps) {
         motifPalette="blue"
       />
 
-      {/* CAPABILITIES */}
-      <ServiceCapabilities eyebrow={'CAPABILITIES'} heading={'What you get'} description={'End-to-end mobile engineering with transparent telemetry and security.'} items={deliverables} />
+      {/* CAPABILITIES CAROUSEL */}
+      <ServiceCapabilities
+        eyebrow="CAPABILITIES & TELCO REACH"
+        heading="What you get with Mixon Mobile"
+        description="End-to-end mobile engineering with transparent telemetry, native device integration, and offline-resilient USSD menus."
+        items={deliverables}
+        primaryActionText="Explore Mobile Packages"
+        onPrimaryAction={() => setCurrentPage('pricing')}
+        onItemClick={() => setCurrentPage('pricing')}
+      />
 
       {/* HOW WE WORK */}
       <HowItWorksSection eyebrow="4-STEP PROCESS" heading="How we work" description='Structured sprint progression from prototype to store publishing.' steps={steps} />
