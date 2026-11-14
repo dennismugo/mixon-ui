@@ -1681,14 +1681,14 @@ html.lenis body {
 .mixon-process-header p { max-width: 45rem; margin: .8rem auto 0; color: #647084; font-size: .98rem !important; line-height: 1.65; }
 .mixon-process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4.5rem); }
 .mixon-process-grid[data-count='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); }
-.mixon-process-step { min-width: 0; text-align: left; }
-.mixon-process-icon { display: grid; width: 3.8rem; height: 3.8rem; place-items: center; margin-bottom: 1.45rem; border-radius: 50%; }
+.mixon-process-step { min-width: 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.mixon-process-icon { display: grid; width: 3.8rem; height: 3.8rem; place-items: center; margin-bottom: 1.45rem; border-radius: 50%; margin-inline: auto; }
 .mixon-process-icon-blue { background: #edf4ff; color: #1768e8; }
 .mixon-process-icon-lilac { background: #f3efff; color: #8066dc; }
 .mixon-process-icon-mint { background: #e9f8f2; color: #128263; }
 .mixon-process-icon-amber { background: #fff5e5; color: #b7791f; }
-.mixon-process-step h3 { margin: 0; color: #13233c; font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important; font-size: 1.15rem !important; font-weight: 600 !important; letter-spacing: -.025em; line-height: 1.35 !important; }
-.mixon-process-step p { max-width: 34rem; margin: .7rem 0 0; color: #5f6b7e; font-size: .94rem !important; line-height: 1.72; }
+.mixon-process-step h3 { margin: 0; color: #13233c; font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif !important; font-size: 1.15rem !important; font-weight: 600 !important; letter-spacing: -.025em; line-height: 1.35 !important; text-align: center; }
+.mixon-process-step p { max-width: 34rem; margin: .7rem auto 0; color: #5f6b7e; font-size: .94rem !important; line-height: 1.72; text-align: center; }
 @media (max-width: 900px) {
   .mixon-process-grid, .mixon-process-grid[data-count='4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6rem 2rem; }
 }

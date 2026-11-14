@@ -45,18 +45,18 @@ export function HowItWorksSection({ eyebrow, heading, description, steps }: HowI
             return (
               <motion.article
                 key={`${step.title}-${index}`}
-                className="mixon-process-step"
+                className="mixon-process-step flex flex-col items-center text-center"
                 custom={index}
                 initial={reducedMotion ? false : 'hidden'}
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={stepVariants}
               >
-                <div className={`mixon-process-icon mixon-process-icon-${stepTones[index % stepTones.length]}`} aria-hidden="true">
+                <div className={`mixon-process-icon mixon-process-icon-${stepTones[index % stepTones.length]} mx-auto`} aria-hidden="true">
                   <Icon size={22} strokeWidth={1.75} />
                 </div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+                <h3 className="text-center">{step.title}</h3>
+                <p className="text-center mx-auto">{step.desc}</p>
               </motion.article>
             );
           })}
