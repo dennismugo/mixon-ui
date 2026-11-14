@@ -331,51 +331,67 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
             {primaryPlans.map((plan) => (
               <div
                 key={plan.name}
-                className={`rounded-none bg-white p-6 sm:p-7 flex flex-col justify-between text-left transition-shadow duration-200 ${
+                className={`relative rounded-none bg-white p-6 sm:p-7 flex flex-col justify-between text-left transition-all duration-200 ${
                   plan.featured
-                    ? 'border-2 border-[#0066FF] shadow-[0_18px_42px_-14px_rgba(0,102,255,0.2)]'
-                    : 'border border-[#c5daf8] shadow-[0_6px_22px_-12px_rgba(4,18,43,0.08)]'
+                    ? 'border-2 border-[#0066FF] shadow-[0_20px_45px_-12px_rgba(0,102,255,0.22)]'
+                    : 'border border-[#d0e0f8] hover:border-[#0066FF]/60 shadow-[0_4px_18px_-8px_rgba(4,18,43,0.06)] hover:shadow-[0_12px_28px_-10px_rgba(0,102,255,0.12)]'
                 }`}
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 pb-4 border-b border-[#04122b]/15">
-                    <h2
-                      className="whitespace-nowrap font-ptserif text-2xl font-normal text-[#04122b] tracking-tight"
-                      style={{ fontFamily: "'PT Serif', serif" }}
-                    >
-                      {plan.name}
-                    </h2>
-                    <div className="shrink-0 whitespace-nowrap text-right">
-                      <span className="font-sans text-[17px] font-bold text-[#04122b] tracking-tight">
-                        {formatPrice(plan.kes, plan.usd)}
-                      </span>
-                      <span className="ml-0.5 text-[10px] font-mono text-slate-500">/mo</span>
-                    </div>
+                {/* Optional "Most Popular" Top Badge on Featured Card */}
+                {plan.featured && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#0066FF] text-white text-[10px] font-mono uppercase tracking-[0.12em] font-bold py-1 px-3.5 shadow-sm">
+                    Most Popular
                   </div>
+                )}
 
-                  <p className="pricing-plan-tagline mt-4 min-h-[78px] text-xs sm:text-[13px] text-[#475569] leading-relaxed">
+                <div>
+                  {/* Plan Name */}
+                  <h2
+                    className="font-ptserif text-2xl sm:text-[27px] font-normal text-[#04122b] tracking-tight leading-tight"
+                    style={{ fontFamily: "'PT Serif', serif" }}
+                  >
+                    {plan.name}
+                  </h2>
+
+                  {/* Plan Tagline: uniform min-height for horizontal alignment */}
+                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#475569] leading-relaxed min-h-[44px]">
                     {plan.tagline}
                   </p>
 
+                  {/* Prominent Dedicated Price Row */}
+                  <div className="mt-5 pt-4 border-t border-slate-100 min-h-[72px] flex flex-col justify-end">
+                    <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+                      <span className="font-sans text-2xl sm:text-[27px] font-bold text-[#04122b] tracking-tight leading-none">
+                        {formatPrice(plan.kes, plan.usd)}
+                      </span>
+                      <span className="text-xs font-mono text-slate-500">/ mo</span>
+                    </div>
+                    <p className="text-[11px] font-mono text-slate-400 mt-1.5">
+                      {billingCycle === 'yearly' ? 'Billed annually · Save 20%' : 'Billed monthly'}
+                    </p>
+                  </div>
+
+                  {/* Full-width Crisp Rectangular CTA Button */}
                   <button
                     type="button"
                     onClick={() => setCurrentPage('contact')}
-                    className={`mt-4 w-full py-2.5 px-4 rounded-none text-xs font-sans font-semibold transition-colors cursor-pointer flex items-center justify-center ${
+                    className={`mt-5 w-full py-3 px-4 rounded-none text-xs font-sans font-semibold tracking-wide transition-colors cursor-pointer flex items-center justify-center ${
                       plan.featured
-                        ? 'bg-[#0066FF] hover:bg-[#0052cc] text-white border border-[#0066FF]'
-                        : 'bg-white hover:bg-[#f4f8ff] text-[#04122b] border border-[#04122b]/25 hover:border-[#0066FF]'
+                        ? 'bg-[#0066FF] hover:bg-[#0052cc] text-white shadow-sm'
+                        : 'bg-[#04122b] hover:bg-[#0066FF] text-white'
                     }`}
                   >
                     <RollingButtonText text={plan.cta} />
                   </button>
 
-                  <div className="mt-6 pt-5 border-t border-slate-100 space-y-2.5">
-                    <p className="pricing-plan-highlights-title font-mono uppercase tracking-[0.06em] font-semibold text-[#0066FF]">
+                  {/* Feature Highlights */}
+                  <div className="mt-6 pt-5 border-t border-slate-100 space-y-3">
+                    <p className="text-[11px] font-mono uppercase tracking-[0.08em] font-semibold text-[#0066FF]">
                       {plan.highlightsTitle}
                     </p>
-                    <ul className="space-y-2 text-xs text-[#334155]">
+                    <ul className="space-y-2.5 text-xs text-[#334155] leading-normal">
                       {plan.highlights.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
+                        <li key={item} className="flex items-start gap-2.5">
                           <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
@@ -439,18 +455,19 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
             {/* Enterprise Column */}
             <div className="lg:col-span-3 p-6 sm:p-7 flex flex-col justify-between text-left bg-white">
               <div>
-                <div className="flex items-baseline justify-between gap-2 pb-3 border-b border-slate-200">
-                  <h3 className="font-ptserif text-xl text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
-                    Enterprise
-                  </h3>
-                  <span className="font-sans text-sm font-bold text-[#04122b]">
-                    {formatPrice(250000, 2000)}/mo
+                <h3 className="font-ptserif text-xl sm:text-[22px] font-normal text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                  Enterprise
+                </h3>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="font-sans text-xl font-bold text-[#04122b]">
+                    {formatPrice(250000, 2000)}
                   </span>
+                  <span className="text-xs font-mono text-slate-500">/ mo</span>
                 </div>
-                <p className="text-xs text-[#475569] mt-3 mb-4">
+                <p className="text-xs text-[#475569] mt-2 mb-4 leading-relaxed">
                   Tailored multi-system rollout, private SLA &amp; dedicated telco rails.
                 </p>
-                <ul className="space-y-1.5 text-xs text-[#334155] mb-5">
+                <ul className="space-y-2 text-xs text-[#334155] mb-6">
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
                     <span>Custom telco USSD shortcodes</span>
@@ -464,7 +481,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
               <button
                 type="button"
                 onClick={() => setCurrentPage('contact')}
-                className="w-full py-2.5 px-4 rounded-none text-xs font-semibold border border-[#04122b]/25 hover:border-[#0066FF] text-[#04122b] hover:bg-[#f4f8ff] transition-colors cursor-pointer"
+                className="w-full py-3 px-4 rounded-none text-xs font-semibold bg-[#04122b] hover:bg-[#0066FF] text-white transition-colors cursor-pointer"
               >
                 <RollingButtonText text="Start Enterprise" />
               </button>
@@ -473,16 +490,16 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
             {/* Custom Column */}
             <div className="lg:col-span-3 p-6 sm:p-7 flex flex-col justify-between text-left bg-white">
               <div>
-                <div className="flex items-baseline justify-between gap-2 pb-3 border-b border-slate-200">
-                  <h3 className="font-ptserif text-xl text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
-                    Custom
-                  </h3>
-                  <span className="font-mono text-xs font-bold text-[#0066FF]">Bespoke</span>
+                <h3 className="font-ptserif text-xl sm:text-[22px] font-normal text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
+                  Custom
+                </h3>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="font-sans text-xl font-bold text-[#0066FF]">Bespoke Build</span>
                 </div>
-                <p className="text-xs text-[#475569] mt-3 mb-4">
+                <p className="text-xs text-[#475569] mt-2 mb-4 leading-relaxed">
                   100% bespoke codebase, ERP integrations &amp; dedicated engineers.
                 </p>
-                <ul className="space-y-1.5 text-xs text-[#334155] mb-5">
+                <ul className="space-y-2 text-xs text-[#334155] mb-6">
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#0066FF] shrink-0 mt-0.5" />
                     <span>Hardware turnstile / POS links</span>
@@ -496,7 +513,7 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
               <button
                 type="button"
                 onClick={() => setCurrentPage('contact')}
-                className="w-full py-2.5 px-4 rounded-none text-xs font-semibold border border-[#04122b]/25 hover:border-[#0066FF] text-[#04122b] hover:bg-[#f4f8ff] transition-colors cursor-pointer"
+                className="w-full py-3 px-4 rounded-none text-xs font-semibold border border-[#04122b]/25 hover:border-[#0066FF] text-[#04122b] hover:bg-[#f4f8ff] transition-colors cursor-pointer"
               >
                 <RollingButtonText text="Talk to Sales" />
               </button>
