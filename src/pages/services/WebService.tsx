@@ -108,9 +108,9 @@ export default function WebService({ setCurrentPage }: WebServiceProps) {
         statement="We don't build generic template placeholders. We craft responsive web platforms that guide customers straight to a clear, confident action."
         primaryButtonText="Get a website proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceWebSchematicImg}
-        imageAlt="Mixon responsive web engineering schematic on graph paper with code brackets and layout guides"
-        motifPalette="lime"
+        diagramType="web"
+        imageAlt="Mixon responsive web platform and conversion architecture illustration"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES CAROUSEL */}

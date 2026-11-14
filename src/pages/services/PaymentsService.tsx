@@ -108,9 +108,9 @@ export default function PaymentsService({ setCurrentPage }: PaymentsServiceProps
         statement="A reliable integration handles the happy path effortlessly — but it earns its keep when network connections stutter, webhooks delay, or transactions need instant automated reconciliation."
         primaryButtonText="Scope a payment integration"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={servicePaymentsSchematicImg}
-        imageAlt="Mixon payment rails and automated ledger reconciliation flow schematic on graph paper"
-        motifPalette="sky"
+        diagramType="payments"
+        imageAlt="Mixon payment rails and automated ledger reconciliation flow illustration"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES CAROUSEL */}

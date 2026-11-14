@@ -109,9 +109,9 @@ export default function SeoService({ setCurrentPage }: SeoServiceProps) {
         statement="When someone asks an AI assistant for the best service in your city or industry, your business should be the clear, factual, and verified answer."
         primaryButtonText="Get an organic search proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceSeoSchematicImg}
-        imageAlt="Mixon discovery and citation architecture knowledge graph schematic on graph paper"
-        motifPalette="lime"
+        diagramType="seo"
+        imageAlt="Mixon search optimization and conversion pipeline illustration"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES CAROUSEL */}

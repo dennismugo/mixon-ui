@@ -107,8 +107,8 @@ export default function AppService({ setCurrentPage }: AppServiceProps) {
         statement="By combining high-performance native iOS and Android apps with robust USSD menus, we ensure your software reaches 100% of your addressable market across all connectivity environments."
         primaryButtonText="Request an app proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceAppSchematicImg}
-        imageAlt="Mixon mobile application and USSD telco architecture schematic on graph paper"
+        diagramType="app"
+        imageAlt="Mixon mobile application and USSD telecom flow illustration"
         motifPalette="blue"
       />
 

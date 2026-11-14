@@ -109,9 +109,9 @@ export default function EcommerceService({ setCurrentPage }: EcommerceServicePro
         statement="We eliminate complex multi-step checkouts, sluggish product filtering, and unexpected payment errors that cause shoppers to abandon their carts."
         primaryButtonText="Get an e-commerce proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceEcommerceSchematicImg}
-        imageAlt="Mixon digital storefront and inventory sync workflow schematic on graph paper"
-        motifPalette="lime"
+        diagramType="ecommerce"
+        imageAlt="Mixon digital storefront and checkout workflow illustration"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES CAROUSEL */}

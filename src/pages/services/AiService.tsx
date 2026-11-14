@@ -108,8 +108,8 @@ export default function AiService({ setCurrentPage }: AiServiceProps) {
         statement="We never promise that AI is magic. We build grounded assistants and deterministic pipelines that eliminate hours of routine administrative drudgery while keeping you in full control."
         primaryButtonText="Scope an AI workflow"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceAiSchematicImg}
-        imageAlt="Mixon deterministic AI pipeline with Human-in-the-Loop approval schematic on graph paper"
+        diagramType="ai"
+        imageAlt="Mixon deterministic AI pipeline with Human-in-the-Loop approval illustration"
         motifPalette="blue"
       />
 

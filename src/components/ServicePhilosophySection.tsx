@@ -3,6 +3,25 @@ import { ScrollFadeIn } from './ui/ScrollFadeIn';
 import RollingButtonText from './RollingButtonText';
 import { SteppedPixelMotif, MotifPalette } from './ui/SteppedPixelMotif';
 import { ArrowRight } from 'lucide-react';
+import {
+  AppServiceDiagram,
+  WebServiceDiagram,
+  SeoServiceDiagram,
+  PaymentsServiceDiagram,
+  EcommerceServiceDiagram,
+  AiServiceDiagram,
+} from './illustrations/ServiceDiagramIllustrations';
+
+export type ServiceDiagramType = 'app' | 'web' | 'seo' | 'payments' | 'ecommerce' | 'ai';
+
+const diagramComponents: Record<ServiceDiagramType, React.FC<{ className?: string }>> = {
+  app: AppServiceDiagram,
+  web: WebServiceDiagram,
+  seo: SeoServiceDiagram,
+  payments: PaymentsServiceDiagram,
+  ecommerce: EcommerceServiceDiagram,
+  ai: AiServiceDiagram,
+};
 
 export interface ServicePhilosophySectionProps {
   eyebrow: string;
@@ -21,6 +40,8 @@ export interface ServicePhilosophySectionProps {
   badgeTitle?: string;
   badgeSubtitle?: string;
   reverseLayout?: boolean;
+  aspectRatio?: 'portrait' | 'landscape' | 'balanced';
+  diagramType?: ServiceDiagramType;
 }
 
 export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> = ({
@@ -34,10 +55,14 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
   onPrimaryClick,
   onSecondaryClick,
   imageSrc,
-  imageAlt = 'Mixon engineering team collaborating on laptop',
-  motifPalette = 'lime',
+  imageAlt = 'Mixon engineering schematic illustration',
+  motifPalette = 'blue',
   reverseLayout = false,
+  aspectRatio = 'balanced',
+  diagramType,
 }) => {
+  const DiagramComponent = diagramType ? diagramComponents[diagramType] : null;
+
   return (
     <section className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 border-b border-gray-200/80 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto">
@@ -99,7 +124,7 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
             </ScrollFadeIn>
           </div>
 
-          {/* Right Column: Ultra-realistic Photography + Stepped Pixel Motif (Clean, No Overlay Badge) */}
+          {/* Right Column: Clean Geometric Illustration (Matching Jasper.ai reference) */}
           <div
             className={`relative lg:col-span-6 ${
               reverseLayout ? 'lg:order-1' : 'lg:order-2'
@@ -113,18 +138,29 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
                 </div>
 
                 {/* Picture Frame with sharp 0px edges and subtle architectural border */}
-                <div className="relative z-10 bg-white p-2 sm:p-2.5 border border-slate-200/90 shadow-[0_22px_50px_-15px_rgba(4,18,43,0.14),0_1px_3px_rgba(0,0,0,0.05)] rounded-none">
-                  <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] bg-slate-100">
-                    {imageSrc ? (
+                <div className="relative z-10 bg-white p-2 sm:p-2.5 border border-slate-200/90 shadow-[0_22px_50px_-15px_rgba(4,18,43,0.12),0_1px_3px_rgba(0,0,0,0.05)] rounded-none">
+                  {/* Balanced 16:10 / 1.58 aspect ratio: not tall, compact & elegant like Jasper */}
+                  <div
+                    className={`relative overflow-hidden bg-white ${
+                      aspectRatio === 'portrait'
+                        ? 'aspect-[4/5] sm:aspect-[3/4]'
+                        : 'aspect-[16/10] sm:aspect-[1.58/1]'
+                    }`}
+                  >
+                    {DiagramComponent ? (
+                      <div className="w-full h-full flex items-center justify-center bg-white transition-transform duration-500 ease-out group-hover:scale-[1.015]">
+                        <DiagramComponent className="w-full h-full" />
+                      </div>
+                    ) : imageSrc ? (
                       <img
                         src={imageSrc}
                         alt={imageAlt}
-                        className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                        className="w-full h-full object-contain sm:object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                         loading="lazy"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400">
-                        Image placeholder
+                      <div className="w-full h-full flex items-center justify-center bg-slate-50 text-slate-400">
+                        Illustration placeholder
                       </div>
                     )}
                   </div>
