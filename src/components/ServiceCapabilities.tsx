@@ -134,15 +134,15 @@ export function ServiceCapabilities({
   return (
     <>
       <section
-        style={{ backgroundColor: '#eaedf2' }}
-        className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 bg-[#eaedf2] border-b border-gray-200/80 relative overflow-hidden select-none"
+        style={{ backgroundColor: '#ededed' }}
+        className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 bg-[#ededed] border-b border-gray-200/80 relative overflow-hidden select-none"
       >
         <div className="w-full max-w-7xl mx-auto">
           {/* Header matching Jasper: Left Eyebrow/Heading + Right Subtitle/Action/Arrows */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end mb-12 sm:mb-16">
-            {/* Left Column: Mixon Blue Eyebrow (No Green) + Large Serif Heading */}
+            {/* Left Column: Mixon Blue Eyebrow (No Background) + Large Serif Heading */}
             <div className="lg:col-span-7 space-y-4">
-              <span className="inline-block bg-[#0066FF] text-white font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-none shadow-[0_2px_8px_rgba(0,102,255,0.25)]">
+              <span className="text-xs font-mono uppercase tracking-widest font-bold block text-[#0066FF]">
                 {eyebrow}
               </span>
 
@@ -258,8 +258,8 @@ export function ServiceCapabilities({
 
       {/* Stepped Mosaic Strip Transition Pattern with Interactive Dots below Capabilities (Image 2) */}
       <div
-        style={{ backgroundColor: '#eaedf2' }}
-        className="w-full overflow-hidden select-none bg-[#eaedf2]"
+        style={{ backgroundColor: '#ededed' }}
+        className="w-full overflow-hidden select-none bg-[#ededed]"
       >
         <SteppedMosaicStrip cellSize={22} rows={4} />
       </div>
