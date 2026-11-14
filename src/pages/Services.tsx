@@ -270,11 +270,6 @@ export default function Services({ setCurrentPage }: ServicesProps) {
                 {/* Left Column */}
                 <div className="lg:col-span-7 text-left space-y-3.5">
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#0066FF]">
-                        {service.number} // {service.category.toUpperCase()}
-                      </span>
-                    </div>
                     <h3
                       className="font-ptserif text-2xl sm:text-3xl lg:text-[32px] font-normal text-[#04122b] tracking-[-0.025em] leading-[1.14]"
                       style={{ fontFamily: "'PT Serif', serif" }}
