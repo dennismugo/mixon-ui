@@ -5,6 +5,7 @@ import { WEB_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import serviceWebTeamImg from '../../assets/images/services/service_web_team.jpg';
 import { 
   Code2, 
   ArrowRight, 
@@ -106,9 +107,10 @@ export default function WebService({ setCurrentPage }: WebServiceProps) {
         introText="We design and develop responsive websites that bring your brand, content and business goals together. Modern, fast, accessible and built to be found by human visitors and AI answer engines alike."
         statement="We don't build generic template placeholders. We craft responsive web platforms that guide customers straight to a clear, confident action."
         primaryButtonText="Get a website proposal"
-        secondaryButtonText="View website packages"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('pricing')}
+        imageSrc={serviceWebTeamImg}
+        imageAlt="Mixon front-end engineers and designers collaborating over laptop in modern studio"
+        motifPalette="lime"
       />
 
       {/* CAPABILITIES */}

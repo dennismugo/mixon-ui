@@ -1728,18 +1728,81 @@ html.lenis body {
 }
 
 
-/* About page split CTA — Jasper geo placement, Mixon lighter blue. */
+/* About page split CTA — Jasper GEO Layout with Mixon Values Gradient & Mixon Blue Button */
 .about-split-cta {
-  --about-cta-inset: clamp(1.25rem, 0.4rem + 2.3vw, 2.5rem);
+  --about-cta-inset: clamp(1.25rem, 0.4rem + 2.3vw, 3.5rem);
+  --about-cta-space-y: clamp(2rem, 3.5vw, 3.25rem);
+  --about-cta-rule-color: rgba(255, 255, 255, 0.18);
   position: relative;
   overflow: hidden;
+  background: linear-gradient(112deg, #0a2e68 0%, #0755b8 50%, #061d46 100%);
+  color: #fff;
+  padding: var(--about-cta-space-y) 0;
+}
+
+.about-split-cta ::selection {
   background: #0066FF;
   color: #fff;
 }
 
-.about-split-cta ::selection {
-  background: #04122b;
-  color: #fff;
+.about-split-cta-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--about-cta-inset);
+}
+
+/* Framing rules crossing at corners */
+.about-split-cta-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.about-split-cta-hrule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--about-cta-rule-color);
+}
+
+.about-split-cta-hrule-top {
+  top: var(--about-cta-space-y);
+}
+
+.about-split-cta-hrule-bottom {
+  bottom: var(--about-cta-space-y);
+}
+
+.about-split-cta-vrule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--about-cta-rule-color);
+}
+
+.about-split-cta-vrule-left {
+  left: var(--about-cta-inset);
+}
+
+.about-split-cta-vrule-center {
+  left: 50%;
+  display: none;
+}
+
+.about-split-cta-vrule-right {
+  right: var(--about-cta-inset);
+}
+
+@media (min-width: 1024px) {
+  .about-split-cta-vrule-center {
+    display: block;
+  }
 }
 
 .about-split-cta-frame {
@@ -1750,68 +1813,54 @@ html.lenis body {
 
 .about-split-cta-copy {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(3.25rem, 7vw, 4.5rem) clamp(1.35rem, 5vw, 2.5rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 3.5vw, 3.5rem);
 }
 
 .about-split-cta-copy-inner {
-  width: min(100%, 38rem);
+  width: min(100%, 38.5rem);
 }
 
 .about-split-cta-photo {
   position: relative;
-  min-height: 240px;
-  margin: 0 var(--about-cta-inset) var(--about-cta-inset);
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: #04122b;
-}
-
-.about-split-cta-photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  min-height: 380px;
   height: 100%;
-  object-fit: cover;
-  object-position: 62% center;
-}
-
-.about-split-cta-rules {
-  display: none;
+  overflow: hidden;
+  background: #061d46;
 }
 
 .about-split-cta h2,
 .about-split-cta h2 * {
   font-family: 'PT Serif', Georgia, serif !important;
   font-weight: 400 !important;
-  font-size: clamp(2.7rem, 1.15rem + 3.35vw, 5rem) !important;
-  line-height: 1 !important;
-  letter-spacing: -0.03em !important;
+  font-size: clamp(2.6rem, 1.15rem + 3.35vw, 4.85rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.025em !important;
   color: #ffffff !important;
 }
 
 .about-split-cta h2 .about-split-cta-lead {
   display: block;
-  max-width: 11ch;
+  color: #ffffff !important;
 }
 
 .about-split-cta h2 .about-split-cta-accent {
   display: block;
-  color: #04122b !important;
+  color: #a9d1ff !important;
   font-weight: 500 !important;
 }
 
 .about-split-cta p {
-  max-width: 46ch;
-  margin: 1rem 0 0;
-  color: #fff;
+  max-width: 48ch;
+  margin: 1.25rem 0 0;
+  color: rgba(255, 255, 255, 0.95);
   font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif;
-  font-size: 1.125rem;
-  font-weight: 450;
-  line-height: 1.35;
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.55;
   letter-spacing: -0.01em;
 }
 
@@ -1820,10 +1869,10 @@ html.lenis body {
   width: fit-content;
   align-items: center;
   margin-top: 2rem;
-  padding: 1.2rem 1.85rem;
+  padding: 1.15rem 2.25rem;
   border: 0;
-  border-radius: 0;
-  background: #04122b;
+  border-radius: 0 !important;
+  background: #0066FF;
   color: #fff;
   font-family: AktivGrotesk, 'Aktiv Grotesk', system-ui, sans-serif;
   font-size: 1.125rem;
@@ -1831,11 +1880,11 @@ html.lenis body {
   letter-spacing: -0.01em;
   line-height: 1.15;
   cursor: pointer;
-  transition: background-color 200ms ease;
+  transition: background-color 200ms ease, transform 150ms ease;
 }
 
 .about-split-cta-button:hover {
-  background: #020a16;
+  background: #0052cc;
 }
 
 .about-split-cta-button:focus-visible {
@@ -1845,57 +1894,17 @@ html.lenis body {
 
 @media (min-width: 1024px) {
   .about-split-cta-frame {
-    display: block;
-    min-height: clamp(640px, 72vh, 854px);
+    grid-template-columns: 1fr 1fr;
+    min-height: clamp(620px, 70vh, 780px);
   }
 
   .about-split-cta-copy {
-    width: 50%;
-    min-height: clamp(640px, 72vh, 854px);
-    padding: clamp(3rem, 6vh, 5rem) clamp(2rem, 3vw, 3rem) clamp(3rem, 6vh, 5rem) calc(var(--about-cta-inset) + clamp(1.5rem, 2.2vw, 2.5rem));
-  }
-
-  .about-split-cta-copy-inner {
-    width: min(100%, 38.5rem);
+    padding: clamp(3.5rem, 6vh, 5.5rem) clamp(2rem, 3.5vw, 3.5rem);
   }
 
   .about-split-cta-photo {
-    position: absolute;
-    top: var(--about-cta-inset);
-    right: 0;
-    bottom: var(--about-cta-inset);
-    width: 50%;
-    min-height: 0;
+    min-height: 100%;
     margin: 0;
-    aspect-ratio: auto;
-  }
-
-  .about-split-cta-rules {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  .about-split-cta-rules span {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: #04122b;
-  }
-
-  .about-split-cta-rules span:nth-child(1) {
-    left: var(--about-cta-inset);
-  }
-
-  .about-split-cta-rules span:nth-child(2) {
-    left: 50%;
-  }
-
-  .about-split-cta-rules span:nth-child(3) {
-    right: var(--about-cta-inset);
   }
 }
 

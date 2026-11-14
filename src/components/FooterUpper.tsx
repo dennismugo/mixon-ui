@@ -62,11 +62,6 @@ export default function FooterUpper({
               <ArrowUpRight className="w-4 h-4 text-white/80 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </AppLink>
           </div>
-
-          {/* Experience Subtext */}
-          <p className="text-slate-400 text-xs sm:text-[13px] font-sans font-light leading-relaxed max-w-[280px]">
-            Mixon builds on the experience of Shiva Softwares Africa.
-          </p>
         </div>
 
         {/* =================================================================== */}

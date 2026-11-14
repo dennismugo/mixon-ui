@@ -78,8 +78,8 @@ const DISCOVERY_OPTIONS: DropdownOption[] = [
     icon: Compass,
   },
   {
-    value: 'Shiva Softwares Africa Network',
-    label: 'Existing Shiva Softwares Africa Network',
+    value: 'Industry Referral & Partner Network',
+    label: 'Industry Referral & Partner Network',
     subtitle: 'Connected through our wider engineering ecosystem',
     icon: Layers,
   },

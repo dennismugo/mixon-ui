@@ -5,6 +5,7 @@ import { AI_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import serviceAiTeamImg from '../../assets/images/services/service_ai_team.jpg';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -101,14 +102,15 @@ export default function AiService({ setCurrentPage }: AiServiceProps) {
       {/* THE STORY / PHILOSOPHY */}
       <ServicePhilosophySection
         eyebrow="HONESTY OVER HYPE"
-        eyebrowColorClass="text-amber-700"
+        eyebrowColorClass="text-[#0066FF]"
         heading="Open about what is automated, assisted, and human"
         introText="We help define a practical use case, understand the risks and scope an AI or automation solution where the capability is available, being open about what is automated, what is assisted and what still needs a human."
         statement="We never promise that AI is magic. We build grounded assistants and deterministic pipelines that eliminate hours of routine administrative drudgery while keeping you in full control."
         primaryButtonText="Scope an AI workflow"
-        secondaryButtonText="Book an Opportunity Workshop"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('contact')}
+        imageSrc={serviceAiTeamImg}
+        imageAlt="African male ML specialist and Caucasian female systems architect analyzing model training loss schemas on laptop"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES */}

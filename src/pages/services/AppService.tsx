@@ -5,6 +5,7 @@ import { APP_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import serviceAppTeamImg from '../../assets/images/services/service_app_team.jpg';
 import { 
   Smartphone, 
   ArrowRight, 
@@ -100,14 +101,15 @@ export default function AppService({ setCurrentPage }: AppServiceProps) {
       {/* THE STORY / PHILOSOPHY */}
       <ServicePhilosophySection
         eyebrow="MOBILE & TELCO REACH"
-        eyebrowColorClass="text-indigo-600"
+        eyebrowColorClass="text-[#0066FF]"
         heading="Smartphones and feature phones alike"
         introText="Where it makes sense, we also build for the reach of USSD, so customers can use your service on any phone, without needing data."
         statement="By combining high-performance native iOS and Android apps with robust USSD menus, we ensure your software reaches 100% of your addressable market across all connectivity environments."
         primaryButtonText="Request an app proposal"
-        secondaryButtonText="Explore mobile packages"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('pricing')}
+        imageSrc={serviceAppTeamImg}
+        imageAlt="African female mobile engineer presenting mobile app wireframes on laptop"
+        motifPalette="blue"
       />
 
       {/* CAPABILITIES */}

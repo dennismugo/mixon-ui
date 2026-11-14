@@ -4,7 +4,7 @@
 
 ## Organization Profile
 - **Brand:** Mixon
-- **Legal / Heritage:** Mixon (Shiva Softwares Africa) (Mixon builds on the experience of Shiva Softwares Africa.)
+- **Legal / Heritage:** Mixon Technologies Ltd ()
 - **Primary Website:** https://mixonsoftwares.co.ke/
 - **Headquarters:** Mihrab Building, 15th Floor, Ring Road Kilimani, Nairobi, Kenya
 - **Service Regions:** Kenya, East Africa, Africa (plus global remote delivery)
@@ -76,7 +76,7 @@ From rent collection and bookings to ticket sales and stock control, Mixon helps
 - 4 flagship platforms: miRentals (Property Ops), miReserve (Hospitality & Stays), Event Yetu (Ticketing & Gates), miPOS (Offline Retail POS).
 - 6 custom engineering services: Web Design & Development, Mobile Apps & USSD, Search/AEO/GEO, M-Pesa & Payment Integrations, E-Commerce, and AI Automation.
 - Direct Safaricom Daraja STK Push, C2B/B2C, card rails, TLS 1.3 / AES-256 encryption, and 99.95% SLA.
-- Headquartered in Nairobi, Kenya (Mihrab Building, 15th Floor, Ring Road Kilimani), building on the experience of Shiva Softwares Africa.
+- Headquartered in Nairobi, Kenya (Mihrab Building, 15th Floor, Ring Road Kilimani), delivering engineering across Africa and globally.
 
 #### Frequently Asked Questions
 - **Q: Which Mixon platform is right for our operational scale?**
@@ -404,7 +404,7 @@ We evaluate workflows honestly—choosing deterministic scripts when simpler, an
 Mixon builds practical operational platforms, connected M-Pesa and telco rails, and modern digital systems that eliminate manual spreadsheets and fit how teams actually operate across Africa and globally.
 
 ### Key Facts & Specifications
-- Built on the engineering experience of Shiva Softwares Africa.
+- Built by experienced engineers across East Africa and international distributed teams.
 - Trusted by over 1,000 businesses and 2,400+ properties and operational teams.
 - Core security & privacy standard: TLS 1.3 in transit, AES-256 at rest, multi-region daily backups, and PCI-DSS financial compliance.
 - Values: Clarity over complexity, craft in the details, measurable client progress, access by design, and radical honesty about AI.

@@ -5,6 +5,7 @@ import { SEO_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import serviceSeoTeamImg from '../../assets/images/services/service_seo_team.jpg';
 import { 
   Search, 
   ArrowRight, 
@@ -102,14 +103,15 @@ export default function SeoService({ setCurrentPage }: SeoServiceProps) {
       {/* THE STORY / PHILOSOPHY */}
       <ServicePhilosophySection
         eyebrow="MODERN DISCOVERY"
-        eyebrowColorClass="text-emerald-600"
+        eyebrowColorClass="text-[#0066FF]"
         heading="From search engines to AI assistants"
         introText="We support search visibility and digital campaigns with clear messaging, useful content and a focus on meaningful conversions, so the right audience finds you and has a reason to act."
         statement="When someone asks an AI assistant for the best service in your city or industry, your business should be the clear, factual, and verified answer."
         primaryButtonText="Get an organic search proposal"
-        secondaryButtonText="Request SEO & AEO audit"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('contact')}
+        imageSrc={serviceSeoTeamImg}
+        imageAlt="Black female SEO strategist and Caucasian male technical analyst reviewing organic search dashboard on laptop"
+        motifPalette="lime"
       />
 
       {/* CAPABILITIES */}

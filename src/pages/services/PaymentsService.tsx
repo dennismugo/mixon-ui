@@ -5,6 +5,7 @@ import { PAYMENTS_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import servicePaymentsTeamImg from '../../assets/images/services/service_payments_team.jpg';
 import { 
   CreditCard, 
   ArrowRight, 
@@ -101,14 +102,15 @@ export default function PaymentsService({ setCurrentPage }: PaymentsServiceProps
       {/* THE STORY / PHILOSOPHY */}
       <ServicePhilosophySection
         eyebrow="THE INTEGRATION IMPERATIVE"
-        eyebrowColorClass="text-sky-600"
+        eyebrowColorClass="text-[#0066FF]"
         heading="Planning for the awkward moments"
         introText="We assess the right integration approach and plan for transaction status, exceptions and reconciliation, so payments and systems work together, including the awkward moments when something fails."
         statement="A reliable integration handles the happy path effortlessly — but it earns its keep when network connections stutter, webhooks delay, or transactions need instant automated reconciliation."
         primaryButtonText="Scope a payment integration"
-        secondaryButtonText="Request API feasibility check"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('contact')}
+        imageSrc={servicePaymentsTeamImg}
+        imageAlt="African fintech software engineer and Caucasian female colleague reviewing payment ledger architecture on laptop"
+        motifPalette="sky"
       />
 
       {/* CAPABILITIES */}

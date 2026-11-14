@@ -5,6 +5,7 @@ import { ECOMMERCE_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
+import serviceEcommerceTeamImg from '../../assets/images/services/service_ecommerce_team.jpg';
 import { 
   ShoppingBag, 
   ArrowRight, 
@@ -102,14 +103,15 @@ export default function EcommerceService({ setCurrentPage }: EcommerceServicePro
       {/* THE STORY / PHILOSOPHY */}
       <ServicePhilosophySection
         eyebrow="THE SHOPPING EXPERIENCE"
-        eyebrowColorClass="text-rose-600"
+        eyebrowColorClass="text-[#0066FF]"
         heading="Shaped around your catalogue and customers"
         introText="We shape the shopping experience around your catalogue, customers and operations, from product pages to checkout, so shoppers choose with confidence and buy with less friction."
         statement="We eliminate complex multi-step checkouts, sluggish product filtering, and unexpected payment errors that cause shoppers to abandon their carts."
         primaryButtonText="Get an e-commerce proposal"
-        secondaryButtonText="View e-commerce plans"
         onPrimaryClick={() => setCurrentPage('contact')}
-        onSecondaryClick={() => setCurrentPage('pricing')}
+        imageSrc={serviceEcommerceTeamImg}
+        imageAlt="Black male developer and Caucasian female specialist examining digital storefront analytics on laptop"
+        motifPalette="lime"
       />
 
       {/* CAPABILITIES */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollFadeIn } from './ui/ScrollFadeIn';
-import { DitheredStripeBand } from './ui/DitheredStripeBand';
 import RollingButtonText from './RollingButtonText';
+import { SteppedPixelMotif, MotifPalette } from './ui/SteppedPixelMotif';
 import { ArrowRight } from 'lucide-react';
 
 export interface ServicePhilosophySectionProps {
@@ -11,10 +11,16 @@ export interface ServicePhilosophySectionProps {
   introText: string;
   statement: string;
   primaryButtonText: string;
-  secondaryButtonText: string;
+  secondaryButtonText?: string;
   onPrimaryClick: () => void;
-  onSecondaryClick: () => void;
+  onSecondaryClick?: () => void;
   rowHeight?: number;
+  imageSrc?: string;
+  imageAlt?: string;
+  motifPalette?: MotifPalette;
+  badgeTitle?: string;
+  badgeSubtitle?: string;
+  reverseLayout?: boolean;
 }
 
 export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> = ({
@@ -27,57 +33,106 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
   secondaryButtonText,
   onPrimaryClick,
   onSecondaryClick,
-  rowHeight = 20,
+  imageSrc,
+  imageAlt = 'Mixon engineering team collaborating on laptop',
+  motifPalette = 'lime',
+  reverseLayout = false,
 }) => {
   return (
-    <section className="pt-20 pb-20 sm:pb-28 border-b border-gray-200/80 bg-white relative overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 text-center">
-        <ScrollFadeIn className="mx-auto max-w-4xl space-y-6 text-center">
-          <span className={`text-xs font-mono uppercase tracking-widest font-bold block ${eyebrowColorClass}`}>
-            {eyebrow}
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-950">
-            {heading}
-          </h2>
-          <div className="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed font-light max-w-3xl mx-auto">
-            <p>{introText}</p>
+    <section className="py-20 sm:py-24 lg:py-28 border-b border-gray-200/80 bg-white relative overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${
+            reverseLayout ? 'lg:flex-row-reverse' : ''
+          }`}
+        >
+          {/* Left Column: Copy & Action Button */}
+          <div
+            className={`space-y-6 lg:col-span-6 text-left ${
+              reverseLayout ? 'lg:order-2' : 'lg:order-1'
+            }`}
+          >
+            <ScrollFadeIn className="space-y-5">
+              <span
+                className={`text-xs font-mono uppercase tracking-widest font-bold block ${eyebrowColorClass}`}
+              >
+                {eyebrow}
+              </span>
+
+              <h2 className="font-ptserif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#04122b] leading-[1.18] tracking-tight">
+                {heading}
+              </h2>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+                {introText}
+              </p>
+
+              {/* High-impact highlight callout in Mixon theme */}
+              <div className="border-l-2 border-[#0066FF] pl-4 sm:pl-5 py-1 bg-slate-50/70">
+                <p className="text-[#04122b] text-base sm:text-lg font-medium leading-relaxed">
+                  {statement}
+                </p>
+              </div>
+
+              {/* Action Button: single clean primary CTA with sharp 0px corners */}
+              <div className="pt-3 flex flex-wrap items-center gap-3.5">
+                <button
+                  type="button"
+                  onClick={onPrimaryClick}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white font-sans font-bold text-sm transition-all shadow-[0_2px_8px_rgba(0,102,255,0.25)] hover:shadow-[0_4px_16px_rgba(0,102,255,0.4)] hover:-translate-y-0.5 cursor-pointer group"
+                >
+                  <RollingButtonText
+                    text={primaryButtonText}
+                    icon={<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                  />
+                </button>
+                {secondaryButtonText && onSecondaryClick && (
+                  <button
+                    type="button"
+                    onClick={onSecondaryClick}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-none border border-slate-300 hover:border-[#04122b] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#04122b] font-sans font-semibold text-sm transition-all cursor-pointer group"
+                  >
+                    <RollingButtonText text={secondaryButtonText} />
+                  </button>
+                )}
+              </div>
+            </ScrollFadeIn>
           </div>
-        </ScrollFadeIn>
-      </div>
 
-      {/* Tovnia-inspired Interactive Stage with Full-Width Dither Wave Stripe */}
-      <div className="relative mt-12 sm:mt-16 w-full">
-        {/* Full-bleed edge-to-edge dither stripe wave */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-[38%] pointer-events-none select-none z-0">
-          <DitheredStripeBand rowHeight={rowHeight} />
-        </div>
+          {/* Right Column: Ultra-realistic Photography + Stepped Pixel Motif (Clean, No Overlay Badge) */}
+          <div
+            className={`relative lg:col-span-6 ${
+              reverseLayout ? 'lg:order-1' : 'lg:order-2'
+            }`}
+          >
+            <ScrollFadeIn delay={0.15}>
+              <div className="relative group max-w-2xl mx-auto lg:max-w-none">
+                {/* Stepped Pixel Motif blooming out from top-left */}
+                <div className="absolute -top-7 -left-7 sm:-top-9 sm:-left-9 z-0 pointer-events-none group-hover:-translate-y-1 group-hover:-translate-x-1 transition-transform duration-500 ease-out">
+                  <SteppedPixelMotif palette={motifPalette} cellSize={18} />
+                </div>
 
-        {/* Elevated foreground card matching Image 1 & Image 2 */}
-        <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10">
-          <div className="px-8 py-12 sm:px-12 sm:py-16 min-h-[268px] sm:min-h-[296px] flex flex-col justify-center rounded-none bg-white border border-slate-200/90 shadow-[0_22px_50px_-14px_rgba(10,27,56,0.13),0_1px_3px_rgba(0,0,0,0.05)] text-center space-y-7">
-            <p className="text-gray-900 text-base sm:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
-              {statement}
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={onPrimaryClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-[#D9E88E] hover:bg-[#cfdf80] text-gray-950 font-sans font-bold text-sm transition-all shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_rgba(217,232,142,0.4)] hover:-translate-y-0.5 cursor-pointer group"
-              >
-                <RollingButtonText
-                  text={primaryButtonText}
-                  icon={<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
-                />
-              </button>
-              <button
-                type="button"
-                onClick={onSecondaryClick}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-none bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-sans font-semibold text-sm transition-all cursor-pointer group"
-              >
-                <RollingButtonText text={secondaryButtonText} />
-              </button>
-            </div>
+                {/* Picture Frame with sharp 0px edges and subtle architectural border */}
+                <div className="relative z-10 bg-white p-2 sm:p-2.5 border border-slate-200/90 shadow-[0_22px_50px_-15px_rgba(4,18,43,0.14),0_1px_3px_rgba(0,0,0,0.05)] rounded-none">
+                  <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] bg-slate-100">
+                    {imageSrc ? (
+                      <img
+                        src={imageSrc}
+                        alt={imageAlt}
+                        className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400">
+                        Image placeholder
+                      </div>
+                    )}
+                    {/* Subtle bottom glass gradient for depth */}
+                    <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#04122b]/25 to-transparent pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+            </ScrollFadeIn>
           </div>
         </div>
       </div>

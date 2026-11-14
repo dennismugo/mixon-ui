@@ -57,8 +57,8 @@ export interface RouteSeoData {
 
 export const SITE_CONFIG = {
   brandName: 'Mixon',
-  legalName: 'Mixon (Shiva Softwares Africa)',
-  heritageNote: 'Mixon builds on the experience of Shiva Softwares Africa.',
+  legalName: 'Mixon Technologies Ltd',
+  heritageNote: '',
   defaultSiteUrl: 'https://mixonsoftwares.co.ke',
   tagline: 'Software, run by intelligence',
   description:
@@ -554,7 +554,7 @@ export const ROUTE_SEO: Record<PageId, RouteSeoData> = {
       '4 flagship platforms: miRentals (Property Ops), miReserve (Hospitality & Stays), Event Yetu (Ticketing & Gates), miPOS (Offline Retail POS).',
       '6 custom engineering services: Web Design & Development, Mobile Apps & USSD, Search/AEO/GEO, M-Pesa & Payment Integrations, E-Commerce, and AI Automation.',
       'Direct Safaricom Daraja STK Push, C2B/B2C, card rails, TLS 1.3 / AES-256 encryption, and 99.95% SLA.',
-      'Headquartered in Nairobi, Kenya (Mihrab Building, 15th Floor, Ring Road Kilimani), building on the experience of Shiva Softwares Africa.',
+      'Headquartered in Nairobi, Kenya (Mihrab Building, 15th Floor, Ring Road Kilimani), delivering engineering across Africa and globally.',
     ],
     priority: '1.0',
     changefreq: 'weekly',
@@ -567,13 +567,13 @@ export const ROUTE_SEO: Record<PageId, RouteSeoData> = {
     path: '/about',
     title: 'About Mixon — Engineering Software That Fits Real Operations',
     description:
-      'Learn about Mixon, our Nairobi engineering roots building on Shiva Softwares Africa, security standards (TLS 1.3, AES-256, PCI-DSS), and practical design values.',
+      'Learn about Mixon, our Nairobi engineering roots, security standards (TLS 1.3, AES-256, PCI-DSS), and practical design values.',
     h1: 'Technology that makes business easier to run.',
     eyebrow: 'About Mixon',
     summary:
       'Mixon builds practical operational platforms, connected M-Pesa and telco rails, and modern digital systems that eliminate manual spreadsheets and fit how teams actually operate across Africa and globally.',
     keyFacts: [
-      'Built on the engineering experience of Shiva Softwares Africa.',
+      'Built by experienced engineers across East Africa and international distributed teams.',
       'Trusted by over 1,000 businesses and 2,400+ properties and operational teams.',
       'Core security & privacy standard: TLS 1.3 in transit, AES-256 at rest, multi-region daily backups, and PCI-DSS financial compliance.',
       'Values: Clarity over complexity, craft in the details, measurable client progress, access by design, and radical honesty about AI.',
@@ -1321,7 +1321,7 @@ export function buildLlmsTxt(rawSiteUrl?: string | null): string {
   const siteUrl = normalizeSiteUrl(rawSiteUrl);
   return `# Mixon
 
-> ${SITE_CONFIG.description} Headquartered in Kilimani, Nairobi, Kenya, Mixon builds on the experience of Shiva Softwares Africa and integrates natively with Safaricom M-Pesa Daraja, card rails, and East African banking workflows.
+> ${SITE_CONFIG.description} Headquartered in Kilimani, Nairobi, Kenya, Mixon integrates natively with Safaricom M-Pesa Daraja, card rails, and East African banking workflows.
 
 - Canonical Site: ${siteUrl}/
 - Full Documentation for AI Systems: ${siteUrl}/llms-full.txt
@@ -1350,7 +1350,7 @@ export function buildLlmsTxt(rawSiteUrl?: string | null): string {
 ## Pricing & Company
 
 - [Pricing & Plans (KES & USD)](${siteUrl}/pricing): Starter (KES 25,000 / \$200 mo), Growth (KES 40,500 / \$325 mo), Pro (KES 75,500 / \$600 mo), Scale (KES 145,000 / \$1,150 mo), Enterprise (KES 250,000 / \$2,000 mo), and Custom builds; 20% discount on annual plans.
-- [About Mixon](${siteUrl}/about): Company background (building on Shiva Softwares Africa), engineering standards, TLS 1.3 / AES-256 / PCI-DSS security posture.
+- [About Mixon](${siteUrl}/about): Company background, engineering standards, TLS 1.3 / AES-256 / PCI-DSS security posture.
 - [Book a Demo](${siteUrl}/book-demo): Step-by-step interactive live demo scheduler with product/service selection, calendar slots, and WhatsApp/Email confirmation.
 - [Contact Mixon](${siteUrl}/contact): Request a software proposal or reach Nairobi engineering sales and support.
 `;

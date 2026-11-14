@@ -20,9 +20,10 @@ import {
 import MissionScrollReveal from '../components/ui/MissionScrollReveal';
 import { ExpandingArrowButton } from '../components/ui/expanding-arrow-button';
 import TeamCoverflow from '../components/TeamCoverflow';
-import { DitheredStripeBand } from '../components/ui/DitheredStripeBand';
+import SteppedMosaicStrip from '../components/ui/SteppedMosaicStrip';
 import MixonKeycaps from '../components/ui/MixonKeycaps';
-import aboutCtaPhoto from '../assets/images/about-cta-desk.jpg';
+import GeoCanvasGrid from '../components/ui/GeoCanvasGrid';
+import aboutCtaHandsPhoto from '../assets/images/about-cta-hands.webp';
 
 interface AboutProps {
   setCurrentPage: (page: any) => void;
@@ -326,19 +327,14 @@ export default function About({ setCurrentPage }: AboutProps) {
       {/* ========================================================================= */}
       <section id="security" data-theme="dark" className="dark-section pt-0 pb-24 sm:pb-32 text-white border-b border-white/10 px-6 sm:px-10 lg:px-14 relative" style={{ background: 'linear-gradient(112deg, #0a2e68 0%, #0755b8 50%, #061d46 100%)' }}>
         
-        {/* Tovnia-inspired Dither Stripe Band on Top of the Blue Section */}
-        <div className="-mx-6 sm:-mx-10 lg:-mx-14 mb-16 sm:mb-20 overflow-hidden pointer-events-none select-none">
-          <DitheredStripeBand
-            rowHeight={16}
-            bands={[
-              { a: '#ffffff', b: '#d6e8f7', mix: true },
-              { a: '#d6e8f7', b: '#38bdf8', mix: true },
-              { a: '#38bdf8', b: '#0066ff', mix: true },
-              { a: '#0066ff', b: '#d9e88e', mix: true },
-              { a: '#d9e88e', b: '#d9e88e', mix: false },
-              { a: '#d9e88e', b: '#0a2e68', mix: true },
-              { a: '#0a2e68', b: '#0a2e68', mix: false },
-            ]}
+        {/* Stepped pixel-mosaic strip transition matching Jasper layout */}
+        <div className="-mx-6 sm:-mx-10 lg:-mx-14 mb-16 sm:mb-20 overflow-hidden select-none">
+          <SteppedMosaicStrip
+            cellSize={22}
+            rows={4}
+            colors={['#0a2e68', '#38bdf8', '#0066ff', '#d9e88e', '#d6e8f7']}
+            blockLength={11}
+            shiftPerRow={5}
           />
         </div>
 
@@ -416,40 +412,44 @@ export default function About({ setCurrentPage }: AboutProps) {
       {/* THE PEOPLE BEHIND MIXON */}
       <TeamCoverflow />
 
-      {/* CLOSING SECTION — Jasper-style split CTA on Mixon blue */}
+      {/* CLOSING SECTION — Jasper GEO Split CTA with Interactive Canvas */}
       <section className="about-split-cta" aria-labelledby="about-split-cta-heading">
-        <div className="about-split-cta-rules" aria-hidden="true">
-          <span />
-          <span />
-          <span />
+        {/* Editorial Grid Rules matching Jasper GEO */}
+        <div className="about-split-cta-grid-overlay" aria-hidden="true">
+          <div className="about-split-cta-hrule about-split-cta-hrule-top" />
+          <div className="about-split-cta-hrule about-split-cta-hrule-bottom" />
+          <div className="about-split-cta-vrule about-split-cta-vrule-left" />
+          <div className="about-split-cta-vrule about-split-cta-vrule-center" />
+          <div className="about-split-cta-vrule about-split-cta-vrule-right" />
         </div>
-        <div className="about-split-cta-frame">
-          <div className="about-split-cta-copy">
-            <div className="about-split-cta-copy-inner">
-              <h2 id="about-split-cta-heading">
-                <span className="about-split-cta-lead">Let&apos;s make your next chapter</span>
-                <span className="about-split-cta-accent">easier.</span>
-              </h2>
-              <p>
-                Wherever you are in the world, whether you are running a rental portfolio, a guest house, a ticketed event, a shop or a growing company that needs a better digital presence, we would like to hear what you want to improve.
-              </p>
-              <button
-                type="button"
-                onClick={() => setCurrentPage('contact')}
-                className="about-split-cta-button group"
-              >
-                <RollingCtaLabel text="Start a conversation" />
-              </button>
-            </div>
-          </div>
 
-          <div className="about-split-cta-photo">
-            <img
-              src={aboutCtaPhoto}
-              alt="Hands typing on a laptop at a desk"
-              loading="lazy"
-              decoding="async"
-            />
+        <div className="about-split-cta-container">
+          <div className="about-split-cta-frame">
+            <div className="about-split-cta-copy">
+              <div className="about-split-cta-copy-inner">
+                <h2 id="about-split-cta-heading" className="about-split-cta-heading">
+                  <span className="about-split-cta-lead">Let&apos;s make your next chapter</span>
+                  <strong className="about-split-cta-accent">easier with Mixon</strong>
+                </h2>
+                <p className="about-split-cta-paragraph">
+                  Wherever you are in the world, whether you are running a rental portfolio, a guest house, a ticketed event, a shop, or a growing enterprise—we would like to hear what you want to improve.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setCurrentPage('contact')}
+                  className="about-split-cta-button group"
+                >
+                  <RollingCtaLabel text="Start a conversation" />
+                </button>
+              </div>
+            </div>
+
+            <div className="about-split-cta-photo">
+              <GeoCanvasGrid
+                imageSrc={aboutCtaHandsPhoto}
+                alt="Collaborating and typing on a laptop with Mixon software"
+              />
+            </div>
           </div>
         </div>
       </section>
