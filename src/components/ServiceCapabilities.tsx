@@ -135,7 +135,7 @@ export function ServiceCapabilities({
     <>
       <section
         style={{ backgroundColor: '#f2f6fd' }}
-        className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 bg-[#f2f6fd] border-b border-slate-200/80 relative overflow-hidden select-none"
+        className="service-capabilities-section w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 bg-[#f2f6fd] border-b border-slate-200/80 relative overflow-hidden select-none"
       >
         <div className="w-full max-w-7xl mx-auto">
           {/* Header matching Jasper: Left Eyebrow/Heading + Right Subtitle/Action/Arrows */}

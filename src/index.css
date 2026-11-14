@@ -1102,18 +1102,23 @@ b, strong, h6 {
   outline-offset: 3px;
 }
 
-.mixon-product-page section:not(:first-of-type):nth-of-type(even),
-.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):nth-of-type(even),
-.mixon-services-page section:not(:first-of-type):nth-of-type(even),
-.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(:first-of-type):nth-of-type(even) {
+.mixon-product-page section:not(:first-of-type):not(.service-capabilities-section):nth-of-type(even),
+.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):not(.service-capabilities-section):nth-of-type(even),
+.mixon-services-page section:not(:first-of-type):not(.service-capabilities-section):nth-of-type(even),
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(.service-capabilities-section):not(:first-of-type):nth-of-type(even) {
   background-color: #fff !important;
 }
 
-.mixon-product-page section:not(:first-of-type):nth-of-type(odd),
-.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):nth-of-type(odd),
-.mixon-services-page section:not(:first-of-type):nth-of-type(odd),
-.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(:first-of-type):nth-of-type(odd) {
+.mixon-product-page section:not(:first-of-type):not(.service-capabilities-section):nth-of-type(odd),
+.mixon-service-detail section:not(:first-of-type):not(.service-closing-cta):not(.service-capabilities-section):nth-of-type(odd),
+.mixon-services-page section:not(:first-of-type):not(.service-capabilities-section):nth-of-type(odd),
+.mixon-interior-page section:not([data-theme="dark"]):not(.dark-section):not(.service-closing-cta):not(.service-capabilities-section):not(:first-of-type):nth-of-type(odd) {
   background-color: #ffffff !important;
+}
+
+.service-capabilities-section,
+section.service-capabilities-section {
+  background-color: #f2f6fd !important;
 }
 
 .mixon-interior-page section[data-theme="dark"] h2,
