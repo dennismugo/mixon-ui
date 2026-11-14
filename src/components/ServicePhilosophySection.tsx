@@ -39,8 +39,8 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
   reverseLayout = false,
 }) => {
   return (
-    <section className="py-20 sm:py-24 lg:py-28 border-b border-gray-200/80 bg-white relative overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+    <section className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 border-b border-gray-200/80 bg-white relative overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto">
         <div
           className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${
             reverseLayout ? 'lg:flex-row-reverse' : ''

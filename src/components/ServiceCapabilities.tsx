@@ -133,7 +133,10 @@ export function ServiceCapabilities({
 
   return (
     <>
-      <section className="py-20 sm:py-24 lg:py-28 bg-[#f2f2f3] border-b border-gray-200/80 relative overflow-hidden select-none px-6 sm:px-10 lg:px-14">
+      <section
+        style={{ backgroundColor: '#eaedf2' }}
+        className="w-full px-6 sm:px-10 lg:px-14 py-20 sm:py-24 lg:py-28 bg-[#eaedf2] border-b border-gray-200/80 relative overflow-hidden select-none"
+      >
         <div className="w-full max-w-7xl mx-auto">
           {/* Header matching Jasper: Left Eyebrow/Heading + Right Subtitle/Action/Arrows */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end mb-12 sm:mb-16">
@@ -254,7 +257,10 @@ export function ServiceCapabilities({
       </section>
 
       {/* Stepped Mosaic Strip Transition Pattern with Interactive Dots below Capabilities (Image 2) */}
-      <div className="w-full overflow-hidden select-none bg-[#f2f2f3]">
+      <div
+        style={{ backgroundColor: '#eaedf2' }}
+        className="w-full overflow-hidden select-none bg-[#eaedf2]"
+      >
         <SteppedMosaicStrip cellSize={22} rows={4} />
       </div>
     </>
