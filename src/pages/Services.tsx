@@ -240,24 +240,25 @@ export default function Services({ setCurrentPage }: ServicesProps) {
       {/* =========================================================================
           HUDDLE.WORKS-STYLE CASCADING STACKED CARD DECK (FULL WIDTH, ZERO RADIUS)
          ========================================================================= */}
-      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
-        <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#0066FF] font-semibold">
-            ENGINEERING CAPABILITIES
-          </span>
-          <h2
-            className="mt-2.5 text-3xl sm:text-4xl lg:text-[42px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.12]"
-            style={{ fontFamily: "'PT Serif', serif" }}
-          >
-            Engineered around how your business actually works
-          </h2>
-          <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Six production-tested software engineering pillars built to scale Kenyan enterprises, fintech operations, and customer reach. Scroll to explore or click any service tab to jump directly.
-          </p>
-        </div>
+      <section className="w-full px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="mb-10 sm:mb-14 text-center max-w-3xl mx-auto">
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#0066FF] font-semibold">
+              ENGINEERING CAPABILITIES
+            </span>
+            <h2
+              className="mt-2.5 text-3xl sm:text-4xl lg:text-[42px] font-normal text-[#04122b] tracking-[-0.03em] leading-[1.12]"
+              style={{ fontFamily: "'PT Serif', serif" }}
+            >
+              Engineered around how your business actually works
+            </h2>
+            <p className="mt-2.5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Six production-tested software engineering pillars built to scale Kenyan enterprises, fintech operations, and customer reach. Scroll to explore or click any service tab to jump directly.
+            </p>
+          </div>
 
-        {/* Stacked Cards Deck Container */}
-        <div className="w-full relative pb-8 sm:pb-12">
+          {/* Stacked Cards Deck Container */}
+          <div className="w-full relative pb-8 sm:pb-12">
           {services.map((service, idx) => (
             <div
               key={service.id}
@@ -327,6 +328,7 @@ export default function Services({ setCurrentPage }: ServicesProps) {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
@@ -335,77 +337,79 @@ export default function Services({ setCurrentPage }: ServicesProps) {
          ========================================================================= */}
       <ThirtyDayImpactSection />
 
-      {/* All 6 Services Detailed Architectural Matrix (Matching Reference Design & Container Width) */}
-      <section className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-20 sm:py-24 border-t border-gray-200/80">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-12 sm:mb-14">
-          
-          {/* Left Column: Heavy two-toned headline */}
-          <div className="lg:col-span-7 space-y-3 text-left">
-            <h2 className="font-sans text-3xl sm:text-5xl lg:text-[44px] font-black text-gray-950 tracking-[-0.035em] leading-[1.12]">
-              Engineered for clarity, <br className="hidden sm:inline" />
-              <span className="text-gray-500 font-normal">
-                connection and scale.
-              </span>
-            </h2>
+      {/* All 6 Services Detailed Architectural Matrix (Matching Navbar Container Width) */}
+      <section className="w-full px-6 sm:px-10 lg:px-14 pt-12 sm:pt-16 pb-6 sm:pb-8 border-t border-gray-200/80">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-10 sm:mb-12">
+            
+            {/* Left Column: Heavy two-toned headline */}
+            <div className="lg:col-span-7 space-y-3 text-left">
+              <h2 className="font-sans text-3xl sm:text-5xl lg:text-[44px] font-black text-gray-950 tracking-[-0.035em] leading-[1.12]">
+                Engineered for clarity, <br className="hidden sm:inline" />
+                <span className="text-gray-500 font-normal">
+                  connection and scale.
+                </span>
+              </h2>
+            </div>
+
+            {/* Right Column: Explanatory paragraph */}
+            <div className="lg:col-span-5 text-left flex flex-col justify-end space-y-4">
+              <p className="text-gray-600 text-sm sm:text-base font-light leading-relaxed">
+                Every capability is planned to integrate cleanly into the tools your team already uses—tested against live customer journeys, Daraja payment webhooks, and production reliability.
+              </p>
+            </div>
           </div>
 
-          {/* Right Column: Explanatory paragraph */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-end space-y-4">
-            <p className="text-gray-600 text-sm sm:text-base font-light leading-relaxed">
-              Every capability is planned to integrate cleanly into the tools your team already uses—tested against live customer journeys, Daraja payment webhooks, and production reliability.
-            </p>
-          </div>
-        </div>
+          {/* Connected Architectural Matrix: 3-Column Grid with 1px border dividers */}
+          <div className="rounded-none border border-gray-200/90 bg-gray-200/80 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.id}
+                  onClick={() => setCurrentPage(service.pageId)}
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.14 }}
+                  transition={{ duration: 0.55, delay: reduceMotion ? 0 : index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                  className="bg-white p-7 sm:p-8 flex flex-col justify-between relative group cursor-pointer transition-colors duration-300 hover:bg-[#F8FAFF] select-none text-left"
+                >
+                  {/* Subtle top hover line indicator */}
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-transparent group-hover:bg-[#0066FF] transition-colors duration-300" />
 
-        {/* Connected Architectural Matrix: 3-Column Grid with 1px border dividers */}
-        <div className="rounded-none border border-gray-200/90 bg-gray-200/80 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.id}
-                onClick={() => setCurrentPage(service.pageId)}
-                initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.14 }}
-                transition={{ duration: 0.55, delay: reduceMotion ? 0 : index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-white p-7 sm:p-8 flex flex-col justify-between relative group cursor-pointer transition-colors duration-300 hover:bg-[#F8FAFF] select-none text-left"
-              >
-                {/* Subtle top hover line indicator */}
-                <div className="absolute top-0 inset-x-0 h-0.5 bg-transparent group-hover:bg-[#0066FF] transition-colors duration-300" />
+                  <div>
+                    {/* Top Bar: Icon Squircle (Left) & Corner Arrow (Right) */}
+                    <div className="flex items-center justify-between mb-7">
+                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-800 group-hover:bg-[#0066FF] group-hover:text-white group-hover:border-[#0066FF] group-hover:scale-105 group-hover:shadow-[0_4px_14px_rgba(0,102,255,0.22)] transition-all duration-300">
+                        <Icon className="w-5 h-5 stroke-[1.9]" />
+                      </div>
 
-                <div>
-                  {/* Top Bar: Icon Squircle (Left) & Corner Arrow (Right) */}
-                  <div className="flex items-center justify-between mb-7">
-                    <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-800 group-hover:bg-[#0066FF] group-hover:text-white group-hover:border-[#0066FF] group-hover:scale-105 group-hover:shadow-[0_4px_14px_rgba(0,102,255,0.22)] transition-all duration-300">
-                      <Icon className="w-5 h-5 stroke-[1.9]" />
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-[#0066FF] group-hover:bg-blue-50/80 transition-all duration-200">
+                        <ArrowUpRight className="w-4 h-4 stroke-[2.2] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
                     </div>
 
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-[#0066FF] group-hover:bg-blue-50/80 transition-all duration-200">
-                      <ArrowUpRight className="w-4 h-4 stroke-[2.2] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
+                    {/* Service Title */}
+                    <h3 className="font-sans font-bold text-lg sm:text-[19px] text-slate-950 tracking-tight group-hover:text-[#0066FF] transition-colors duration-200 mb-2.5">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-[13px] text-slate-600 font-normal leading-relaxed">
+                      {service.description.slice(0, 150)}...
+                    </p>
                   </div>
-
-                  {/* Service Title */}
-                  <h3 className="font-sans font-bold text-lg sm:text-[19px] text-slate-950 tracking-tight group-hover:text-[#0066FF] transition-colors duration-200 mb-2.5">
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-[13px] text-slate-600 font-normal leading-relaxed">
-                    {service.description.slice(0, 150)}...
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* =========================================================================
           BOTTOM PIXEL-MOSAIC PROPOSAL BANNER (ZERO BORDER RADIUS, #F2F6FD)
          ========================================================================= */}
-      <section className="w-full px-5 sm:px-8 lg:px-14 py-16 sm:py-20">
+      <section className="w-full px-6 sm:px-10 lg:px-14 pt-4 sm:pt-6 pb-8 sm:pb-10">
         <div
           id="services-proposal-cta"
           className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-none bg-[#f2f6fd] border border-slate-200/80 px-6 py-16 sm:px-12 sm:py-20 lg:py-24 text-center select-none shadow-[0_16px_40px_-20px_rgba(4,18,43,0.08)]"

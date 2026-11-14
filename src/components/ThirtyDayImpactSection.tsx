@@ -1,142 +1,157 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { 
   Layers, 
   ChevronsRight, 
   Workflow, 
   Sparkles,
-  ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 
 interface TimelineStep {
   week: string;
   title: string;
   desc: string;
+  deliverable: string;
   icon: React.ComponentType<{ className?: string }>;
-  tag?: string;
 }
 
 export const ThirtyDayImpactSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '0px 0px 60px 0px' });
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   const steps: TimelineStep[] = [
     {
       week: '01 week',
       title: 'Connect the data',
-      desc: 'Unify CRM, support, product usage, billing, and customer conversations into one account view',
+      desc: 'Unify CRM, support, product usage, billing, and customer conversations into one synchronized account view across your entire stack.',
+      deliverable: 'Unified account schema & API webhooks',
       icon: Layers
     },
     {
       week: '02 week',
       title: 'Calibrate the intelligence',
-      desc: 'Tune risk scoring, expansion signals, ARR impact, and account priority logic',
+      desc: 'Tune risk scoring, expansion signals, ARR impact, and automated triage logic around your business rules and local payment conditions.',
+      deliverable: 'Custom rules engine & scoring model',
       icon: ChevronsRight
     },
     {
       week: '03 week',
       title: 'Roll out team workflows',
-      desc: 'Launch weekly focus lists, risk alerts, and renewal actions across revenue teams',
+      desc: 'Launch weekly focus lists, automated Slack & WhatsApp alerts, and proactive renewal actions across revenue and operations teams.',
+      deliverable: 'Live operator dashboards & notifications',
       icon: Workflow
+    },
+    {
+      week: '04 week',
+      title: 'Scale & measurable impact',
+      desc: 'Verify telemetry dashboards, multi-branch POS settlements, and automated reconciliation with live commercial reporting.',
+      deliverable: 'Full production SLA & ROI audit',
+      icon: Sparkles
     }
   ];
 
   return (
     <section 
       ref={containerRef}
-      className="relative w-full py-24 sm:py-28 lg:py-36 px-6 sm:px-10 lg:px-14 overflow-hidden select-none"
+      id="thirty-day-impact"
+      className="relative w-full py-20 sm:py-24 lg:py-28 px-6 sm:px-10 lg:px-14 overflow-hidden select-none text-white"
       style={{
-        background: 'radial-gradient(ellipse 90% 70% at 20% 25%, #183C60 0%, #0E2239 35%, #081525 65%, #040913 100%)'
+        background: 'linear-gradient(140deg, #0350dd 0%, #0246c6 42%, #033798 78%, #032d7a 100%)',
       }}
     >
-      {/* Subtle atmospheric ambient glow overlays */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-20 right-10 w-[500px] h-[400px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Subtle architectural ambient glow matching Image 2 */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-45"
+        style={{
+          background:
+            'radial-gradient(circle at 14% 28%, rgba(56, 189, 248, 0.22) 0%, transparent 46%)',
+        }}
+      />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
           
           {/* =========================================================================
-              LEFT COLUMN: Header, Eyebrow Badge, and Bottom Technical Footnote
+              LEFT COLUMN: Sticky editorial eyebrow, PT Serif headline & description
+              (Stays static in viewport while the cards on the right scroll past)
              ========================================================================= */}
-          <div className="lg:col-span-6 flex flex-col justify-between text-left">
-            <div>
-              {/* Main Display Headline */}
-              <motion.h2 
-                initial={{ opacity: 0, y: 24 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-                transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
-                className="font-sans text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-bold text-white tracking-[-0.035em] leading-[1.08] text-balance"
-              >
-                From setup to <br />
-                measurable impact <br />
-                in 30 days
-              </motion.h2>
-            </div>
+          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start text-left">
+            <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.14em] font-semibold text-sky-200 block mb-4">
+              DELIVERY ROADMAP &amp; EXECUTION
+            </span>
 
-            {/* Bottom Technical Monospace Footnote */}
-            <motion.div 
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
-              className="mt-12 lg:mt-auto pt-8 border-t border-white/[0.06] lg:border-t-0"
+            <h2 
+              className="font-ptserif font-normal text-white text-3xl sm:text-4xl lg:text-[44px] tracking-[-0.03em] leading-[1.12]"
+              style={{ fontFamily: "'PT Serif', serif" }}
             >
-              <p className="font-mono text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
-                By day 30 renewals become predictable,
-                <br className="hidden sm:inline" />
-                {' '}with clear visibility into risk and revenue
-              </p>
-            </motion.div>
+              From setup to <br className="hidden sm:inline" />
+              measurable impact <br className="hidden sm:inline" />
+              in 30 days
+            </h2>
+
+            <p className="mt-5 font-sans text-[15px] sm:text-base text-blue-100/90 font-normal leading-[1.6] max-w-[38ch]">
+              By day 30 renewals become predictable, operational handoffs are automated, and your leadership team has clear visibility into risk, performance, and revenue.
+            </p>
+
+            <div className="mt-8 pt-6 border-t border-white/15 hidden lg:block">
+              <div className="flex items-center gap-3 text-xs font-mono text-sky-200">
+                <span className="w-2 h-2 rounded-full bg-[#D9E88E] animate-pulse" />
+                <span>Continuous milestone verification &amp; production telemetry</span>
+              </div>
+            </div>
           </div>
 
           {/* =========================================================================
-              RIGHT COLUMN: 3 Vertically Stacked Frosted Glass Cards
+              RIGHT COLUMN: Vertically scrolling crisp white cards (Image 2 style)
              ========================================================================= */}
-          <div className="lg:col-span-6 flex flex-col gap-4 sm:gap-5 justify-center">
+          <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {steps.map((step, idx) => {
               const Icon = step.icon;
-              const isHovered = hoveredIdx === idx;
 
               return (
                 <motion.div
                   key={step.week}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-                  transition={{ duration: 0.45, delay: 0.12 + idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  onMouseEnter={() => setHoveredIdx(idx)}
-                  onMouseLeave={() => setHoveredIdx(null)}
-                  whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
-                  className={`group relative rounded-none p-6 sm:p-7 xl:p-8 backdrop-blur-xl transition-all duration-300 text-left border overflow-hidden cursor-default ${
-                    isHovered 
-                      ? 'bg-white/[0.08] border-white/25 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.5)]' 
-                      : 'bg-white/[0.04] border-white/[0.09] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]'
-                  }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.45, delay: 0.08 + idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="group bg-white border border-white/25 rounded-none p-6 sm:p-7 min-h-[190px] flex flex-col justify-between text-left transition-all duration-200 shadow-[0_18px_38px_-14px_rgba(2,18,58,0.38)] hover:border-sky-200 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-14px_rgba(2,18,58,0.52)] select-text"
                 >
-                  {/* Subtle specular sheen on top edge */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+                  <div>
+                    {/* Top Row: Square sky-blue icon badge + Week Tag */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-8 h-8 rounded-[2px] bg-[#93C5FD]/85 text-[#04122B] flex items-center justify-center transition-colors duration-200 group-hover:bg-[#0066FF] group-hover:text-white">
+                        <Icon className="w-4 h-4 stroke-[2]" />
+                      </div>
 
-                  {/* Top Row: Week Tag (Left) & Micro Icon Squircle (Right) */}
-                  <div className="flex items-center justify-between mb-4 sm:mb-5">
-                    <span className="font-mono text-xs sm:text-[13px] text-slate-300/80 font-medium tracking-tight">
-                      {step.week}
-                    </span>
-
-                    <div className="w-8 h-8 rounded-none bg-white/[0.08] border border-white/10 flex items-center justify-center text-white/90 group-hover:bg-white/15 group-hover:text-white group-hover:scale-105 transition-all duration-200">
-                      <Icon className="w-4 h-4 stroke-[2]" />
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0066FF] bg-blue-50 px-2.5 py-1 rounded-none border border-blue-100">
+                        {step.week}
+                      </span>
                     </div>
+
+                    {/* Step Title */}
+                    <h3 
+                      className="font-ptserif text-[20px] sm:text-[22px] text-[#04122B] tracking-[-0.02em] leading-[1.2] mb-2"
+                      style={{ fontFamily: "'PT Serif', serif" }}
+                    >
+                      {step.title}
+                    </h3>
+
+                    {/* Step Description */}
+                    <p className="font-sans text-[13.5px] sm:text-[14px] text-[#475569] font-normal leading-[1.55]">
+                      {step.desc}
+                    </p>
                   </div>
 
-                  {/* Step Title */}
-                  <h3 className="font-sans font-bold text-xl sm:text-2xl text-white tracking-tight mb-2.5">
-                    {step.title}
-                  </h3>
-
-                  {/* Step Monospace / Technical Description */}
-                  <p className="font-mono text-xs sm:text-[13px] text-slate-300/80 leading-relaxed max-w-lg">
-                    {step.desc}
-                  </p>
+                  {/* Bottom Deliverable Row */}
+                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                    <span className="text-slate-600">{step.deliverable}</span>
+                    <span className="text-[#0066FF] font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                      Verified ✓
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
