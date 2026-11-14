@@ -11,7 +11,7 @@ interface FleetoraPartnerBannerProps {
 /**
  * Geometric Mosaic Divider Strip inspired by Fleetora divider1.svg
  * Features Mixon signature blues (#0066FF, #083071, #38BDF8), deep navy (#040F24),
- * crisp white (#FFFFFF), and vibrant touches of orange (#FF6B00, #F97316).
+ * crisp white (#FFFFFF), and vibrant touches of Mixon lime green (#D9E88E).
  */
 const MosaicDividerStrip: React.FC<{ flip?: boolean }> = ({ flip }) => {
   const uniqueId = flip ? 'strip-bottom' : 'strip-top';
@@ -37,10 +37,10 @@ const MosaicDividerStrip: React.FC<{ flip?: boolean }> = ({ flip }) => {
             <stop offset="1" stopColor="#0066FF" stopOpacity="0.85" />
           </linearGradient>
 
-          {/* Touch of Orange Gradient 1 */}
-          <linearGradient id={`${uniqueId}-orangeGrad1`} x1="320" y1="12" x2="480" y2="12" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FF5500" />
-            <stop offset="1" stopColor="#FF7A00" />
+          {/* Touch of Mixon Lime Green Gradient 1 */}
+          <linearGradient id={`${uniqueId}-limeGrad1`} x1="320" y1="12" x2="480" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#cde37b" />
+            <stop offset="1" stopColor="#D9E88E" />
           </linearGradient>
 
           {/* Cyan linear gradient */}
@@ -49,10 +49,10 @@ const MosaicDividerStrip: React.FC<{ flip?: boolean }> = ({ flip }) => {
             <stop offset="1" stopColor="#38BDF8" />
           </linearGradient>
 
-          {/* Touch of Orange Gradient 2 */}
-          <linearGradient id={`${uniqueId}-orangeGrad2`} x1="960" y1="36" x2="1120" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FF6B00" />
-            <stop offset="1" stopColor="#F97316" />
+          {/* Touch of Mixon Lime Green Gradient 2 */}
+          <linearGradient id={`${uniqueId}-limeGrad2`} x1="960" y1="36" x2="1120" y2="36" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#D9E88E" />
+            <stop offset="1" stopColor="#cde37b" />
           </linearGradient>
 
           {/* Navy / Dark linear gradient */}
@@ -71,8 +71,8 @@ const MosaicDividerStrip: React.FC<{ flip?: boolean }> = ({ flip }) => {
         {/* Col 2 (160..320): Navy to Mixon Blue Gradient */}
         <rect x="160" y="0" width="160" height="24" fill={`url(#${uniqueId}-blueGrad1)`} />
         
-        {/* Col 3 (320..480): TOUCH OF ORANGE (Vivid Orange Gradient) */}
-        <rect x="320" y="0" width="160" height="24" fill={`url(#${uniqueId}-orangeGrad1)`} />
+        {/* Col 3 (320..480): Mixon Lime Green */}
+        <rect x="320" y="0" width="160" height="24" fill={`url(#${uniqueId}-limeGrad1)`} />
         
         {/* Col 4 (480..640): Deep Navy */}
         <rect x="480" y="0" width="160" height="24" fill="#051838" />
@@ -113,8 +113,8 @@ const MosaicDividerStrip: React.FC<{ flip?: boolean }> = ({ flip }) => {
         {/* Col 6 (800..960): Pure Crisp White */}
         <rect x="800" y="24" width="160" height="24" fill="#FFFFFF" />
         
-        {/* Col 7 (960..1120): TOUCH OF ORANGE (Warm Sunset Amber) */}
-        <rect x="960" y="24" width="160" height="24" fill={`url(#${uniqueId}-orangeGrad2)`} />
+        {/* Col 7 (960..1120): Mixon Lime Green */}
+        <rect x="960" y="24" width="160" height="24" fill={`url(#${uniqueId}-limeGrad2)`} />
         
         {/* Col 8 (1120..1280): Electric Sky Cyan */}
         <rect x="1120" y="24" width="160" height="24" fill="#38BDF8" />
@@ -130,7 +130,7 @@ export const FleetoraPartnerBanner: React.FC<FleetoraPartnerBannerProps> = ({ se
   return (
     <div className="relative w-full overflow-hidden select-none bg-[#0066FF]">
       
-      {/* Top Geometric Mosaic Strip using Brand Colors + Orange Touch */}
+      {/* Top Geometric Mosaic Strip using Brand Colors + Mixon Lime Green */}
       <MosaicDividerStrip />
 
       {/* Main Banner Body */}
@@ -192,7 +192,7 @@ export const FleetoraPartnerBanner: React.FC<FleetoraPartnerBannerProps> = ({ se
         </div>
       </section>
 
-      {/* Bottom Geometric Mosaic Strip using Brand Colors + Orange Touch */}
+      {/* Bottom Geometric Mosaic Strip using Brand Colors + Mixon Lime Green */}
       <MosaicDividerStrip flip />
 
     </div>

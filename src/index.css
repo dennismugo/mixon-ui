@@ -1944,6 +1944,7 @@ main section.border-y {
 
 .unify-operations .unify-snippets li.unify-slot {
   position: absolute;
+  width: clamp(164px, 15.4vw, 232px);
 }
 
 .unify-operations .unify-snippet {
@@ -1962,35 +1963,35 @@ main section.border-y {
 .unify-operations .unify-slot-1 {
   left: 14%;
   top: 20%;
-  width: clamp(160px, 15.2vw, 244px);
+  width: clamp(164px, 15.4vw, 232px);
   z-index: 1;
 }
 
 .unify-operations .unify-slot-2 {
   right: 13.5%;
   top: 19%;
-  width: clamp(164px, 15.2vw, 232px);
+  width: clamp(164px, 15.4vw, 232px);
   z-index: 4;
 }
 
 .unify-operations .unify-slot-3 {
   right: 10.5%;
   bottom: 14%;
-  width: clamp(168px, 15.8vw, 248px);
+  width: clamp(164px, 15.4vw, 232px);
   z-index: 2;
 }
 
 .unify-operations .unify-slot-4 {
   left: 33%;
   bottom: 6.5%;
-  width: clamp(154px, 14.2vw, 214px);
+  width: clamp(164px, 15.4vw, 232px);
   z-index: 5;
 }
 
 .unify-operations .unify-slot-5 {
   left: 5.5%;
   top: 41%;
-  width: clamp(160px, 15.4vw, 232px);
+  width: clamp(164px, 15.4vw, 232px);
   z-index: 3;
 }
 
@@ -2041,28 +2042,28 @@ main section.border-y {
   .unify-operations .unify-slot-1 {
     left: 4%;
     top: 17%;
-    width: clamp(114px, 31vw, 148px);
+    width: clamp(126px, 34vw, 160px);
   }
   .unify-operations .unify-slot-2 {
     right: 4%;
     top: 17%;
-    width: clamp(128px, 34vw, 162px);
+    width: clamp(126px, 34vw, 160px);
   }
   .unify-operations .unify-slot-3 {
     right: 4%;
     bottom: 18%;
-    width: clamp(116px, 31vw, 148px);
+    width: clamp(126px, 34vw, 160px);
   }
   .unify-operations .unify-slot-4 {
     left: 28%;
     bottom: 4%;
-    width: clamp(126px, 36vw, 160px);
+    width: clamp(126px, 34vw, 160px);
   }
   .unify-operations .unify-slot-5 {
     left: 4%;
     bottom: 19%;
     top: auto;
-    width: clamp(126px, 35vw, 160px);
+    width: clamp(126px, 34vw, 160px);
   }
 }
 

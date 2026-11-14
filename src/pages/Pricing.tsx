@@ -525,13 +525,13 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
       {/* =========================================================================
           BAND 2: JASPER-STYLE CATEGORIZED COLOR-TINTED COMPARISON MATRIX
          ========================================================================= */}
-      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-white">
+      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-white relative">
         <div className="mx-auto max-w-[1260px]">
-          <div className="overflow-x-auto border border-[#dbe7fb] rounded-none">
-            <table className="w-full min-w-[780px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-[#dbe7fb] bg-white">
-                  <th className="w-[34%] p-5 sm:p-6 align-bottom">
+          <div className="overflow-x-auto md:overflow-visible border border-[#dbe7fb] rounded-none">
+            <table className="w-full min-w-[780px] border-separate border-spacing-0 text-left">
+              <thead className="sticky top-[84px] sm:top-[94px] z-30">
+                <tr className="bg-white">
+                  <th className="sticky top-[84px] sm:top-[94px] z-30 w-[34%] p-5 sm:p-6 align-bottom bg-white border-b border-[#dbe7fb] shadow-[0_4px_12px_rgba(4,18,43,0.06)]">
                     <span className="text-[11px] font-mono uppercase tracking-[0.12em] font-semibold text-[#0066FF]">
                       Plan Comparison
                     </span>
@@ -540,7 +540,10 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
                     </p>
                   </th>
                   {primaryPlans.map((plan) => (
-                    <th key={plan.name} className="w-[16.5%] p-4 sm:p-5 text-center border-l border-[#e6eefc] align-bottom">
+                    <th
+                      key={plan.name}
+                      className="sticky top-[84px] sm:top-[94px] z-30 w-[16.5%] p-4 sm:p-5 text-center border-l border-b border-[#dbe7fb] align-bottom bg-white shadow-[0_4px_12px_rgba(4,18,43,0.06)]"
+                    >
                       <div className="font-ptserif text-lg font-normal text-[#04122b]" style={{ fontFamily: "'PT Serif', serif" }}>
                         {plan.name}
                       </div>
@@ -563,8 +566,8 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
               <tbody>
                 {comparisonCategories.map((category) => (
                   <React.Fragment key={category.title}>
-                    <tr className={`border-t border-b border-[#dbe7fb] ${category.headerBgClass}`}>
-                      <td colSpan={5} className="px-5 sm:px-6 py-4">
+                    <tr className={category.headerBgClass}>
+                      <td colSpan={5} className="px-5 sm:px-6 py-4 border-b border-[#dbe7fb]">
                         <h3
                           className="font-ptserif text-lg sm:text-xl font-normal text-[#04122b]"
                           style={{ fontFamily: "'PT Serif', serif" }}
@@ -577,18 +580,16 @@ export default function Pricing({ setCurrentPage }: PricingProps) {
                     {category.rows.map((row, rowIdx) => (
                       <tr
                         key={row.label}
-                        className={`border-b border-[#e6eefc] ${
-                          rowIdx % 2 === 1 ? category.tintRowClass : 'bg-white'
-                        }`}
+                        className={rowIdx % 2 === 1 ? category.tintRowClass : 'bg-white'}
                       >
-                        <td className="px-5 sm:px-6 py-3.5 align-middle">
+                        <td className="px-5 sm:px-6 py-3.5 align-middle border-b border-[#e6eefc]">
                           <div className="text-[13px] font-semibold text-[#04122b]">{row.label}</div>
                           <div className="text-[11.5px] text-[#475569] mt-0.5">{row.desc}</div>
                         </td>
                         {row.values.map((val, colIdx) => (
                           <td
                             key={colIdx}
-                            className="px-4 py-3.5 text-center border-l border-[#e6eefc] text-xs font-medium text-[#04122b] align-middle"
+                            className="px-4 py-3.5 text-center border-l border-b border-[#e6eefc] text-xs font-medium text-[#04122b] align-middle"
                           >
                             {val === '✓' ? (
                               <Check className="w-4 h-4 text-[#0066FF] mx-auto" />
