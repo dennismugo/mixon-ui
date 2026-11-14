@@ -5,7 +5,7 @@ import { ECOMMERCE_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import serviceEcommerceTeamImg from '../../assets/images/services/service_ecommerce_team.jpg';
+import serviceEcommerceSchematicImg from '../../assets/images/services/service_ecommerce_schematic.jpg';
 import { 
   ShoppingBag, 
   ArrowRight, 
@@ -109,8 +109,8 @@ export default function EcommerceService({ setCurrentPage }: EcommerceServicePro
         statement="We eliminate complex multi-step checkouts, sluggish product filtering, and unexpected payment errors that cause shoppers to abandon their carts."
         primaryButtonText="Get an e-commerce proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceEcommerceTeamImg}
-        imageAlt="Black male developer and Caucasian female specialist examining digital storefront analytics on laptop"
+        imageSrc={serviceEcommerceSchematicImg}
+        imageAlt="Mixon digital storefront and inventory sync workflow schematic on graph paper"
         motifPalette="lime"
       />
 

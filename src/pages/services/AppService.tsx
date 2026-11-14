@@ -5,7 +5,7 @@ import { APP_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import serviceAppTeamImg from '../../assets/images/services/service_app_team.jpg';
+import serviceAppSchematicImg from '../../assets/images/services/service_app_schematic.jpg';
 import { 
   Smartphone, 
   ArrowRight, 
@@ -107,8 +107,8 @@ export default function AppService({ setCurrentPage }: AppServiceProps) {
         statement="By combining high-performance native iOS and Android apps with robust USSD menus, we ensure your software reaches 100% of your addressable market across all connectivity environments."
         primaryButtonText="Request an app proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceAppTeamImg}
-        imageAlt="African female mobile engineer presenting mobile app wireframes on laptop"
+        imageSrc={serviceAppSchematicImg}
+        imageAlt="Mixon mobile application and USSD telco architecture schematic on graph paper"
         motifPalette="blue"
       />
 

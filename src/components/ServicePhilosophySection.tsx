@@ -119,7 +119,7 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
                       <img
                         src={imageSrc}
                         alt={imageAlt}
-                        className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                         loading="lazy"
                       />
                     ) : (
@@ -127,8 +127,6 @@ export const ServicePhilosophySection: React.FC<ServicePhilosophySectionProps> =
                         Image placeholder
                       </div>
                     )}
-                    {/* Subtle bottom glass gradient for depth */}
-                    <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#04122b]/25 to-transparent pointer-events-none" />
                   </div>
                 </div>
               </div>

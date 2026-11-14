@@ -5,7 +5,7 @@ import { PAYMENTS_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import servicePaymentsTeamImg from '../../assets/images/services/service_payments_team.jpg';
+import servicePaymentsSchematicImg from '../../assets/images/services/service_payments_schematic.jpg';
 import { 
   CreditCard, 
   ArrowRight, 
@@ -108,8 +108,8 @@ export default function PaymentsService({ setCurrentPage }: PaymentsServiceProps
         statement="A reliable integration handles the happy path effortlessly — but it earns its keep when network connections stutter, webhooks delay, or transactions need instant automated reconciliation."
         primaryButtonText="Scope a payment integration"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={servicePaymentsTeamImg}
-        imageAlt="African fintech software engineer and Caucasian female colleague reviewing payment ledger architecture on laptop"
+        imageSrc={servicePaymentsSchematicImg}
+        imageAlt="Mixon payment rails and automated ledger reconciliation flow schematic on graph paper"
         motifPalette="sky"
       />
 

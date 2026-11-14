@@ -5,7 +5,7 @@ import { SEO_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import serviceSeoTeamImg from '../../assets/images/services/service_seo_team.jpg';
+import serviceSeoSchematicImg from '../../assets/images/services/service_seo_schematic.jpg';
 import { 
   Search, 
   ArrowRight, 
@@ -109,8 +109,8 @@ export default function SeoService({ setCurrentPage }: SeoServiceProps) {
         statement="When someone asks an AI assistant for the best service in your city or industry, your business should be the clear, factual, and verified answer."
         primaryButtonText="Get an organic search proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceSeoTeamImg}
-        imageAlt="Black female SEO strategist and Caucasian male technical analyst reviewing organic search dashboard on laptop"
+        imageSrc={serviceSeoSchematicImg}
+        imageAlt="Mixon discovery and citation architecture knowledge graph schematic on graph paper"
         motifPalette="lime"
       />
 

@@ -5,7 +5,7 @@ import { AI_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import serviceAiTeamImg from '../../assets/images/services/service_ai_team.jpg';
+import serviceAiSchematicImg from '../../assets/images/services/service_ai_schematic.jpg';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -108,8 +108,8 @@ export default function AiService({ setCurrentPage }: AiServiceProps) {
         statement="We never promise that AI is magic. We build grounded assistants and deterministic pipelines that eliminate hours of routine administrative drudgery while keeping you in full control."
         primaryButtonText="Scope an AI workflow"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceAiTeamImg}
-        imageAlt="African male ML specialist and Caucasian female systems architect analyzing model training loss schemas on laptop"
+        imageSrc={serviceAiSchematicImg}
+        imageAlt="Mixon deterministic AI pipeline with Human-in-the-Loop approval schematic on graph paper"
         motifPalette="blue"
       />
 

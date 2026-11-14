@@ -5,7 +5,7 @@ import { WEB_SERVICE_FAQS } from '../../seo/mixonSeo';
 import { ServiceCapabilities } from '../../components/ServiceCapabilities';
 import { ServiceClosingCta } from '../../components/ServiceClosingCta';
 import { ServicePhilosophySection } from '../../components/ServicePhilosophySection';
-import serviceWebTeamImg from '../../assets/images/services/service_web_team.jpg';
+import serviceWebSchematicImg from '../../assets/images/services/service_web_schematic.jpg';
 import { 
   Code2, 
   ArrowRight, 
@@ -108,8 +108,8 @@ export default function WebService({ setCurrentPage }: WebServiceProps) {
         statement="We don't build generic template placeholders. We craft responsive web platforms that guide customers straight to a clear, confident action."
         primaryButtonText="Get a website proposal"
         onPrimaryClick={() => setCurrentPage('contact')}
-        imageSrc={serviceWebTeamImg}
-        imageAlt="Mixon front-end engineers and designers collaborating over laptop in modern studio"
+        imageSrc={serviceWebSchematicImg}
+        imageAlt="Mixon responsive web engineering schematic on graph paper with code brackets and layout guides"
         motifPalette="lime"
       />
 
