@@ -266,15 +266,6 @@ export default function FooterUpper({
               </li>
               <li>
                 <AppLink 
-                  page="services"
-                  onNavigate={(p) => handleNav(p)} 
-                  className="hover:text-white transition-colors cursor-pointer text-left block"
-                >
-                  How We Work
-                </AppLink>
-              </li>
-              <li>
-                <AppLink 
                   page="home"
                   hash="#faq"
                   onNavigate={(p) => handleNav(p)} 
