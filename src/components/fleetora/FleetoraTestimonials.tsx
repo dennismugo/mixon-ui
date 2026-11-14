@@ -65,20 +65,20 @@ export const FleetoraTestimonials: React.FC = () => {
 
   return (
     <section className="py-24 sm:py-32 bg-white text-gray-950 relative overflow-hidden select-none w-full">
-      {/* Header Container - perfectly aligned with Navbar logo and max-w-7xl grid */}
-      <div className="w-full px-6 sm:px-10 lg:px-14">
+      {/* Header Container - full width on mobile with comfortable padding */}
+      <div className="w-full px-4 sm:px-10 lg:px-14">
         <div className="w-full max-w-7xl mx-auto relative z-10 text-left">
           
-          {/* Section Header: Centered with text reveal on scroll */}
-          <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 sm:mb-16">
+          {/* Section Header: Full width on mobile, balanced on tablet/desktop */}
+          <div className="w-full max-w-4xl mx-auto text-center space-y-3 sm:space-y-4 mb-10 sm:mb-16">
             <ScrollRevealHeading 
               as="h2"
-              className="font-sans text-2xl sm:text-3xl lg:text-[40px] font-bold text-gray-950 tracking-[-0.025em] leading-[1.18] max-w-xl mx-auto [text-wrap:balance]"
+              className="w-full font-sans text-2xl sm:text-3xl lg:text-[40px] font-bold text-gray-950 tracking-[-0.025em] leading-[1.2] sm:leading-[1.18] sm:max-w-2xl mx-auto"
             >
               Trusted by operators who depend on bulletproof reliability.
             </ScrollRevealHeading>
 
-            <ScrollRevealParagraph className="font-sans text-base sm:text-lg text-gray-600 font-light leading-relaxed max-w-xl mx-auto [text-wrap:balance]">
+            <ScrollRevealParagraph className="w-full font-sans text-[15px] sm:text-lg text-gray-600 font-light leading-relaxed sm:max-w-2xl mx-auto">
               Real outcomes from commercial property leaders, hospitality directors, and enterprise retailers.
             </ScrollRevealParagraph>
           </div>

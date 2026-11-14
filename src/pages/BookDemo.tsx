@@ -260,7 +260,7 @@ function SelectableCardGrid({
               />
               <span
                 aria-hidden="true"
-                className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                className={`w-10 h-10 rounded-none flex items-center justify-center shrink-0 transition-colors ${
                   active ? 'bg-[#0066FF] text-white' : 'bg-slate-100 text-gray-600'
                 }`}
               >
@@ -278,9 +278,7 @@ function SelectableCardGrid({
               </span>
               <span
                 aria-hidden="true"
-                className={`mt-0.5 w-5 h-5 shrink-0 flex items-center justify-center border transition-colors ${
-                  multiple ? 'rounded-md' : 'rounded-full'
-                } ${
+                className={`mt-0.5 w-5 h-5 shrink-0 flex items-center justify-center border transition-colors rounded-none ${
                   active
                     ? 'border-[#0066FF] bg-[#0066FF] text-white'
                     : 'border-gray-300 bg-white'
@@ -350,7 +348,7 @@ function InteractiveDropdown({
       >
         <span className="flex items-center gap-3 min-w-0">
           {SelectedIcon && (
-            <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center shrink-0">
+            <span className="w-8 h-8 rounded-none bg-blue-50 text-[#0066FF] flex items-center justify-center shrink-0">
               <SelectedIcon className="w-4 h-4" />
             </span>
           )}
@@ -409,7 +407,7 @@ function InteractiveDropdown({
                   <span className="flex items-start gap-3 min-w-0">
                     {Icon && (
                       <span
-                        className={`mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                        className={`mt-0.5 w-7 h-7 rounded-none flex items-center justify-center shrink-0 ${
                           isSelected ? 'bg-[#0066FF] text-white' : 'bg-slate-100 text-gray-600'
                         }`}
                       >
@@ -855,7 +853,7 @@ export default function BookDemo({
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="p-6 sm:p-10 lg:p-12 text-center space-y-7"
             >
-              <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 mx-auto flex items-center justify-center shadow-xs">
+              <div className="w-16 h-16 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-600 mx-auto flex items-center justify-center shadow-xs">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
@@ -1016,7 +1014,7 @@ export default function BookDemo({
                             value={workflowNotes}
                             onChange={(e) => setWorkflowNotes(e.target.value)}
                             placeholder="e.g., M-Pesa Paybill auto-reconciliation for 80 apartments, migrating from Excel, or Airbnb channel sync..."
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] resize-y"
+                            className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] resize-y"
                           />
                         </div>
                       </>
@@ -1184,7 +1182,7 @@ export default function BookDemo({
                                 if (stepError) setStepError('');
                               }}
                               placeholder="Jane Wanjiku"
-                              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
                             />
                           </div>
 
@@ -1206,7 +1204,7 @@ export default function BookDemo({
                                 if (stepError) setStepError('');
                               }}
                               placeholder="Kilimani Properties Ltd"
-                              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
                             />
                           </div>
 
@@ -1237,7 +1235,7 @@ export default function BookDemo({
                                 if (stepError) setStepError('');
                               }}
                               placeholder="name@company.co.ke"
-                              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
                             />
                           </div>
 
@@ -1260,7 +1258,7 @@ export default function BookDemo({
                                 if (stepError) setStepError('');
                               }}
                               placeholder="+254 7XX XXX XXX"
-                              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
                             />
                           </div>
                         </div>

@@ -101,13 +101,6 @@ export const ThirtyDayImpactSection: React.FC = () => {
             <p className="mt-5 font-sans text-[15px] sm:text-base text-blue-100/90 font-normal leading-[1.65] max-w-[38ch]">
               We don’t spend months in theoretical workshops. Within four weeks, we audit your workflow, build and connect your core systems, test against live transactions, and hand over a platform your team actually loves using.
             </p>
-
-            <div className="mt-8 pt-6 border-t border-white/15 hidden lg:block">
-              <div className="flex items-center gap-3 text-xs font-mono text-sky-200">
-                <span className="w-2 h-2 rounded-full bg-[#D9E88E] animate-pulse" />
-                <span>Milestone-backed delivery · Remote or on-site in Nairobi</span>
-              </div>
-            </div>
           </div>
 
           {/* =========================================================================

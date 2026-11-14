@@ -264,7 +264,7 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mireserve')}
                   aria-label="Explore miReserve hospitality stays"
-                  className="pointer-events-auto group relative block w-full h-full overflow-hidden rounded-none shadow-[0_20px_48px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
+                  className="pointer-events-auto group relative block w-full h-full overflow-hidden rounded-none border border-slate-200/90 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
                 >
                   <div className="w-full h-full overflow-hidden bg-slate-100">
                     <img
@@ -286,30 +286,30 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mipos')}
                   aria-label="Explore miPOS retail and inventory product"
-                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#0066FF] p-2.5 sm:p-3 text-white shadow-[0_22px_50px_rgba(0,102,255,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
+                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#0066FF] p-3 text-white border border-[#0066FF] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
                 >
-                  <div className="rounded-none bg-white p-2.5 sm:p-3 text-[#04122B] flex-1 flex flex-col justify-between">
-                    <div className="flex items-center justify-between gap-1.5 mb-1">
+                  <div className="rounded-none bg-white p-3 text-[#04122B] flex-1 flex flex-col justify-between">
+                    <div className="flex items-center justify-between gap-1.5 mb-1.5">
                       <div className="inline-flex items-center gap-1.5 min-w-0">
-                        <span className="inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#0066FF] text-white">
+                        <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0066FF] text-white">
                           <Cpu className="h-2.5 w-2.5" />
                         </span>
-                        <span className="text-[11px] font-semibold tracking-tight text-[#083071] truncate">miPOS</span>
+                        <span className="text-[12px] font-semibold tracking-tight text-[#083071] truncate">miPOS</span>
                       </div>
-                      <span className="hidden sm:inline-block shrink-0 text-[9.5px] font-mono font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">
+                      <span className="shrink-0 text-[10px] font-mono font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
                         Synced
                       </span>
                     </div>
-                    <div className="text-[15px] sm:text-lg font-bold tracking-tight text-[#04122B] leading-tight whitespace-nowrap">
+                    <div className="text-[17px] sm:text-xl font-bold tracking-tight text-[#04122B] leading-tight whitespace-nowrap">
                       KES 84,200
                     </div>
-                    <div className="text-[10px] font-medium text-slate-500 truncate">
+                    <div className="text-[10.5px] font-medium text-slate-500 truncate mt-0.5">
                       Shift #04 · Zero variance
                     </div>
                   </div>
-                  <div className="mt-2 flex items-center justify-center gap-1 rounded-[6px] bg-white py-1 sm:py-1.5 px-2.5 sm:px-3 text-[10.5px] sm:text-[11px] font-semibold text-[#04122B] transition-colors group-hover:bg-blue-50">
+                  <div className="mt-2.5 flex items-center justify-center gap-1.5 rounded-[6px] bg-white py-1.5 px-3 text-[11px] sm:text-xs font-semibold text-[#04122B] whitespace-nowrap transition-colors group-hover:bg-blue-50">
                     <span>Open miPOS</span>
-                    <ArrowUpRight className="h-3 w-3 text-[#0066FF]" />
+                    <ArrowUpRight className="h-3.5 w-3.5 text-[#0066FF]" />
                   </div>
                 </button>
               </div>
@@ -322,7 +322,7 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mireserve')}
                   aria-label="Explore miReserve guest check-in and front desk workflow"
-                  className="pointer-events-auto group relative block w-full h-full overflow-hidden rounded-none shadow-[0_22px_50px_rgba(4,18,43,0.18)] ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
+                  className="pointer-events-auto group relative block w-full h-full overflow-hidden rounded-none border border-slate-200/90 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066FF] cursor-pointer text-left"
                 >
                   <div className="w-full h-full overflow-hidden bg-slate-100">
                     <img
@@ -344,23 +344,23 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('eventyetu')}
                   aria-label="Explore Event Yetu ticketing product"
-                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#EEF2FF] p-2.5 sm:p-3 text-[#1E1B4B] shadow-[0_24px_56px_rgba(4,18,43,0.18)] border border-[#C7D2FE] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F46E5] cursor-pointer text-center"
+                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#EEF2FF] p-3 text-[#1E1B4B] border border-[#C7D2FE] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4F46E5] cursor-pointer text-center"
                 >
-                  <div className="rounded-none bg-white/90 px-3 py-2.5 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                    <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#4F46E5] text-white flex items-center justify-center shadow-xs mb-1.5">
-                      <Ticket className="h-4 w-4" />
+                  <div className="rounded-none bg-white/95 px-3 py-3 flex-1 flex flex-col items-center justify-center">
+                    <div className="h-9 w-9 rounded-full bg-[#4F46E5] text-white flex items-center justify-center mb-1.5 shadow-xs">
+                      <Ticket className="h-4.5 w-4.5" />
                     </div>
-                    <div className="text-[12px] sm:text-[13px] font-bold text-[#1E1B4B] leading-tight">
+                    <div className="text-[13px] sm:text-sm font-bold text-[#1E1B4B] leading-tight">
                       Event Yetu
                     </div>
-                    <div className="mt-0.5 inline-flex items-center gap-1 text-[9.5px] sm:text-[10px] font-medium text-indigo-600/80">
+                    <div className="mt-1 inline-flex items-center gap-1 text-[10.5px] font-medium text-indigo-600/80">
                       <Lock className="h-2.5 w-2.5" />
                       <span>0.38s Gate Pass</span>
                     </div>
                   </div>
-                  <div className="mt-2 flex items-center justify-center gap-1 rounded-[6px] bg-white py-1 sm:py-1.5 px-2.5 sm:px-3 text-[10.5px] sm:text-[11px] font-semibold text-[#1E1B4B] shadow-xs transition-colors group-hover:bg-indigo-600 group-hover:text-white">
+                  <div className="mt-2.5 flex items-center justify-center gap-1.5 rounded-[6px] bg-white py-1.5 px-3 text-[11px] sm:text-xs font-semibold text-[#1E1B4B] whitespace-nowrap transition-colors group-hover:bg-indigo-600 group-hover:text-white">
                     <span>Explore Events</span>
-                    <ArrowUpRight className="h-3 w-3" />
+                    <ArrowUpRight className="h-3.5 w-3.5" />
                   </div>
                 </button>
               </div>
@@ -373,28 +373,28 @@ export const UnifyOperationsSection: React.FC<UnifyOperationsSectionProps> = ({ 
                   type="button"
                   onClick={() => setCurrentPage('mirentals')}
                   aria-label="Explore miRentals rent collection product"
-                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#10B981] p-2.5 sm:p-3 text-white shadow-[0_22px_50px_rgba(16,185,129,0.28)] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
+                  className="pointer-events-auto group relative flex flex-col justify-between w-full h-full rounded-none bg-[#10B981] p-3 text-white border border-[#10B981] transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04122B] cursor-pointer text-left"
                 >
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-white/95 mb-1">
-                        <Repeat className="h-3 w-3" />
+                      <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white/95 mb-1.5">
+                        <Repeat className="h-3.5 w-3.5" />
                         <span>miRentals</span>
                       </div>
-                      <div className="text-[14px] sm:text-[16px] font-bold tracking-tight leading-snug text-white whitespace-nowrap">
+                      <div className="text-[16px] sm:text-xl font-bold tracking-tight leading-snug text-white whitespace-nowrap">
                         + KES 65,000
                       </div>
-                      <div className="text-[10.5px] sm:text-[11.5px] font-medium text-white/85 mt-0.5 truncate">
+                      <div className="text-[10.5px] sm:text-[11px] font-medium text-white/85 mt-0.5 truncate">
                         Unit 4B • Daraja STK
                       </div>
                     </div>
                   </div>
-                  <div className="mt-2 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-2 py-0.5 text-[9.5px] sm:text-[10px] font-semibold text-white backdrop-blur-xs">
-                      <CheckCircle2 className="h-2.5 w-2.5" />
+                  <div className="mt-2.5 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur-xs">
+                      <CheckCircle2 className="h-3 w-3" />
                       <span>Reconciled</span>
                     </span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </button>
               </div>

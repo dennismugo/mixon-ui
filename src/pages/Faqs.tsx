@@ -325,7 +325,7 @@ export default function Faqs({ setCurrentPage }: FaqsProps) {
               <button
                 type="button"
                 onClick={() => setCurrentPage('contact')}
-                className="group inline-flex items-center justify-center gap-2 rounded-none bg-[#04122b] px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-white transition-colors duration-200 hover:bg-[#0066FF] cursor-pointer active:scale-[0.99]"
+                className="group inline-flex items-center justify-center gap-2 rounded-none bg-[#0066FF] px-6 py-3.5 text-xs sm:text-[13px] font-sans font-semibold text-white transition-colors duration-200 hover:bg-[#0052cc] cursor-pointer active:scale-[0.99]"
               >
                 <RollingButtonText text="Speak with an engineer" icon={<ArrowRight className="w-4 h-4" />} />
               </button>

@@ -524,16 +524,6 @@ export default function App() {
             : 'bg-white/90 backdrop-blur-md border-transparent shadow-none'
         }`}
       >
-        
-        {/* Top Announcement Bar */}
-        <div 
-          onClick={() => setCurrentPage('about')} 
-          className="w-full bg-gradient-to-r from-[#0066FF] via-[#093173] to-[#04122B] text-white text-center text-[11px] sm:text-[13px] font-medium tracking-tight py-1.5 sm:py-2 px-3 sm:px-4 flex items-center justify-center gap-1.5 cursor-pointer hover:brightness-110 select-none shadow-xs"
-        >
-          <span className="leading-snug">Introducing Mixon: Intelligent software that makes business easier to run</span>
-          <span className="font-bold shrink-0">→</span>
-        </div>
-
         {/* Full-Width Navigation Bar */}
         <div className="w-full px-6 sm:px-10 lg:px-14 py-3 sm:py-3.5">
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">

@@ -234,7 +234,8 @@ export const WhatsAppBot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-white flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_14px_35px_rgba(37,211,102,0.6)] transition-shadow duration-300 cursor-pointer"
+        className="whatsapp-floating-trigger relative w-13 h-13 sm:w-14 sm:h-14 !rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-white flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_14px_35px_rgba(37,211,102,0.6)] transition-shadow duration-300 cursor-pointer"
+        style={{ borderRadius: '9999px' }}
         aria-label="Open WhatsApp chat"
       >
         {isOpen ? (

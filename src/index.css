@@ -2045,31 +2045,30 @@ main section.border-y {
     height: 128svh;
     margin-bottom: -4svh;
   }
+  .unify-operations .unify-snippets li.unify-slot {
+    width: clamp(270px, 86vw, 340px) !important;
+    aspect-ratio: 1.35 / 1 !important;
+  }
   .unify-operations .unify-slot-1 {
-    left: 4%;
-    top: 17%;
-    width: clamp(126px, 34vw, 160px);
+    left: 7%;
+    top: 15%;
   }
   .unify-operations .unify-slot-2 {
-    right: 4%;
-    top: 17%;
-    width: clamp(126px, 34vw, 160px);
+    right: 7%;
+    top: 15%;
   }
   .unify-operations .unify-slot-3 {
-    right: 4%;
-    bottom: 18%;
-    width: clamp(126px, 34vw, 160px);
+    right: 7%;
+    bottom: 16%;
   }
   .unify-operations .unify-slot-4 {
-    left: 28%;
-    bottom: 4%;
-    width: clamp(126px, 34vw, 160px);
+    left: 7%;
+    bottom: 6%;
   }
   .unify-operations .unify-slot-5 {
-    left: 4%;
-    bottom: 19%;
+    left: 7%;
+    bottom: 16%;
     top: auto;
-    width: clamp(126px, 34vw, 160px);
   }
 }
 
@@ -2519,13 +2518,20 @@ main section.border-y {
 /* ==========================================================================
    GLOBAL ZERO BORDER-RADIUS ON ALL BUTTONS & ACTION CTAs
    ========================================================================== */
-button:not([role="switch"]):not([aria-label*="slide" i]),
+button:not([role="switch"]):not([aria-label*="slide" i]):not(.whatsapp-floating-trigger):not([aria-label*="WhatsApp" i]),
 a[role="button"],
 input[type="submit"],
 input[type="button"],
 .btn-primary,
 .btn-secondary {
   border-radius: 0px !important;
+}
+
+/* Floating WhatsApp Assistant Trigger Button - strictly circular */
+.whatsapp-floating-trigger,
+button.whatsapp-floating-trigger,
+button[aria-label*="WhatsApp" i] {
+  border-radius: 9999px !important;
 }
 
 input:not([type="checkbox"]):not([type="radio"]),

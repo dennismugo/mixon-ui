@@ -78,14 +78,14 @@ export const FleetoraIntegrationsStack: React.FC<FleetoraIntegrationsStackProps>
 }) => {
   return (
     <section className="py-24 sm:py-32 bg-white text-gray-900 border-b border-gray-200/80 relative overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-14">
         {/* Header Container with Fade-Up Animation */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-4 text-center max-w-4xl mx-auto mb-14 sm:mb-16"
+          className="flex flex-col items-center gap-3 sm:gap-4 text-center w-full max-w-4xl mx-auto mb-12 sm:mb-16"
         >
           {/* Eyebrow Badge */}
           <div className="flex items-center gap-2">
@@ -96,12 +96,12 @@ export const FleetoraIntegrationsStack: React.FC<FleetoraIntegrationsStackProps>
           </div>
 
           {/* Heading */}
-          <h2 className="font-sans text-3xl sm:text-5xl lg:text-[46px] font-bold text-gray-950 tracking-[-0.03em] leading-[1.12] text-balance">
+          <h2 className="w-full font-sans text-2xl sm:text-4xl lg:text-[46px] font-bold text-gray-950 tracking-[-0.03em] leading-[1.16] sm:leading-[1.12]">
             From payment clearance to CRM sync, connected to your stack
           </h2>
 
           {/* Subtitle */}
-          <p className="max-w-2xl text-base sm:text-lg text-gray-600 font-light leading-relaxed">
+          <p className="w-full max-w-none sm:max-w-2xl text-[15px] sm:text-lg text-gray-600 font-light leading-relaxed">
             Connect your payment gateways, mobile money, messaging, and CRM.{' '}
             <span className="font-medium text-gray-950">100+ native integrations</span> — from
             M-Pesa Daraja to WhatsApp, Salesforce, and Slack — working seamlessly with your custom software.
