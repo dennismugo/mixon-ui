@@ -15,7 +15,9 @@ export type PageId =
   | 'pricing'
   | 'book-demo'
   | 'demo-tracker'
-  | 'contact';
+  | 'contact'
+  | 'faqs'
+  | 'privacy';
 
 export interface FaqEntry {
   q: string;
@@ -104,6 +106,8 @@ export const ROUTE_PATHS: Record<PageId, string> = {
   'book-demo': '/book-demo',
   'demo-tracker': '/demo-tracker',
   contact: '/contact',
+  faqs: '/faqs',
+  privacy: '/privacy',
 };
 
 const PATH_TO_PAGE: Record<string, PageId> = Object.entries(ROUTE_PATHS).reduce(
@@ -965,6 +969,52 @@ export const ROUTE_SEO: Record<PageId, RouteSeoData> = {
       { name: 'Demo Tracker', path: '/demo-tracker' },
     ],
   },
+  faqs: {
+    id: 'faqs',
+    path: '/faqs',
+    title: 'Frequently Asked Questions | Mixon Softwares Engineering & Platforms',
+    description:
+      'Clear, authoritative answers to common questions about Mixon bespoke software engineering, M-Pesa Daraja payment integrations, pricing, and operational platforms.',
+    h1: 'Frequently Asked Questions',
+    eyebrow: 'Knowledge Base & Technical FAQs',
+    summary:
+      'Answers to client questions across web engineering, mobile apps, Daraja APIs, AI workflow automation, and enterprise deployment.',
+    keyFacts: [
+      'Comprehensive FAQ repository covering all 4 core platforms and 6 engineering service disciplines',
+      'Real-time keyword search and category filtering for rapid technical triage',
+      'Direct engineering team support in Kilimani, Nairobi (+254 713 958 492 / info@mixonsoftwares.co.ke)',
+    ],
+    priority: '0.8',
+    changefreq: 'weekly',
+    schemaKind: 'service',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'FAQs', path: '/faqs' },
+    ],
+  },
+  privacy: {
+    id: 'privacy',
+    path: '/privacy',
+    title: 'Privacy Policy & Data Protection Notice | Mixon Softwares Limited',
+    description:
+      'Review Mixon Softwares Limited privacy policy and data protection standards under the Kenya Data Protection Act 2019 and international processing frameworks.',
+    h1: 'Privacy Policy & Data Protection Notice',
+    eyebrow: 'Data Protection & Security Standard',
+    summary:
+      'Our statutory commitments to data security, M-Pesa payment safeguards, TLS 1.3 encryption, and Kenya Data Protection Act 2019 compliance.',
+    keyFacts: [
+      'Strict adherence to Kenya Data Protection Act, 2019 statutory requirements (Office of the Data Protection Commissioner)',
+      'Zero storage of customer M-Pesa PINs or raw payment authorization credentials',
+      'End-to-end encryption with TLS 1.3 in transit and AES-256 for all stored client records',
+    ],
+    priority: '0.5',
+    changefreq: 'monthly',
+    schemaKind: 'service',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Privacy Policy', path: '/privacy' },
+    ],
+  },
 };
 
 export const ALL_ROUTES: RouteSeoData[] = [
@@ -984,6 +1034,8 @@ export const ALL_ROUTES: RouteSeoData[] = [
   ROUTE_SEO.about,
   ROUTE_SEO['book-demo'],
   ROUTE_SEO.contact,
+  ROUTE_SEO.faqs,
+  ROUTE_SEO.privacy,
 ];
 
 function buildFaqSchema(faqs: FaqEntry[], pageUrl: string): Record<string, unknown> {

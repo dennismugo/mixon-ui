@@ -266,12 +266,20 @@ export default function FooterUpper({
               </li>
               <li>
                 <AppLink 
-                  page="home"
-                  hash="#faq"
+                  page="faqs"
                   onNavigate={(p) => handleNav(p)} 
                   className="hover:text-white transition-colors cursor-pointer text-left block"
                 >
                   Frequently Asked Questions
+                </AppLink>
+              </li>
+              <li>
+                <AppLink 
+                  page="privacy"
+                  onNavigate={(p) => handleNav(p)} 
+                  className="hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Privacy Policy
                 </AppLink>
               </li>
               <li>
@@ -325,52 +333,51 @@ export default function FooterUpper({
                 </a>
               </li>
 
-              {/* Social Channels matching reference styling */}
-              <li className="pt-2">
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer text-slate-300/90"
-                >
-                  <Instagram className="w-3.5 h-3.5 shrink-0" />
-                  <span>Instagram</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer text-slate-300/90"
-                >
-                  <Facebook className="w-3.5 h-3.5 shrink-0" />
-                  <span>Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://x.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer text-slate-300/90"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                  <span>X</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer text-slate-300/90"
-                >
-                  <Linkedin className="w-3.5 h-3.5 shrink-0" />
-                  <span>LinkedIn</span>
-                </a>
+              {/* Social Channels Redirection Buttons */}
+              <li className="pt-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2.5">
+                  Connect with Mixon
+                </span>
+                <div className="flex items-center gap-2.5">
+                  <a
+                    href="https://www.facebook.com/mixonsoftwares/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Mixon Softwares on Facebook"
+                    className="w-8 h-8 rounded-full bg-[#1877F2]/90 hover:bg-[#1877F2] text-white flex items-center justify-center transition-all hover:scale-110 shadow-xs cursor-pointer"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://x.com/mixon_softwares"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Mixon Softwares on X (Twitter)"
+                    className="w-8 h-8 rounded-full bg-[#1DA1F2]/90 hover:bg-[#1DA1F2] text-white flex items-center justify-center transition-all hover:scale-110 shadow-xs cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/mixon_softwares/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Mixon Softwares on Instagram"
+                    className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center transition-all hover:scale-110 shadow-xs cursor-pointer"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/mixon-softwares/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Mixon Softwares on LinkedIn"
+                    className="w-8 h-8 rounded-full bg-[#0A66C2]/90 hover:bg-[#0A66C2] text-white flex items-center justify-center transition-all hover:scale-110 shadow-xs cursor-pointer"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

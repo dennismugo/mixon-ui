@@ -43,6 +43,8 @@ const Pricing = lazy(() => import('./pages/Pricing'));
 const BookDemo = lazy(() => import('./pages/BookDemo'));
 const DemoTracker = lazy(() => import('./pages/DemoTracker'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Faqs = lazy(() => import('./pages/Faqs'));
+const Privacy = lazy(() => import('./pages/Privacy'));
 const Services = lazy(() => import('./pages/Services'));
 const WebService = lazy(() => import('./pages/services/WebService'));
 const AppService = lazy(() => import('./pages/services/AppService'));
@@ -483,6 +485,10 @@ export default function App() {
           return <DemoTracker setCurrentPage={setCurrentPage} />;
         case 'contact':
           return <Contact onLeadCaptured={handleLeadCaptured} setCurrentPage={setCurrentPage} />;
+        case 'faqs':
+          return <Faqs setCurrentPage={setCurrentPage} />;
+        case 'privacy':
+          return <Privacy setCurrentPage={setCurrentPage} />;
         default:
           return <Home onLeadCaptured={handleLeadCaptured} setCurrentPage={setCurrentPage} leadRefresh={leadRefresh} />;
       }
@@ -755,8 +761,8 @@ export default function App() {
                         title="Custom systems built around your work"
                         description="Partner directly with our engineering team to design and ship tailored platforms, APIs, and M-Pesa automation."
                         action="Brief our team"
-                        href={getRoutePath('services')}
-                        onClick={() => handleSelectService('services')}
+                        href={getRoutePath('contact')}
+                        onClick={() => handleSelectService('contact')}
                         className="col-span-4"
                         compact
                       />
