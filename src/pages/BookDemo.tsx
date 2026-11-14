@@ -205,11 +205,11 @@ function StepHeader({ headingRef, title, subtitle }: StepHeaderProps) {
       <h1
         ref={headingRef}
         tabIndex={-1}
-        className="demo-step-heading font-display text-gray-950 focus:outline-none"
+        className="demo-step-heading font-display text-[#04122b] focus:outline-none"
       >
         {title}
       </h1>
-      <p className="text-sm text-gray-500 font-light">
+      <p className="text-sm text-[#475569]">
         {subtitle}
       </p>
     </div>
@@ -246,8 +246,8 @@ function SelectableCardGrid({
               key={opt.value}
               className={`h-full flex items-start gap-3.5 rounded-none border p-4 min-h-[72px] text-left transition-all cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[#0066FF] ${
                 active
-                  ? 'border-[#0066FF] bg-blue-50/55 ring-2 ring-[#0066FF]/15 shadow-xs'
-                  : 'border-gray-200 bg-white hover:border-gray-300 hover:bg-slate-50/50'
+                  ? 'border-2 border-[#0066FF] bg-white ring-2 ring-[#0066FF]/15 shadow-sm'
+                  : 'border-[#C5DAF8] bg-white hover:border-[#0066FF] hover:shadow-xs'
               }`}
             >
               <input
@@ -261,17 +261,17 @@ function SelectableCardGrid({
               <span
                 aria-hidden="true"
                 className={`w-10 h-10 rounded-none flex items-center justify-center shrink-0 transition-colors ${
-                  active ? 'bg-[#0066FF] text-white' : 'bg-slate-100 text-gray-600'
+                  active ? 'bg-[#0066FF] text-white' : 'bg-[#F0F5FD] border border-[#D5E5FA] text-[#0066FF]'
                 }`}
               >
                 <Icon className="w-4 h-4" />
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-[13.5px] sm:text-sm font-semibold text-gray-950 leading-snug">
+                <span className="block text-[13.5px] sm:text-sm font-semibold text-[#04122b] leading-snug">
                   {opt.label}
                 </span>
                 {opt.subtitle && (
-                  <span className="block text-xs text-gray-500 leading-relaxed mt-1">
+                  <span className="block text-xs text-[#475569] leading-relaxed mt-1">
                     {opt.subtitle}
                   </span>
                 )}
@@ -281,7 +281,7 @@ function SelectableCardGrid({
                 className={`mt-0.5 w-5 h-5 shrink-0 flex items-center justify-center border transition-colors rounded-none ${
                   active
                     ? 'border-[#0066FF] bg-[#0066FF] text-white'
-                    : 'border-gray-300 bg-white'
+                    : 'border-[#C5DAF8] bg-white'
                 }`}
               >
                 {active && <Check className="w-3 h-3" />}
@@ -330,8 +330,8 @@ function InteractiveDropdown({
 
   return (
     <div ref={containerRef} className="relative space-y-2 text-left">
-      <label htmlFor={id} className="block text-xs sm:text-[13px] font-semibold text-gray-800">
-        {label} {required && <span className="text-rose-500">*</span>}
+      <label htmlFor={id} className="block font-sans text-xs sm:text-[13px] font-semibold text-[#04122b]">
+        {label} {required && <span className="text-[#0066FF]">*</span>}
       </label>
 
       <button
@@ -343,32 +343,32 @@ function InteractiveDropdown({
         className={`w-full flex items-center justify-between gap-3 rounded-none border px-4 py-3.5 text-left transition-all duration-200 cursor-pointer ${
           open
             ? 'border-[#0066FF] bg-white ring-2 ring-[#0066FF]/15 shadow-sm'
-            : 'border-gray-200 bg-white hover:border-gray-300'
+            : 'border-[#C5DAF8] bg-white hover:border-[#0066FF]'
         }`}
       >
         <span className="flex items-center gap-3 min-w-0">
           {SelectedIcon && (
-            <span className="w-8 h-8 rounded-none bg-blue-50 text-[#0066FF] flex items-center justify-center shrink-0">
+            <span className="w-8 h-8 rounded-none bg-[#EAF1FF] text-[#0066FF] flex items-center justify-center shrink-0">
               <SelectedIcon className="w-4 h-4" />
             </span>
           )}
           <span className="min-w-0">
             <span
               className={`block text-sm font-medium truncate ${
-                selected ? 'text-gray-950' : 'text-gray-400'
+                selected ? 'text-[#04122b]' : 'text-slate-400'
               }`}
             >
               {selected ? selected.label : placeholder}
             </span>
             {selected?.subtitle && (
-              <span className="block text-[11.5px] text-gray-500 truncate mt-0.5">
+              <span className="block text-[11.5px] text-[#475569] truncate mt-0.5">
                 {selected.subtitle}
               </span>
             )}
           </span>
         </span>
         <ChevronDown
-          className={`w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200 ${
+          className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
             open ? 'rotate-180 text-[#0066FF]' : ''
           }`}
         />
@@ -382,7 +382,7 @@ function InteractiveDropdown({
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -4, scale: 0.99 }}
             transition={{ duration: 0.16, ease: 'easeOut' }}
-            className="absolute left-0 right-0 top-full mt-2 z-40 rounded-none border border-gray-200/90 bg-white p-1.5 shadow-[0_20px_50px_-12px_rgba(4,18,43,0.18)] max-h-72 overflow-y-auto overscroll-contain"
+            className="absolute left-0 right-0 top-full mt-2 z-40 rounded-none border border-[#C5DAF8] bg-white p-1.5 shadow-[0_20px_50px_-12px_rgba(4,18,43,0.18)] max-h-72 overflow-y-auto overscroll-contain"
             data-lenis-prevent=""
           >
             {options.map((opt) => {
@@ -400,15 +400,17 @@ function InteractiveDropdown({
                   }}
                   className={`w-full flex items-center justify-between gap-3 rounded-none px-3 py-2.5 text-left transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-blue-50/90 text-[#0066FF]'
-                      : 'text-gray-800 hover:bg-slate-50'
+                      ? 'bg-[#EAF1FF] text-[#0066FF]'
+                      : 'text-[#04122b] hover:bg-[#F0F5FD]'
                   }`}
                 >
                   <span className="flex items-start gap-3 min-w-0">
                     {Icon && (
                       <span
                         className={`mt-0.5 w-7 h-7 rounded-none flex items-center justify-center shrink-0 ${
-                          isSelected ? 'bg-[#0066FF] text-white' : 'bg-slate-100 text-gray-600'
+                          isSelected
+                            ? 'bg-[#0066FF] text-white'
+                            : 'bg-[#F0F5FD] border border-[#D5E5FA] text-[#0066FF]'
                         }`}
                       >
                         <Icon className="w-3.5 h-3.5" />
@@ -419,7 +421,7 @@ function InteractiveDropdown({
                         {opt.label}
                       </span>
                       {opt.subtitle && (
-                        <span className="block text-[11.5px] text-gray-500 font-normal leading-snug mt-0.5">
+                        <span className="block text-[11.5px] text-[#475569] font-normal leading-snug mt-0.5">
                           {opt.subtitle}
                         </span>
                       )}
@@ -842,7 +844,7 @@ export default function BookDemo({
       {/* INTERACTIVE STEP-BY-STEP BOOKING FORM                                     */}
       {/* ========================================================================= */}
       <section ref={topCardRef} data-scroll-no-reveal="" className="w-full px-4 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="w-full max-w-4xl mx-auto rounded-none border border-gray-200/90 bg-white shadow-[0_20px_60px_-20px_rgba(4,18,43,0.12)] overflow-visible">
+        <div className="w-full max-w-4xl mx-auto rounded-none border border-[#C5DAF8] bg-[#EAF1FF] shadow-[0_20px_60px_-20px_rgba(4,18,43,0.10)] overflow-visible">
           {submittedRef ? (
             /* ------------------------------------------------------------------- */
             /* CONFIRMATION SCREEN                                                 */
@@ -851,35 +853,41 @@ export default function BookDemo({
               initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: 10 }}
               animate={reduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="p-6 sm:p-10 lg:p-12 text-center space-y-7"
+              className="p-6 sm:p-10 lg:p-12 text-center"
             >
-              <div className="w-16 h-16 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-600 mx-auto flex items-center justify-center shadow-xs">
-                <CheckCircle2 className="w-9 h-9" />
-              </div>
+              <div className="max-w-xl mx-auto bg-white border border-[#C5DAF8] p-8 sm:p-10 rounded-none shadow-xs space-y-6 text-center">
+                <div className="w-16 h-16 rounded-none bg-[#EAF1FF] border border-[#C5DAF8] text-[#0066FF] mx-auto flex items-center justify-center shadow-xs">
+                  <CheckCircle2 className="w-9 h-9" />
+                </div>
 
-              <h1 className="demo-step-heading demo-step-heading--confirm mx-auto font-display font-extrabold text-gray-950 tracking-tight">
-                Thank you, {fullName}! Your demo is scheduled.
-              </h1>
+                <h1 className="demo-step-heading demo-step-heading--confirm mx-auto font-display font-extrabold text-[#04122b] tracking-tight">
+                  Thank you, {fullName}! Your demo is scheduled.
+                </h1>
 
-              <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-gray-500">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSubmittedRef(null);
-                    setStep(1);
-                    setDirection(-1);
-                  }}
-                  className="hover:text-[#0066FF] transition-colors cursor-pointer"
-                >
-                  ← Book another demo
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage('home')}
-                  className="hover:text-gray-950 transition-colors cursor-pointer"
-                >
-                  Return to Mixon Home →
-                </button>
+                <p className="text-sm text-[#475569] leading-relaxed max-w-md mx-auto">
+                  A calendar invite and confirmation have been dispatched to your work email. We look forward to showing you Mixon in action.
+                </p>
+
+                <div className="pt-4 border-t border-[#C5DAF8] flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-[#04122b]">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmittedRef(null);
+                      setStep(1);
+                      setDirection(-1);
+                    }}
+                    className="hover:text-[#0066FF] transition-colors cursor-pointer"
+                  >
+                    ← Book another demo
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentPage('home')}
+                    className="rounded-none bg-[#04122b] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#0066FF] transition-colors cursor-pointer"
+                  >
+                    Return to Mixon Home →
+                  </button>
+                </div>
               </div>
             </motion.div>
           ) : (
@@ -1002,10 +1010,10 @@ export default function BookDemo({
                         <div className="space-y-1.5">
                           <label
                             htmlFor="demo-workflow-notes"
-                            className="block text-xs sm:text-[13px] font-semibold text-gray-800"
+                            className="block font-sans text-xs sm:text-[13px] font-semibold text-[#04122b]"
                           >
                             What should we focus on during your demo?{' '}
-                            <span className="text-gray-400 font-normal">(Optional)</span>
+                            <span className="text-[#475569] font-normal">(Optional)</span>
                           </label>
                           <textarea
                             id="demo-workflow-notes"
@@ -1014,7 +1022,7 @@ export default function BookDemo({
                             value={workflowNotes}
                             onChange={(e) => setWorkflowNotes(e.target.value)}
                             placeholder="e.g., M-Pesa Paybill auto-reconciliation for 80 apartments, migrating from Excel, or Airbnb channel sync..."
-                            className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] resize-y"
+                            className="w-full rounded-none bg-white border border-[#C5DAF8] px-4 py-3 text-base sm:text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] resize-y"
                           />
                         </div>
                       </>
@@ -1031,9 +1039,9 @@ export default function BookDemo({
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                           {/* Monthly Calendar Grid */}
-                          <div className="lg:col-span-7 rounded-none border border-gray-200 bg-slate-50/40 p-4 sm:p-5">
+                          <div className="lg:col-span-7 rounded-none border border-[#C5DAF8] bg-white p-4 sm:p-5 shadow-xs">
                             <div className="flex items-center justify-between mb-4">
-                              <span className="font-display font-bold text-base text-gray-950">
+                              <span className="font-display font-bold text-base text-[#04122b]">
                                 {monthLabel}
                               </span>
                               <div className="flex items-center gap-1.5">
@@ -1046,7 +1054,7 @@ export default function BookDemo({
                                       (m) => new Date(m.getFullYear(), m.getMonth() - 1, 1),
                                     )
                                   }
-                                  className="w-8 h-8 rounded-none border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
+                                  className="w-8 h-8 rounded-none border border-[#C5DAF8] bg-white flex items-center justify-center text-[#04122b] hover:border-[#0066FF] hover:text-[#0066FF] disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
                                 >
                                   <ChevronLeft className="w-4 h-4" />
                                 </button>
@@ -1058,14 +1066,14 @@ export default function BookDemo({
                                       (m) => new Date(m.getFullYear(), m.getMonth() + 1, 1),
                                     )
                                   }
-                                  className="w-8 h-8 rounded-none border border-gray-200 bg-white flex items-center justify-center text-gray-700 hover:border-gray-400 cursor-pointer"
+                                  className="w-8 h-8 rounded-none border border-[#C5DAF8] bg-white flex items-center justify-center text-[#04122b] hover:border-[#0066FF] hover:text-[#0066FF] cursor-pointer"
                                 >
                                   <ChevronRight className="w-4 h-4" />
                                 </button>
                               </div>
                             </div>
 
-                            <div className="grid grid-cols-7 gap-1 text-center text-[11px] font-mono text-gray-400 font-semibold mb-2">
+                            <div className="grid grid-cols-7 gap-1 text-center text-[11px] font-mono text-slate-500 font-semibold mb-2">
                               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
                                 <span key={d} className="py-1">
                                   {d}
@@ -1090,8 +1098,8 @@ export default function BookDemo({
                                       isSelected
                                         ? 'bg-[#0066FF] text-white font-bold shadow-sm shadow-blue-500/30 cursor-pointer'
                                         : cell.disabled
-                                          ? 'text-gray-300 cursor-not-allowed bg-transparent'
-                                          : 'bg-white border border-gray-200/80 text-gray-800 hover:border-[#0066FF] hover:text-[#0066FF] cursor-pointer'
+                                          ? 'text-slate-300 cursor-not-allowed bg-transparent'
+                                          : 'bg-[#F8FAFD] border border-[#D5E5FA] text-[#04122b] hover:border-[#0066FF] hover:text-[#0066FF] hover:bg-white cursor-pointer'
                                     }`}
                                   >
                                     {cell.dayNum}
@@ -1110,11 +1118,11 @@ export default function BookDemo({
                           {/* Time Slots Column */}
                           <div className="lg:col-span-5 space-y-3">
                             <div className="flex items-center justify-between">
-                              <span className="text-xs font-semibold text-gray-800 flex items-center gap-1.5">
+                              <span className="text-xs font-semibold text-[#04122b] flex items-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5 text-[#0066FF]" />
                                 <span>Select Time (EAT / Nairobi)</span>
                               </span>
-                              <span className="text-[11px] font-mono text-[#0066FF] font-semibold">
+                              <span className="text-[11px] font-mono text-[#0066FF] font-semibold bg-white border border-[#C5DAF8] px-2 py-0.5">
                                 {formatReadableDate(bookingDate)}
                               </span>
                             </div>
@@ -1135,14 +1143,14 @@ export default function BookDemo({
                                     }}
                                     className={`flex items-center justify-between rounded-none border px-3.5 py-2.5 text-left transition-all ${
                                       isBooked
-                                        ? 'border-gray-100 bg-gray-50 text-gray-400 cursor-not-allowed opacity-70'
+                                        ? 'border-slate-200/80 bg-slate-100/70 text-slate-400 cursor-not-allowed opacity-70'
                                         : active
-                                          ? 'border-[#0066FF] bg-blue-50/70 text-[#0066FF] ring-2 ring-[#0066FF]/15 font-semibold cursor-pointer'
-                                          : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300 cursor-pointer'
+                                          ? 'border-[#0066FF] bg-blue-50/90 text-[#0066FF] ring-2 ring-[#0066FF]/20 font-semibold cursor-pointer'
+                                          : 'border-[#C5DAF8] bg-white text-[#04122b] hover:border-[#0066FF] cursor-pointer'
                                     }`}
                                   >
                                     <span className="text-sm font-mono">{slot.label}</span>
-                                    <span className="text-[11px] text-gray-400">
+                                    <span className="text-[11px] text-slate-500">
                                       {isBooked ? 'Booked' : slot.period}
                                     </span>
                                   </button>
@@ -1163,55 +1171,15 @@ export default function BookDemo({
                           subtitle="Enter your details to confirm your demo and send it to Mixon via email."
                         />
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label htmlFor="demo-fullname" className="block text-xs font-semibold text-gray-700">
-                              Full name <span className="text-rose-500">*</span>
+                        <div className="space-y-3.5">
+                          {/* Business Email + Helper matching Image 2 */}
+                          <div className="space-y-1 text-left">
+                            <label htmlFor="demo-email" className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                              Business Email <span className="text-[#0066FF]">*</span>
                             </label>
-                            <input
-                              id="demo-fullname"
-                              name="fullName"
-                              type="text"
-                              autoComplete="name"
-                              enterKeyHint="next"
-                              required
-                              aria-invalid={stepError.includes('name, business') && !fullName.trim() ? true : undefined}
-                              value={fullName}
-                              onChange={(e) => {
-                                setFullName(e.target.value);
-                                if (stepError) setStepError('');
-                              }}
-                              placeholder="Jane Wanjiku"
-                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
-                            />
-                          </div>
-
-                          <div className="space-y-1.5">
-                            <label htmlFor="demo-company" className="block text-xs font-semibold text-gray-700">
-                              Business or organization <span className="text-rose-500">*</span>
-                            </label>
-                            <input
-                              id="demo-company"
-                              name="company"
-                              type="text"
-                              autoComplete="organization"
-                              enterKeyHint="next"
-                              required
-                              aria-invalid={stepError.includes('name, business') && !company.trim() ? true : undefined}
-                              value={company}
-                              onChange={(e) => {
-                                setCompany(e.target.value);
-                                if (stepError) setStepError('');
-                              }}
-                              placeholder="Kilimani Properties Ltd"
-                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
-                            />
-                          </div>
-
-                          <div className="space-y-1.5">
-                            <label htmlFor="demo-email" className="block text-xs font-semibold text-gray-700">
-                              Work email <span className="text-rose-500">*</span>
-                            </label>
+                            <p className="text-[11.5px] text-[#475569] pb-0.5">
+                              Please use your email to be connected directly with our engineering team
+                            </p>
                             <input
                               id="demo-email"
                               name="email"
@@ -1234,31 +1202,79 @@ export default function BookDemo({
                                 setEmail(e.target.value);
                                 if (stepError) setStepError('');
                               }}
-                              placeholder="name@company.co.ke"
-                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              placeholder="Enter your work email"
+                              className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
                             />
                           </div>
 
-                          <div className="space-y-1.5">
-                            <label htmlFor="demo-phone" className="block text-xs font-semibold text-gray-700">
-                              Phone number <span className="text-rose-500">*</span>
+                          {/* Row: Full Name & Phone Number */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div className="space-y-1 text-left">
+                              <label htmlFor="demo-fullname" className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                                Full Name <span className="text-[#0066FF]">*</span>
+                              </label>
+                              <input
+                                id="demo-fullname"
+                                name="fullName"
+                                type="text"
+                                autoComplete="name"
+                                enterKeyHint="next"
+                                required
+                                aria-invalid={stepError.includes('name, business') && !fullName.trim() ? true : undefined}
+                                value={fullName}
+                                onChange={(e) => {
+                                  setFullName(e.target.value);
+                                  if (stepError) setStepError('');
+                                }}
+                                placeholder="Enter your full name"
+                                className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
+                              />
+                            </div>
+
+                            <div className="space-y-1 text-left">
+                              <label htmlFor="demo-phone" className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                                Phone Number <span className="text-[#0066FF]">*</span>
+                              </label>
+                              <input
+                                id="demo-phone"
+                                name="phone"
+                                type="tel"
+                                inputMode="tel"
+                                autoComplete="tel"
+                                enterKeyHint="done"
+                                required
+                                aria-invalid={stepError.includes('name, business') && !phone.trim() ? true : undefined}
+                                value={phone}
+                                onChange={(e) => {
+                                  setPhone(e.target.value);
+                                  if (stepError) setStepError('');
+                                }}
+                                placeholder="Enter your phone number"
+                                className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Row: Company Name */}
+                          <div className="space-y-1 text-left">
+                            <label htmlFor="demo-company" className="block font-sans text-[13px] font-semibold text-[#04122b]">
+                              Company Name <span className="text-[#0066FF]">*</span>
                             </label>
                             <input
-                              id="demo-phone"
-                              name="phone"
-                              type="tel"
-                              inputMode="tel"
-                              autoComplete="tel"
-                              enterKeyHint="done"
+                              id="demo-company"
+                              name="company"
+                              type="text"
+                              autoComplete="organization"
+                              enterKeyHint="next"
                               required
-                              aria-invalid={stepError.includes('name, business') && !phone.trim() ? true : undefined}
-                              value={phone}
+                              aria-invalid={stepError.includes('name, business') && !company.trim() ? true : undefined}
+                              value={company}
                               onChange={(e) => {
-                                setPhone(e.target.value);
+                                setCompany(e.target.value);
                                 if (stepError) setStepError('');
                               }}
-                              placeholder="+254 7XX XXX XXX"
-                              className="w-full rounded-none border border-gray-200 px-4 py-3 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]"
+                              placeholder="Enter your company's name"
+                              className="w-full bg-white border border-[#C5DAF8] rounded-none px-3.5 py-2.5 text-sm text-[#04122b] placeholder:text-slate-400 focus:outline-none focus:border-[#0066FF] transition-colors"
                             />
                           </div>
                         </div>
@@ -1268,14 +1284,14 @@ export default function BookDemo({
                 </AnimatePresence>
 
                 {stepError && (
-                  <p role="alert" className="mt-4 text-xs sm:text-sm font-medium text-rose-600">
+                  <p role="alert" className="mt-4 text-xs sm:text-sm font-medium text-rose-600 bg-rose-50 border border-rose-200 px-3.5 py-2 rounded-none">
                     {stepError}
                   </p>
                 )}
 
                 {/* Bottom Step Actions: Back & Next / Confirm */}
                 <div
-                  className={`mt-8 pt-2 flex items-center gap-4 ${
+                  className={`mt-8 pt-4 border-t border-[#C5DAF8]/60 flex items-center gap-4 ${
                     step > 1 ? 'justify-between' : 'justify-end'
                   }`}
                 >
@@ -1283,7 +1299,7 @@ export default function BookDemo({
                     <button
                       type="button"
                       onClick={handleBack}
-                      className="inline-flex items-center gap-2 rounded-none border border-gray-300 bg-white hover:border-gray-950 px-5 py-2.5 text-xs sm:text-sm font-semibold text-gray-800 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-none border border-[#C5DAF8] bg-white hover:border-[#04122b] hover:text-[#04122b] px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#04122b] transition-colors cursor-pointer shadow-xs"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -1294,7 +1310,7 @@ export default function BookDemo({
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="group inline-flex items-center gap-2 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/20 transition-all cursor-pointer"
+                      className="group inline-flex items-center gap-2 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                     >
                       <RollingButtonText
                         text="Next step"
