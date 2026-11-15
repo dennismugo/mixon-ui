@@ -915,17 +915,25 @@ export default function App() {
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 50, scale: 0.95 }}
-            className="fixed top-20 right-6 z-50 bg-white border border-mixon-blue/30 p-4 rounded-xl shadow-2xl max-w-sm flex items-start gap-3 text-left"
+            className="fixed top-20 right-6 z-50 bg-[#0066FF] text-white border border-white/20 p-4 rounded-none shadow-[0_20px_50px_rgba(0,102,255,0.35)] max-w-sm flex items-start gap-3.5 text-left"
           >
-            <div className="p-2 rounded-lg bg-mixon-cotton text-mixon-blue shrink-0">
-              <Sparkles className="w-4 h-4 animate-pulse" />
+            <div className="p-2 rounded-none bg-white/15 border border-white/25 text-white shrink-0">
+              <Sparkles className="w-4 h-4 text-white animate-pulse" />
             </div>
-            <div>
-              <h6 className="font-display font-bold text-gray-900 text-xs tracking-tight">Lead Queue Updated</h6>
-              <p className="text-gray-600 text-[11px] leading-relaxed mt-0.5">
-                <strong>{recentLeadName}</strong>&apos;s business brief has successfully written into our active queue. Observe in the Sales CRM Stream.
+            <div className="flex-1 min-w-0 pr-1">
+              <h6 className="font-display font-bold text-white text-xs tracking-tight">Lead Queue Updated</h6>
+              <p className="text-blue-100 text-[11.5px] leading-relaxed mt-0.5">
+                <strong className="text-white font-semibold">{recentLeadName}</strong>&apos;s business brief has successfully written into our active queue. Observe in the Sales CRM Stream.
               </p>
             </div>
+            <button
+              type="button"
+              onClick={() => setShowNotification(false)}
+              className="text-white/70 hover:text-white transition-colors cursor-pointer shrink-0 p-0.5"
+              aria-label="Dismiss notification"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

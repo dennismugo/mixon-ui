@@ -734,32 +734,64 @@ export default function BookDemo({
     const calendarInviteLink =
       typeof window !== 'undefined' ? `${window.location.origin}${invitePath}` : invitePath;
 
-    // 2. Dispatch direct Email notification to Mixon inbox
+    // 2. Dispatch Email notification to Mixon team AND direct confirmation feed to the sender's email
     try {
-      await fetch('https://formsubmit.co/ajax/ibrahellamixon@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          _subject: `Mixon Demo Booked (${finalRefCode}): ${company.trim()} — ${formatReadableDate(bookingDate)} ${bookingTime}`,
-          bookingRef: finalRefCode,
-          name: fullName.trim(),
-          business: company.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          products: allChosenProducts.join(', ') || 'None',
-          services: allChosenServices.join(', ') || 'None',
-          scale: teamScale,
-          timeline,
-          discoverySource,
-          bookedSlot: `${formatReadableDate(bookingDate)} at ${bookingTime}`,
-          calendarInviteLink,
-          googleCalendarSync: googleCalendarStatus,
-          notes: workflowNotes.trim(),
+      const emailPayload = {
+        _subject: `Mixon Demo Booked (${finalRefCode}): ${company.trim()} — ${formatReadableDate(bookingDate)} ${bookingTime}`,
+        _cc: email.trim(),
+        _replyto: email.trim(),
+        bookingRef: finalRefCode,
+        name: fullName.trim(),
+        business: company.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        products: allChosenProducts.join(', ') || 'None',
+        services: allChosenServices.join(', ') || 'None',
+        scale: teamScale,
+        timeline,
+        discoverySource,
+        bookedSlot: `${formatReadableDate(bookingDate)} at ${bookingTime} (${viewerTimezone})`,
+        calendarInviteLink,
+        googleCalendarSync: googleCalendarStatus,
+        notes: workflowNotes.trim() || 'None provided',
+      };
+
+      const senderReceiptPayload = {
+        _subject: `Your Mixon Demo Confirmation (${finalRefCode}) — ${formatReadableDate(bookingDate)} at ${bookingTime}`,
+        _replyto: 'ibrahellamixon@gmail.com',
+        bookingReference: finalRefCode,
+        fullName: fullName.trim(),
+        company: company.trim(),
+        scheduledSlot: `${formatReadableDate(bookingDate)} at ${bookingTime} (${viewerTimezone})`,
+        productsOfInterest: allChosenProducts.join(', ') || 'None',
+        servicesRequested: allChosenServices.join(', ') || 'None',
+        operationalScale: teamScale,
+        rolloutTimeline: timeline,
+        notesForDemo: workflowNotes.trim() || 'None provided',
+        calendarInvite: calendarInviteLink,
+        contactSupport: 'ibrahellamixon@gmail.com',
+      };
+
+      await Promise.allSettled([
+        // Mixon inbox (with _cc to sender)
+        fetch('https://formsubmit.co/ajax/ibrahellamixon@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(emailPayload),
         }),
-      });
+        // Direct feed dispatched straight to sender's email
+        fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email.trim())}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(senderReceiptPayload),
+        }),
+      ]);
     } catch {
       // Server /api/demos still retains full booking record if network blocks third-party webhook
     }
